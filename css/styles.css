@@ -278,22 +278,17 @@ ul{list-style:none}
 @media(max-width:880px){.lgrid,.lgrid--p{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:520px){.lgrid,.lgrid--p{grid-template-columns:repeat(2,1fr)}.lcell{height:82px;padding:12px}.lcell img{max-height:52px}}
 
-/* — hero "general sponsor" badge (top placement) — */
-.hero__sponsor{position:absolute;top:calc(var(--nav) + 20px);right:clamp(16px,4vw,52px);z-index:40;
-  display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;text-align:right;
-  opacity:0;animation:spFade .9s var(--ease) 1.5s both}
-@keyframes spFade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-.hero__sponsor-lab{font-family:var(--body);font-weight:700;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold-l);text-shadow:0 1px 10px rgba(0,0,0,.55)}
-.hero__sponsor-logo{background:#fff;border-radius:12px;padding:8px 13px;box-shadow:0 12px 30px -8px rgba(0,0,0,.5);
-  display:grid;place-items:center;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.hero__sponsor-logo img{height:34px;width:auto;display:block}
-.hero__sponsor:hover .hero__sponsor-logo{transform:translateY(-2px);box-shadow:0 16px 36px -8px rgba(0,0,0,.6)}
+/* — header brand cluster: camp logo + Lovćen (generalni sponzor) top-left — */
+.hd__brand{display:flex;align-items:center;gap:.9rem}
+.hd__spon{display:flex;align-items:center;position:relative;padding-left:.9rem}
+.hd__spon::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:32px;background:var(--hdcol,var(--ink));opacity:.28}
+.hd__spon img{height:48px;width:auto;display:block;background:var(--porc);padding:7px 11px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.22);transition:transform .4s var(--ease)}
+.hd__spon:hover img{transform:translateY(-2px)}
 @media(max-width:760px){
-  .hero__sponsor{top:calc(var(--nav) + 6px);right:14px;flex-direction:row;align-items:center;gap:.45rem}
-  .hero__sponsor-lab{font-size:.5rem;max-width:5.5em;line-height:1.15}
-  .hero__sponsor-logo{padding:6px 10px}.hero__sponsor-logo img{height:26px}
+  .hd__brand{gap:.6rem}.hd__spon{padding-left:.6rem}
+  .hd__spon img{height:40px;padding:5px 8px}
 }
+@media(max-width:430px){.hd__spon{display:none}}
 
 /* =================== REGISTER =================== */
 .rg{background:var(--esp);color:var(--cream)}
