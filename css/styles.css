@@ -244,13 +244,56 @@ ul{list-style:none}
 .fq__i[open] summary i::after{transform:scaleY(0)}
 .fq__i p{color:var(--mut);padding:0 0 1.5rem;max-width:60ch;font-size:1rem}
 
-/* =================== SPONSORS =================== */
-.sp{text-align:center;background:var(--porc-2);padding-top:clamp(3rem,5vw,4rem);padding-bottom:clamp(3rem,5vw,4rem)}
-.sp__lab{display:block;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:1.8rem}
-.sp__row{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem}
-.sp__logo{flex:1 1 180px;max-width:230px;height:88px;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;background:#fff;transition:transform .4s var(--ease)}
-.sp__logo:hover{transform:translateY(-3px)}
-.sp__logo::after{content:attr(data-ph);font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.06em;color:var(--mut);opacity:.7}
+/* =================== SPONSORS & PARTNERS =================== */
+.sp{text-align:center;background:var(--porc-2);padding-top:clamp(3.4rem,6vw,5.4rem);padding-bottom:clamp(3.4rem,6vw,5.4rem)}
+.sp__inner{max-width:1140px;margin:0 auto}
+
+/* — general sponsor feature — */
+.gsp{display:flex;flex-direction:column;align-items:center;gap:1.05rem;margin-bottom:clamp(2.6rem,5vw,4rem)}
+.gsp__lab{font-family:var(--body);font-weight:700;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--orange-d)}
+.gsp__lab::before,.gsp__lab::after{content:"";display:inline-block;width:26px;height:1px;background:var(--gold);vertical-align:middle;margin:0 .9em}
+.gsp__card{position:relative;background:#fff;border-radius:22px;padding:clamp(1.3rem,3vw,2rem) clamp(2.2rem,5vw,3.6rem);
+  border:1px solid rgba(202,161,74,.45);box-shadow:0 26px 60px -26px rgba(202,161,74,.6),inset 0 1px 0 rgba(255,255,255,.7);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.gsp__card::after{content:"";position:absolute;inset:-1px;border-radius:22px;padding:1px;pointer-events:none;
+  background:linear-gradient(135deg,rgba(202,161,74,.7),rgba(202,161,74,0) 45%,rgba(242,116,26,.5));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.9}
+.gsp__card:hover{transform:translateY(-4px);box-shadow:0 34px 70px -28px rgba(202,161,74,.72)}
+.gsp__card img{height:clamp(68px,11vw,104px);width:auto;display:block}
+.gsp__name{font-family:var(--disp);font-weight:600;font-size:1.04rem;color:var(--ink);letter-spacing:.01em}
+
+/* — labelled logo blocks (sponsors / partners) — */
+.lblock{margin-top:clamp(2.2rem,4.5vw,3.4rem)}
+.lblock__lab{display:inline-block;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mut);margin-bottom:1.7rem;position:relative;padding-bottom:.7rem}
+.lblock__lab::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:34px;height:2px;background:var(--orange);border-radius:2px}
+.lgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;max-width:1100px;margin:0 auto}
+.lgrid--p{grid-template-columns:repeat(6,1fr)}
+.lcell{height:96px;border:1px solid var(--line);border-radius:14px;background:#fff;display:grid;place-items:center;padding:14px 18px;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.lcell:hover{transform:translateY(-4px);box-shadow:0 16px 34px -16px rgba(29,24,18,.34)}
+.lcell img{max-height:62px;max-width:100%;width:auto;object-fit:contain}
+.lcell--ph{background:linear-gradient(180deg,#fff,#fbf7f0)}
+.lcell--ph::after{content:attr(data-name);font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.03em;color:var(--mut);text-align:center;line-height:1.25}
+@media(max-width:880px){.lgrid,.lgrid--p{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.lgrid,.lgrid--p{grid-template-columns:repeat(2,1fr)}.lcell{height:82px;padding:12px}.lcell img{max-height:52px}}
+
+/* — hero "general sponsor" badge (top placement) — */
+.hero__sponsor{position:absolute;top:calc(var(--nav) + 20px);right:clamp(16px,4vw,52px);z-index:40;
+  display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;text-align:right;
+  opacity:0;animation:spFade .9s var(--ease) 1.5s both}
+@keyframes spFade{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.hero__sponsor-lab{font-family:var(--body);font-weight:700;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-l);text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.hero__sponsor-logo{background:#fff;border-radius:12px;padding:8px 13px;box-shadow:0 12px 30px -8px rgba(0,0,0,.5);
+  display:grid;place-items:center;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.hero__sponsor-logo img{height:34px;width:auto;display:block}
+.hero__sponsor:hover .hero__sponsor-logo{transform:translateY(-2px);box-shadow:0 16px 36px -8px rgba(0,0,0,.6)}
+@media(max-width:760px){
+  .hero__sponsor{top:calc(var(--nav) + 6px);right:14px;flex-direction:row;align-items:center;gap:.45rem}
+  .hero__sponsor-lab{font-size:.5rem;max-width:5.5em;line-height:1.15}
+  .hero__sponsor-logo{padding:6px 10px}.hero__sponsor-logo img{height:26px}
+}
 
 /* =================== REGISTER =================== */
 .rg{background:var(--esp);color:var(--cream)}
