@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>Basketball Camp Kolašin — Reach the summit · Ovdje se rađaju šampioni</title>
+<meta name="description" content="Basketball Camp Kolašin — the largest youth basketball camp in the region. Elite training at 1,450 m in the Bjelasica mountains, led by Vlado Šćepanović & Savo Đikanović with NBA & European guest stars." />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<!-- ===================== PRELOADER ===================== -->
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre__mark"><img src="assets/logo/logo.png" alt="" /></div>
+  <div class="pre__bar"><i id="preBar"></i></div>
+  <div class="pre__num"><span id="preNum">0</span>%</div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd" id="hd">
+  <a class="hd__logo" href="#top" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
+  <nav class="hd__nav" id="hdNav">
+    <a href="#about" data-i18n="nav.about">Camp</a>
+    <a href="#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" data-i18n="nav.onama">About</a>
+    <a href="smjestaj.html" data-i18n="nav.smjestaj">Stay</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoters</a>
+    <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+    <a href="#sessions" data-i18n="nav.sessions">Sessions</a>
+  </nav>
+  <div class="hd__right">
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="#register" data-i18n="nav.register">Sign up</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero__media" id="heroMedia" aria-hidden="true">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+      <source src="assets/video/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__scrim"></div>
+  </div>
+  <div class="hero__inner">
+    <div class="hero__kick reveal-up"><span class="d"></span><span data-i18n="hero.kicker">11th edition · Kolašin, Montenegro</span></div>
+    <h1 class="hero__title">
+      <span class="ln"><span data-i18n="hero.t1">Reach</span></span>
+      <span class="ln"><span class="it" data-i18n="hero.t2">the summit.</span></span>
+    </h1>
+    <p class="hero__sub reveal-up" data-i18n="hero.sub">The largest youth basketball camp in the region — elite training at 1,450 m, where champions are born.</p>
+    <div class="hero__row reveal-up">
+      <a class="btn btn--orange" href="#register"><span data-i18n="hero.cta1">Reserve your spot</span><b>→</b></a>
+      <a class="btn btn--glass" href="#about"><span class="pl">▶</span><span data-i18n="hero.cta2">Watch the story</span></a>
+    </div>
+  </div>
+  <div class="hero__foot">
+    <div class="cd reveal-up" id="cd" aria-label="Countdown">
+      <span class="cd__lab" data-i18n="hero.cd">Camp begins in</span>
+      <div class="cd__row"><div><b id="cdD">00</b><i data-i18n="t.d">days</i></div><div><b id="cdH">00</b><i data-i18n="t.h">hrs</i></div><div><b id="cdM">00</b><i data-i18n="t.m">min</i></div><div><b id="cdS">00</b><i data-i18n="t.s">sec</i></div></div>
+    </div>
+    <a class="hero__scroll" href="#about"><span data-i18n="hero.scroll">Scroll</span><b>↓</b></a>
+  </div>
+</section>
+
+<!-- ===================== TICKER ===================== -->
+<div class="tick">
+  <div class="tick__t">
+    <span data-i18n="tick.1">Two trainings daily</span><em>●</em><span data-i18n="tick.2">Individual video analysis</span><em>●</em><span data-i18n="tick.3">NBA &amp; European guests</span><em>●</em><span data-i18n="tick.4">Full board · Hotel Pini</span><em>●</em><span data-i18n="tick.5">11 years of champions</span><em>●</em>
+    <span data-i18n="tick.1">Two trainings daily</span><em>●</em><span data-i18n="tick.2">Individual video analysis</span><em>●</em><span data-i18n="tick.3">NBA &amp; European guests</span><em>●</em><span data-i18n="tick.4">Full board · Hotel Pini</span><em>●</em><span data-i18n="tick.5">11 years of champions</span><em>●</em>
+  </div>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="ab" id="about">
+  <div class="ab__grid">
+    <div class="ab__txt">
+      <span class="ey reveal-up" data-i18n="ab.eyebrow">The Camp</span>
+      <h2 class="ttl reveal-rich"><span data-i18n="ab.title">Where the mountains</span> <span class="it flame" data-i18n="ab.title2">make players.</span></h2>
+      <p class="reveal-up" data-i18n="ab.p1">For eleven summers, Kolašin has been the beating heart of youth basketball in the region. Founded by national-team coaches <b>Vlado Šćepanović</b> and <b>Savo Đikanović</b>, the camp blends NBA-level methodology with the magic of the mountains.</p>
+      <p class="reveal-up" data-i18n="ab.p2">Two trainings a day, individual video analysis, psychology workshops and lectures, evening competitions and excursions into one of Europe's last untouched forests. Players leave better — and they leave with friends for life.</p>
+      <a class="ln-arrow reveal-up" href="#program"><span data-i18n="ab.cta">Explore the program</span><b>→</b></a>
+    </div>
+    <div class="ab__media reveal-img"><img class="ab__img parallax-img" src="assets/img/about.jpg" alt="Basketball Camp Kolašin" loading="lazy" /></div>
+  </div>
+  <div class="stats">
+    <div class="st reveal-up"><b class="count" data-to="11">0</b><i data-i18n="st.years">editions</i></div>
+    <div class="st reveal-up"><b class="count" data-to="1200" data-suffix="+">0</b><i data-i18n="st.players">campers trained</i></div>
+    <div class="st reveal-up"><b class="count" data-to="25" data-suffix="+">0</b><i data-i18n="st.guests">NBA &amp; Euro guests</i></div>
+    <div class="st reveal-up"><b class="count" data-to="1450">0</b><i data-i18n="st.alt">m altitude</i></div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAM (timeline) ===================== -->
+<section class="pr" id="program">
+  <div class="pr__head section__head--center">
+    <span class="ey ey--light reveal-up" data-i18n="pr.eyebrow">The Program</span>
+    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="pr.title">A day on</span> <span class="it flame" data-i18n="pr.title2">the mountain.</span></h2>
+  </div>
+  <ol class="tl" id="tl">
+    <span class="tl__line" aria-hidden="true"><i class="tl__fill" id="tlFill"><b class="tl__ball"></b></i></span>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><path d="M12 3v3M5.6 7.6l2 2M3 15h3M18 15h3M16.4 9.6l2-2M8 15a4 4 0 018 0M3 19h18"/></svg></div>
+      <div class="tl__body"><span class="tl__time">07:30</span><h3 data-i18n="pr.s1.t">Morning training</h3><p data-i18n="pr.s1.d">Fundamentals, footwork and shooting mechanics in age-based groups.</p></div>
+    </li>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H4zM2 20h20M10 9l4 2-4 2z"/></svg></div>
+      <div class="tl__body"><span class="tl__time">11:00</span><h3 data-i18n="pr.s2.t">Individual video analysis</h3><p data-i18n="pr.s2.d">Every player is filmed and reviewed one-on-one — see yourself like the pros do.</p></div>
+    </li>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 00-5 5c0 1.5-1 2-1 3.5S7 14 7 16v2a2 2 0 002 2h6a2 2 0 002-2v-2c0-2 1-2.5 1-4.5S17 9.5 17 8a5 5 0 00-5-5zM10 21h4"/></svg></div>
+      <div class="tl__body"><span class="tl__time">13:00</span><h3 data-i18n="pr.s3.t">Workshops &amp; lectures</h3><p data-i18n="pr.s3.d">Sports psychology, nutrition and the mindset of a professional.</p></div>
+    </li>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M6 5.5C9 9 9 15 6 18.5M18 5.5C15 9 15 15 18 18.5"/></svg></div>
+      <div class="tl__body"><span class="tl__time">17:00</span><h3 data-i18n="pr.s4.t">Afternoon training</h3><p data-i18n="pr.s4.d">Live play, scrimmages, 1-on-1, hot-shot and skill challenges.</p></div>
+    </li>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><path d="M12 3s5 4 5 9a5 5 0 01-10 0c0-1.5.5-3 1.5-4 0 2 1.5 2.5 1.5 2.5S9 9 12 3z"/></svg></div>
+      <div class="tl__body"><span class="tl__time">20:30</span><h3 data-i18n="pr.s5.t">Evening competitions</h3><p data-i18n="pr.s5.d">Tournaments, shooting contests and prizes — then campfire under the peaks.</p></div>
+    </li>
+    <li class="tl__stop reveal-up">
+      <div class="tl__node"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20l4-8 3 5 2-3 3 6"/></svg></div>
+      <div class="tl__body"><span class="tl__time">∞</span><h3 data-i18n="pr.s6.t">Excursions &amp; team life</h3><p data-i18n="pr.s6.d">Trips into Biogradska Gora, pool time and friendships that last a lifetime.</p></div>
+    </li>
+  </ol>
+</section>
+
+<!-- ===================== CAMP LIFE ===================== -->
+<section class="life" id="life">
+  <div class="life__head section__head--center">
+    <span class="ey reveal-up" data-i18n="life.eyebrow">Camp life</span>
+    <h2 class="ttl reveal-rich"><span data-i18n="life.title">Everything on-site.</span> <span class="it flame" data-i18n="life.title2">In the mountains.</span></h2>
+  </div>
+  <div class="life__grid">
+    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/room.jpg" alt="Hotel Pini" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.1.t">Hotel Pini Apart</h3><p data-i18n="life.1.d">Comfortable rooms in the pines, steps from the courts.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/sala.jpg" alt="Courts" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.2.t">Courts &amp; gym</h3><p data-i18n="life.2.d">Top training conditions, indoor and out.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/nature-hd.jpg" alt="Bjelasica" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.3.t">Biogradska Gora</h3><p data-i18n="life.3.d">Excursions into untouched forest.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/g8.jpg" alt="All-star" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.4.t">Games &amp; prizes</h3><p data-i18n="life.4.d">All-star nights and awards under the peaks.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/life-lecture.jpg" alt="Workshops" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.5.t">Workshops &amp; lectures</h3><p data-i18n="life.5.d">Sports psychology and pro habits.</p></div></article>
+    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/life-allstar.jpg" alt="All-star &amp; friends" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.6.t">All-star &amp; friendships</h3><p data-i18n="life.6.d">Games, awards and a team for life.</p></div></article>
+  </div>
+</section>
+
+<!-- ===================== COACHES ===================== -->
+<section class="co" id="coaches">
+  <div class="co__head">
+    <span class="ey ey--light reveal-up" data-i18n="co.eyebrow">The Roster</span>
+    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="co.title">Coached by</span> <span class="it flame" data-i18n="co.title2">legends.</span></h2>
+  </div>
+  <div class="co__grid">
+    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach1.jpg" alt="Vlado Šćepanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c1.role">Founder · Head Coach</span><h3>Vlado Šćepanović</h3><p data-i18n="co.c1.bio">Former Montenegro national team head coach. EuroLeague pedigree.</p></div></article>
+    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach2.jpg" alt="Savo Đikanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c2.role">Founder · Director</span><h3>Savo Đikanović</h3><p data-i18n="co.c2.bio">Co-founder and the engine behind eleven editions of the camp.</p></div></article>
+  </div>
+  <p class="co__note reveal-up" data-i18n="co.note">+ a full staff of professional trainers, organised by age and skill level.</p>
+</section>
+
+<!-- ===================== PROMOTERI ===================== -->
+<section class="pm" id="promoteri">
+  <div class="pm__head">
+    <span class="ey reveal-up" data-i18n="pm.eyebrow">Promoters</span>
+    <h2 class="ttl reveal-rich"><span data-i18n="pm.title">The stars who</span> <span class="it flame" data-i18n="pm.title2">came to camp.</span></h2>
+    <p class="reveal-up" data-i18n="pm.lead">Every edition, NBA and European stars visit Kolašin as promoters — training and playing with the next generation.</p>
+  </div>
+  <div class="pm__grid">
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo1.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo2.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo3.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo4.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo5.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo6.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+  </div>
+  <p class="pm__note reveal-up" data-i18n="pm.note">Real photos — add the guest stars' names here.</p>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="ga" id="gallery">
+  <div class="ga__head"><span class="ey ey--light reveal-up" data-i18n="ga.eyebrow">Highlights</span><h2 class="ttl ttl--light reveal-rich"><span data-i18n="ga.title">Moments from</span> <span class="it flame" data-i18n="ga.title2">the mountain.</span></h2></div>
+  <div class="ga__row" id="gaRow">
+    <div class="gi"><img src="assets/img/g1.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g2.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g3.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g4.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g5.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g6.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g7.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g8.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g9.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g10.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g11.jpg" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g12.jpg" alt="" loading="lazy" /></div>
+  </div>
+  <p class="ga__hint" data-i18n="ga.hint">drag to explore</p>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="te">
+  <span class="ey reveal-up" data-i18n="te.eyebrow">What families say</span>
+  <h2 class="te__quote reveal-rich" data-i18n="te.quote">“The best two weeks of my son's year — he came back a better player and a more confident kid.”</h2>
+  <div class="te__by reveal-up"><b data-i18n="te.name">Parent of a camper</b><span data-i18n="te.meta">your real testimonials go here</span></div>
+</section>
+
+<!-- ===================== SESSIONS ===================== -->
+<section class="se" id="sessions">
+  <div class="se__head section__head--center"><span class="ey reveal-up" data-i18n="se.eyebrow">Sessions 2026</span><h2 class="ttl reveal-rich"><span data-i18n="se.title">Choose your</span> <span class="it flame" data-i18n="se.title2">week.</span></h2></div>
+  <div class="se__grid">
+    <article class="se__card reveal-up"><span class="se__no">I</span><h3 data-i18n="se.p1">Session I</h3><p class="se__date">27 Jun — 02 Jul</p><ul><li data-i18n="se.i.train">Two trainings daily</li><li data-i18n="se.i.board">Full board · Hotel Pini</li><li data-i18n="se.i.video">Video analysis</li><li data-i18n="se.i.games">Evening competitions</li></ul><a class="btn btn--ghost se__btn" href="#register" data-i18n="se.choose">Choose</a></article>
+    <article class="se__card se__card--feat reveal-up"><span class="se__tag" data-i18n="se.pop">Most popular</span><span class="se__no">II</span><h3 data-i18n="se.p2">Session II</h3><p class="se__date">02 — 07 Jul</p><ul><li data-i18n="se.i.train">Two trainings daily</li><li data-i18n="se.i.board">Full board · Hotel Pini</li><li data-i18n="se.i.video">Video analysis</li><li data-i18n="se.i.exc">Forest excursion</li></ul><a class="btn btn--orange se__btn" href="#register" data-i18n="se.choose">Choose</a></article>
+    <article class="se__card reveal-up"><span class="se__no">III</span><h3 data-i18n="se.p3">Skills &amp; Shooting</h3><p class="se__date">07 — 12 Jul</p><ul><li data-i18n="se.i.shoot">Shooting specialisation</li><li data-i18n="se.i.board">Full board · Hotel Pini</li><li data-i18n="se.i.video">Video analysis</li><li data-i18n="se.i.contest">Shooting contests</li></ul><a class="btn btn--ghost se__btn" href="#register" data-i18n="se.choose">Choose</a></article>
+  </div>
+  <p class="se__note reveal-up" data-i18n="se.note">A deposit of ~€150 reserves your place. 2026 dates shown — confirmed on registration.</p>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="fq" id="faq">
+  <div class="fq__head section__head--center"><span class="ey reveal-up" data-i18n="fq.eyebrow">Good to know</span><h2 class="ttl reveal-rich" data-i18n="fq.title">Frequently asked.</h2></div>
+  <div class="fq__list">
+    <details class="fq__i reveal-up" open><summary><span data-i18n="fq.q1">Who can attend?</span><i></i></summary><p data-i18n="fq.a1">Boys and girls roughly ages 8–16, from complete beginners to advanced players. Groups are selected by age and skill.</p></details>
+    <details class="fq__i reveal-up"><summary><span data-i18n="fq.q2">What's included in the price?</span><i></i></summary><p data-i18n="fq.a2">Two daily trainings, full board at Hotel Pini, video analysis, all competitions, workshops, excursions and supervision.</p></details>
+    <details class="fq__i reveal-up"><summary><span data-i18n="fq.q3">How do we reserve a spot?</span><i></i></summary><p data-i18n="fq.a3">Fill in the form below. A deposit of around €150 secures the place; the rest is settled before camp.</p></details>
+    <details class="fq__i reveal-up"><summary><span data-i18n="fq.q4">What should my child bring?</span><i></i></summary><p data-i18n="fq.a4">Basketball gear and sneakers, swimwear for the pool, and everyday clothes. We send a full checklist after registration.</p></details>
+  </div>
+</section>
+
+<!-- ===================== SPONSORS ===================== -->
+<section class="sp">
+  <span class="sp__lab" data-i18n="sp.lab">Proudly supported by</span>
+  <div class="sp__row">
+    <div class="sp__logo sp__logo--real"><img src="assets/img/spon/lovcen.png" alt="Lovćen Osiguranje" loading="lazy" /></div>
+    <div class="sp__logo" data-ph="Sponsor"></div>
+    <div class="sp__logo" data-ph="Sponsor"></div>
+    <div class="sp__logo" data-ph="Sponsor"></div>
+  </div>
+</section>
+
+<!-- ===================== REGISTER ===================== -->
+<section class="rg" id="register">
+  <div class="rg__inner">
+    <div class="rg__left">
+      <span class="ey ey--light reveal-up" data-i18n="rg.eyebrow">Registration</span>
+      <h2 class="ttl ttl--light reveal-rich"><span data-i18n="rg.title">Claim the</span> <span class="it flame" data-i18n="rg.title2">summit.</span></h2>
+      <p class="reveal-up" data-i18n="rg.lead">Spots fill fast every year. Tell us about the player and we'll reply within 24 hours.</p>
+      <ul class="rg__contact reveal-up">
+        <li><b data-i18n="rg.cEmail">Email</b><a href="mailto:basketballcampkolasin@gmail.com">basketballcampkolasin@gmail.com</a></li>
+        <li><b data-i18n="rg.cPhone">Phone</b><a href="tel:067032132">067 032 132</a></li>
+        <li><b data-i18n="rg.cLoc">Location</b><span>Kolašin, Crna Gora</span></li>
+        <li><b data-i18n="rg.cSocial">Follow</b><span><a href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener">Facebook</a></span></li>
+      </ul>
+    </div>
+    <form class="rg__form reveal-up" id="regForm" novalidate>
+      <label data-i18n="rg.f.name">Player's name<input name="name" type="text" required autocomplete="name" /></label>
+      <div class="rg__two">
+        <label data-i18n="rg.f.age">Age<input name="age" type="number" min="6" max="18" required /></label>
+        <label data-i18n="rg.f.session">Session<select name="session"><option data-i18n="rg.f.s1">Session I · 27 Jun–2 Jul</option><option data-i18n="rg.f.s2">Session II · 2–7 Jul</option><option data-i18n="rg.f.s3">Skills &amp; Shooting · 7–12 Jul</option></select></label>
+      </div>
+      <label data-i18n="rg.f.contact">Parent email or phone<input name="contact" type="text" required /></label>
+      <label data-i18n="rg.f.msg">Message <span class="opt">(optional)</span><textarea name="msg" rows="2"></textarea></label>
+      <button type="submit" class="btn btn--orange btn--full"><span data-i18n="rg.submit">Send registration</span><b>→</b></button>
+      <p class="rg__ok" id="regOk" hidden data-i18n="rg.ok">Got it! 🏀 We'll be in touch within 24 hours.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Reach the summit. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="#about" data-i18n="nav.about">Camp</a><a href="#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.onama">About</a><a href="smjestaj.html" data-i18n="nav.smjestaj">Stay</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoters</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="#sessions" data-i18n="nav.sessions">Sessions</a><a href="#faq" data-i18n="fq.eyebrow">FAQ</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">VRH</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Supported by Lovćen Osiguranje</span></div>
+</footer>
+
+<!-- mobile menu -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="#about" data-i18n="nav.about">Camp</a>
+  <a href="#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.onama">About</a>
+  <a href="smjestaj.html" data-i18n="nav.smjestaj">Stay</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoters</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="#sessions" data-i18n="nav.sessions">Sessions</a>
+  <a href="#register" class="cta" data-i18n="nav.register">Sign up</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

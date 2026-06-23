@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>MVP — Basketball Camp Kolašin · Najbolji od najboljih</title>
+<meta name="description" content="MVP kampa Basketball Camp Kolašin — kuća slavnih najboljih igrača od 2015. do danas. The camp's hall of fame: every Most Valuable Player, year by year." />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  /* =====================================================================
+     MVP — "HALL OF FAME" · page-scoped styles (extends Design C tokens)
+     ===================================================================== */
+  html{overflow-x:hidden}
+
+  /* ---- shared header tweak: make logo readable over the dark hero ---- */
+  .hd{--hdcol:var(--cream)}
+
+  /* =================== MVP HERO (cinematic, espresso) =================== */
+  .mvp-hero{
+    position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);
+    overflow:hidden;color:var(--cream);background:var(--esp);isolation:isolate;
+  }
+  /* deep cinematic backdrop: gold spotlight + espresso gradient + faint grain lines */
+  .mvp-hero__bg{
+    position:absolute;inset:0;z-index:-2;
+    background:
+      radial-gradient(80% 70% at 50% -10%,rgba(202,161,74,.34),transparent 60%),
+      radial-gradient(120% 120% at 78% 8%,rgba(242,116,26,.20),transparent 55%),
+      linear-gradient(180deg,#1c1610 0%,#161210 55%,#0f0c09 100%);
+  }
+  .mvp-hero__bg::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(48deg,rgba(255,255,255,.018) 0 22px,transparent 22px 44px);
+    mix-blend-mode:overlay;
+  }
+  /* giant gold trophy ring motif (pure CSS, decorative) */
+  .mvp-hero__ring{
+    position:absolute;z-index:-1;top:50%;left:50%;width:min(78vw,720px);aspect-ratio:1;
+    transform:translate(-50%,-54%);border-radius:50%;
+    border:1px solid rgba(202,161,74,.30);
+    box-shadow:0 0 120px -30px rgba(202,161,74,.5) inset,0 0 90px -40px rgba(242,116,26,.4);
+    opacity:.9;pointer-events:none;
+  }
+  .mvp-hero__ring::before,.mvp-hero__ring::after{
+    content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(202,161,74,.14);
+  }
+  .mvp-hero__ring::before{inset:10%;border-color:rgba(220,187,106,.22)}
+  .mvp-hero__ring::after{inset:24%;border-color:rgba(242,116,26,.16)}
+  .mvp-hero__star{
+    position:absolute;z-index:-1;top:50%;left:50%;transform:translate(-50%,-54%);
+    width:60px;height:60px;opacity:.85;filter:drop-shadow(0 0 22px rgba(202,161,74,.65));
+    pointer-events:none;animation:mvpStar 6s ease-in-out infinite;
+  }
+  .mvp-hero__star svg{width:100%;height:100%;display:block;fill:var(--gold-l)}
+  @keyframes mvpStar{0%,100%{transform:translate(-50%,-54%) scale(1)}50%{transform:translate(-50%,-54%) scale(1.08)}}
+
+  .mvp-hero__inner{max-width:1320px;margin:0 auto;width:100%;position:relative}
+  .mvp-hero__kick{
+    display:inline-flex;align-items:center;gap:.6em;font-family:var(--body);font-weight:600;font-size:.76rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);
+    border:1px solid rgba(202,161,74,.4);border-radius:100px;padding:.5em 1.05em;margin-bottom:1.5rem;
+    background:rgba(0,0,0,.22);backdrop-filter:blur(6px);
+  }
+  .mvp-hero__kick .d{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(202,161,74,.6);animation:pls 2.4s infinite}
+  .mvp-hero__title{
+    font-family:var(--disp);font-weight:800;line-height:.9;letter-spacing:-.03em;
+    font-size:clamp(3rem,10.5vw,9.5rem);margin-bottom:1.5rem;text-wrap:balance;
+  }
+  .mvp-hero__title .ln{display:block;overflow:hidden;padding-bottom:.04em}
+  .mvp-hero__title .ln span{display:inline-block;will-change:transform}
+  .mvp-hero__title .gold{
+    background:linear-gradient(105deg,var(--gold-l) 8%,#f4e0a8 38%,var(--gold) 62%,var(--orange) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-l);
+  }
+  .mvp-hero__sub{
+    max-width:48ch;font-size:clamp(1.05rem,1.7vw,1.35rem);color:rgba(243,237,227,.86);margin-bottom:0;
+  }
+  .mvp-hero__scroll{
+    position:absolute;right:0;bottom:2px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+    font-family:var(--body);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,237,227,.6);
+  }
+  .mvp-hero__scroll b{font-style:normal;animation:bob 1.6s ease-in-out infinite}
+
+  /* =================== HALL-OF-FAME INTRO STRIP =================== */
+  .hof-strip{
+    background:var(--orange);color:#fff;text-align:center;
+    padding:clamp(2rem,4vw,2.8rem) clamp(1.2rem,5vw,5rem);
+    border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);
+  }
+  .hof-strip p{
+    max-width:62ch;margin:0 auto;font-family:var(--disp);font-weight:600;
+    font-size:clamp(1.15rem,2.4vw,1.7rem);line-height:1.2;letter-spacing:-.01em;
+  }
+
+  /* =================== HALL OF FAME (the winners) =================== */
+  .hof{background:var(--esp);color:var(--cream);position:relative;overflow:hidden}
+  .hof__head{max-width:1320px;margin:0 auto clamp(2.5rem,5vw,4rem)}
+  .hof__head .ey::before{display:none}
+  .hof__head .ttl{margin-top:.2rem}
+  .hof__head p{color:var(--mut-l);max-width:48ch;margin-top:1rem;font-size:1.05rem}
+
+  .hof__list{max-width:1180px;margin:0 auto;position:relative}
+  /* central glowing spine (desktop) */
+  .hof__spine{
+    position:absolute;left:50%;top:6px;bottom:6px;width:2px;transform:translateX(-50%);
+    background:linear-gradient(180deg,rgba(202,161,74,.05),rgba(202,161,74,.22) 12%,rgba(202,161,74,.22) 88%,rgba(202,161,74,.05));
+  }
+  .hof__spine i{
+    position:absolute;left:0;top:0;width:100%;height:0;border-radius:2px;
+    background:linear-gradient(180deg,var(--gold-l),var(--orange));box-shadow:0 0 16px rgba(242,116,26,.55);
+  }
+
+  /* a winner row */
+  .mvp{
+    position:relative;display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;
+    gap:clamp(1rem,3vw,2.6rem);padding:clamp(1.4rem,3vw,2.4rem) 0;
+  }
+  .mvp__node{
+    grid-column:2;justify-self:center;width:18px;height:18px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#ffe6b0,var(--gold));
+    box-shadow:0 0 0 6px rgba(202,161,74,.12),0 0 22px rgba(202,161,74,.6);
+    position:relative;z-index:3;transition:transform .5s var(--ease),box-shadow .5s var(--ease)
+  }
+  .mvp:hover .mvp__node{transform:scale(1.25);box-shadow:0 0 0 8px rgba(242,116,26,.14),0 0 30px rgba(242,116,26,.7)}
+
+  /* the card (text side) */
+  .mvp__card{
+    grid-column:1;position:relative;border:1px solid var(--line-l);border-radius:22px;
+    background:linear-gradient(160deg,rgba(44,36,27,.6),rgba(22,18,16,.5));
+    padding:clamp(1.6rem,3vw,2.6rem);overflow:hidden;isolation:isolate;
+    transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .55s var(--ease);
+    backdrop-filter:blur(4px);
+  }
+  .mvp__card:hover{
+    transform:translateY(-8px);border-color:rgba(202,161,74,.45);
+    box-shadow:0 40px 70px -34px rgba(0,0,0,.8),0 0 60px -30px rgba(202,161,74,.5);
+  }
+  /* oversized faded year watermark behind the name */
+  .mvp__ghost{
+    position:absolute;z-index:-1;top:50%;right:-.08em;transform:translateY(-50%);
+    font-family:var(--disp);font-weight:800;line-height:.8;letter-spacing:-.04em;
+    font-size:clamp(7rem,17vw,15rem);color:transparent;
+    -webkit-text-stroke:1px rgba(202,161,74,.16);
+    pointer-events:none;user-select:none;white-space:nowrap;
+  }
+  .mvp__badge{
+    display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;
+    font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:.9rem;
+  }
+  .mvp__badge i{width:5px;height:5px;border-radius:50%;background:var(--orange);font-style:normal}
+  .mvp__yr{
+    display:block;font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,3vw,2.2rem);
+    line-height:1;color:var(--orange);margin-bottom:.5rem;letter-spacing:-.01em;
+  }
+  .mvp__name{
+    font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.025em;
+    font-size:clamp(2rem,4.6vw,3.5rem);color:var(--cream);text-wrap:balance;
+  }
+  .mvp__name--none{color:var(--mut-l);font-style:italic;font-weight:600;font-size:clamp(1.5rem,3.4vw,2.6rem)}
+
+  /* photo side */
+  .mvp__shot{grid-column:3}
+  .mvp-photo{
+    position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+    border:1px solid var(--line-l);
+    background:
+      radial-gradient(120% 120% at 30% 12%,rgba(202,161,74,.16),transparent 55%),
+      linear-gradient(155deg,#2a221a,#15110d);
+    display:grid;place-items:center;isolation:isolate;
+    transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .55s var(--ease);
+  }
+  .mvp:hover .mvp-photo{transform:translateY(-8px);border-color:rgba(202,161,74,.4);box-shadow:0 40px 70px -34px rgba(0,0,0,.8)}
+  /* real photo (drops in when assets/img/mvp/<year>.jpg exists) */
+  .mvp-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;background:#15110d}
+  /* year watermark inside the placeholder */
+  .mvp-photo__wm{
+    position:absolute;inset:0;display:grid;place-items:center;z-index:1;
+    font-family:var(--disp);font-weight:800;font-size:clamp(3.4rem,8vw,5.6rem);line-height:1;
+    color:transparent;-webkit-text-stroke:1px rgba(243,237,227,.14);letter-spacing:-.02em;
+  }
+  .mvp-photo__soon{
+    position:absolute;left:0;right:0;bottom:0;z-index:1;padding:1rem 1.1rem;
+    background:linear-gradient(transparent,rgba(15,12,9,.82));
+    font-family:var(--body);font-weight:600;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-l);display:flex;align-items:center;gap:.5em;
+  }
+  .mvp-photo__soon::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);flex:0 0 auto}
+  /* small camera glyph top-left of placeholder */
+  .mvp-photo__cam{position:absolute;top:14px;left:16px;z-index:1;width:22px;height:22px;opacity:.5}
+  .mvp-photo__cam svg{width:100%;height:100%;fill:none;stroke:var(--gold-l);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ALTERNATE: even rows put the photo on the left, text on the right */
+  .mvp:nth-child(even) .mvp__card{grid-column:3}
+  .mvp:nth-child(even) .mvp__shot{grid-column:1}
+  .mvp:nth-child(even) .mvp__ghost{right:auto;left:-.08em}
+  .mvp:nth-child(even) .mvp__card{text-align:right}
+  .mvp:nth-child(even) .mvp__badge{flex-direction:row-reverse}
+
+  /* "current champion" — first row gets an orange-leaning accent */
+  .mvp--reign .mvp__card{border-color:rgba(242,116,26,.4)}
+  .mvp--reign .mvp__node{background:radial-gradient(circle at 34% 30%,#ffd9a0,var(--orange));box-shadow:0 0 0 6px rgba(242,116,26,.16),0 0 26px rgba(242,116,26,.7)}
+  .mvp--reign .mvp__badge{color:var(--orange)}
+
+  /* reveal helpers for hall-of-fame rows (JS sets initial state) */
+  .hof-reveal{will-change:transform,opacity}
+
+  /* =================== CLOSING CTA =================== */
+  .mvp-cta{
+    position:relative;background:var(--esp-2);color:var(--cream);text-align:center;overflow:hidden;isolation:isolate;
+    padding:clamp(4.5rem,9vw,8rem) clamp(1.2rem,5vw,5rem);
+  }
+  .mvp-cta__glow{
+    position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(60% 90% at 50% 120%,rgba(242,116,26,.28),transparent 60%),
+              radial-gradient(50% 70% at 50% -10%,rgba(202,161,74,.18),transparent 60%);
+  }
+  .mvp-cta .ey{display:block;text-align:center}
+  .mvp-cta .ey::before{display:none}
+  .mvp-cta__title{
+    font-family:var(--disp);font-weight:800;line-height:1.02;letter-spacing:-.02em;
+    font-size:clamp(2rem,5.4vw,4.2rem);max-width:18ch;margin:.4rem auto 2rem;text-wrap:balance;
+  }
+  .mvp-cta__title .flame{color:var(--orange)}
+
+  /* =================== RESPONSIVE =================== */
+  @media (max-width:900px){
+    .hof__spine{left:22px;transform:none}
+    .mvp{grid-template-columns:1fr;gap:1.1rem;padding:1.6rem 0 1.6rem 3.2rem}
+    .mvp__node,.mvp:nth-child(even) .mvp__node{position:absolute;left:22px;top:2.6rem;transform:translateX(-50%)}
+    .mvp:hover .mvp__node{transform:translateX(-50%) scale(1.25)}
+    .mvp__card,.mvp__shot,
+    .mvp:nth-child(even) .mvp__card,.mvp:nth-child(even) .mvp__shot{grid-column:1}
+    .mvp:nth-child(even) .mvp__card{text-align:left}
+    .mvp:nth-child(even) .mvp__badge{flex-direction:row}
+    .mvp:nth-child(even) .mvp__ghost{left:auto;right:-.08em}
+    .mvp__shot{max-width:340px}
+    .mvp-photo{aspect-ratio:4/3}
+  }
+  @media (max-width:560px){
+    .mvp-hero__scroll{display:none}
+    .mvp{padding-left:2.6rem}
+    .hof__spine{left:14px}
+    .mvp__node,.mvp:nth-child(even) .mvp__node{left:14px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mvp-hero__star{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd" id="hd">
+  <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
+  <nav class="hd__nav" id="hdNav">
+    <a href="index.html" data-i18n="nav.camp">Kamp</a>
+    <a href="index.html#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" data-i18n="nav.about">O nama</a>
+    <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+    <a href="mvp.html" class="on" data-i18n="nav.mvp">MVP</a>
+    <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  </nav>
+  <div class="hd__right">
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="index.html#register" data-i18n="nav.register">Prijava</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== MVP HERO ===================== -->
+<section class="mvp-hero" id="top">
+  <div class="mvp-hero__bg" aria-hidden="true"></div>
+  <div class="mvp-hero__ring" aria-hidden="true"></div>
+  <div class="mvp-hero__star" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M12 1.6l2.9 6.16 6.6.86-4.86 4.6 1.25 6.78L12 17.9l-5.99 3.06 1.25-6.78L2.4 9.62l6.6-.86z"/></svg>
+  </div>
+  <div class="mvp-hero__inner">
+    <div class="mvp-hero__kick reveal-up"><span class="d"></span><span data-i18n="mvp.kicker">Hall of Fame · 2015 — danas</span></div>
+    <h1 class="mvp-hero__title">
+      <span class="ln"><span data-i18n="mvp.t1">Najbolji</span></span>
+      <span class="ln"><span class="gold" data-i18n="mvp.t2">od najboljih.</span></span>
+    </h1>
+    <p class="mvp-hero__sub reveal-up" data-i18n="mvp.sub">MVP igrač kampa — od 2015. do danas.</p>
+  </div>
+  <a class="mvp-hero__scroll reveal-up" href="#hall"><span data-i18n="mvp.scroll">Kuća slavnih</span><b>↓</b></a>
+</section>
+
+<!-- ===================== HALL-OF-FAME STRIP ===================== -->
+<div class="hof-strip">
+  <p data-i18n="mvp.strip">Svake godine jedno ime se urezuje u istoriju kampa. Ovo su oni.</p>
+</div>
+
+<!-- ===================== HALL OF FAME ===================== -->
+<section class="hof" id="hall">
+  <div class="hof__head">
+    <span class="ey ey--light reveal-up" data-i18n="mvp.eyebrow">The Winners</span>
+    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="mvp.title">Kuća</span> <span class="it flame" data-i18n="mvp.title2">slavnih.</span></h2>
+    <p class="reveal-up" data-i18n="mvp.lead">Najvredniji igrač svakog izdanja — od najsvježijeg šampiona do prvih heroja planine.</p>
+  </div>
+
+  <div class="hof__list">
+    <span class="hof__spine" aria-hidden="true"><i id="hofFill"></i></span>
+
+    <!-- 2025 — reigning champion -->
+    <article class="mvp mvp--reign hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2025</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.reign">Aktuelni MVP</span></span>
+        <span class="mvp__yr">2025</span>
+        <h3 class="mvp__name">Tihan Vukićević</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2025">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2025</span>
+          <img src="assets/img/mvp/2025.jpg" alt="Tihan Vukićević — MVP 2025" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2024</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2024</span>
+        <h3 class="mvp__name">Pavel Joksimović</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2024">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2024</span>
+          <img src="assets/img/mvp/2024.jpg" alt="Pavel Joksimović — MVP 2024" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2023 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2023</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2023</span>
+        <h3 class="mvp__name">Jovan Mitrović</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2023">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2023</span>
+          <img src="assets/img/mvp/2023.jpg" alt="Jovan Mitrović — MVP 2023" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2022 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2022</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2022</span>
+        <h3 class="mvp__name">Jakov Vujičić</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2022">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2022</span>
+          <img src="assets/img/mvp/2022.jpg" alt="Jakov Vujičić — MVP 2022" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2021 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2021</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2021</span>
+        <h3 class="mvp__name">Filip Vukmirović</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2021">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2021</span>
+          <img src="assets/img/mvp/2021.jpg" alt="Filip Vukmirović — MVP 2021" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2020 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2020</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2020</span>
+        <h3 class="mvp__name">Pavle Mugoša</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2020">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2020</span>
+          <img src="assets/img/mvp/2020.jpg" alt="Pavle Mugoša — MVP 2020" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2019 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2019</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2019</span>
+        <h3 class="mvp__name">David Mirković</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2019">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2019</span>
+          <img src="assets/img/mvp/2019.jpg" alt="David Mirković — MVP 2019" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2018 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2018</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2018</span>
+        <h3 class="mvp__name">Andrija Jeknić</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2018">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2018</span>
+          <img src="assets/img/mvp/2018.jpg" alt="Andrija Jeknić — MVP 2018" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2017 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2017</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2017</span>
+        <h3 class="mvp__name">Đorđije Jovanović</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2017">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2017</span>
+          <img src="assets/img/mvp/2017.jpg" alt="Đorđije Jovanović — MVP 2017" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2016 -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2016</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.label">MVP kampa</span></span>
+        <span class="mvp__yr">2016</span>
+        <h3 class="mvp__name">Stefan Šimun</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2016">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2016</span>
+          <img src="assets/img/mvp/2016.jpg" alt="Stefan Šimun — MVP 2016" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2015 — not awarded -->
+    <article class="mvp hof-reveal">
+      <div class="mvp__node" aria-hidden="true"></div>
+      <div class="mvp__card">
+        <span class="mvp__ghost" aria-hidden="true">2015</span>
+        <span class="mvp__badge"><i></i><span data-i18n="mvp.first">Prvo izdanje</span></span>
+        <span class="mvp__yr">2015</span>
+        <h3 class="mvp__name mvp__name--none" data-i18n="mvp.none">Nije se birao</h3>
+      </div>
+      <div class="mvp__shot">
+        <div class="mvp-photo" data-year="2015">
+          <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
+          <span class="mvp-photo__wm" aria-hidden="true">2015</span>
+          <img src="assets/img/mvp/2015.jpg" alt="MVP 2015" loading="lazy" onerror="this.remove()" />
+          <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===================== CLOSING CTA ===================== -->
+<section class="mvp-cta">
+  <div class="mvp-cta__glow" aria-hidden="true"></div>
+  <span class="ey ey--light reveal-up" data-i18n="mvp.cta.eyebrow">2026</span>
+  <h2 class="mvp-cta__title reveal-rich"><span data-i18n="mvp.cta.title">Sljedeći MVP mogao bi biti baš</span> <span class="flame" data-i18n="mvp.cta.title2">tvoje dijete.</span></h2>
+  <div class="reveal-up">
+    <a class="btn btn--orange" href="index.html#register"><span data-i18n="mvp.cta.btn">Prijavi se</span><b>→</b></a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">MVP</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
+</footer>
+
+<!-- ===================== MOBILE MENU ===================== -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.camp">Kamp</a>
+  <a href="index.html#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.about">O nama</a>
+  <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  <a href="index.html#register" class="cta" data-i18n="nav.register">Prijava</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* =====================================================================
+   MVP — self-contained page script.
+   Lenis · reveals · hall-of-fame row reveal · spine fill · parallax ·
+   header scroll · mobile menu · magnetic · ME/EN toggle (default ME).
+   Progressive-enhancement guarded · reduced-motion safe.
+   ===================================================================== */
+(function () {
+  "use strict";
+  const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hasGSAP = typeof window.gsap !== "undefined";
+  const hasLenis = typeof window.Lenis !== "undefined";
+  const ST = window.ScrollTrigger;
+  const $ = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const isMobile = () => window.matchMedia("(hover:none)").matches;
+
+  /* ---------------- I18N (inline · ME default) ---------------- */
+  const I18N = {
+    me: {
+      "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj",
+      "nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava",
+      "mvp.kicker":"Hall of Fame · 2015 — danas","mvp.t1":"Najbolji","mvp.t2":"od najboljih.",
+      "mvp.sub":"MVP igrač kampa — od 2015. do danas.","mvp.scroll":"Kuća slavnih",
+      "mvp.strip":"Svake godine jedno ime se urezuje u istoriju kampa. Ovo su oni.",
+      "mvp.eyebrow":"Šampioni","mvp.title":"Kuća","mvp.title2":"slavnih.",
+      "mvp.lead":"Najvredniji igrač svakog izdanja — od najsvježijeg šampiona do prvih heroja planine.",
+      "mvp.reign":"Aktuelni MVP","mvp.label":"MVP kampa","mvp.first":"Prvo izdanje","mvp.none":"Nije se birao",
+      "mvp.soon":"fotografija uskoro",
+      "mvp.cta.eyebrow":"2026","mvp.cta.title":"Sljedeći MVP mogao bi biti baš","mvp.cta.title2":"tvoje dijete.","mvp.cta.btn":"Prijavi se",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja"
+    },
+    en: {
+      "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay",
+      "nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up",
+      "mvp.kicker":"Hall of Fame · 2015 — today","mvp.t1":"The best","mvp.t2":"of the best.",
+      "mvp.sub":"Camp MVP — from 2015 to today.","mvp.scroll":"Hall of Fame",
+      "mvp.strip":"Every year, one name is carved into the camp's history. These are them.",
+      "mvp.eyebrow":"The Winners","mvp.title":"Hall of","mvp.title2":"Fame.",
+      "mvp.lead":"The Most Valuable Player of every edition — from the freshest champion to the first heroes of the mountain.",
+      "mvp.reign":"Reigning MVP","mvp.label":"Camp MVP","mvp.first":"First edition","mvp.none":"Not awarded",
+      "mvp.soon":"photo soon",
+      "mvp.cta.eyebrow":"2026","mvp.cta.title":"The next MVP could be","mvp.cta.title2":"your child.","mvp.cta.btn":"Sign up",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+    }
+  };
+  let current = "me";
+  try { current = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = "me";
+    current = lang; const dict = I18N[lang];
+    document.documentElement.setAttribute("lang", lang === "me" ? "sr-ME" : "en");
+    document.documentElement.setAttribute("data-lang", lang);
+    $$("[data-i18n]").forEach((el) => {
+      const v = dict[el.getAttribute("data-i18n")]; if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+    });
+    $$("[data-lang-opt]").forEach((el) => el.classList.toggle("is-on", el.getAttribute("data-lang-opt") === lang));
+    try { localStorage.setItem("bckc-lang", lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang } }));
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+
+  function init() {
+    applyLang(current);
+    const lt = $("#langToggle");
+    if (lt) lt.addEventListener("click", () => applyLang(current === "me" ? "en" : "me"));
+
+    smoothScroll();
+    header();
+    reveals();
+    hallReveal();
+    spineFill();
+    magnetic();
+    parallax();
+    heroReveal();
+
+    const y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("langchange", () => { if (ST) ST.refresh(); });
+  }
+
+  /* ---------------- SMOOTH SCROLL (Lenis) ---------------- */
+  let lenis = null;
+  function smoothScroll() {
+    if (hasGSAP && ST) gsap.registerPlugin(ST);
+    if (hasLenis && !RM) {
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      window.lenis = lenis;
+      if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0); }
+      else { const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    }
+    $$('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => {
+      const id = a.getAttribute("href"); if (id.length < 2) return;
+      const t = document.querySelector(id); if (!t) return;
+      e.preventDefault(); closeMenu();
+      if (lenis) lenis.scrollTo(t, { offset: -60, duration: 1.25 }); else t.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
+    }));
+  }
+
+  /* ---------------- HEADER (scroll state + mobile menu) ---------------- */
+  function header() {
+    const hd = $("#hd");
+    const onScroll = () => { const s = window.scrollY > 30; if (hd) { hd.classList.toggle("scr", s); hd.classList.toggle("on-dark", !s); } };
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    const burg = $("#burg"), mm = $("#mm");
+    if (burg && mm) burg.addEventListener("click", () => {
+      const open = mm.classList.toggle("open"); burg.classList.toggle("x", open);
+      document.body.classList.toggle("lock", open); if (lenis) open ? lenis.stop() : lenis.start();
+    });
+  }
+  function closeMenu() {
+    const mm = $("#mm"), burg = $("#burg");
+    if (mm && mm.classList.contains("open")) { mm.classList.remove("open"); if (burg) burg.classList.remove("x"); document.body.classList.remove("lock"); if (lenis) lenis.start(); }
+  }
+
+  /* ---------------- REVEALS (match home: up / rich / img) ---------------- */
+  function reveals() {
+    if (!hasGSAP || !ST || RM) return;
+    $$(".reveal-up").forEach((el) => { if (el.closest(".mvp-hero")) return;
+      gsap.from(el, { y: 38, opacity: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }); });
+    $$(".reveal-rich").forEach((el) => gsap.from(el, { y: 40, opacity: 0, duration: 1.05, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
+    $$(".reveal-img").forEach((el) => gsap.from(el, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 86%" } }));
+  }
+
+  /* ---------------- HALL OF FAME: cinematic row reveal ----------------
+     Each winner clips/slides up from below; alternating rows drift in
+     from opposite sides for a dramatic, editorial cadence.            */
+  function hallReveal() {
+    const rows = $$(".hof-reveal");
+    if (!hasGSAP || !ST || RM) { rows.forEach((r) => (r.style.opacity = 1)); return; }
+    rows.forEach((row, i) => {
+      const card = $(".mvp__card", row);
+      const shot = $(".mvp__shot", row);
+      const fromLeft = i % 2 === 1; /* even rows have photo on the left */
+      const tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 84%" } });
+      if (card) tl.from(card, { y: 60, opacity: 0, duration: 1, ease: "power4.out" }, 0);
+      if (shot) tl.from(shot, { y: 60, opacity: 0, xPercent: fromLeft ? -4 : 4, clipPath: "inset(100% 0 0 0)", duration: 1.05, ease: "power3.inOut" }, 0.08);
+    });
+  }
+
+  /* ---------------- SPINE FILL (glowing scroll spine, like the program) ---------------- */
+  function spineFill() {
+    const fill = $("#hofFill"), list = $(".hof__list");
+    if (!fill || !list) return;
+    if (!hasGSAP || !ST || RM) { fill.style.height = "100%"; return; }
+    gsap.to(fill, { height: "100%", ease: "none", scrollTrigger: { trigger: list, start: "top 55%", end: "bottom 75%", scrub: 0.5 } });
+  }
+
+  /* ---------------- MAGNETIC (buttons / CTA) ---------------- */
+  function magnetic() {
+    if (RM || isMobile()) return;
+    $$(".btn--orange:not(.btn--full), .cta").forEach((b) => {
+      b.addEventListener("mousemove", (e) => { const r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)"; });
+      b.addEventListener("mouseleave", () => { b.style.transform = ""; });
+    });
+  }
+
+  /* ---------------- PARALLAX (hero ring + photos drift) ---------------- */
+  function parallax() {
+    if (!hasGSAP || !ST || RM) return;
+    gsap.to(".mvp-hero__ring", { yPercent: 16, scale: 1.08, ease: "none", scrollTrigger: { trigger: ".mvp-hero", start: "top top", end: "bottom top", scrub: true } });
+    gsap.to(".mvp-hero__inner", { yPercent: -8, opacity: 0.3, ease: "none", scrollTrigger: { trigger: ".mvp-hero", start: "top top", end: "bottom top", scrub: true } });
+    if (isMobile()) return;
+    $$(".mvp-photo img").forEach((img) => {
+      gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: img.closest(".mvp-photo"), start: "top bottom", end: "bottom top", scrub: true } });
+    });
+  }
+
+  /* ---------------- HERO REVEAL (mask-up title, like home) ---------------- */
+  function heroReveal() {
+    if (!hasGSAP || RM) return;
+    gsap.set(".mvp-hero__title .ln span", { yPercent: 118 });
+    gsap.to(".mvp-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.1 });
+    gsap.fromTo(".mvp-hero__kick,.mvp-hero__sub,.mvp-hero__scroll", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.08, delay: 0.4, overwrite: "auto" });
+  }
+})();
+</script>
+</body>
+</html>

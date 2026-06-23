@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>O nama — Basketball Camp Kolašin · Gdje se rađaju šampioni</title>
+<meta name="description" content="O Košarkaškom kampu Kolašin — priča, osnivači Vlado Šćepanović i Savo Đikanović, i jedanaest izdanja kampa na 1.450 m u Bjelasici. About Basketball Camp Kolašin." />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  /* ===== page-specific layout — reuses :root tokens from styles.css ===== */
+  html{overflow-x:hidden}
+
+  /* keep header on-dark over the dark hero, and pad body top for the fixed header on non-hero pages */
+  .ab-hero{position:relative;min-height:70vh;min-height:70svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);overflow:hidden;color:var(--cream);background:var(--esp)}
+  .ab-hero__media{position:absolute;inset:0;z-index:-2}
+  .ab-hero__img{position:absolute;inset:0;width:100%;height:118%;top:-9%;object-fit:cover;will-change:transform}
+  .ab-hero__scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,12,9,.9) 0%,rgba(15,12,9,.35) 48%,rgba(15,12,9,.6) 100%)}
+  .ab-hero__inner{position:relative;max-width:1320px;margin:0 auto;width:100%}
+  .ab-hero__title{font-family:var(--disp);font-weight:700;line-height:.92;letter-spacing:-.025em;font-size:clamp(2.8rem,8.4vw,7rem);margin:1.2rem 0 1.4rem}
+  .ab-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .ab-hero__title .ln span{display:inline-block;will-change:transform}
+  .ab-hero__lead{max-width:54ch;font-size:clamp(1.05rem,1.6vw,1.3rem);color:rgba(243,237,227,.9)}
+  .ab-crumb{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+  .ab-crumb a{color:rgba(243,237,227,.6);transition:color .3s}
+  .ab-crumb a:hover{color:var(--orange)}
+  .ab-crumb i{font-style:normal;opacity:.5}
+
+  /* ===== STORY — porcelain, image + text ===== */
+  .story{background:var(--porc)}
+  .story__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  .story__txt .ttl{margin-bottom:1.4rem}
+  .story__txt p{color:var(--ink);font-size:1.1rem;margin-bottom:1.1rem;max-width:56ch;opacity:.9}
+  .story__txt p b{font-weight:700;opacity:1}
+  .story__media{position:relative;aspect-ratio:4/4.6;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+  .story__img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;will-change:transform}
+
+  /* ===== STATS band — espresso ===== */
+  .ab-stats{background:var(--esp);color:var(--cream)}
+  .ab-stats__inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .ab-stats .st b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,6vw,4.4rem);line-height:.9;color:var(--orange)}
+  .ab-stats .st i{font-family:var(--body);font-style:normal;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut-l);margin-top:.6rem;display:block}
+
+  /* ===== FOUNDERS — porcelain ===== */
+  .fnd{background:var(--porc)}
+  .fnd__head{max-width:1320px;margin:0 auto clamp(2.5rem,5vw,3.5rem);text-align:center}
+  .fnd__head .ey::before{display:none}
+  .fnd__grid{max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,3vw,2.4rem);perspective:1400px}
+  .fc{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);transform-style:preserve-3d;transition:transform .3s var(--ease),box-shadow .5s var(--ease);will-change:transform;cursor:pointer;background:#fff}
+  .fc:hover{box-shadow:0 30px 60px -28px rgba(29,24,18,.45)}
+  .fc__media{position:relative;aspect-ratio:3/3.3;overflow:hidden}
+  .fc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .fc:hover .fc__img{transform:scale(1.05)}
+  .fc::before{content:"";position:absolute;inset:0;z-index:2;opacity:0;transition:opacity .3s;pointer-events:none;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(220,187,106,.22),transparent 45%)}
+  .fc:hover::before{opacity:1}
+  .fc__body{position:relative;z-index:3;padding:1.6rem 1.6rem 1.8rem}
+  .fc__role{font-family:var(--body);font-weight:600;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d)}
+  .fc__name{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1;margin:.45rem 0 .7rem}
+  .fc__bio{font-size:.98rem;color:var(--mut);max-width:46ch}
+  .fnd__note{max-width:1040px;margin:2rem auto 0;text-align:center;font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
+
+  /* ===== CTA band — espresso ===== */
+  .ab-cta{background:var(--esp);color:var(--cream);text-align:center}
+  .ab-cta__inner{max-width:900px;margin:0 auto}
+  .ab-cta .ttl{margin-bottom:1.4rem}
+  .ab-cta p{color:var(--mut-l);font-size:1.08rem;max-width:48ch;margin:0 auto 2.2rem}
+  .ab-cta__row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+  @media (max-width:1024px){
+    .story__grid,.ab-stats__inner,.fnd__grid{grid-template-columns:1fr}
+    .story__media{order:-1;aspect-ratio:16/10}
+    .ab-stats__inner{grid-template-columns:repeat(2,1fr);gap:2.2rem 1.5rem}
+    .fnd__grid{max-width:480px;gap:1.6rem}
+  }
+  @media (max-width:560px){
+    .ab-stats__inner{grid-template-columns:1fr 1fr}
+    .ab-hero__img,.story__img{top:0;height:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd on-dark" id="hd">
+  <a class="hd__logo" href="index.html#top" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
+  <nav class="hd__nav" id="hdNav">
+    <a href="index.html" data-i18n="nav.camp">Kamp</a>
+    <a href="index.html#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" class="on" data-i18n="nav.about">O nama</a>
+    <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+    <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+    <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  </nav>
+  <div class="hd__right">
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="index.html#register" data-i18n="nav.register">Prijava</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO HEADER ===================== -->
+<section class="ab-hero" id="top">
+  <div class="ab-hero__media" aria-hidden="true">
+    <img class="ab-hero__img parallax-hero" src="assets/img/about.jpg" alt="" />
+    <div class="ab-hero__scrim"></div>
+  </div>
+  <div class="ab-hero__inner">
+    <span class="ab-crumb reveal-up"><a href="index.html" data-i18n="crumb.home">Kamp</a><i>/</i><span data-i18n="ab.eyebrow">O nama</span></span>
+    <h1 class="ab-hero__title">
+      <span class="ln"><span data-i18n="ab.h1a">Gdje se rađaju</span></span>
+      <span class="ln"><span class="it flame" data-i18n="ab.h1b">šampioni.</span></span>
+    </h1>
+    <p class="ab-hero__lead reveal-up" data-i18n="ab.lead">Jedanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.</p>
+  </div>
+</section>
+
+<!-- ===================== STORY ===================== -->
+<section class="section story" id="story">
+  <div class="story__grid">
+    <div class="story__txt">
+      <span class="ey reveal-up" data-i18n="story.eyebrow">Naša priča</span>
+      <h2 class="ttl reveal-rich"><span data-i18n="story.title">Planina koja</span> <span class="it flame" data-i18n="story.title2">stvara igrače.</span></h2>
+      <p class="reveal-up" data-i18n="story.p1">Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 9–18 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.</p>
+      <p class="reveal-up" data-i18n="story.p2">Igrači rade u grupama po uzrastu i nivou, s ciljem maksimalnog napretka u kratkom roku — uz druženje i prijateljstva koja ostaju za cijeli život.</p>
+      <a class="ln-arrow reveal-up" href="index.html#program"><span data-i18n="story.cta">Istraži program</span><b>→</b></a>
+    </div>
+    <div class="story__media reveal-img"><img class="story__img parallax-img" src="assets/img/nature-hd.jpg" alt="Bjelasica · Kolašin" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="section ab-stats" id="stats">
+  <div class="ab-stats__inner">
+    <div class="st reveal-up"><b class="count" data-to="11">0</b><i data-i18n="st.years">izdanja</i></div>
+    <div class="st reveal-up"><b class="count" data-to="1200" data-suffix="+">0</b><i data-i18n="st.players">polaznika</i></div>
+    <div class="st reveal-up"><b class="count" data-to="25" data-suffix="+">0</b><i data-i18n="st.guests">NBA i EU gostiju</i></div>
+    <div class="st reveal-up"><b class="count" data-to="1450">0</b><i data-i18n="st.alt">m nadmorske visine</i></div>
+  </div>
+</section>
+
+<!-- ===================== FOUNDERS ===================== -->
+<section class="section fnd" id="founders">
+  <div class="fnd__head">
+    <span class="ey reveal-up" data-i18n="fnd.eyebrow">Osnivači</span>
+    <h2 class="ttl reveal-rich"><span data-i18n="fnd.title">Vode vas</span> <span class="it flame" data-i18n="fnd.title2">legende.</span></h2>
+  </div>
+  <div class="fnd__grid">
+    <article class="fc reveal-img" tabindex="0">
+      <div class="fc__media"><img class="fc__img" src="assets/img/coach1.jpg" alt="Vlado Šćepanović" loading="lazy" /></div>
+      <div class="fc__body">
+        <span class="fc__role" data-i18n="fnd.c1.role">Osnivač · Glavni trener</span>
+        <h3 class="fc__name">Vlado Šćepanović</h3>
+        <p class="fc__bio" data-i18n="fnd.c1.bio">Rođen 13. novembra 1975. u Kolašinu. Igrao za rodni Gorstak do 1993, potom za podgoričku Budućnost — dvostruki prvak i osvajač kupa Jugoslavije. Bivši selektor Crne Gore i košarkaš evroligaškog kvaliteta.</p>
+      </div>
+    </article>
+    <article class="fc reveal-img" tabindex="0">
+      <div class="fc__media"><img class="fc__img" src="assets/img/coach2.jpg" alt="Savo Đikanović" loading="lazy" /></div>
+      <div class="fc__body">
+        <span class="fc__role" data-i18n="fnd.c2.role">Osnivač · Direktor</span>
+        <h3 class="fc__name">Savo Đikanović</h3>
+        <p class="fc__bio" data-i18n="fnd.c2.bio">Rođen 28. februara 1975. u Podgorici. Ponikao u mlađim kategorijama Budućnosti, veći dio karijere proveo u grčkim klubovima.</p>
+      </div>
+    </article>
+  </div>
+  <p class="fnd__note reveal-up" data-i18n="fnd.note">Napomena: identitet na fotografijama trenera podliježe potvrdi klijenta.</p>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="section ab-cta" id="cta">
+  <div class="ab-cta__inner">
+    <span class="ey ey--light reveal-up" data-i18n="cta.eyebrow">Pridruži se</span>
+    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="cta.title">Osvoji</span> <span class="it flame" data-i18n="cta.title2">vrh.</span></h2>
+    <p class="reveal-up" data-i18n="cta.lead">Mjesta se brzo popune svake godine. Prijavi se danas ili pogledaj gdje boravimo i treniramo.</p>
+    <div class="ab-cta__row reveal-up">
+      <a class="btn btn--orange" href="index.html#register"><span data-i18n="cta.b1">Prijavi se</span><b>→</b></a>
+      <a class="btn btn--glass" href="smjestaj.html"><span data-i18n="cta.b2">Pogledaj smještaj i terene</span><b>→</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">VRH</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
+</footer>
+
+<!-- mobile menu -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.camp">Kamp</a>
+  <a href="index.html#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.about">O nama</a>
+  <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  <a href="index.html#register" class="cta" data-i18n="nav.register">Prijava</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* =====================================================================
+   O NAMA — inline behaviour. Mirrors js/main.js + js/i18n.js conventions.
+   Lenis + GSAP ticker · reveals · parallax · header scroll/on-dark ·
+   mobile menu · magnetic · count-up · ME/EN i18n.  RM-safe & guarded.
+   ===================================================================== */
+(function () {
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGSAP = typeof window.gsap !== "undefined";
+  var hasLenis = typeof window.Lenis !== "undefined";
+  var ST = window.ScrollTrigger;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var isMobile = function () { return window.matchMedia("(hover:none)").matches; };
+
+  /* ---------------- i18n dictionary (ME default / EN) ---------------- */
+  var I18N = {
+    me: {
+      "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj","nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava",
+      "crumb.home":"Kamp",
+      "ab.eyebrow":"O nama","ab.h1a":"Gdje se rađaju","ab.h1b":"šampioni.",
+      "ab.lead":"Jedanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.",
+      "story.eyebrow":"Naša priča","story.title":"Planina koja","story.title2":"stvara igrače.",
+      "story.p1":"Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 9–18 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.",
+      "story.p2":"Igrači rade u grupama po uzrastu i nivou, s ciljem maksimalnog napretka u kratkom roku — uz druženje i prijateljstva koja ostaju za cijeli život.",
+      "story.cta":"Istraži program",
+      "st.years":"izdanja","st.players":"polaznika","st.guests":"NBA i EU gostiju","st.alt":"m nadmorske visine",
+      "fnd.eyebrow":"Osnivači","fnd.title":"Vode vas","fnd.title2":"legende.",
+      "fnd.c1.role":"Osnivač · Glavni trener",
+      "fnd.c1.bio":"Rođen 13. novembra 1975. u Kolašinu. Igrao za rodni Gorstak do 1993, potom za podgoričku Budućnost — dvostruki prvak i osvajač kupa Jugoslavije. Bivši selektor Crne Gore i košarkaš evroligaškog kvaliteta.",
+      "fnd.c2.role":"Osnivač · Direktor",
+      "fnd.c2.bio":"Rođen 28. februara 1975. u Podgorici. Ponikao u mlađim kategorijama Budućnosti, veći dio karijere proveo u grčkim klubovima.",
+      "fnd.note":"Napomena: identitet na fotografijama trenera podliježe potvrdi klijenta.",
+      "cta.eyebrow":"Pridruži se","cta.title":"Osvoji","cta.title2":"vrh.",
+      "cta.lead":"Mjesta se brzo popune svake godine. Prijavi se danas ili pogledaj gdje boravimo i treniramo.",
+      "cta.b1":"Prijavi se","cta.b2":"Pogledaj smještaj i terene",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja"
+    },
+    en: {
+      "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay","nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up",
+      "crumb.home":"Camp",
+      "ab.eyebrow":"About","ab.h1a":"Where champions","ab.h1b":"are made.",
+      "ab.lead":"Eleven summers, one mountain and one idea — that every player leaves better than they arrived. This is the story of Basketball Camp Kolašin.",
+      "story.eyebrow":"Our story","story.title":"The mountain that","story.title2":"makes players.",
+      "story.p1":"Basketball Camp Kolašin invites all boys and girls aged 9–18 to be part of a one-of-a-kind camp organised by renowned basketball experts <b>Vlado Šćepanović</b> and <b>Savo Đikanović</b>.",
+      "story.p2":"Players train in groups by age and level, aiming for maximum progress in a short time — alongside the friendships and bonds that last a lifetime.",
+      "story.cta":"Explore the program",
+      "st.years":"editions","st.players":"campers trained","st.guests":"NBA & Euro guests","st.alt":"m altitude",
+      "fnd.eyebrow":"The founders","fnd.title":"Coached by","fnd.title2":"legends.",
+      "fnd.c1.role":"Founder · Head coach",
+      "fnd.c1.bio":"Born 13 November 1975 in Kolašin. Played for his hometown Gorstak until 1993, then for Podgorica's Budućnost — a two-time Yugoslav champion and cup winner. Former head coach of Montenegro and a player of EuroLeague calibre.",
+      "fnd.c2.role":"Founder · Director",
+      "fnd.c2.bio":"Born 28 February 1975 in Podgorica. Came up through Budućnost's youth ranks and spent the larger part of his career in Greek clubs.",
+      "fnd.note":"Note: the identities in the coach photos are to be confirmed by the client.",
+      "cta.eyebrow":"Join us","cta.title":"Claim the","cta.title2":"summit.",
+      "cta.lead":"Spots fill fast every year. Sign up today, or take a look at where we stay and train.",
+      "cta.b1":"Sign up","cta.b2":"See the stay & courts",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+    }
+  };
+
+  var current = "me";
+  try { current = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = "me";
+    current = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute("lang", lang === "me" ? "sr-ME" : "en");
+    document.documentElement.setAttribute("data-lang", lang);
+    $$("[data-i18n]").forEach(function (el) {
+      var v = dict[el.getAttribute("data-i18n")];
+      if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+    });
+    $$("[data-lang-opt]").forEach(function (el) { el.classList.toggle("is-on", el.getAttribute("data-lang-opt") === lang); });
+    try { localStorage.setItem("bckc-lang", lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } }));
+  }
+  function toggleLang() { applyLang(current === "me" ? "en" : "me"); }
+
+  document.addEventListener("DOMContentLoaded", init);
+
+  function init() {
+    applyLang(current);
+    var btn = $("#langToggle"); if (btn) btn.addEventListener("click", toggleLang);
+    smoothScroll();
+    header();
+    reveals();
+    parallax();
+    counters();
+    founderTilt();
+    magnetic();
+    var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("langchange", function () { if (ST) ST.refresh(); });
+  }
+
+  /* ---------------- SMOOTH SCROLL ---------------- */
+  var lenis = null;
+  function smoothScroll() {
+    if (hasGSAP && ST) gsap.registerPlugin(ST);
+    if (hasLenis && !RM) {
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      window.lenis = lenis;
+      if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add(function (t) { lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0); }
+      else { var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    }
+    $$('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var id = a.getAttribute("href"); if (id.length < 2) return;
+        var t = document.querySelector(id); if (!t) return;
+        e.preventDefault(); closeMenu();
+        if (lenis) lenis.scrollTo(t, { offset: -60, duration: 1.25 }); else t.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
+      });
+    });
+  }
+
+  /* ---------------- HEADER (scrolled state + on-dark over dark hero) ---------------- */
+  function header() {
+    var hd = $("#hd");
+    var hero = $(".ab-hero");
+    var onScroll = function () {
+      var s = window.scrollY > 30;
+      if (!hd) return;
+      hd.classList.toggle("scr", s);
+      // on-dark only while the hero is under the header
+      var darkUnder = hero ? (window.scrollY < hero.offsetHeight - 80) : false;
+      hd.classList.toggle("on-dark", darkUnder && !s);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var burg = $("#burg"), mm = $("#mm");
+    if (burg && mm) burg.addEventListener("click", function () {
+      var open = mm.classList.toggle("open"); burg.classList.toggle("x", open);
+      document.body.classList.toggle("lock", open); if (lenis) { open ? lenis.stop() : lenis.start(); }
+    });
+  }
+  function closeMenu() {
+    var mm = $("#mm"), burg = $("#burg");
+    if (mm && mm.classList.contains("open")) { mm.classList.remove("open"); if (burg) burg.classList.remove("x"); document.body.classList.remove("lock"); if (lenis) lenis.start(); }
+  }
+
+  /* ---------------- REVEALS ---------------- */
+  function reveals() {
+    if (!hasGSAP || !ST || RM) return;
+    $$(".reveal-up").forEach(function (el) {
+      if (el.closest(".ab-hero")) return;
+      gsap.from(el, { y: 38, opacity: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } });
+    });
+    $$(".reveal-rich").forEach(function (el) {
+      gsap.from(el, { y: 40, opacity: 0, duration: 1.05, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 90%" } });
+    });
+    $$(".reveal-img").forEach(function (el) {
+      gsap.from(el, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 86%" } });
+    });
+    // hero intro (mirrors heroReveal in main.js)
+    gsap.set(".ab-hero__title .ln span", { yPercent: 118 });
+    gsap.to(".ab-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.15 });
+    gsap.fromTo(".ab-crumb,.ab-hero__lead", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
+  }
+
+  /* ---------------- PARALLAX ---------------- */
+  function parallax() {
+    if (!hasGSAP || !ST || RM) return;
+    // hero background drifts on scroll
+    gsap.to(".parallax-hero", { yPercent: 12, scale: 1.08, ease: "none", scrollTrigger: { trigger: ".ab-hero", start: "top top", end: "bottom top", scrub: true } });
+    if (isMobile()) return;
+    $$(".parallax-img").forEach(function (img) {
+      var box = img.closest(".story__media") || img;
+      gsap.fromTo(img, { yPercent: -7 }, { yPercent: 7, ease: "none", scrollTrigger: { trigger: box, start: "top bottom", end: "bottom top", scrub: true } });
+    });
+  }
+
+  /* ---------------- COUNTERS ---------------- */
+  function counters() {
+    $$(".count").forEach(function (el) {
+      var to = parseFloat(el.getAttribute("data-to")) || 0, suf = el.getAttribute("data-suffix") || "";
+      var done = false;
+      var run = function () {
+        if (done) return; done = true;
+        var dur = 1600, t0 = performance.now();
+        (function step(now) {
+          var k = clamp((now - t0) / dur, 0, 1), e = 1 - Math.pow(1 - k, 3);
+          el.textContent = Math.round(to * e) + (k === 1 ? suf : "");
+          if (k < 1) requestAnimationFrame(step);
+        })(t0);
+      };
+      if (hasGSAP && ST && !RM) ST.create({ trigger: el, start: "top 92%", onEnter: run }); else el.textContent = to + suf;
+    });
+  }
+
+  /* ---------------- 3D FOUNDER TILT (mirrors coachTilt) ---------------- */
+  function founderTilt() {
+    if (RM || isMobile()) return;
+    $$(".fc").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        card.style.transform = "rotateX(" + (0.5 - py) * 8 + "deg) rotateY(" + (px - 0.5) * 8 + "deg) translateY(-4px)";
+        card.style.setProperty("--mx", px * 100 + "%"); card.style.setProperty("--my", py * 100 + "%");
+      });
+      card.addEventListener("pointerleave", function () { card.style.transform = ""; });
+    });
+  }
+
+  /* ---------------- MAGNETIC ---------------- */
+  function magnetic() {
+    if (RM || isMobile()) return;
+    $$(".btn--orange:not(.btn--full), .cta").forEach(function (b) {
+      b.addEventListener("mousemove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)";
+      });
+      b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
