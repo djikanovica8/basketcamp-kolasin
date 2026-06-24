@@ -231,7 +231,7 @@
   /* =================== RESPONSIVE =================== */
   @media (max-width:900px){
     .hof__spine{left:22px;transform:none}
-    .mvp{grid-template-columns:1fr;gap:1.1rem;padding:1.6rem 0 1.6rem 3.2rem}
+    .mvp{display:flex;flex-direction:column;align-items:stretch;gap:1.2rem;padding:1.6rem 0 1.6rem 3.2rem}
     .mvp__node,.mvp:nth-child(even) .mvp__node{position:absolute;left:22px;top:2.6rem;transform:translateX(-50%)}
     .mvp:hover .mvp__node{transform:translateX(-50%) scale(1.25)}
     .mvp__card,.mvp__shot,
@@ -680,7 +680,9 @@
      from opposite sides for a dramatic, editorial cadence.            */
   function hallReveal() {
     const rows = $$(".hof-reveal");
-    if (!hasGSAP || !ST || RM) { rows.forEach((r) => (r.style.opacity = 1)); return; }
+    /* On the stacked (<=900px) layout, skip the y-translate reveal — it can mis-fire
+       and leave a card translated over the photo below it. Rows simply appear. */
+    if (!hasGSAP || !ST || RM || window.innerWidth <= 900) { rows.forEach((r) => (r.style.opacity = 1)); return; }
     rows.forEach((row, i) => {
       const card = $(".mvp__card", row);
       const shot = $(".mvp__shot", row);
