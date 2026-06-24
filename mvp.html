@@ -256,15 +256,54 @@
     .mvp__node,.mvp:nth-child(even) .mvp__node{left:14px}
   }
   @media (prefers-reduced-motion:reduce){
-    .mvp-hero__star{animation:none}
+    .mvp-hero__star,.mvp-hero__title .gold,.mvp--reign .mvp__card::after{animation:none}
+    .mvp-dust,.mvp-hero__spot{display:none}
   }
+
+  /* ===================================================================
+     PREMIUM ANIMATION LAYER — cinematic hall-of-fame polish
+     =================================================================== */
+  /* hero: mouse-follow gold spotlight */
+  .mvp-hero__spot{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transition:opacity .8s ease;
+    background:radial-gradient(440px 440px at var(--mx,50%) var(--my,32%),rgba(202,161,74,.20),transparent 68%)}
+  .mvp-hero:hover .mvp-hero__spot{opacity:1}
+  /* hero: floating gold dust */
+  .mvp-dust{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+  .mvp-dust i{position:absolute;bottom:-6%;width:3px;height:3px;border-radius:50%;background:var(--gold-l);
+    box-shadow:0 0 7px 1px rgba(202,161,74,.7);opacity:0;animation:dustRise linear infinite}
+  @keyframes dustRise{0%{opacity:0;transform:translateY(0) scale(.5)}12%{opacity:.7}88%{opacity:.45}100%{opacity:0;transform:translateY(-78vh) scale(1)}}
+  /* hero: gold wordmark shimmer */
+  .mvp-hero__title .gold{background-size:220% auto;animation:goldShimmer 7s linear infinite}
+  @keyframes goldShimmer{to{background-position:220% center}}
+
+  /* split-text letters (MVP name reveal) */
+  .mvp__name .char{display:inline-block;will-change:transform,opacity}
+
+  /* timeline node ignites (glows) as the spine fill reaches it */
+  .mvp__node{transition:box-shadow .55s var(--ease)}
+  .mvp__node.lit{box-shadow:0 0 0 7px rgba(242,116,26,.18),0 0 34px 6px rgba(242,116,26,.8)}
+
+  /* glowing tip at the head of the spine fill */
+  .hof__spine i{position:relative}
+  .hof__spine i::after{content:"";position:absolute;left:50%;bottom:-3px;width:13px;height:13px;border-radius:50%;
+    transform:translateX(-50%);background:radial-gradient(circle,#ffe9bd 0 30%,var(--orange) 75%,transparent);
+    box-shadow:0 0 20px 6px rgba(242,116,26,.7);opacity:.95}
+
+  /* reigning champion — animated golden aura */
+  .mvp--reign .mvp__card{position:relative}
+  .mvp--reign .mvp__card::after{content:"";position:absolute;inset:-1px;border-radius:22px;pointer-events:none;z-index:1;
+    box-shadow:0 0 0 1px rgba(242,116,26,.4),0 0 60px -12px rgba(242,116,26,.6);animation:reignPulse 3.4s ease-in-out infinite}
+  @keyframes reignPulse{0%,100%{opacity:.45}50%{opacity:1}}
 </style>
 </head>
 <body>
 
 <!-- ===================== HEADER ===================== -->
 <header class="hd" id="hd">
-  <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
+  <div class="hd__brand">
+    <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.png" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+  </div>
   <nav class="hd__nav" id="hdNav">
     <a href="index.html" data-i18n="nav.camp">Kamp</a>
     <a href="index.html#program" data-i18n="nav.program">Program</a>
@@ -284,6 +323,8 @@
 <!-- ===================== MVP HERO ===================== -->
 <section class="mvp-hero" id="top">
   <div class="mvp-hero__bg" aria-hidden="true"></div>
+  <div class="mvp-hero__spot" aria-hidden="true"></div>
+  <div class="mvp-dust" id="mvpDust" aria-hidden="true"></div>
   <div class="mvp-hero__ring" aria-hidden="true"></div>
   <div class="mvp-hero__star" aria-hidden="true">
     <svg viewBox="0 0 24 24"><path d="M12 1.6l2.9 6.16 6.6.86-4.86 4.6 1.25 6.78L12 17.9l-5.99 3.06 1.25-6.78L2.4 9.62l6.6-.86z"/></svg>
@@ -634,9 +675,14 @@
     magnetic();
     parallax();
     heroReveal();
+    tilt();
+    heroFx();
 
     const y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
     window.addEventListener("langchange", () => { if (ST) ST.refresh(); });
+    /* keep trigger positions accurate after lazy photos / fonts settle the layout */
+    window.addEventListener("load", () => { if (ST) ST.refresh(); });
+    if (ST) setTimeout(() => ST.refresh(), 1500);
   }
 
   /* ---------------- SMOOTH SCROLL (Lenis) ---------------- */
@@ -685,27 +731,57 @@
   /* ---------------- HALL OF FAME: cinematic row reveal ----------------
      Each winner clips/slides up from below; alternating rows drift in
      from opposite sides for a dramatic, editorial cadence.            */
+  /* split a text element into per-character spans (for stagger reveals) */
+  function splitChars(el) {
+    const txt = el.textContent; el.textContent = "";
+    const frag = document.createDocumentFragment();
+    for (const ch of txt) {
+      if (ch === " ") { frag.appendChild(document.createTextNode(" ")); continue; }
+      const s = document.createElement("span"); s.className = "char"; s.textContent = ch; frag.appendChild(s);
+    }
+    el.appendChild(frag);
+    return Array.from(el.querySelectorAll(".char"));
+  }
+
+  /* ---------------- HALL OF FAME: cinematic row reveal ----------------
+     The winner photo wipes open + zooms in from grayscale to full colour;
+     the card slides up; the MVP name rises letter-by-letter. On the stacked
+     (<=900px) layout no element translates vertically, so a card can never
+     land on top of its own photo. */
   function hallReveal() {
     const rows = $$(".hof-reveal");
-    /* On the stacked (<=900px) layout, skip the y-translate reveal — it can mis-fire
-       and leave a card translated over the photo below it. Rows simply appear. */
-    if (!hasGSAP || !ST || RM || window.innerWidth <= 900) { rows.forEach((r) => (r.style.opacity = 1)); return; }
-    rows.forEach((row, i) => {
-      const card = $(".mvp__card", row);
-      const shot = $(".mvp__shot", row);
-      const fromLeft = i % 2 === 1; /* even rows have photo on the left */
-      const tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 84%" } });
-      if (card) tl.from(card, { y: 60, opacity: 0, duration: 1, ease: "power4.out" }, 0);
-      if (shot) tl.from(shot, { y: 60, opacity: 0, xPercent: fromLeft ? -4 : 4, clipPath: "inset(100% 0 0 0)", duration: 1.05, ease: "power3.inOut" }, 0.08);
+    if (!hasGSAP || !ST || RM) { rows.forEach((r) => (r.style.opacity = 1)); return; }
+    const stacked = window.innerWidth <= 900;
+    rows.forEach((row) => {
+      const card = $(".mvp__card", row), shot = $(".mvp__shot", row);
+      const img = $(".mvp-photo img", row), name = $(".mvp__name", row);
+      const tl = gsap.timeline({ scrollTrigger: { trigger: row, start: "top 82%", once: true } });
+      if (card) tl.from(card, { y: stacked ? 0 : 48, opacity: 0, duration: 0.9, ease: "power3.out" }, 0);
+      if (img) {
+        tl.fromTo(img,
+          { clipPath: "inset(0 0 100% 0)", scale: 1.18, filter: "grayscale(.75) brightness(.82)" },
+          { clipPath: "inset(0 0 0% 0)", scale: 1, filter: "grayscale(0) brightness(1)", duration: 1.25, ease: "power3.out" }, 0.05);
+      } else if (shot) {
+        tl.from(shot, { y: stacked ? 0 : 48, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.05);
+      }
+      if (name) {
+        const chars = splitChars(name);
+        tl.from(chars, { yPercent: 115, opacity: 0, rotation: 5, duration: 0.6, ease: "power3.out", stagger: 0.028 }, 0.22);
+      }
     });
   }
 
-  /* ---------------- SPINE FILL (glowing scroll spine, like the program) ---------------- */
+  /* ---------------- SPINE FILL (glowing scroll spine) + node ignite ---------------- */
   function spineFill() {
     const fill = $("#hofFill"), list = $(".hof__list");
     if (!fill || !list) return;
     if (!hasGSAP || !ST || RM) { fill.style.height = "100%"; return; }
     gsap.to(fill, { height: "100%", ease: "none", scrollTrigger: { trigger: list, start: "top 55%", end: "bottom 75%", scrub: 0.5 } });
+    /* each node lights up as the glowing spine reaches it */
+    $$(".mvp__node").forEach((node) => {
+      ST.create({ trigger: node, start: "top 58%",
+        onEnter: () => node.classList.add("lit"), onLeaveBack: () => node.classList.remove("lit") });
+    });
   }
 
   /* ---------------- MAGNETIC (buttons / CTA) ---------------- */
@@ -718,23 +794,64 @@
     });
   }
 
-  /* ---------------- PARALLAX (hero ring + photos drift) ---------------- */
+  /* ---------------- PARALLAX (hero motifs + photos + ghost years) ---------------- */
   function parallax() {
     if (!hasGSAP || !ST || RM) return;
     gsap.to(".mvp-hero__ring", { yPercent: 16, scale: 1.08, ease: "none", scrollTrigger: { trigger: ".mvp-hero", start: "top top", end: "bottom top", scrub: true } });
     gsap.to(".mvp-hero__inner", { yPercent: -8, opacity: 0.3, ease: "none", scrollTrigger: { trigger: ".mvp-hero", start: "top top", end: "bottom top", scrub: true } });
+    /* giant ghost year numerals drift at a different depth */
+    $$(".mvp__ghost").forEach((g) => {
+      gsap.fromTo(g, { yPercent: -14 }, { yPercent: 14, ease: "none", scrollTrigger: { trigger: g.closest(".mvp"), start: "top bottom", end: "bottom top", scrub: true } });
+    });
     if (isMobile()) return;
     $$(".mvp-photo img").forEach((img) => {
-      gsap.fromTo(img, { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: img.closest(".mvp-photo"), start: "top bottom", end: "bottom top", scrub: true } });
+      gsap.fromTo(img, { yPercent: -4 }, { yPercent: 4, ease: "none", scrollTrigger: { trigger: img.closest(".mvp-photo"), start: "top bottom", end: "bottom top", scrub: true } });
     });
   }
 
-  /* ---------------- HERO REVEAL (mask-up title, like home) ---------------- */
+  /* ---------------- 3D TILT on the winner photos (desktop) ---------------- */
+  function tilt() {
+    if (RM || isMobile()) return;
+    $$(".mvp-photo").forEach((p) => {
+      p.addEventListener("mousemove", (e) => {
+        const r = p.getBoundingClientRect();
+        const rx = (((e.clientY - r.top) / r.height) - 0.5) * -7;
+        const ry = (((e.clientX - r.left) / r.width) - 0.5) * 9;
+        p.style.transform = "perspective(900px) translateY(-8px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+      });
+      p.addEventListener("mouseleave", () => { p.style.transform = ""; });
+    });
+  }
+
+  /* ---------------- HERO REVEAL (mask-up title) ---------------- */
   function heroReveal() {
     if (!hasGSAP || RM) return;
     gsap.set(".mvp-hero__title .ln span", { yPercent: 118 });
-    gsap.to(".mvp-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.1 });
-    gsap.fromTo(".mvp-hero__kick,.mvp-hero__sub,.mvp-hero__scroll", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.08, delay: 0.4, overwrite: "auto" });
+    gsap.to(".mvp-hero__title .ln span", { yPercent: 0, duration: 1.2, ease: "power4.out", stagger: 0.14, delay: 0.15 });
+    gsap.fromTo(".mvp-hero__kick,.mvp-hero__sub,.mvp-hero__scroll", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.08, delay: 0.45, overwrite: "auto" });
+  }
+
+  /* ---------------- HERO AMBIENT FX (mouse spotlight + gold dust) ---------------- */
+  function heroFx() {
+    const hero = $(".mvp-hero");
+    if (hero && !isMobile()) {
+      hero.addEventListener("mousemove", (e) => {
+        const r = hero.getBoundingClientRect();
+        hero.style.setProperty("--mx", (((e.clientX - r.left) / r.width) * 100) + "%");
+        hero.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100) + "%");
+      });
+    }
+    const dust = $("#mvpDust");
+    if (dust && !RM) {
+      let html = "";
+      for (let i = 0; i < 16; i++) {
+        const left = (Math.random() * 100).toFixed(1);
+        const dur = (6 + Math.random() * 7).toFixed(1);
+        const delay = (-Math.random() * 12).toFixed(1);
+        html += '<i style="left:' + left + '%;animation-duration:' + dur + 's;animation-delay:' + delay + 's"></i>';
+      }
+      dust.innerHTML = html;
+    }
   }
 })();
 </script>
