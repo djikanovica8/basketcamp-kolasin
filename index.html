@@ -9,14 +9,17 @@
 <link rel="icon" href="assets/logo/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/img/hero-poster.webp" fetchpriority="high" />
 <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
 <!-- ===================== PRELOADER ===================== -->
 <div class="pre" id="pre" aria-hidden="true">
-  <div class="pre__mark"><img src="assets/logo/logo.png" alt="" /></div>
+  <div class="pre__mark"><img src="assets/logo/logo.webp" alt="" /></div>
   <div class="pre__bar"><i id="preBar"></i></div>
   <div class="pre__num"><span id="preNum">0</span>%</div>
 </div>
@@ -24,8 +27,8 @@
 <!-- ===================== HEADER ===================== -->
 <header class="hd" id="hd">
   <div class="hd__brand">
-    <a class="hd__logo" href="#top" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
-    <a class="hd__spon" href="#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.png" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+    <a class="hd__logo" href="#top" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
   </div>
   <nav class="hd__nav" id="hdNav">
     <a href="#about" data-i18n="nav.about">Camp</a>
@@ -46,7 +49,7 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
   <div class="hero__media" id="heroMedia" aria-hidden="true">
-    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+    <video class="hero__video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.webp">
       <source src="assets/video/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero__scrim"></div>
@@ -90,7 +93,7 @@
       <p class="reveal-up" data-i18n="ab.p2">Two trainings a day, individual video analysis, psychology workshops and lectures, evening competitions and excursions into one of Europe's last untouched forests. Players leave better — and they leave with friends for life.</p>
       <a class="ln-arrow reveal-up" href="#program"><span data-i18n="ab.cta">Explore the program</span><b>→</b></a>
     </div>
-    <div class="ab__media reveal-img"><img class="ab__img parallax-img" src="assets/img/about.jpg" alt="Basketball Camp Kolašin" loading="lazy" /></div>
+    <div class="ab__media reveal-img"><img class="ab__img parallax-img" src="assets/img/about.webp" alt="Basketball Camp Kolašin" loading="lazy" /></div>
   </div>
   <div class="stats">
     <div class="st reveal-up"><b class="count" data-to="11">0</b><i data-i18n="st.years">editions</i></div>
@@ -142,12 +145,12 @@
     <h2 class="ttl reveal-rich"><span data-i18n="life.title">Everything on-site.</span> <span class="it flame" data-i18n="life.title2">In the mountains.</span></h2>
   </div>
   <div class="life__grid">
-    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/room.jpg" alt="Hotel Pini" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.1.t">Hotel Pini Apart</h3><p data-i18n="life.1.d">Comfortable rooms in the pines, steps from the courts.</p></div></article>
-    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/sala.jpg" alt="Courts" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.2.t">Courts &amp; gym</h3><p data-i18n="life.2.d">Top training conditions, indoor and out.</p></div></article>
-    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/nature-hd.jpg" alt="Bjelasica" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.3.t">Biogradska Gora</h3><p data-i18n="life.3.d">Excursions into untouched forest.</p></div></article>
-    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/g8.jpg" alt="All-star" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.4.t">Games &amp; prizes</h3><p data-i18n="life.4.d">All-star nights and awards under the peaks.</p></div></article>
-    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/life-lecture.jpg" alt="Workshops" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.5.t">Workshops &amp; lectures</h3><p data-i18n="life.5.d">Sports psychology and pro habits.</p></div></article>
-    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/life-allstar.jpg" alt="All-star &amp; friends" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.6.t">All-star &amp; friendships</h3><p data-i18n="life.6.d">Games, awards and a team for life.</p></div></article>
+    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/room.webp" alt="Hotel Pini" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.1.t">Hotel Pini Apart</h3><p data-i18n="life.1.d">Comfortable rooms in the pines, steps from the courts.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/sala.webp" alt="Courts" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.2.t">Courts &amp; gym</h3><p data-i18n="life.2.d">Top training conditions, indoor and out.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/nature-hd.webp" alt="Bjelasica" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.3.t">Biogradska Gora</h3><p data-i18n="life.3.d">Excursions into untouched forest.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/g8.webp" alt="All-star" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.4.t">Games &amp; prizes</h3><p data-i18n="life.4.d">All-star nights and awards under the peaks.</p></div></article>
+    <article class="lc reveal-img"><img class="lc__img parallax-img" src="assets/img/life-lecture.webp" alt="Workshops" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.5.t">Workshops &amp; lectures</h3><p data-i18n="life.5.d">Sports psychology and pro habits.</p></div></article>
+    <article class="lc lc--big reveal-img"><img class="lc__img parallax-img" src="assets/img/life-allstar.webp" alt="All-star &amp; friends" loading="lazy" /><div class="lc__cap"><h3 data-i18n="life.6.t">All-star &amp; friendships</h3><p data-i18n="life.6.d">Games, awards and a team for life.</p></div></article>
   </div>
 </section>
 
@@ -158,8 +161,8 @@
     <h2 class="ttl ttl--light reveal-rich"><span data-i18n="co.title">Coached by</span> <span class="it flame" data-i18n="co.title2">legends.</span></h2>
   </div>
   <div class="co__grid">
-    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach1.jpg" alt="Vlado Šćepanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c1.role">Founder · Head Coach</span><h3>Vlado Šćepanović</h3><p data-i18n="co.c1.bio">Former Montenegro national team head coach. EuroLeague pedigree.</p></div></article>
-    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach2.jpg" alt="Savo Đikanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c2.role">Founder · Director</span><h3>Savo Đikanović</h3><p data-i18n="co.c2.bio">Co-founder and the engine behind eleven editions of the camp.</p></div></article>
+    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach1.webp" alt="Vlado Šćepanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c1.role">Founder · Head Coach</span><h3>Vlado Šćepanović</h3><p data-i18n="co.c1.bio">Former Montenegro national team head coach. EuroLeague pedigree.</p></div></article>
+    <article class="cc" tabindex="0"><img class="cc__img" src="assets/img/coach2.webp" alt="Savo Đikanović" loading="lazy" /><div class="cc__meta"><span class="cc__role" data-i18n="co.c2.role">Founder · Director</span><h3>Savo Đikanović</h3><p data-i18n="co.c2.bio">Co-founder and the engine behind eleven editions of the camp.</p></div></article>
   </div>
   <p class="co__note reveal-up" data-i18n="co.note">+ a full staff of professional trainers, organised by age and skill level.</p>
 </section>
@@ -172,12 +175,12 @@
     <p class="reveal-up" data-i18n="pm.lead">Every edition, NBA and European stars visit Kolašin as promoters — training and playing with the next generation.</p>
   </div>
   <div class="pm__grid">
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo1.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo2.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo3.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo4.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo5.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
-    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo6.jpg" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo1.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo2.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo3.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo4.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo5.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
+    <article class="ps reveal-img"><img class="ps__img" src="assets/img/promo6.webp" alt="" loading="lazy" /><div class="ps__info"><h3 data-i18n="pm.name">Guest name</h3><span data-i18n="pm.role">NBA · EuroLeague</span></div></article>
   </div>
   <p class="pm__note reveal-up" data-i18n="pm.note">Real photos — add the guest stars' names here.</p>
 </section>
@@ -186,18 +189,18 @@
 <section class="ga" id="gallery">
   <div class="ga__head"><span class="ey ey--light reveal-up" data-i18n="ga.eyebrow">Highlights</span><h2 class="ttl ttl--light reveal-rich"><span data-i18n="ga.title">Moments from</span> <span class="it flame" data-i18n="ga.title2">the mountain.</span></h2></div>
   <div class="ga__row" id="gaRow">
-    <div class="gi"><img src="assets/img/g1.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g2.jpg" alt="" loading="lazy" /></div>
-    <div class="gi"><img src="assets/img/g3.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g4.jpg" alt="" loading="lazy" /></div>
-    <div class="gi"><img src="assets/img/g5.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g6.jpg" alt="" loading="lazy" /></div>
-    <div class="gi"><img src="assets/img/g7.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g8.jpg" alt="" loading="lazy" /></div>
-    <div class="gi"><img src="assets/img/g9.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g10.jpg" alt="" loading="lazy" /></div>
-    <div class="gi"><img src="assets/img/g11.jpg" alt="" loading="lazy" /></div>
-    <div class="gi gi--w"><img src="assets/img/g12.jpg" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g1.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g2.webp" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g3.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g4.webp" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g5.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g6.webp" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g7.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g8.webp" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g9.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g10.webp" alt="" loading="lazy" /></div>
+    <div class="gi"><img src="assets/img/g11.webp" alt="" loading="lazy" /></div>
+    <div class="gi gi--w"><img src="assets/img/g12.webp" alt="" loading="lazy" /></div>
   </div>
   <p class="ga__hint" data-i18n="ga.hint">drag to explore</p>
 </section>
@@ -239,7 +242,7 @@
     <div class="gsp reveal-up">
       <span class="gsp__lab" data-i18n="sp.general">General sponsor</span>
       <a class="gsp__card" href="https://www.lovcenosiguranje.me" target="_blank" rel="noopener" aria-label="Lovćen Osiguranje">
-        <img src="assets/img/spon/lovcen.png" alt="Lovćen Osiguranje" loading="lazy" />
+        <img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje" loading="lazy" />
       </a>
       <p class="gsp__name">Lovćen Osiguranje</p>
     </div>
@@ -248,14 +251,14 @@
     <div class="lblock reveal-up">
       <span class="lblock__lab" data-i18n="sp.sponsors">Camp sponsors</span>
       <div class="lgrid">
-        <div class="lcell" data-name="EPCG"><img src="assets/img/spon/epcg.png" alt="EPCG" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="EPCG"><img src="assets/img/spon/epcg.webp" alt="EPCG" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
         <div class="lcell" data-name="CGES"><img src="assets/img/spon/cges.svg" alt="CGES — Crnogorski elektroprenosni sistem" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
         <div class="lcell" data-name="Monteput"><img src="assets/img/spon/monteput.svg" alt="Monteput" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="Hipotekarna banka"><img src="assets/img/spon/hipotekarna.png" alt="Hipotekarna banka" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="Sport Vision"><img src="assets/img/spon/sport-vision.png" alt="Sport Vision" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="SUZA"><img src="assets/img/spon/suza.png" alt="SUZA izvorska voda" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="BAR-KOD"><img src="assets/img/spon/bar-kod.png" alt="BAR-KOD" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="Lalatović Travel"><img src="assets/img/spon/lalatovic.png" alt="Lalatović Travel" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Hipotekarna banka"><img src="assets/img/spon/hipotekarna.webp" alt="Hipotekarna banka" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Sport Vision"><img src="assets/img/spon/sport-vision.webp" alt="Sport Vision" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="SUZA"><img src="assets/img/spon/suza.webp" alt="SUZA izvorska voda" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="BAR-KOD"><img src="assets/img/spon/bar-kod.webp" alt="BAR-KOD" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Lalatović Travel"><img src="assets/img/spon/lalatovic.webp" alt="Lalatović Travel" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
         <div class="lcell" data-name="MAINFRAME"><img src="assets/img/spon/mainframe.svg" alt="MAINFRAME" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
       </div>
     </div>
@@ -264,12 +267,12 @@
     <div class="lblock reveal-up">
       <span class="lblock__lab" data-i18n="sp.partners">Camp partners</span>
       <div class="lgrid lgrid--p">
-        <div class="lcell" data-name="Opština Kolašin"><img src="assets/img/partner/opstina-kolasin.png" alt="Opština Kolašin" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Opština Kolašin"><img src="assets/img/partner/opstina-kolasin.webp" alt="Opština Kolašin" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
         <div class="lcell" data-name="Crnogorski olimpijski komitet"><img src="assets/img/partner/cok.svg" alt="Crnogorski olimpijski komitet" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="Vlada Crne Gore"><img src="assets/img/partner/vlada.png" alt="Vlada Crne Gore" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="Bianca Resort &amp; Spa"><img src="assets/img/partner/bianca.png" alt="Bianca Resort & Spa" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Vlada Crne Gore"><img src="assets/img/partner/vlada.webp" alt="Vlada Crne Gore" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="Bianca Resort &amp; Spa"><img src="assets/img/partner/bianca.webp" alt="Bianca Resort & Spa" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
         <div class="lcell" data-name="TO Kolašin"><img src="assets/img/partner/to-kolasin.svg" alt="Turistička organizacija Kolašin" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
-        <div class="lcell" data-name="ARDU"><img src="assets/img/partner/ardu.png" alt="ARDU" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
+        <div class="lcell" data-name="ARDU"><img src="assets/img/partner/ardu.webp" alt="ARDU" loading="lazy" onerror="this.closest('.lcell').classList.add('lcell--ph');this.remove()" /></div>
       </div>
     </div>
 
@@ -307,7 +310,7 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="ft">
   <div class="ft__top">
-    <div class="ft__brand"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Reach the summit. Kolašin, Crna Gora.</p></div>
+    <div class="ft__brand"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Reach the summit. Kolašin, Crna Gora.</p></div>
     <nav class="ft__nav">
       <a href="#about" data-i18n="nav.about">Camp</a><a href="#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.onama">About</a><a href="smjestaj.html" data-i18n="nav.smjestaj">Stay</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoters</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="#sessions" data-i18n="nav.sessions">Sessions</a><a href="#faq" data-i18n="fq.eyebrow">FAQ</a>
     </nav>

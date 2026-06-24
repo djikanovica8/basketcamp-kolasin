@@ -9,6 +9,8 @@
 <link rel="icon" href="assets/logo/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
 <style>
@@ -276,7 +278,8 @@
   .mvp-hero__title .gold{background-size:220% auto;animation:goldShimmer 7s linear infinite}
   @keyframes goldShimmer{to{background-position:220% center}}
 
-  /* split-text letters (MVP name reveal) */
+  /* split-text letters (MVP name reveal) — words stay whole, only letters animate */
+  .mvp__name .word{display:inline-block;white-space:nowrap}
   .mvp__name .char{display:inline-block;will-change:transform,opacity}
 
   /* timeline node ignites (glows) as the spine fill reaches it */
@@ -301,8 +304,8 @@
 <!-- ===================== HEADER ===================== -->
 <header class="hd" id="hd">
   <div class="hd__brand">
-    <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /></a>
-    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.png" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+    <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
   </div>
   <nav class="hd__nav" id="hdNav">
     <a href="index.html" data-i18n="nav.camp">Kamp</a>
@@ -369,7 +372,7 @@
         <div class="mvp-photo" data-year="2025">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2025</span>
-          <img src="assets/img/mvp/2025.jpg" alt="Tihan Vukićević — MVP 2025" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2025.webp" alt="Tihan Vukićević — MVP 2025" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -388,7 +391,7 @@
         <div class="mvp-photo" data-year="2024">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2024</span>
-          <img src="assets/img/mvp/2024.jpg" alt="Pavel Joksimović — MVP 2024" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2024.webp" alt="Pavel Joksimović — MVP 2024" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -407,7 +410,7 @@
         <div class="mvp-photo" data-year="2023">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2023</span>
-          <img src="assets/img/mvp/2023.jpg" alt="Jovan Mitrović — MVP 2023" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2023.webp" alt="Jovan Mitrović — MVP 2023" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -426,7 +429,7 @@
         <div class="mvp-photo" data-year="2022">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2022</span>
-          <img src="assets/img/mvp/2022.jpg" alt="Jakov Vujičić — MVP 2022" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2022.webp" alt="Jakov Vujičić — MVP 2022" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -445,7 +448,7 @@
         <div class="mvp-photo" data-year="2021">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2021</span>
-          <img src="assets/img/mvp/2021.jpg" alt="Filip Vukmirović — MVP 2021" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2021.webp" alt="Filip Vukmirović — MVP 2021" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -464,7 +467,7 @@
         <div class="mvp-photo" data-year="2020">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2020</span>
-          <img src="assets/img/mvp/2020.jpg" alt="Pavle Mugoša — MVP 2020" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2020.webp" alt="Pavle Mugoša — MVP 2020" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -483,7 +486,7 @@
         <div class="mvp-photo" data-year="2019">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2019</span>
-          <img src="assets/img/mvp/2019.jpg" alt="David Mirković — MVP 2019" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2019.webp" alt="David Mirković — MVP 2019" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -502,7 +505,7 @@
         <div class="mvp-photo" data-year="2018">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2018</span>
-          <img src="assets/img/mvp/2018.jpg" alt="Andrija Jeknić — MVP 2018" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2018.webp" alt="Andrija Jeknić — MVP 2018" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -521,7 +524,7 @@
         <div class="mvp-photo" data-year="2017">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2017</span>
-          <img src="assets/img/mvp/2017.jpg" alt="Đorđije Jovanović — MVP 2017" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2017.webp" alt="Đorđije Jovanović — MVP 2017" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -540,7 +543,7 @@
         <div class="mvp-photo" data-year="2016">
           <span class="mvp-photo__cam" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 8h3l1.5-2h9L18 8h3v11H3zM12 11a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/></svg></span>
           <span class="mvp-photo__wm" aria-hidden="true">2016</span>
-          <img src="assets/img/mvp/2016.jpg" alt="Stefan Šimun — MVP 2016" loading="lazy" onerror="this.remove()" />
+          <img src="assets/img/mvp/2016.webp" alt="Stefan Šimun — MVP 2016" loading="lazy" onerror="this.remove()" />
           <span class="mvp-photo__soon" data-i18n="mvp.soon">fotografija uskoro</span>
         </div>
       </div>
@@ -573,7 +576,7 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="ft">
   <div class="ft__top">
-    <div class="ft__brand"><img src="assets/logo/logo.png" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <div class="ft__brand"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
     <nav class="ft__nav">
       <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
     </nav>
@@ -735,12 +738,21 @@
   function splitChars(el) {
     const txt = el.textContent; el.textContent = "";
     const frag = document.createDocumentFragment();
-    for (const ch of txt) {
-      if (ch === " ") { frag.appendChild(document.createTextNode(" ")); continue; }
-      const s = document.createElement("span"); s.className = "char"; s.textContent = ch; frag.appendChild(s);
-    }
+    const chars = [];
+    /* keep whole WORDS together (a non-breaking inline-block) so a name never
+       splits mid-word; only the letters inside animate */
+    txt.split(/(\s+)/).forEach((tok) => {
+      if (tok === "") return;
+      if (/^\s+$/.test(tok)) { frag.appendChild(document.createTextNode(tok)); return; }
+      const word = document.createElement("span"); word.className = "word";
+      for (const ch of tok) {
+        const s = document.createElement("span"); s.className = "char"; s.textContent = ch;
+        word.appendChild(s); chars.push(s);
+      }
+      frag.appendChild(word);
+    });
     el.appendChild(frag);
-    return Array.from(el.querySelectorAll(".char"));
+    return chars;
   }
 
   /* ---------------- HALL OF FAME: cinematic row reveal ----------------
@@ -764,9 +776,11 @@
       } else if (shot) {
         tl.from(shot, { y: stacked ? 0 : 48, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.05);
       }
-      if (name) {
+      if (name && !name.classList.contains("mvp__name--none")) {
         const chars = splitChars(name);
         tl.from(chars, { yPercent: 115, opacity: 0, rotation: 5, duration: 0.6, ease: "power3.out", stagger: 0.028 }, 0.22);
+      } else if (name) {
+        tl.from(name, { y: 18, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.24);
       }
     });
   }
