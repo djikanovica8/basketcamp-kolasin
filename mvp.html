@@ -207,6 +207,13 @@
   .mvp--reign .mvp__node{background:radial-gradient(circle at 34% 30%,#ffd9a0,var(--orange));box-shadow:0 0 0 6px rgba(242,116,26,.16),0 0 26px rgba(242,116,26,.7)}
   .mvp--reign .mvp__badge{color:var(--orange)}
 
+  /* 2015 "not awarded" has no photo — center the card as a clean closing statement
+     instead of leaving an empty photo column on one side */
+  .mvp--solo .mvp__node{display:none}
+  .mvp--solo .mvp__card{grid-column:1 / -1 !important;max-width:600px;margin-inline:auto;text-align:center !important}
+  .mvp--solo .mvp__ghost{left:50% !important;right:auto !important;transform:translate(-50%,-50%)}
+  .mvp--solo .mvp__badge{flex-direction:row !important;justify-content:center}
+
   /* reveal helpers for hall-of-fame rows (JS sets initial state) */
   .hof-reveal{will-change:transform,opacity}
 
@@ -499,7 +506,7 @@
     </article>
 
     <!-- 2015 — not awarded -->
-    <article class="mvp hof-reveal">
+    <article class="mvp mvp--solo hof-reveal">
       <div class="mvp__node" aria-hidden="true"></div>
       <div class="mvp__card">
         <span class="mvp__ghost" aria-hidden="true">2015</span>
