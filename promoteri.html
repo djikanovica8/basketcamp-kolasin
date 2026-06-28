@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#161210" />
 <title>Promoteri — Basketball Camp Kolašin · Zvijezde dolaze na planinu</title>
-<meta name="description" content="Promoteri Basketball Camp Kolašin — NBA i evropske zvijezde gostuju u Kolašinu, treniraju, inspirišu i igraju s novom generacijom šampiona na 1.450 m." />
+<meta name="description" content="Promoteri Basketball Camp Kolašin — NBA i evroligaške zvijezde, reprezentativci Crne Gore i vrhunski treneri gostuju u Kolašinu, treniraju i inspirišu novu generaciju šampiona." />
 <link rel="icon" href="assets/logo/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,96 +14,215 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
 <style>
-/* =====================================================================
-   PROMOTERI — page-specific layer · "VRH / The Summit"
-   Builds strictly on css/styles.css tokens & components.
-   ===================================================================== */
-html{overflow-x:hidden}
+  /* =====================================================================
+     PROMOTERI — "PANTEON ZVIJEZDA / Wall of Stars"
+     Page-scoped layer · extends Design C tokens & the MVP premium language.
+     ===================================================================== */
+  html{overflow-x:hidden}
+  .hd{--hdcol:var(--cream)}
 
-/* offset for fixed header on inner page (no full-bleed hero overlap reset) */
-.ph-hero{position:relative;min-height:clamp(78svh,86svh,92svh);display:flex;flex-direction:column;justify-content:flex-end;
-  padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);overflow:hidden;color:var(--cream)}
-.ph-hero__media{position:absolute;inset:0;z-index:-2}
-.ph-hero__img{position:absolute;inset:0;width:100%;height:118%;top:-9%;object-fit:cover;will-change:transform}
-.ph-hero__scrim{position:absolute;inset:0;z-index:-1;background:
-  radial-gradient(120% 120% at 78% 12%,rgba(242,116,26,.34),transparent 52%),
-  linear-gradient(to top,rgba(13,10,8,.9) 0%,rgba(13,10,8,.32) 46%,rgba(13,10,8,.6) 100%)}
-.ph-hero__inner{max-width:1320px;margin:0 auto;width:100%}
-.ph-hero .ey{color:var(--gold-l)}
-.ph-hero__title{font-family:var(--disp);font-weight:700;line-height:.95;letter-spacing:-.025em;
-  font-size:clamp(2.7rem,8vw,7rem);margin-bottom:1.3rem;max-width:16ch}
-.ph-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
-.ph-hero__title .ln span{display:inline-block;will-change:transform}
-.ph-hero__title .it{color:var(--orange)}
-.ph-hero__lead{max-width:54ch;font-size:clamp(1.05rem,1.5vw,1.28rem);color:rgba(243,237,227,.9)}
-.ph-hero__row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+  /* =================== HERO (cinematic espresso) =================== */
+  .ph{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);
+    overflow:hidden;color:var(--cream);background:var(--esp);isolation:isolate}
+  .ph__bg{position:absolute;inset:0;z-index:-3;background:
+    radial-gradient(82% 70% at 50% -12%,rgba(202,161,74,.30),transparent 60%),
+    radial-gradient(120% 120% at 80% 6%,rgba(242,116,26,.20),transparent 55%),
+    linear-gradient(180deg,#1c1610 0%,#161210 55%,#0f0c09 100%)}
+  .ph__bg::after{content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(48deg,rgba(255,255,255,.018) 0 22px,transparent 22px 44px);mix-blend-mode:overlay}
+  .ph__spot{position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:0;transition:opacity .8s ease;
+    background:radial-gradient(460px 460px at var(--mx,50%) var(--my,30%),rgba(202,161,74,.18),transparent 68%)}
+  .ph:hover .ph__spot{opacity:1}
+  .ph__dust{position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+  .ph__dust i{position:absolute;bottom:-6%;width:3px;height:3px;border-radius:50%;background:var(--gold-l);
+    box-shadow:0 0 7px 1px rgba(202,161,74,.7);opacity:0;animation:dustRise linear infinite}
+  @keyframes dustRise{0%{opacity:0;transform:translateY(0) scale(.5)}12%{opacity:.7}88%{opacity:.45}100%{opacity:0;transform:translateY(-82vh) scale(1)}}
+  /* faint kinetic names band behind the headline */
+  .ph__marq{position:absolute;left:0;right:0;top:38%;z-index:-2;pointer-events:none;overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+  .ph__marq u{display:inline-block;white-space:nowrap;font-style:normal;font-family:var(--disp);font-weight:800;
+    font-size:clamp(3rem,9vw,8rem);line-height:1;letter-spacing:-.02em;color:transparent;
+    -webkit-text-stroke:1px rgba(220,187,106,.10);animation:marqL 46s linear infinite}
+  .ph__marq u em{font-style:normal;color:rgba(242,116,26,.10);margin:0 .35em}
+  @keyframes marqL{to{transform:translateX(-50%)}}
 
-/* intro band on porcelain */
-.ph-intro{padding:clamp(3.4rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem) 0}
-.ph-intro__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.6rem,4vw,4rem);align-items:end}
-.ph-intro__grid .ttl{margin-bottom:0}
-.ph-intro__grid p{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:52ch}
-.ph-intro__grid p b{font-weight:700;opacity:1}
+  .ph__inner{max-width:1320px;margin:0 auto;width:100%;position:relative}
+  .ph__kick{display:inline-flex;align-items:center;gap:.6em;font-family:var(--body);font-weight:600;font-size:.76rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);border:1px solid rgba(202,161,74,.4);
+    border-radius:100px;padding:.5em 1.05em;margin-bottom:1.5rem;background:rgba(0,0,0,.22);backdrop-filter:blur(6px)}
+  .ph__kick .d{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pls 2.4s infinite}
+  .ph__title{font-family:var(--disp);font-weight:800;line-height:.9;letter-spacing:-.03em;
+    font-size:clamp(3rem,10.5vw,9.5rem);margin-bottom:1.4rem;text-wrap:balance}
+  .ph__title .ln{display:block;overflow:hidden;padding-bottom:.04em}
+  .ph__title .ln span{display:inline-block;will-change:transform}
+  .ph__title .gold{background:linear-gradient(105deg,var(--gold-l) 8%,#f4e0a8 38%,var(--gold) 62%,var(--orange) 100%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--gold-l);
+    background-size:220% auto;animation:goldShimmer 7s linear infinite}
+  @keyframes goldShimmer{to{background-position:220% center}}
+  .ph__sub{max-width:50ch;font-size:clamp(1.05rem,1.7vw,1.35rem);color:rgba(243,237,227,.86)}
+  .ph__row{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+  .ph__scroll{position:absolute;right:0;bottom:2px;display:flex;flex-direction:column;align-items:center;gap:.45rem;
+    font-family:var(--body);font-weight:600;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,237,227,.6)}
+  .ph__scroll b{font-style:normal;animation:bob 1.6s ease-in-out infinite}
 
-/* =================== SHOWCASE — hall of stars =================== */
-.show{padding:clamp(3rem,6vw,5rem) clamp(1.2rem,5vw,5rem) clamp(4rem,8vw,7rem)}
-.show__head{max-width:1320px;margin:0 auto clamp(2rem,4vw,3rem);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem}
-.show__head .ey{margin-bottom:.7rem}
-.show__lab{font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
-.show__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem}
-/* feature a couple of cards bigger for an editorial "hall" rhythm */
-.show__grid .ps--wide{grid-column:span 2;aspect-ratio:auto}
-.show__grid .ps--tall{grid-row:span 2;aspect-ratio:3/6.3}
-.show__no{position:absolute;top:.7rem;right:.85rem;z-index:2;font-family:var(--disp);font-weight:700;font-size:.9rem;
-  color:rgba(243,237,227,.75);text-shadow:0 1px 8px rgba(0,0,0,.5);letter-spacing:.02em}
-/* gold hairline that appears on hover, premium touch */
-.ps::after{content:"";position:absolute;inset:0;z-index:3;border-radius:16px;pointer-events:none;
-  box-shadow:inset 0 0 0 0 var(--gold);transition:box-shadow .5s var(--ease)}
-.ps:hover::after{box-shadow:inset 0 0 0 1px rgba(202,161,74,.6)}
-.show__note{max-width:1320px;margin:clamp(1.8rem,3vw,2.4rem) auto 0;font-family:var(--body);font-weight:600;
-  font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);display:inline-flex;align-items:center;gap:.6em}
-.show__note::before{content:"";width:30px;height:1px;background:var(--gold)}
+  /* =================== INTRO + STAT BAND (porcelain) =================== */
+  .pin{padding:clamp(3.4rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem) clamp(1rem,3vw,2rem)}
+  .pin__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.6rem,4vw,4rem);align-items:end}
+  .pin__grid .ttl{margin-bottom:0}
+  .pin__grid p{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:52ch}
+  .pin__grid p b{font-weight:700;opacity:1}
+  .pstats{max-width:1320px;margin:clamp(2.4rem,5vw,3.6rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1rem;border-top:1px solid var(--line);padding-top:clamp(1.6rem,3vw,2.4rem)}
+  .pstat__n{font-family:var(--disp);font-weight:800;line-height:1;letter-spacing:-.02em;font-size:clamp(2.4rem,5.5vw,4rem);color:var(--orange-d)}
+  .pstat__n .pl{color:var(--gold)}
+  .pstat__l{margin-top:.5rem;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
 
-/* =================== EDITORIAL FEATURE =================== */
-.feat{position:relative;min-height:clamp(70svh,80svh,86svh);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream)}
-.feat__media{position:absolute;inset:0;z-index:-2}
-.feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;will-change:transform}
-.feat__scrim{position:absolute;inset:0;z-index:-1;background:
-  linear-gradient(105deg,rgba(13,10,8,.86) 0%,rgba(13,10,8,.5) 42%,rgba(13,10,8,.12) 100%),
-  linear-gradient(to top,rgba(13,10,8,.7),transparent 55%)}
-.feat__inner{max-width:1320px;margin:0 auto;width:100%;padding:clamp(2.6rem,6vw,5rem) clamp(1.2rem,5vw,5rem)}
-.feat__q{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.02em;
-  font-size:clamp(2rem,5vw,4.4rem);max-width:18ch}
-.feat__q .flame{color:var(--orange)}
-.feat__by{margin-top:1.4rem;display:flex;align-items:center;gap:.7em;font-family:var(--body);font-weight:600;
-  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
-.feat__by::before{content:"";width:34px;height:1px;background:var(--gold)}
+  /* =================== WALL OF STARS (espresso) =================== */
+  .pw{position:relative;background:var(--esp);color:var(--cream);overflow:hidden;
+    padding:clamp(3.4rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem) clamp(4rem,8vw,7rem);isolation:isolate}
+  .pw__bg{position:absolute;inset:0;z-index:-1;background:
+    radial-gradient(60% 50% at 12% 0%,rgba(202,161,74,.12),transparent 55%),
+    radial-gradient(60% 60% at 90% 100%,rgba(242,116,26,.10),transparent 55%)}
+  .pw__head{max-width:1320px;margin:0 auto clamp(1.8rem,3vw,2.6rem);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.2rem}
+  .pw__head .ey::before{display:none}
+  .pw__head .ttl{margin-top:.2rem}
+  .pw__head p{color:var(--mut-l);max-width:46ch;margin-top:.8rem;font-size:1.03rem}
 
-/* =================== CTA BAND =================== */
-.cta-band{background:var(--esp);color:var(--cream);text-align:center;
-  padding:clamp(4rem,8vw,6.5rem) clamp(1.2rem,5vw,5rem)}
-.cta-band__inner{max-width:760px;margin:0 auto}
-.cta-band .ey{color:var(--gold-l)}
-.cta-band .ttl{margin-bottom:1.4rem}
-.cta-band p{color:var(--mut-l);font-size:1.06rem;max-width:46ch;margin:0 auto 2rem}
+  /* filter chips */
+  .pw__filters{max-width:1320px;margin:0 auto clamp(2rem,3.5vw,2.8rem);display:flex;flex-wrap:wrap;gap:.6rem}
+  .chip{font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.02em;color:var(--mut-l);
+    border:1px solid var(--line-l);background:rgba(243,237,227,.03);border-radius:100px;padding:.55em 1.1em;cursor:pointer;
+    transition:color .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease),transform .35s var(--ease)}
+  .chip:hover{color:var(--cream);border-color:rgba(202,161,74,.45);transform:translateY(-2px)}
+  .chip.on{color:#fff;background:var(--orange);border-color:var(--orange);box-shadow:0 10px 24px -10px rgba(242,116,26,.6)}
+  .chip b{font-style:normal;opacity:.6;margin-left:.45em;font-weight:600}
 
-@media (max-width:1024px){
-  .ph-intro__grid{grid-template-columns:1fr;align-items:start;gap:1.2rem}
-  .show__grid{grid-template-columns:repeat(3,1fr)}
-  .show__grid .ps--wide{grid-column:span 2}
-  .show__grid .ps--tall{grid-row:span 1;aspect-ratio:3/4}
-}
-@media (max-width:560px){
-  .show__grid{grid-template-columns:repeat(2,1fr)}
-  .show__grid .ps--wide,.show__grid .ps--tall{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
-  .ph-hero__img,.feat__img{top:0;height:100%}
-}
+  /* grid */
+  .pw__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1.05rem}
+  .pc{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--line-l);
+    background:linear-gradient(155deg,#2a221a,#15110d);cursor:pointer;isolation:isolate;will-change:transform;
+    transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+  .pc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:1;
+    filter:grayscale(.92) brightness(.86) contrast(1.02);transform:scale(1.02);
+    transition:filter .6s var(--ease),transform .8s var(--ease)}
+  .pc:hover{border-color:rgba(202,161,74,.5);box-shadow:0 36px 60px -34px rgba(0,0,0,.85),0 0 50px -28px rgba(202,161,74,.5)}
+  .pc:hover .pc__img{filter:grayscale(0) brightness(1) contrast(1);transform:scale(1.07)}
+  .pc__scrim{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(13,10,8,.92) 4%,rgba(13,10,8,.34) 42%,transparent 70%)}
+  .pc__no{position:absolute;top:.7rem;left:.85rem;z-index:4;font-family:var(--disp);font-weight:700;font-size:.82rem;
+    color:rgba(243,237,227,.7);letter-spacing:.02em;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .pc__star{position:absolute;top:.6rem;right:.7rem;z-index:4;width:20px;height:20px;opacity:0;transform:scale(.6);
+    filter:drop-shadow(0 0 8px rgba(202,161,74,.7));transition:opacity .4s var(--ease),transform .4s var(--ease)}
+  .pc__star svg{width:100%;height:100%;display:block;fill:var(--gold-l)}
+  .pc--feat .pc__star{opacity:.95;transform:scale(1)}
+  .pc__info{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:1rem .95rem 1.05rem}
+  .pc__name{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.012em;font-size:1.02rem;color:var(--cream)}
+  .pc__role{margin-top:.28rem;font-family:var(--body);font-weight:600;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold-l);opacity:.92;display:block;max-width:22ch}
+  .pc__cta{position:absolute;right:.85rem;bottom:1rem;z-index:4;width:30px;height:30px;border-radius:50%;
+    border:1px solid rgba(243,237,227,.3);display:grid;place-items:center;color:var(--cream);
+    opacity:0;transform:translateY(6px);transition:opacity .4s var(--ease),transform .4s var(--ease),background .3s,border-color .3s}
+  .pc__cta svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .pc:hover .pc__cta{opacity:1;transform:translateY(0)}
+  .pc:hover .pc__cta{background:var(--orange);border-color:var(--orange);color:#fff}
+  .pc__gold{content:"";position:absolute;inset:0;z-index:5;border-radius:18px;pointer-events:none;
+    box-shadow:inset 0 0 0 0 rgba(202,161,74,.6);transition:box-shadow .5s var(--ease)}
+  .pc:hover .pc__gold{box-shadow:inset 0 0 0 1.5px rgba(202,161,74,.55)}
+  .pc.is-hidden{display:none}
+
+  .pw__note{max-width:1320px;margin:clamp(1.8rem,3vw,2.4rem) auto 0;font-family:var(--body);font-weight:600;
+    font-size:.76rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut-l);display:inline-flex;align-items:center;gap:.6em}
+  .pw__note::before{content:"";width:30px;height:1px;background:var(--gold)}
+
+  /* =================== BIO LIGHTBOX =================== */
+  .lb{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:clamp(.8rem,3vw,2.2rem)}
+  .lb.open{display:flex}
+  .lb__veil{position:absolute;inset:0;background:rgba(8,6,5,.78);backdrop-filter:blur(10px);opacity:0}
+  .lb__panel{position:relative;width:min(1080px,100%);max-height:92svh;overflow:hidden;border-radius:24px;
+    border:1px solid rgba(202,161,74,.28);background:linear-gradient(165deg,#241d16,#141009);
+    box-shadow:0 60px 120px -40px rgba(0,0,0,.85);display:grid;grid-template-columns:.86fr 1.14fr;will-change:transform,opacity}
+  .lb__media{position:relative;overflow:hidden;background:#15110d;min-height:340px}
+  .lb__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;
+    transform:scale(1.06);transition:transform 8s ease}
+  .lb.show .lb__media img{transform:scale(1)}
+  .lb__media::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 55%,rgba(20,16,9,.5));mix-blend-mode:multiply}
+  .lb__no{position:absolute;top:1rem;left:1.1rem;z-index:2;font-family:var(--disp);font-weight:700;font-size:.9rem;color:rgba(243,237,227,.8);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .lb__body{position:relative;padding:clamp(1.6rem,3vw,2.8rem);overflow-y:auto;color:var(--cream)}
+  .lb__badge{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.62rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:.8rem}
+  .lb__badge i{width:6px;height:6px;border-radius:50%;background:var(--orange);font-style:normal}
+  .lb__name{font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.022em;font-size:clamp(1.9rem,4vw,3rem);color:var(--cream)}
+  .lb__role{margin-top:.5rem;font-family:var(--body);font-weight:600;font-size:.82rem;letter-spacing:.04em;color:var(--gold-l)}
+  .lb__meta{margin-top:.9rem;display:flex;flex-wrap:wrap;gap:.5rem}
+  .lb__meta span{font-family:var(--body);font-weight:600;font-size:.68rem;letter-spacing:.04em;color:var(--mut-l);
+    border:1px solid var(--line-l);border-radius:100px;padding:.4em .85em}
+  .lb__hl{list-style:none;margin:1.3rem 0 0;padding:0;display:grid;gap:.6rem}
+  .lb__hl li{position:relative;padding-left:1.5em;font-size:.95rem;line-height:1.4;color:rgba(243,237,227,.92)}
+  .lb__hl li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%,#ffe6b0,var(--gold));box-shadow:0 0 10px rgba(202,161,74,.6)}
+  .lb__bio{margin-top:1.3rem;font-size:1rem;line-height:1.6;color:rgba(243,237,227,.84);max-width:56ch}
+  .lb__x{position:absolute;top:.9rem;right:.9rem;z-index:6;width:42px;height:42px;border-radius:50%;
+    border:1px solid rgba(243,237,227,.26);background:rgba(8,6,5,.4);color:var(--cream);display:grid;place-items:center;cursor:pointer;
+    transition:background .3s,border-color .3s,transform .3s var(--ease)}
+  .lb__x:hover{background:var(--orange);border-color:var(--orange);transform:rotate(90deg)}
+  .lb__x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+  .lb__nav{position:absolute;bottom:1rem;right:1.1rem;z-index:6;display:flex;align-items:center;gap:.7rem}
+  .lb__count{font-family:var(--disp);font-weight:700;font-size:.82rem;color:var(--mut-l);letter-spacing:.04em}
+  .lb__arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(243,237,227,.26);background:rgba(8,6,5,.4);
+    color:var(--cream);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+  .lb__arrow:hover{background:var(--gold);border-color:var(--gold);color:#161210}
+  .lb__arrow svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .lb__anim{will-change:transform,opacity}
+
+  /* =================== EDITORIAL FEATURE =================== */
+  .feat{position:relative;min-height:clamp(64svh,76svh,82svh);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream)}
+  .feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;object-position:50% 35%;z-index:-2;will-change:transform}
+  .feat__scrim{position:absolute;inset:0;z-index:-1;background:
+    linear-gradient(105deg,rgba(13,10,8,.86) 0%,rgba(13,10,8,.5) 42%,rgba(13,10,8,.12) 100%),
+    linear-gradient(to top,rgba(13,10,8,.72),transparent 55%)}
+  .feat__inner{max-width:1320px;margin:0 auto;width:100%;padding:clamp(2.6rem,6vw,5rem) clamp(1.2rem,5vw,5rem)}
+  .feat__q{font-family:var(--disp);font-weight:700;line-height:1.02;letter-spacing:-.02em;font-size:clamp(2rem,5vw,4.4rem);max-width:18ch}
+  .feat__q .flame{color:var(--orange)}
+  .feat__by{margin-top:1.4rem;display:flex;align-items:center;gap:.7em;font-family:var(--body);font-weight:600;
+    font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+  .feat__by::before{content:"";width:34px;height:1px;background:var(--gold)}
+
+  /* =================== CTA BAND =================== */
+  .cta-band{position:relative;background:var(--esp-2);color:var(--cream);text-align:center;overflow:hidden;isolation:isolate;
+    padding:clamp(4.5rem,9vw,7.5rem) clamp(1.2rem,5vw,5rem)}
+  .cta-band__glow{position:absolute;inset:0;z-index:-1;
+    background:radial-gradient(60% 90% at 50% 120%,rgba(242,116,26,.26),transparent 60%),
+              radial-gradient(50% 70% at 50% -10%,rgba(202,161,74,.16),transparent 60%)}
+  .cta-band .ey{display:block}.cta-band .ey::before{display:none}
+  .cta-band__title{font-family:var(--disp);font-weight:800;line-height:1.02;letter-spacing:-.02em;
+    font-size:clamp(2rem,5.4vw,4.2rem);max-width:18ch;margin:.4rem auto 2rem;text-wrap:balance}
+  .cta-band__title .flame{color:var(--orange)}
+
+  /* =================== RESPONSIVE =================== */
+  @media (max-width:1100px){ .pw__grid{grid-template-columns:repeat(4,1fr)} }
+  @media (max-width:900px){
+    .pin__grid{grid-template-columns:1fr;align-items:start;gap:1.2rem}
+    .pstats{grid-template-columns:repeat(2,1fr);gap:1.4rem 1rem}
+    .pw__grid{grid-template-columns:repeat(3,1fr)}
+    .lb__panel{grid-template-columns:1fr;max-height:90svh}
+    .lb__media{min-height:42svh}
+  }
+  @media (max-width:560px){
+    .pw__grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
+    .ph__scroll{display:none}
+    .pc__role{font-size:.54rem}
+    .lb__media{min-height:36svh}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ph__dust,.ph__marq,.ph__title .gold{animation:none}
+    .pc__img{filter:grayscale(0) brightness(1)}
+  }
 </style>
 </head>
 <body>
 
 <!-- ===================== HEADER ===================== -->
-<header class="hd on-dark" id="hd">
+<header class="hd" id="hd">
   <div class="hd__brand">
     <a class="hd__logo" href="index.html" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
     <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
@@ -124,95 +243,94 @@ html{overflow-x:hidden}
   </div>
 </header>
 
-<!-- ===================== HERO HEADER ===================== -->
-<section class="ph-hero" id="top">
-  <div class="ph-hero__media" aria-hidden="true">
-    <img class="ph-hero__img parallax-hero" src="assets/img/promo1.webp" alt="" />
-  </div>
-  <div class="ph-hero__scrim" aria-hidden="true"></div>
-  <div class="ph-hero__inner">
-    <span class="ey reveal-up" data-i18n="ph.eyebrow">Promoteri / Special guests</span>
-    <h1 class="ph-hero__title">
+<!-- ===================== HERO ===================== -->
+<section class="ph" id="top">
+  <div class="ph__bg" aria-hidden="true"></div>
+  <div class="ph__spot" aria-hidden="true"></div>
+  <div class="ph__dust" id="phDust" aria-hidden="true"></div>
+  <div class="ph__marq" id="phMarq" aria-hidden="true"></div>
+  <div class="ph__inner">
+    <div class="ph__kick reveal-up"><span class="d"></span><span data-i18n="ph.kicker">Promoteri · Specijalni gosti</span></div>
+    <h1 class="ph__title">
       <span class="ln"><span data-i18n="ph.t1">Zvijezde dolaze</span></span>
-      <span class="ln"><span class="it" data-i18n="ph.t2">na planinu.</span></span>
+      <span class="ln"><span class="gold" data-i18n="ph.t2">na planinu.</span></span>
     </h1>
-    <p class="ph-hero__lead reveal-up" data-i18n="ph.lead">Svakog izdanja, NBA i evropske zvijezde gostuju u Kolašinu kao promoteri — treniraju, inspirišu i igraju s novom generacijom.</p>
-    <div class="ph-hero__row reveal-up">
-      <a class="btn btn--orange" href="index.html#register"><span data-i18n="ph.cta">Prijavi se</span><b>→</b></a>
-      <a class="btn btn--glass" href="#hall"><span data-i18n="ph.cta2">Pogledaj goste</span><b>↓</b></a>
+    <p class="ph__sub reveal-up" data-i18n="ph.sub">NBA i evroligaške zvijezde, reprezentativci Crne Gore i vrhunski treneri — svakog ljeta dolaze u Kolašin, treniraju i inspirišu novu generaciju.</p>
+    <div class="ph__row reveal-up">
+      <a class="btn btn--orange" href="#wall"><span data-i18n="ph.cta">Pogledaj zvijezde</span><b>↓</b></a>
+      <a class="btn btn--glass" href="index.html#register"><span data-i18n="ph.cta2">Prijavi se</span><b>→</b></a>
     </div>
   </div>
+  <a class="ph__scroll reveal-up" href="#wall"><span data-i18n="ph.scroll">Panteon zvijezda</span><b>↓</b></a>
 </section>
 
 <!-- ===================== TICKER ===================== -->
 <div class="tick">
-  <div class="tick__t">
-    <span data-i18n="tk.1">NBA gosti</span><em>●</em><span data-i18n="tk.2">Evroligaške zvijezde</span><em>●</em><span data-i18n="tk.3">Treninzi sa šampionima</span><em>●</em><span data-i18n="tk.4">Autogrami i fotografije</span><em>●</em><span data-i18n="tk.5">Inspiracija za novu generaciju</span><em>●</em>
-    <span data-i18n="tk.1">NBA gosti</span><em>●</em><span data-i18n="tk.2">Evroligaške zvijezde</span><em>●</em><span data-i18n="tk.3">Treninzi sa šampionima</span><em>●</em><span data-i18n="tk.4">Autogrami i fotografije</span><em>●</em><span data-i18n="tk.5">Inspiracija za novu generaciju</span><em>●</em>
+  <div class="tick__t" id="tick">
+    <span data-i18n="tk.1">NBA gosti</span><em>●</em><span data-i18n="tk.2">Evroligaške zvijezde</span><em>●</em><span data-i18n="tk.3">Reprezentativci Crne Gore</span><em>●</em><span data-i18n="tk.4">Treninzi sa šampionima</span><em>●</em><span data-i18n="tk.5">Inspiracija za novu generaciju</span><em>●</em>
+    <span data-i18n="tk.1">NBA gosti</span><em>●</em><span data-i18n="tk.2">Evroligaške zvijezde</span><em>●</em><span data-i18n="tk.3">Reprezentativci Crne Gore</span><em>●</em><span data-i18n="tk.4">Treninzi sa šampionima</span><em>●</em><span data-i18n="tk.5">Inspiracija za novu generaciju</span><em>●</em>
   </div>
 </div>
 
-<!-- ===================== INTRO BAND ===================== -->
-<section class="ph-intro">
-  <div class="ph-intro__grid">
+<!-- ===================== INTRO + STATS ===================== -->
+<section class="pin">
+  <div class="pin__grid">
     <h2 class="ttl reveal-rich"><span data-i18n="in.t1">Hala</span> <span class="it flame" data-i18n="in.t2">zvijezda.</span></h2>
     <p class="reveal-up" data-i18n="in.p">Iz godine u godinu, na planinu dolaze imena koja djeca prate na velikim ekranima. Sa njima na parketu, mladi igrači uče iz prve ruke šta znači <b>vrh</b> — i kako se do njega stiže.</p>
   </div>
+  <div class="pstats" id="pstats">
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="19">19</div><div class="pstat__l" data-i18n="st.1">Promotera</div></div>
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="3">3</div><div class="pstat__l" data-i18n="st.2">NBA i WNBA igrača</div></div>
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="12" data-suffix="+">12<span class="pl">+</span></div><div class="pstat__l" data-i18n="st.3">Reprezentativaca</div></div>
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="11" data-suffix="">11</div><div class="pstat__l" data-i18n="st.4">Izdanja kampa</div></div>
+  </div>
 </section>
 
-<!-- ===================== SHOWCASE — HALL OF STARS ===================== -->
-<section class="show" id="hall">
-  <div class="show__head">
+<!-- ===================== WALL OF STARS ===================== -->
+<section class="pw" id="wall">
+  <div class="pw__bg" aria-hidden="true"></div>
+  <div class="pw__head">
     <div>
-      <span class="ey reveal-up" data-i18n="sh.eyebrow">Hall of stars</span>
-      <h2 class="ttl reveal-rich"><span data-i18n="sh.t1">Gosti koji su</span> <span class="it flame" data-i18n="sh.t2">došli na kamp.</span></h2>
+      <span class="ey ey--light reveal-up" data-i18n="wl.eyebrow">Panteon zvijezda</span>
+      <h2 class="ttl ttl--light reveal-rich"><span data-i18n="wl.t1">Gosti koji su</span> <span class="it flame" data-i18n="wl.t2">došli na planinu.</span></h2>
+      <p class="reveal-up" data-i18n="wl.lead">Klikni na bilo koje ime — otvori karijeru, trofeje i priču svake zvijezde.</p>
     </div>
-    <span class="show__lab reveal-up" data-i18n="sh.lab">NBA · Evroliga</span>
+    <span class="show__lab reveal-up" style="font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-l)" data-i18n="wl.lab">NBA · Evroliga · Reprezentacija</span>
   </div>
 
-  <!-- NOTE FOR EDITOR: replace each card's <h3> name (data-i18n="card.name")
-       with the real promoter's name. Photos: assets/img/promo1..6.jpg -->
-  <div class="show__grid">
-    <article class="ps ps--tall reveal-img">
-      <span class="show__no">01</span>
-      <img class="ps__img" src="assets/img/promo1.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-    <article class="ps reveal-img">
-      <span class="show__no">02</span>
-      <img class="ps__img" src="assets/img/promo2.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-    <article class="ps reveal-img">
-      <span class="show__no">03</span>
-      <img class="ps__img" src="assets/img/promo3.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-    <article class="ps ps--wide reveal-img">
-      <span class="show__no">04</span>
-      <img class="ps__img" src="assets/img/promo4.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-    <article class="ps reveal-img">
-      <span class="show__no">05</span>
-      <img class="ps__img" src="assets/img/promo5.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-    <article class="ps reveal-img">
-      <span class="show__no">06</span>
-      <img class="ps__img" src="assets/img/promo6.webp" alt="" loading="lazy" />
-      <div class="ps__info"><h3 data-i18n="card.name">Ime gosta</h3><span data-i18n="card.role">NBA · Evroliga</span></div>
-    </article>
-  </div>
-
-  <p class="show__note reveal-up" data-i18n="sh.note">Imena i fotografije dosadašnjih promotera uskoro.</p>
+  <div class="pw__filters reveal-up" id="filters"></div>
+  <div class="pw__grid" id="wallGrid"></div>
+  <p class="pw__note reveal-up" data-i18n="wl.note">Karijere ažurirane i provjerene iz više izvora.</p>
 </section>
+
+<!-- ===================== BIO LIGHTBOX ===================== -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="lb__veil" id="lbVeil"></div>
+  <div class="lb__panel lb__anim" id="lbPanel">
+    <div class="lb__media">
+      <span class="lb__no" id="lbNo"></span>
+      <img id="lbImg" src="" alt="" />
+    </div>
+    <div class="lb__body">
+      <div class="lb__badge"><i></i><span id="lbCat"></span></div>
+      <h3 class="lb__name" id="lbName"></h3>
+      <div class="lb__role" id="lbRole"></div>
+      <div class="lb__meta" id="lbMeta"></div>
+      <ul class="lb__hl" id="lbHl"></ul>
+      <p class="lb__bio" id="lbBio"></p>
+    </div>
+    <button class="lb__x" id="lbX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="lb__nav">
+      <span class="lb__count" id="lbCount"></span>
+      <button class="lb__arrow" id="lbPrev" aria-label="Prev"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="lb__arrow" id="lbNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</div>
 
 <!-- ===================== EDITORIAL FEATURE ===================== -->
 <section class="feat">
-  <div class="feat__media" aria-hidden="true">
-    <img class="feat__img parallax-feat" src="assets/img/promo2.webp" alt="" loading="lazy" />
-  </div>
+  <img class="feat__img parallax-feat" src="assets/img/promoteri/Sasa-Pavlovic.webp" alt="" loading="lazy" />
   <div class="feat__scrim" aria-hidden="true"></div>
   <div class="feat__inner">
     <h2 class="feat__q reveal-rich"><span data-i18n="ft.q1">Treniraj uz one koji su</span> <span class="flame" data-i18n="ft.q2">stigli do vrha.</span></h2>
@@ -222,10 +340,10 @@ html{overflow-x:hidden}
 
 <!-- ===================== CTA BAND ===================== -->
 <section class="cta-band" id="register">
-  <div class="cta-band__inner">
-    <span class="ey reveal-up" data-i18n="cb.eyebrow">Pridruži se</span>
-    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="cb.t1">Osvoji</span> <span class="it flame" data-i18n="cb.t2">vrh.</span></h2>
-    <p class="reveal-up" data-i18n="cb.p">Mjesta se popune brzo svake godine. Prijavi se i treniraj na istom parketu sa zvijezdama.</p>
+  <div class="cta-band__glow" aria-hidden="true"></div>
+  <span class="ey ey--light reveal-up" data-i18n="cb.eyebrow">Pridruži se</span>
+  <h2 class="cta-band__title reveal-rich"><span data-i18n="cb.t1">Stani na isti parket</span> <span class="flame" data-i18n="cb.t2">sa zvijezdama.</span></h2>
+  <div class="reveal-up">
     <a class="btn btn--orange" href="index.html#register"><span data-i18n="cb.cta">Prijavi se</span><b>→</b></a>
   </div>
 </section>
@@ -239,7 +357,7 @@ html{overflow-x:hidden}
     </nav>
   </div>
   <div class="ft__big" aria-hidden="true">VRH</div>
-  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Podržano od Lovćen Osiguranja</span></div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
 </footer>
 
 <!-- mobile menu -->
@@ -259,10 +377,9 @@ html{overflow-x:hidden}
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
 /* =====================================================================
-   PROMOTERI — single inline controller. Mirrors js/main.js patterns:
-   Lenis smooth scroll · GSAP reveals (up/rich/img) · parallax ·
-   header scrolled · mobile menu · magnetic · ME/EN toggle.
-   Progressive-enhancement guarded · reduced-motion safe.
+   PROMOTERI — data-driven Wall of Stars + bio lightbox.
+   Animation language mirrors mvp.html (spotlight, dust, clip-wipe,
+   grayscale->colour, splitChars, 3D tilt). Reduced-motion safe.
    ===================================================================== */
 (function () {
   "use strict";
@@ -274,82 +391,402 @@ html{overflow-x:hidden}
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var isMobile = function () { return window.matchMedia("(hover:none)").matches; };
 
-  /* ---------------- i18n (inline dict · default ME) ---------------- */
+  /* ============================ PROMOTERS DATA ============================
+     PLACEHOLDER content — real verified bios/highlights injected after research.
+     cat: nba|euro|nt|staff|alumni  · feat:true => marquee star (gold ★)
+     ====================================================================== */
+  var P = [
+    {slug:"Nikola-Vucevic",n:"Nikola Vučević",cat:"nba",feat:true,
+      r_me:"NBA Ol-Star · Centar",r_en:"NBA All-Star · Center",
+      m_me:["Orlando Magic","Čikago Bulls","Reprezentacija CG"],m_en:["Orlando Magic","Chicago Bulls","Montenegro NT"],
+      h_me:["Dvostruki NBA Ol-Star (2019, 2021)","Izbor br. 16 na NBA draftu 2011.","Preko 1.000 NBA utakmica · 17,1 poen i 10,3 skoka prosječno","44. igrač u istoriji NBA sa 10.000+ skokova"],
+      h_en:["Two-time NBA All-Star (2019, 2021)","No. 16 pick in the 2011 NBA Draft","1,000+ NBA games · 17.1 pts & 10.3 reb per game","44th player in NBA history with 10,000+ rebounds"],
+      b_me:"Najveća košarkaška zvijezda Crne Gore i jedan od najefikasnijih centara moderne NBA istorije. Dvostruki Ol-Star nastupao je za Orlando, Čikago i Boston, a kao stub reprezentacije igrao je na četiri Evrobasketa i dva Svjetska prvenstva.",
+      b_en:"Montenegro's greatest basketball star and one of the most productive centers in modern NBA history. A two-time All-Star with Orlando, Chicago and Boston, he anchored Montenegro's national team across four EuroBaskets and two World Cups."},
+
+    {slug:"Sasa-Pavlovic",n:"Saša Pavlović",cat:"nba",feat:true,
+      r_me:"NBA veteran · Bek-krilo",r_en:"NBA Veteran · Guard",
+      m_me:["Klivlend Kavalirsi","KK Partizan","Reprezentacija"],m_en:["Cleveland Cavaliers","Partizan","National team"],
+      h_me:["Izbor br. 19 na NBA draftu 2003.","567 NBA utakmica za sedam franšiza","Starter u NBA finalu 2007. uz LeBrona Džejmsa","Olimpijske igre — Atina 2004."],
+      h_en:["No. 19 pick in the 2003 NBA Draft","567 NBA games across seven franchises","Starter in the 2007 NBA Finals alongside LeBron James","2004 Athens Olympic Games"],
+      b_me:"Crnogorski as koji je deceniju proveo na najvećoj svjetskoj sceni. Kao starter Klivlenda igrao je NBA finale 2007. uz LeBrona Džejmsa, a karijeru je krunisao i titulom prvaka Srbije sa Partizanom.",
+      b_en:"A Montenegrin star who spent a decade at the very top of world basketball. A starter for Cleveland in the 2007 NBA Finals alongside LeBron James, he later won a Serbian League title with Partizan."},
+
+    {slug:"Bojan-Dubljevic",n:"Bojan Dubljević",cat:"euro",feat:true,
+      r_me:"Evroliga · Kapiten Crne Gore",r_en:"EuroLeague · Montenegro Captain",
+      m_me:["Valensija","Budućnost","Reprezentacija CG"],m_en:["Valencia","Budućnost","Montenegro NT"],
+      h_me:["Legenda Valensije — klupski rekorder po poenima i skokovima","Dvostruki osvajač EuroKupa (2014, 2019)","Prvak Španije (ACB) i MVP finala 2017.","Dugogodišnji kapiten reprezentacije Crne Gore"],
+      h_en:["Valencia legend — club's all-time points & rebounds leader","Two-time EuroCup champion (2014, 2019)","Spanish ACB champion & 2017 Finals MVP","Long-time captain of Montenegro"],
+      b_me:"Jedan od najboljih krilnih centara evropske košarke i ikona Valensije, gdje je ostao upisan kao klupski rekorder svih vremena. Osvojio je dva EuroKupa i titulu prvaka Španije, a godinama je nosio kapitensku traku reprezentacije Crne Gore.",
+      b_en:"One of European basketball's finest big men and a Valencia icon who retired as the club's all-time leader in points and rebounds. A two-time EuroCup winner and Spanish champion, he captained Montenegro for years."},
+
+    {slug:"Milos-Vujanic",n:"Miloš Vujanić",cat:"euro",feat:true,
+      r_me:"Šampion Evrolige · Plejmejker",r_en:"EuroLeague Champion · Guard",
+      m_me:["KK Partizan","Panatinaikos","NBA draft 2002"],m_en:["Partizan","Panathinaikos","2002 NBA Draft"],
+      h_me:["Najbolji strijelac Evrolige 2002/03 (25,8 poena)","Šampion Evrolige 2007. sa Panatinaikosom","Dvostruko u All-Evroliga drugom timu (2003, 2004)","Izbor br. 36 na NBA draftu 2002. (NY Knicks)"],
+      h_en:["EuroLeague top scorer 2002/03 (25.8 ppg)","EuroLeague champion 2007 with Panathinaikos","Two-time All-EuroLeague Second Team (2003, 2004)","No. 36 pick in the 2002 NBA Draft (NY Knicks)"],
+      b_me:"Ikona Partizana i jedan od najboljih bekova svoje generacije. Bio je najbolji strijelac Evrolige, šampion kontinenta sa Panatinaikosom i izbor NBA drafta 2002. godine.",
+      b_en:"A Partizan icon and one of the best guards of his generation. He led the EuroLeague in scoring, won the continental crown with Panathinaikos, and was a 2002 NBA draft pick."},
+
+    {slug:"Vanja-Marinkovic",n:"Vanja Marinković",cat:"euro",feat:true,
+      r_me:"Olimpijski medaljista · Bek",r_en:"Olympic Medalist · Guard",
+      m_me:["KK Partizan (kapiten)","Valensija","Baskonija"],m_en:["Partizan (captain)","Valencia","Baskonia"],
+      h_me:["Olimpijska bronza sa Srbijom — Pariz 2024.","Srebro na Svjetskom prvenstvu 2023.","Kapiten KK Partizan","Izbor br. 60 na NBA draftu 2019."],
+      h_en:["Olympic bronze with Serbia — Paris 2024","Silver at the 2023 FIBA World Cup","Captain of KK Partizan","No. 60 pick in the 2019 NBA Draft"],
+      b_me:"Eksplozivni bek šuter i kapiten Partizana, sa bogatom evroligaškom karijerom u Valensiji i Baskoniji. Sa reprezentacijom Srbije osvojio je olimpijsku bronzu u Parizu i srebro na Svjetskom prvenstvu.",
+      b_en:"An explosive scoring guard and Partizan captain with a rich EuroLeague résumé at Valencia and Baskonia. With Serbia he won Olympic bronze in Paris and World Cup silver."},
+
+    {slug:"Jelena-Dubljevic",n:"Jelena Dubljević",cat:"nba",feat:true,
+      r_me:"WNBA šampionka · Krilni centar",r_en:"WNBA Champion · Forward",
+      m_me:["LA Sparks (WNBA)","Galatasaraj","Reprezentacija CG"],m_en:["LA Sparks (WNBA)","Galatasaray","Montenegro NT"],
+      h_me:["WNBA šampionka 2016. (Los Anđeles Sparks)","Osvajačica EuroKupa 2018. (Galatasaraj)","Legenda ženske reprezentacije Crne Gore","Bivša predsjednica Košarkaškog saveza Crne Gore"],
+      h_en:["WNBA champion 2016 (Los Angeles Sparks)","EuroCup Women champion 2018 (Galatasaray)","Legend of Montenegro's women's national team","Former president of the Montenegro Basketball Federation"],
+      b_me:"Najtrofejnija crnogorska košarkašica — WNBA šampionka sa Los Anđeles Sparksima 2016. godine. Osvajačica EuroKupa i dugogodišnja predvodnica reprezentacije, kasnije i na čelu Košarkaškog saveza Crne Gore.",
+      b_en:"Montenegro's most decorated women's player — a 2016 WNBA champion with the Los Angeles Sparks. A EuroCup winner and long-time national-team leader who later headed the Montenegro Basketball Federation."},
+
+    {slug:"Zvezdan-Mitrovic",n:"Zvezdan Mitrović",cat:"staff",feat:true,
+      r_me:"Prvak EuroKupa · Selektor CG",r_en:"EuroCup Winner · Montenegro Coach",
+      m_me:["AS Monako","Cedevita Olimpija","Reprezentacija CG"],m_en:["AS Monaco","Cedevita Olimpija","Montenegro NT"],
+      h_me:["Osvajač EuroKupa 2021. — prvi trofej Monaka","Trener godine EuroKupa 2021.","Prvak i osvajač Kupa Francuske 2019. (ASVEL)","Trostruki trener godine francuske lige","Selektor reprezentacije Crne Gore"],
+      h_en:["EuroCup champion 2021 — Monaco's first-ever trophy","EuroCup Coach of the Year 2021","French champion & Cup winner 2019 (ASVEL)","Three-time French league Coach of the Year","Head coach of the Montenegro national team"],
+      b_me:"Jedan od najuspješnijih crnogorskih trenera na evropskoj sceni. Sa Monakom je osvojio EuroKup i ponio nagradu za trenera godine, a danas vodi Cedevitu Olimpiju i selekciju Crne Gore.",
+      b_en:"One of Montenegro's most successful coaches on the European stage. He won the EuroCup with Monaco and was named Coach of the Year, and today leads Cedevita Olimpija and the Montenegro national team."},
+
+    {slug:"Nikola-Ivanovic",n:"Nikola Ivanović",cat:"nt",feat:false,
+      r_me:"Reprezentativac CG · Plejmejker",r_en:"Montenegro NT · Point Guard",
+      m_me:["Budućnost VOLI","Crvena zvezda","Galatasaraj"],m_en:["Budućnost VOLI","Crvena zvezda","Galatasaray"],
+      h_me:["Dvostruki šampion ABA lige (2018, 2022)","MVP finala srpske lige 2022.","All-EuroKup drugi tim 2017/18","Reprezentativac Crne Gore od 2012."],
+      h_en:["Two-time ABA League champion (2018, 2022)","Serbian League Finals MVP 2022","All-EuroCup Second Team 2017/18","Montenegro national-team mainstay since 2012"],
+      b_me:"Plejmejker i jedan od lidera reprezentacije Crne Gore. Osvajao je ABA ligu sa Budućnošću i Crvenom zvezdom, a u Beogradu je proglašen za MVP-ja finala srpske lige.",
+      b_en:"A point guard and leader of the Montenegro national team. He won the ABA League with Budućnost and Crvena zvezda and was named Serbian League Finals MVP."},
+
+    {slug:"Nemanja-Gordic",n:"Nemanja Gordić",cat:"nt",feat:false,
+      r_me:"MVP ABA lige · Reprezentativac BiH",r_en:"ABA League MVP · Bosnia NT",
+      m_me:["Budućnost","KK Partizan","Reprezentacija BiH"],m_en:["Budućnost","Partizan","Bosnia NT"],
+      h_me:["MVP finala ABA lige 2018.","Dvostruki šampion ABA lige (2013, 2018)","Reprezentativac BiH (Evrobasket 2011, 2013, 2015)","Iskusni bek sa karijerom širom Evrope"],
+      h_en:["ABA League Finals MVP 2018","Two-time ABA League champion (2013, 2018)","Bosnia & Herzegovina international (EuroBasket 2011, 2013, 2015)","Veteran guard with a career across Europe"],
+      b_me:"Iskusni bek i MVP finala ABA lige 2018. godine, kada je Budućnost odveo do titule. Dvostruki je šampion regiona i reprezentativac Bosne i Hercegovine.",
+      b_en:"A veteran guard and 2018 ABA League Finals MVP who led Budućnost to the title. A two-time regional champion and a Bosnia & Herzegovina international."},
+
+    {slug:"Blagota-Sekulic",n:"Blagota Sekulić",cat:"nt",feat:false,
+      r_me:"Reprezentativac CG · Krilni centar",r_en:"Montenegro NT · Forward",
+      m_me:["Real Madrid","KK Partizan","Reprezentacija CG"],m_en:["Real Madrid","Partizan","Montenegro NT"],
+      h_me:["EuroKup + prvak Španije sa Real Madridom (2007.)","Četvorostruki prvak Jugoslavije","Zlato na Igrama malih zemalja 2015.","Dugogodišnji reprezentativac Crne Gore"],
+      h_en:["EuroCup + Spanish ACB double with Real Madrid (2007)","Four-time Yugoslav League champion","Gold at the 2015 Games of the Small States","Long-time Montenegro international"],
+      b_me:"Dugogodišnji reprezentativac Crne Gore sa bogatom evropskom karijerom. Sa Real Madridom je 2007. osvojio EuroKup i titulu prvaka Španije, a četiri puta je bio prvak Jugoslavije.",
+      b_en:"A long-serving Montenegro international with a rich European career. With Real Madrid he won the 2007 EuroCup and the Spanish title, and he was a four-time Yugoslav champion."},
+
+    {slug:"Nemanja-Radovic",n:"Nemanja Radović",cat:"nt",feat:false,
+      r_me:"Reprezentativac CG · Krilni centar",r_en:"Montenegro NT · Forward",
+      m_me:["UCAM Mursija","Saragosa","Reprezentacija CG"],m_en:["UCAM Murcia","Zaragoza","Montenegro NT"],
+      h_me:["Najbolji strijelac u istoriji UCAM Mursije","Dva Svjetska prvenstva sa Crnom Gorom (2019, 2023)","Evrobasket 2022.","Karijera u španskoj ACB ligi"],
+      h_en:["UCAM Murcia's all-time leading scorer","Two World Cups with Montenegro (2019, 2023)","EuroBasket 2022","Career in Spain's ACB league"],
+      b_me:"Krilni centar reprezentacije Crne Gore i rekorder španskog UCAM Mursije po broju postignutih poena. Sa nacionalnim timom igrao je na dva Svjetska prvenstva i Evrobasketu.",
+      b_en:"A Montenegro forward and the all-time leading scorer of Spain's UCAM Murcia. With the national team he played at two World Cups and a EuroBasket."},
+
+    {slug:"Petar-Popovic",n:"Petar Popović",cat:"nt",feat:false,
+      r_me:"Reprezentativac CG · Bek",r_en:"Montenegro NT · Guard",
+      m_me:["Budućnost VOLI","FMP","Igokea"],m_en:["Budućnost VOLI","FMP","Igokea"],
+      h_me:["Šampion ABA lige 2018. — prva titula Budućnosti","Šestostruki prvak Crne Gore","Sedmostruki osvajač Kupa Crne Gore","Reprezentativac Crne Gore"],
+      h_en:["ABA League champion 2018 — Budućnost's first-ever title","Six-time Montenegrin League champion","Seven-time Montenegrin Cup winner","Montenegro international"],
+      b_me:"Bek i reprezentativac Crne Gore koji je sa Budućnošću 2018. osvojio istorijsku prvu titulu prvaka ABA lige. Višestruki je prvak i osvajač Kupa Crne Gore.",
+      b_en:"A guard and Montenegro international who won Budućnost's historic first ABA League title in 2018. A multiple Montenegrin League and Cup winner."},
+
+    {slug:"Danilo-Nikolic",n:"Danilo Nikolić",cat:"nt",feat:false,
+      r_me:"Reprezentativac CG · Krilni centar",r_en:"Montenegro NT · Forward",
+      m_me:["Budućnost","Bilbao","Limož"],m_en:["Budućnost","Bilbao","Limoges"],
+      h_me:["Šampion ABA lige 2018. sa Budućnošću","Petostruki prvak Crne Gore","Osvajač Kupa Radivoja Koraća 2016. (Mega)","Košarkaški put počeo u Gorštaku iz Kolašina"],
+      h_en:["ABA League champion 2018 with Budućnost","Five-time Montenegrin League champion","Serbian Cup winner 2016 (Mega)","Began his career at KK Gorštak in Kolašin"],
+      b_me:"Krilni centar reprezentacije Crne Gore čiji je košarkaški put počeo upravo u Kolašinu, u dresu Gorštaka. Osvajač je ABA lige sa Budućnošću i petostruki prvak Crne Gore.",
+      b_en:"A Montenegro forward whose basketball journey began right here in Kolašin with KK Gorštak. He won the ABA League with Budućnost and is a five-time Montenegrin champion."},
+
+    {slug:"Nikola-Antic",n:"Nikola Antić",cat:"staff",feat:false,
+      r_me:"Bivši igrač i trener",r_en:"Former Pro Player & Coach",
+      m_me:["Budućnost","AS Bondi (Francuska)","Šalon-Rems"],m_en:["Budućnost","AS Bondy (France)","Châlons-Reims"],
+      h_me:["Profesionalna igračka karijera — Budućnost i Francuska","Trener — izborio plasman u francusku Pro A ligu","Najbolji trener Pro B lige 2012/13","Decenije iskustva u evropskoj košarci"],
+      h_en:["Pro playing career — Budućnost and France","Coach — earned promotion to France's Pro A","Best Pro B coach 2012/13","Decades of experience in European basketball"],
+      b_me:"Bivši profesionalni igrač Budućnosti i francuskih klubova, a potom uspješan trener u Francuskoj. Sa Šalon-Remsom je izborio plasman u elitnu Pro A ligu i ponio nagradu za najboljeg trenera Pro B lige.",
+      b_en:"A former pro player for Budućnost and French clubs, later a successful coach in France. He led Châlons-Reims to promotion to the elite Pro A and was named the best Pro B coach."},
+
+    {slug:"Mijo-Kadija",n:"Mijo Kadija",cat:"staff",feat:false,
+      r_me:"Trener · Šampion Evrope U16",r_en:"Coach · U16 European Champion",
+      m_me:["Lovćen Cetinje","Budućnost","Podgorica Bemax"],m_en:["Lovćen Cetinje","Budućnost","Podgorica Bemax"],
+      h_me:["Selektor U16 — zlato na Evropskom prvenstvu 2003.","Generacija Miloša Teodosića (skor 8-0)","Decenije trenerskog rada širom regiona","Iskusni crnogorski stručnjak"],
+      h_en:["U16 head coach — gold at the 2003 European Championship","Coached the Miloš Teodosić generation (8-0)","Decades of coaching across the region","Veteran Montenegrin basketball mind"],
+      b_me:"Iskusni crnogorski trener koji je kao selektor kadetske reprezentacije osvojio zlato na Evropskom prvenstvu 2003. godine, predvodeći generaciju Miloša Teodosića. Iza sebe ima decenije rada na klupama širom regiona.",
+      b_en:"A veteran Montenegrin coach who led the cadet national team to gold at the 2003 European Championship with the generation of Miloš Teodosić. He brings decades of experience from benches across the region."},
+
+    {slug:"Milos-Koljensic",n:"Miloš Koljenšić",cat:"staff",feat:false,
+      r_me:"Sudija Evrolige",r_en:"EuroLeague Referee",
+      m_me:["Evroliga","EuroKup","ABA liga"],m_en:["EuroLeague","EuroCup","ABA League"],
+      h_me:["Sudija Fajnal-fora Evrolige 2026. (jedan od 8)","Sudio finale EuroKupa 2025/26","25 utakmica Evrolige u sezoni","Međunarodni sudija iz Crne Gore"],
+      h_en:["Referee at the 2026 EuroLeague Final Four (one of 8)","Officiated the 2025/26 EuroCup Final","25 EuroLeague games in a single season","International referee from Montenegro"],
+      b_me:"Jedan od najcjenjenijih crnogorskih košarkaških sudija, sa stalnim angažmanima u Evroligi i EuroKupu. Izabran je među svega osam sudija za Fajnal-for Evrolige 2026. godine.",
+      b_en:"One of Montenegro's most respected basketball referees, a regular in the EuroLeague and EuroCup. He was selected among just eight officials for the 2026 EuroLeague Final Four."},
+
+    {slug:"Nikola-Mijuskovic",n:"Nikola Mijušković",cat:"staff",feat:false,
+      r_me:"Sportski psiholog",r_en:"Sport Psychologist",
+      m_me:["Vaterpolo rep. CG","Savezi Crne Gore","KK Podgorica"],m_en:["Montenegro water polo NT","Montenegro federations","KK Podgorica"],
+      h_me:["Psiholog vaterpolo reprezentacije CG — ciklus Pariz 2024.","Sarađuje sa fudbalskim, košarkaškim i rukometnim savezima","Radi sa mladim igračima na kampu","Magistar psihologije"],
+      h_en:["Psychologist for Montenegro's water polo NT — Paris 2024 cycle","Works with football, basketball & handball federations","Works with the young players at camp","Master's in psychology"],
+      b_me:"Sportski psiholog koji radi sa vrhunskim crnogorskim sportistima — uključujući vaterpolo reprezentaciju kroz cijeli olimpijski ciklus do Pariza 2024. Na kampu pomaže mladim igračima da razviju mentalnu snagu.",
+      b_en:"A sport psychologist who works with Montenegro's elite athletes — including the water polo national team through the full Olympic cycle to Paris 2024. At camp he helps young players build mental strength."},
+
+    {slug:"Djordjije-Jovanovic",n:"Đorđije Jovanović",cat:"alumni",feat:false,
+      r_me:"Bivši kamper · Reprezentativac CG",r_en:"Former Camper · Montenegro NT",
+      m_me:["Budućnost VOLI","NBA G liga","St. John's (NCAA)"],m_en:["Budućnost VOLI","NBA G League","St. John's (NCAA)"],
+      h_me:["MVP kampa 2017. — od kampera do reprezentativca","Reprezentativac CG na Evrobasketu 2025.","Dvije sezone u NBA G ligi (Ontario Clippers)","Bronza na U20 Evropskom prvenstvu 2022."],
+      h_en:["2017 Camp MVP — from camper to international","Montenegro at EuroBasket 2025","Two seasons in the NBA G League (Ontario Clippers)","Bronze at the 2022 U20 European Championship"],
+      b_me:"Najljepša priča kampa — nekadašnji kamper i MVP 2017. koji je izrastao u reprezentativca Crne Gore. Igrao je u NBA G ligi, a od 2026. nastavlja karijeru na američkom univerzitetu St. John's.",
+      b_en:"The camp's finest story — a former camper and 2017 MVP who grew into a Montenegro international. He played in the NBA G League and from 2026 continues his career at St. John's in the U.S."},
+
+    {slug:"David-Mirkovic",n:"David Mirković",cat:"alumni",feat:false,
+      r_me:"Bivši kamper · MVP 2019",r_en:"Former Camper · 2019 MVP",
+      m_me:["SC Derby","Ilinois (NCAA)","Reprezentacija CG"],m_en:["SC Derby","Illinois (NCAA)","Montenegro NT"],
+      h_me:["MVP kampa 2019. — od kampera do NCAA lige","Igrač Ilinoisa u jakoj Big Ten konferenciji","22,1 poen na U16 Evropskom prvenstvu 2022.","Reprezentativac Crne Gore"],
+      h_en:["2019 Camp MVP — from camper to NCAA","Plays for Illinois in the elite Big Ten","22.1 ppg at the 2022 U16 European Championship","Montenegro national team"],
+      b_me:"Još jedan dokaz snage kampa — MVP 2019. koji danas igra za Ilinois u snažnoj NCAA Big Ten konferenciji. Sa reprezentacijom Crne Gore prošao je sve mlađe kategorije i debitovao za seniore.",
+      b_en:"Another proof of the camp's impact — the 2019 MVP who now plays for Illinois in the powerful NCAA Big Ten. He came up through all of Montenegro's youth teams and has debuted for the seniors."}
+  ];
+
+  var CATS = {
+    nba:   {me:"NBA / WNBA",en:"NBA / WNBA"},
+    euro:  {me:"Evroliga",en:"EuroLeague"},
+    nt:    {me:"Reprezentacija",en:"National team"},
+    staff: {me:"Treneri i štab",en:"Coaches & staff"},
+    alumni:{me:"Bivši kamperi",en:"Camp alumni"}
+  };
+  var FILTERS = [
+    {key:"all",   me:"Svi",            en:"All"},
+    {key:"nba",   me:"NBA / WNBA",     en:"NBA / WNBA"},
+    {key:"euro",  me:"Evroliga",       en:"EuroLeague"},
+    {key:"nt",    me:"Reprezentacija", en:"National team"},
+    {key:"staff", me:"Treneri i štab", en:"Coaches & staff"},
+    {key:"alumni",me:"Bivši kamperi",  en:"Camp alumni"}
+  ];
+
+  /* ---------------- i18n (UI chrome) ---------------- */
   var I18N = {
     me: {
       "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj",
       "nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava",
-      "ph.eyebrow":"Promoteri / Special guests","ph.t1":"Zvijezde dolaze","ph.t2":"na planinu.",
-      "ph.lead":"Svakog izdanja, NBA i evropske zvijezde gostuju u Kolašinu kao promoteri — treniraju, inspirišu i igraju s novom generacijom.",
-      "ph.cta":"Prijavi se","ph.cta2":"Pogledaj goste",
-      "tk.1":"NBA gosti","tk.2":"Evroligaške zvijezde","tk.3":"Treninzi sa šampionima","tk.4":"Autogrami i fotografije","tk.5":"Inspiracija za novu generaciju",
+      "ph.kicker":"Promoteri · Specijalni gosti","ph.t1":"Zvijezde dolaze","ph.t2":"na planinu.",
+      "ph.sub":"NBA i evroligaške zvijezde, reprezentativci Crne Gore i vrhunski treneri — svakog ljeta dolaze u Kolašin, treniraju i inspirišu novu generaciju.",
+      "ph.cta":"Pogledaj zvijezde","ph.cta2":"Prijavi se","ph.scroll":"Panteon zvijezda",
+      "tk.1":"NBA gosti","tk.2":"Evroligaške zvijezde","tk.3":"Reprezentativci Crne Gore","tk.4":"Treninzi sa šampionima","tk.5":"Inspiracija za novu generaciju",
       "in.t1":"Hala","in.t2":"zvijezda.",
       "in.p":"Iz godine u godinu, na planinu dolaze imena koja djeca prate na velikim ekranima. Sa njima na parketu, mladi igrači uče iz prve ruke šta znači <b>vrh</b> — i kako se do njega stiže.",
-      "sh.eyebrow":"Hall of stars","sh.t1":"Gosti koji su","sh.t2":"došli na kamp.","sh.lab":"NBA · Evroliga",
-      "card.name":"Ime gosta","card.role":"NBA · Evroliga",
-      "sh.note":"Imena i fotografije dosadašnjih promotera uskoro.",
+      "st.1":"Promotera","st.2":"NBA i WNBA igrača","st.3":"Reprezentativaca","st.4":"Izdanja kampa",
+      "wl.eyebrow":"Panteon zvijezda","wl.t1":"Gosti koji su","wl.t2":"došli na planinu.",
+      "wl.lead":"Klikni na bilo koje ime — otvori karijeru, trofeje i priču svake zvijezde.","wl.lab":"NBA · Evroliga · Reprezentacija",
+      "wl.note":"Karijere provjerene iz više izvora.",
       "ft.q1":"Treniraj uz one koji su","ft.q2":"stigli do vrha.","ft.by":"Basketball Camp Kolašin · Promoteri",
-      "cb.eyebrow":"Pridruži se","cb.t1":"Osvoji","cb.t2":"vrh.",
-      "cb.p":"Mjesta se popune brzo svake godine. Prijavi se i treniraj na istom parketu sa zvijezdama.","cb.cta":"Prijavi se",
-      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Podržano od Lovćen Osiguranja"
+      "cb.eyebrow":"Pridruži se","cb.t1":"Stani na isti parket","cb.t2":"sa zvijezdama.","cb.cta":"Prijavi se",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja",
+      "lb.career":"Karijera i trofeji"
     },
     en: {
       "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay",
       "nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up",
-      "ph.eyebrow":"Promoters / Special guests","ph.t1":"The stars come","ph.t2":"to the mountain.",
-      "ph.lead":"Every edition, NBA and European stars visit Kolašin as promoters — they train, inspire and play with the next generation.",
-      "ph.cta":"Sign up","ph.cta2":"Meet the guests",
-      "tk.1":"NBA guests","tk.2":"EuroLeague stars","tk.3":"Train with champions","tk.4":"Autographs & photos","tk.5":"Inspiration for the next generation",
+      "ph.kicker":"Promoters · Special guests","ph.t1":"The stars come","ph.t2":"to the mountain.",
+      "ph.sub":"NBA and EuroLeague stars, Montenegro national-team players and top coaches — every summer they come to Kolašin to train and inspire the next generation.",
+      "ph.cta":"Meet the stars","ph.cta2":"Sign up","ph.scroll":"Wall of Stars",
+      "tk.1":"NBA guests","tk.2":"EuroLeague stars","tk.3":"Montenegro internationals","tk.4":"Train with champions","tk.5":"Inspiration for the next generation",
       "in.t1":"A hall","in.t2":"of stars.",
       "in.p":"Year after year, names the kids follow on the big screen come to the mountain. Beside them on the court, young players learn first-hand what <b>the summit</b> means — and how you get there.",
-      "sh.eyebrow":"Hall of stars","sh.t1":"The stars who","sh.t2":"came to camp.","sh.lab":"NBA · EuroLeague",
-      "card.name":"Guest name","card.role":"NBA · EuroLeague",
-      "sh.note":"Names and photos of past promoters coming soon.",
+      "st.1":"Promoters","st.2":"NBA & WNBA players","st.3":"Internationals","st.4":"Camp editions",
+      "wl.eyebrow":"Wall of Stars","wl.t1":"The guests who","wl.t2":"came to the mountain.",
+      "wl.lead":"Tap any name — open the career, trophies and story of every star.","wl.lab":"NBA · EuroLeague · National team",
+      "wl.note":"Careers verified across multiple sources.",
       "ft.q1":"Train with those who","ft.q2":"reached the top.","ft.by":"Basketball Camp Kolašin · Promoters",
-      "cb.eyebrow":"Join in","cb.t1":"Reach the","cb.t2":"summit.",
-      "cb.p":"Spots fill fast every year. Sign up and train on the same court as the stars.","cb.cta":"Sign up",
-      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+      "cb.eyebrow":"Join in","cb.t1":"Stand on the same court","cb.t2":"as the stars.","cb.cta":"Sign up",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje",
+      "lb.career":"Career & honours"
     }
   };
   var lang = "me";
+  try { lang = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+
+  function t(k){ return (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : (I18N.me[k]||""); }
+
   function applyLang(l) {
-    var dict = I18N[l] || I18N.me; lang = l;
+    if (!I18N[l]) l = "me";
+    lang = l;
     document.documentElement.setAttribute("data-lang", l);
     document.documentElement.setAttribute("lang", l === "me" ? "sr-ME" : "en");
     $$("[data-i18n]").forEach(function (el) {
-      var k = el.getAttribute("data-i18n"); if (dict[k] != null) el.innerHTML = dict[k];
+      var v = I18N[l][el.getAttribute("data-i18n")]; if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
     });
     $$("[data-lang-opt]").forEach(function (s) { s.classList.toggle("is-on", s.getAttribute("data-lang-opt") === l); });
-    try { window.dispatchEvent(new Event("langchange")); } catch (e) {}
+    try { localStorage.setItem("bckc-lang", l); } catch (e) {}
+    renderFilters(); renderWall();
+    if (lbOpen >= 0) fillLightbox(lbOpen);
     if (ST) ST.refresh();
   }
-  function langToggle() {
-    var btn = $("#langToggle"); if (!btn) return;
-    btn.addEventListener("click", function () { applyLang(lang === "me" ? "en" : "me"); });
-    applyLang("me");
+
+  /* ---------------- RENDER: filters ---------------- */
+  var activeFilter = "all";
+  function renderFilters() {
+    var box = $("#filters"); if (!box) return;
+    box.innerHTML = FILTERS.map(function (f) {
+      var count = f.key === "all" ? P.length : P.filter(function (p) { return p.cat === f.key; }).length;
+      if (f.key !== "all" && count === 0) return "";
+      return '<button class="chip' + (f.key === activeFilter ? " on" : "") + '" data-f="' + f.key + '">' +
+        (lang === "me" ? f.me : f.en) + '<b>' + count + '</b></button>';
+    }).join("");
+    $$("#filters .chip").forEach(function (c) {
+      c.addEventListener("click", function () { setFilter(c.getAttribute("data-f")); });
+    });
+  }
+  function setFilter(key) {
+    activeFilter = key;
+    $$("#filters .chip").forEach(function (c) { c.classList.toggle("on", c.getAttribute("data-f") === key); });
+    var cards = $$("#wallGrid .pc");
+    cards.forEach(function (card) {
+      var show = key === "all" || card.getAttribute("data-cat") === key;
+      card.classList.toggle("is-hidden", !show);
+    });
+    if (hasGSAP && !RM) {
+      var vis = cards.filter(function (c) { return !c.classList.contains("is-hidden"); });
+      gsap.fromTo(vis, { opacity: 0, y: 16, scale: .98 }, { opacity: 1, y: 0, scale: 1, duration: .5, ease: "power3.out", stagger: .03, overwrite: true });
+    }
+    if (ST) ST.refresh();
   }
 
-  /* ---------------- SMOOTH SCROLL ---------------- */
+  /* ---------------- RENDER: wall ---------------- */
+  var STAR = '<span class="pc__star" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1.6l2.9 6.16 6.6.86-4.86 4.6 1.25 6.78L12 17.9l-5.99 3.06 1.25-6.78L2.4 9.62l6.6-.86z"/></svg></span>';
+  var ARROW = '<span class="pc__cta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span>';
+  function renderWall() {
+    var grid = $("#wallGrid"); if (!grid) return;
+    grid.innerHTML = P.map(function (p, i) {
+      var role = lang === "me" ? p.r_me : p.r_en;
+      var no = ("0" + (i + 1)).slice(-2);
+      return '<article class="pc' + (p.feat ? " pc--feat" : "") + '" data-cat="' + p.cat + '" data-i="' + i + '" tabindex="0" role="button" aria-label="' + p.n + '">' +
+        '<img class="pc__img" src="assets/img/promoteri/' + p.slug + '.webp" alt="' + p.n + '" loading="lazy" />' +
+        '<div class="pc__scrim"></div>' +
+        '<span class="pc__no">' + no + '</span>' + STAR +
+        '<div class="pc__info"><div class="pc__name">' + p.n + '</div><span class="pc__role">' + role + '</span></div>' +
+        ARROW + '<span class="pc__gold"></span>' +
+      '</article>';
+    }).join("");
+    var cards = $$("#wallGrid .pc");
+    cards.forEach(function (card) {
+      var open = function () { openLightbox(parseInt(card.getAttribute("data-i"), 10)); };
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    });
+    setupTilt(); setupCardReveal();
+    var f = activeFilter; activeFilter = "all";   // re-apply current filter without animation reset
+    if (f !== "all") setFilter(f);
+  }
+
+  /* ---------------- card reveal (clip-wipe + grayscale->colour, staggered) ---------------- */
+  function setupCardReveal() {
+    if (!hasGSAP || !ST || RM) return;
+    var cards = $$("#wallGrid .pc");
+    cards.forEach(function (card, i) {
+      var img = $(".pc__img", card), info = $(".pc__info", card), no = $(".pc__no", card);
+      var tl = gsap.timeline({ scrollTrigger: { trigger: card, start: "top 92%", once: true } });
+      tl.fromTo(card, { clipPath: "inset(0 0 100% 0)", y: 26 }, { clipPath: "inset(0 0 0% 0)", y: 0, duration: .9, ease: "power3.out" }, 0)
+        .fromTo(img, { scale: 1.16 }, { scale: 1.02, duration: 1.1, ease: "power3.out" }, 0)
+        .from([no, info], { y: 14, opacity: 0, duration: .6, ease: "power3.out", stagger: .06 }, .25);
+    });
+  }
+
+  /* ---------------- 3D tilt on cards (desktop) ---------------- */
+  function setupTilt() {
+    if (RM || isMobile()) return;
+    $$("#wallGrid .pc").forEach(function (p) {
+      p.addEventListener("mousemove", function (e) {
+        var r = p.getBoundingClientRect();
+        var rx = (((e.clientY - r.top) / r.height) - 0.5) * -6;
+        var ry = (((e.clientX - r.left) / r.width) - 0.5) * 8;
+        p.style.transform = "perspective(900px) translateY(-6px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+      });
+      p.addEventListener("mouseleave", function () { p.style.transform = ""; });
+    });
+  }
+
+  /* ============================ LIGHTBOX ============================ */
+  var lbOpen = -1;
+  function fillLightbox(i) {
+    var p = P[i]; if (!p) return;
+    $("#lbImg").src = "assets/img/promoteri/" + p.slug + ".webp";
+    $("#lbImg").alt = p.n;
+    $("#lbNo").textContent = ("0" + (i + 1)).slice(-2);
+    $("#lbCat").textContent = (CATS[p.cat] ? CATS[p.cat][lang] : "");
+    $("#lbName").textContent = p.n;
+    $("#lbRole").textContent = lang === "me" ? p.r_me : p.r_en;
+    var meta = (lang === "me" ? p.m_me : p.m_en) || [];
+    $("#lbMeta").innerHTML = meta.map(function (m) { return "<span>" + m + "</span>"; }).join("");
+    var hl = (lang === "me" ? p.h_me : p.h_en) || [];
+    $("#lbHl").innerHTML = hl.map(function (h) { return "<li>" + h + "</li>"; }).join("");
+    $("#lbBio").textContent = lang === "me" ? p.b_me : p.b_en;
+    $("#lbCount").textContent = ("0" + (i + 1)).slice(-2) + " / " + P.length;
+  }
+  function openLightbox(i) {
+    var lb = $("#lb"); if (!lb) return;
+    lbOpen = i; fillLightbox(i);
+    lb.classList.add("open"); lb.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lock"); if (lenis) lenis.stop();
+    if (hasGSAP && !RM) {
+      gsap.killTweensOf(["#lbVeil", "#lbPanel"]);
+      gsap.fromTo("#lbVeil", { opacity: 0 }, { opacity: 1, duration: .4, ease: "power2.out" });
+      gsap.fromTo("#lbPanel", { opacity: 0, y: 30, scale: .96, clipPath: "inset(6% 0 6% 0 round 24px)" },
+        { opacity: 1, y: 0, scale: 1, clipPath: "inset(0% 0 0% 0 round 24px)", duration: .7, ease: "power3.out" });
+      gsap.fromTo("#lb .lb__body > *", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: .6, ease: "power3.out", stagger: .05, delay: .15 });
+    } else { $("#lbVeil").style.opacity = 1; }
+    setTimeout(function () { lb.classList.add("show"); }, 30);
+  }
+  function closeLightbox() {
+    var lb = $("#lb"); if (!lb || lbOpen < 0) return;
+    var done = function () { lb.classList.remove("open", "show"); lb.setAttribute("aria-hidden", "true"); lbOpen = -1;
+      document.body.classList.remove("lock"); if (lenis) lenis.start(); };
+    if (hasGSAP && !RM) {
+      gsap.to("#lbPanel", { opacity: 0, y: 24, scale: .97, duration: .35, ease: "power2.in" });
+      gsap.to("#lbVeil", { opacity: 0, duration: .4, ease: "power2.in", onComplete: done });
+    } else { done(); }
+  }
+  function step(d) {
+    if (lbOpen < 0) return;
+    var i = (lbOpen + d + P.length) % P.length; lbOpen = i; fillLightbox(i);
+    if (hasGSAP && !RM) {
+      gsap.fromTo("#lbPanel", { x: d * 36, opacity: .4 }, { x: 0, opacity: 1, duration: .45, ease: "power3.out" });
+      gsap.fromTo("#lb .lb__body > *", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out", stagger: .035 });
+    }
+  }
+  function lightboxWire() {
+    $("#lbX").addEventListener("click", closeLightbox);
+    $("#lbVeil").addEventListener("click", closeLightbox);
+    $("#lbPrev").addEventListener("click", function () { step(-1); });
+    $("#lbNext").addEventListener("click", function () { step(1); });
+    document.addEventListener("keydown", function (e) {
+      if (lbOpen < 0) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") step(-1);
+      else if (e.key === "ArrowRight") step(1);
+    });
+  }
+
+  /* ============================ AMBIENT / CHROME ============================ */
   var lenis = null;
   function smoothScroll() {
     if (hasGSAP && ST) gsap.registerPlugin(ST);
     if (hasLenis && !RM) {
-      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-      window.lenis = lenis;
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true }); window.lenis = lenis;
       if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add(function (t) { lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0); }
       else { var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
     }
     $$('a[href^="#"]').forEach(function (a) {
       a.addEventListener("click", function (e) {
         var id = a.getAttribute("href"); if (id.length < 2) return;
-        var t = document.querySelector(id); if (!t) return;
+        var tg = document.querySelector(id); if (!tg) return;
         e.preventDefault(); closeMenu();
-        if (lenis) lenis.scrollTo(t, { offset: -60, duration: 1.25 }); else t.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
+        if (lenis) lenis.scrollTo(tg, { offset: -60, duration: 1.25 }); else tg.scrollIntoView({ behavior: RM ? "auto" : "smooth" });
       });
     });
   }
-
-  /* ---------------- HEADER ---------------- */
   function header() {
     var hd = $("#hd");
     var onScroll = function () { var s = window.scrollY > 30; if (hd) { hd.classList.toggle("scr", s); hd.classList.toggle("on-dark", !s); } };
@@ -364,60 +801,77 @@ html{overflow-x:hidden}
     var mm = $("#mm"), burg = $("#burg");
     if (mm && mm.classList.contains("open")) { mm.classList.remove("open"); if (burg) burg.classList.remove("x"); document.body.classList.remove("lock"); if (lenis) lenis.start(); }
   }
-
-  /* ---------------- REVEALS ---------------- */
   function reveals() {
     if (!hasGSAP || !ST || RM) return;
-    $$(".reveal-up").forEach(function (el) {
-      if (el.closest(".ph-hero")) return;
-      gsap.from(el, { y: 38, opacity: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } });
-    });
-    $$(".reveal-rich").forEach(function (el) {
-      gsap.from(el, { y: 40, opacity: 0, duration: 1.05, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 90%" } });
-    });
-    $$(".reveal-img").forEach(function (el) {
-      gsap.from(el, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "power3.inOut", scrollTrigger: { trigger: el, start: "top 86%" } });
-    });
+    $$(".reveal-up").forEach(function (el) { if (el.closest(".ph")) return;
+      gsap.from(el, { y: 38, opacity: 0, duration: .9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }); });
+    $$(".reveal-rich").forEach(function (el) { gsap.from(el, { y: 40, opacity: 0, duration: 1.05, ease: "power4.out", scrollTrigger: { trigger: el, start: "top 90%" } }); });
   }
-
-  /* ---------------- HERO REVEAL (lines rise on load) ---------------- */
   function heroReveal() {
     if (!hasGSAP || RM) return;
-    gsap.set(".ph-hero__title .ln span", { yPercent: 118 });
-    gsap.to(".ph-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.1 });
-    gsap.fromTo(".ph-hero .ey,.ph-hero__lead,.ph-hero__row", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.45, overwrite: "auto" });
+    gsap.set(".ph__title .ln span", { yPercent: 118 });
+    gsap.to(".ph__title .ln span", { yPercent: 0, duration: 1.2, ease: "power4.out", stagger: .14, delay: .15 });
+    gsap.fromTo(".ph__kick,.ph__sub,.ph__row,.ph__scroll", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: .08, delay: .45, overwrite: "auto" });
   }
-
-  /* ---------------- PARALLAX (hero / feature images) ---------------- */
+  function heroFx() {
+    var hero = $(".ph");
+    if (hero && !isMobile()) hero.addEventListener("mousemove", function (e) {
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty("--mx", (((e.clientX - r.left) / r.width) * 100) + "%");
+      hero.style.setProperty("--my", (((e.clientY - r.top) / r.height) * 100) + "%");
+    });
+    var dust = $("#phDust");
+    if (dust && !RM) {
+      var html = "";
+      for (var i = 0; i < 16; i++) {
+        var left = (Math.random() * 100).toFixed(1), dur = (6 + Math.random() * 7).toFixed(1), delay = (-Math.random() * 12).toFixed(1);
+        html += '<i style="left:' + left + '%;animation-duration:' + dur + 's;animation-delay:' + delay + 's"></i>';
+      }
+      dust.innerHTML = html;
+    }
+    // kinetic names marquee (faint, behind headline)
+    var marq = $("#phMarq");
+    if (marq) {
+      var names = P.map(function (p) { return p.n; });
+      var line = names.join(' <em>★</em> ') + ' <em>★</em> ';
+      marq.innerHTML = "<u>" + line + line + "</u>";
+    }
+  }
   function parallax() {
     if (!hasGSAP || !ST || RM) return;
-    gsap.to(".parallax-hero", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".ph-hero", start: "top top", end: "bottom top", scrub: true } });
     if (isMobile()) return;
     var feat = $(".parallax-feat");
     if (feat) gsap.fromTo(feat, { yPercent: -8 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: ".feat", start: "top bottom", end: "bottom top", scrub: true } });
   }
-
-  /* ---------------- MAGNETIC ---------------- */
   function magnetic() {
     if (RM || isMobile()) return;
     $$(".btn--orange:not(.btn--full), .cta").forEach(function (b) {
-      b.addEventListener("mousemove", function (e) {
-        var r = b.getBoundingClientRect();
-        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)";
-      });
+      b.addEventListener("mousemove", function (e) { var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)"; });
       b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+  function counters() {
+    if (!hasGSAP || !ST) return;
+    $$("#pstats .pstat__n").forEach(function (el) {
+      var end = parseInt(el.getAttribute("data-count"), 10); if (!end) return;
+      var suf = el.querySelector(".pl") ? el.querySelector(".pl").outerHTML : "";
+      var o = { v: 0 };
+      ST.create({ trigger: el, start: "top 90%", once: true, onEnter: function () {
+        gsap.to(o, { v: end, duration: 1.4, ease: "power2.out", onUpdate: function () { el.innerHTML = Math.round(o.v) + suf; } });
+      }});
     });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    smoothScroll();
-    header();
-    langToggle();
-    reveals();
-    heroReveal();
-    parallax();
-    magnetic();
+    smoothScroll(); header();
+    renderFilters(); renderWall(); lightboxWire();
+    applyLang(lang);
+    var lt = $("#langToggle"); if (lt) lt.addEventListener("click", function () { applyLang(lang === "me" ? "en" : "me"); });
+    reveals(); heroReveal(); heroFx(); parallax(); magnetic(); counters();
     var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("load", function () { if (ST) ST.refresh(); });
+    if (ST) setTimeout(function () { ST.refresh(); }, 1400);
   });
 })();
 </script>
