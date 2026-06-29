@@ -22,7 +22,7 @@
   .hd{--hdcol:var(--cream)}
 
   /* =================== HERO (cinematic espresso) =================== */
-  .ph{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  .ph{position:relative;min-height:clamp(74svh,82svh,88svh);display:flex;flex-direction:column;justify-content:flex-end;
     padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);
     overflow:hidden;color:var(--cream);background:var(--esp);isolation:isolate}
   .ph__bg{position:absolute;inset:0;z-index:-3;background:
@@ -39,13 +39,18 @@
     box-shadow:0 0 7px 1px rgba(202,161,74,.7);opacity:0;animation:dustRise linear infinite}
   @keyframes dustRise{0%{opacity:0;transform:translateY(0) scale(.5)}12%{opacity:.7}88%{opacity:.45}100%{opacity:0;transform:translateY(-82vh) scale(1)}}
   /* faint kinetic names band behind the headline */
-  .ph__marq{position:absolute;left:0;right:0;top:38%;z-index:-2;pointer-events:none;overflow:hidden;
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
-  .ph__marq u{display:inline-block;white-space:nowrap;font-style:normal;font-family:var(--disp);font-weight:800;
-    font-size:clamp(3rem,9vw,8rem);line-height:1;letter-spacing:-.02em;color:transparent;
-    -webkit-text-stroke:1px rgba(220,187,106,.10);animation:marqL 46s linear infinite}
-  .ph__marq u em{font-style:normal;color:rgba(242,116,26,.10);margin:0 .35em}
-  @keyframes marqL{to{transform:translateX(-50%)}}
+  /* constellation — Panteon zvijezda (faint twinkling stars) */
+  .ph__stars{position:absolute;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+  .ph__stars i{position:absolute;display:block;border-radius:50%;background:var(--gold-l);
+    box-shadow:0 0 8px 1px rgba(220,187,106,.45);opacity:0;will-change:opacity,transform;
+    animation:twinkle ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.1;transform:scale(.6)}50%{opacity:.72;transform:scale(1)}}
+  /* large slow-breathing halo for cinematic depth */
+  .ph__halo{position:absolute;z-index:-2;left:52%;top:44%;width:min(125vw,1150px);aspect-ratio:1;
+    transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(202,161,74,.12),rgba(242,116,26,.05) 40%,transparent 66%);
+    animation:haloBreathe 10s ease-in-out infinite}
+  @keyframes haloBreathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.7}50%{transform:translate(-50%,-50%) scale(1.07);opacity:1}}
 
   .ph__inner{max-width:1320px;margin:0 auto;width:100%;position:relative}
   .ph__kick{display:inline-flex;align-items:center;gap:.6em;font-family:var(--body);font-weight:600;font-size:.76rem;
@@ -67,7 +72,7 @@
   .ph__scroll b{font-style:normal;animation:bob 1.6s ease-in-out infinite}
 
   /* =================== INTRO + STAT BAND (porcelain) =================== */
-  .pin{padding:clamp(3.4rem,6vw,5.5rem) clamp(1.2rem,5vw,5rem) clamp(1rem,3vw,2rem)}
+  .pin{padding:clamp(1.8rem,3.5vw,2.6rem) clamp(1.2rem,5vw,5rem) 0}
   .pin__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(1.6rem,4vw,4rem);align-items:end}
   .pin__grid .ttl{margin-bottom:0}
   .pin__grid p{color:var(--ink);opacity:.9;font-size:1.08rem;max-width:52ch}
@@ -101,8 +106,12 @@
   /* grid */
   .pw__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1.05rem}
   .pc{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;border:1px solid var(--line-l);
-    background:linear-gradient(155deg,#2a221a,#15110d);cursor:pointer;isolation:isolate;will-change:transform;
-    transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+    background:linear-gradient(155deg,#2a221a,#15110d);cursor:pointer;isolation:isolate;will-change:transform,opacity;
+    transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease),opacity .8s var(--ease),clip-path .9s var(--ease)}
+  /* entrance: cards are visible by default; the .reveal class (added when the grid
+     scrolls into view) plays a staggered clip-wipe. Can never leave a card hidden. */
+  #wallGrid.reveal .pc{animation:cardIn .75s var(--ease) backwards}
+  @keyframes cardIn{0%{opacity:0;clip-path:inset(0 0 100% 0)}100%{opacity:1;clip-path:inset(0 0 0% 0)}}
   .pc__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:1;
     filter:grayscale(.92) brightness(.86) contrast(1.02);transform:scale(1.02);
     transition:filter .6s var(--ease),transform .8s var(--ease)}
@@ -214,8 +223,9 @@
     .lb__media{min-height:36svh}
   }
   @media (prefers-reduced-motion:reduce){
-    .ph__dust,.ph__marq,.ph__title .gold{animation:none}
+    .ph__dust,.ph__stars i,.ph__halo,.ph__title .gold{animation:none}
     .pc__img{filter:grayscale(0) brightness(1)}
+    #wallGrid .pc{animation:none}
   }
 </style>
 </head>
@@ -247,8 +257,9 @@
 <section class="ph" id="top">
   <div class="ph__bg" aria-hidden="true"></div>
   <div class="ph__spot" aria-hidden="true"></div>
+  <div class="ph__halo" aria-hidden="true"></div>
+  <div class="ph__stars" id="phStars" aria-hidden="true"></div>
   <div class="ph__dust" id="phDust" aria-hidden="true"></div>
-  <div class="ph__marq" id="phMarq" aria-hidden="true"></div>
   <div class="ph__inner">
     <div class="ph__kick reveal-up"><span class="d"></span><span data-i18n="ph.kicker">Promoteri · Specijalni gosti</span></div>
     <h1 class="ph__title">
@@ -274,10 +285,6 @@
 
 <!-- ===================== INTRO + STATS ===================== -->
 <section class="pin">
-  <div class="pin__grid">
-    <h2 class="ttl reveal-rich"><span data-i18n="in.t1">Hala</span> <span class="it flame" data-i18n="in.t2">zvijezda.</span></h2>
-    <p class="reveal-up" data-i18n="in.p">Iz godine u godinu, na planinu dolaze imena koja djeca prate na velikim ekranima. Sa njima na parketu, mladi igrači uče iz prve ruke šta znači <b>vrh</b> — i kako se do njega stiže.</p>
-  </div>
   <div class="pstats" id="pstats">
     <div class="pstat reveal-up"><div class="pstat__n" data-count="20">20</div><div class="pstat__l" data-i18n="st.1">Promotera</div></div>
     <div class="pstat reveal-up"><div class="pstat__n" data-count="3">3</div><div class="pstat__l" data-i18n="st.2">NBA i WNBA igrača</div></div>
@@ -300,7 +307,6 @@
 
   <div class="pw__filters reveal-up" id="filters"></div>
   <div class="pw__grid" id="wallGrid"></div>
-  <p class="pw__note reveal-up" data-i18n="wl.note">Karijere ažurirane i provjerene iz više izvora.</p>
 </section>
 
 <!-- ===================== BIO LIGHTBOX ===================== -->
@@ -628,38 +634,41 @@
     });
     $$("[data-lang-opt]").forEach(function (s) { s.classList.toggle("is-on", s.getAttribute("data-lang-opt") === l); });
     try { localStorage.setItem("bckc-lang", l); } catch (e) {}
-    renderFilters(); renderWall();
+    relabelFilters(); relabelWall();
     if (lbOpen >= 0) fillLightbox(lbOpen);
-    if (ST) ST.refresh();
   }
 
   /* ---------------- RENDER: filters ---------------- */
   var activeFilter = "all";
+  function chipLabel(f) {
+    var count = f.key === "all" ? P.length : P.filter(function (p) { return p.cat === f.key; }).length;
+    return (lang === "me" ? f.me : f.en) + '<b>' + count + '</b>';
+  }
   function renderFilters() {
     var box = $("#filters"); if (!box) return;
     box.innerHTML = FILTERS.map(function (f) {
       var count = f.key === "all" ? P.length : P.filter(function (p) { return p.cat === f.key; }).length;
       if (f.key !== "all" && count === 0) return "";
-      return '<button class="chip' + (f.key === activeFilter ? " on" : "") + '" data-f="' + f.key + '">' +
-        (lang === "me" ? f.me : f.en) + '<b>' + count + '</b></button>';
+      return '<button class="chip' + (f.key === activeFilter ? " on" : "") + '" data-f="' + f.key + '">' + chipLabel(f) + '</button>';
     }).join("");
     $$("#filters .chip").forEach(function (c) {
       c.addEventListener("click", function () { setFilter(c.getAttribute("data-f")); });
     });
   }
+  /* language switch: update chip labels in place (no rebuild = no flicker) */
+  function relabelFilters() {
+    $$("#filters .chip").forEach(function (c) {
+      var key = c.getAttribute("data-f");
+      for (var i = 0; i < FILTERS.length; i++) if (FILTERS[i].key === key) { c.innerHTML = chipLabel(FILTERS[i]); break; }
+    });
+  }
   function setFilter(key) {
     activeFilter = key;
     $$("#filters .chip").forEach(function (c) { c.classList.toggle("on", c.getAttribute("data-f") === key); });
-    var cards = $$("#wallGrid .pc");
-    cards.forEach(function (card) {
+    $$("#wallGrid .pc").forEach(function (card) {
       var show = key === "all" || card.getAttribute("data-cat") === key;
-      card.classList.toggle("is-hidden", !show);
+      card.classList.toggle("is-hidden", !show);   // visible by default; just show/hide. No opacity tricks = nothing can stick.
     });
-    if (hasGSAP && !RM) {
-      var vis = cards.filter(function (c) { return !c.classList.contains("is-hidden"); });
-      gsap.fromTo(vis, { opacity: 0, y: 16, scale: .98 }, { opacity: 1, y: 0, scale: 1, duration: .5, ease: "power3.out", stagger: .03, overwrite: true });
-    }
-    if (ST) ST.refresh();
   }
 
   /* ---------------- RENDER: wall ---------------- */
@@ -670,7 +679,7 @@
     grid.innerHTML = P.map(function (p, i) {
       var role = lang === "me" ? p.r_me : p.r_en;
       var no = ("0" + (i + 1)).slice(-2);
-      return '<article class="pc' + (p.feat ? " pc--feat" : "") + '" data-cat="' + p.cat + '" data-i="' + i + '" tabindex="0" role="button" aria-label="' + p.n + '">' +
+      return '<article class="pc' + (p.feat ? " pc--feat" : "") + '" data-cat="' + p.cat + '" data-i="' + i + '" style="animation-delay:' + Math.min(i * 0.04, 0.6) + 's" tabindex="0" role="button" aria-label="' + p.n + '">' +
         '<img class="pc__img" src="assets/img/promoteri/' + p.slug + '.webp" alt="' + p.n + '" loading="lazy" />' +
         '<div class="pc__scrim"></div>' +
         '<span class="pc__no">' + no + '</span>' + STAR +
@@ -684,22 +693,30 @@
       card.addEventListener("click", open);
       card.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     });
-    setupTilt(); setupCardReveal();
+    setupTilt(); observeReveal();
     var f = activeFilter; activeFilter = "all";   // re-apply current filter without animation reset
     if (f !== "all") setFilter(f);
   }
-
-  /* ---------------- card reveal (clip-wipe + grayscale->colour, staggered) ---------------- */
-  function setupCardReveal() {
-    if (!hasGSAP || !ST || RM) return;
-    var cards = $$("#wallGrid .pc");
-    cards.forEach(function (card, i) {
-      var img = $(".pc__img", card), info = $(".pc__info", card), no = $(".pc__no", card);
-      var tl = gsap.timeline({ scrollTrigger: { trigger: card, start: "top 92%", once: true } });
-      tl.fromTo(card, { clipPath: "inset(0 0 100% 0)", y: 26 }, { clipPath: "inset(0 0 0% 0)", y: 0, duration: .9, ease: "power3.out" }, 0)
-        .fromTo(img, { scale: 1.16 }, { scale: 1.02, duration: 1.1, ease: "power3.out" }, 0)
-        .from([no, info], { y: 14, opacity: 0, duration: .6, ease: "power3.out", stagger: .06 }, .25);
+  /* language switch: update role text in place (names unchanged) — no DOM rebuild */
+  function relabelWall() {
+    $$("#wallGrid .pc").forEach(function (card) {
+      var p = P[parseInt(card.getAttribute("data-i"), 10)]; if (!p) return;
+      var role = $(".pc__role", card); if (role) role.textContent = lang === "me" ? p.r_me : p.r_en;
     });
+  }
+
+  /* ---------------- card reveal — robust CSS-class clip-wipe via IntersectionObserver ----------------
+     Only ever ADDS the .in class, so language switches / tab switches never re-trigger or flicker it. */
+  /* card entrance — ONE grid-level observer adds .reveal, which plays a staggered
+     clip-wipe via CSS. Bulletproof: cards are visible by default, so if the observer
+     never fires (or isn't supported) they simply stay shown — nothing can stick hidden. */
+  function observeReveal() {
+    var grid = $("#wallGrid"); if (!grid) return;
+    if (RM || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { grid.classList.add("reveal"); io.disconnect(); } });
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+    io.observe(grid);
   }
 
   /* ---------------- 3D tilt on cards (desktop) ---------------- */
@@ -831,18 +848,25 @@
     var dust = $("#phDust");
     if (dust && !RM) {
       var html = "";
-      for (var i = 0; i < 16; i++) {
+      for (var i = 0; i < 11; i++) {
         var left = (Math.random() * 100).toFixed(1), dur = (6 + Math.random() * 7).toFixed(1), delay = (-Math.random() * 12).toFixed(1);
         html += '<i style="left:' + left + '%;animation-duration:' + dur + 's;animation-delay:' + delay + 's"></i>';
       }
       dust.innerHTML = html;
     }
-    // kinetic names marquee (faint, behind headline)
-    var marq = $("#phMarq");
-    if (marq) {
-      var names = P.map(function (p) { return p.n; });
-      var line = names.join(' <em>★</em> ') + ' <em>★</em> ';
-      marq.innerHTML = "<u>" + line + line + "</u>";
+    // constellation of faint twinkling stars (theme: Panteon zvijezda), kept above the title zone
+    var stars = $("#phStars");
+    if (stars && !RM) {
+      var html = "", N = 22;
+      for (var s = 0; s < N; s++) {
+        var top = (3 + Math.random() * 55).toFixed(1);
+        var leftp = (2 + Math.random() * 96).toFixed(1);
+        var sz = (1.4 + Math.random() * 2.6).toFixed(2);
+        var dur = (3 + Math.random() * 5).toFixed(1);
+        var del = (-Math.random() * 8).toFixed(1);
+        html += '<i style="top:' + top + '%;left:' + leftp + '%;width:' + sz + 'px;height:' + sz + 'px;animation-duration:' + dur + 's;animation-delay:' + del + 's"></i>';
+      }
+      stars.innerHTML = html;
     }
   }
   function parallax() {
