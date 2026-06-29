@@ -73,11 +73,14 @@
 
   /* =================== INTRO + STAT BAND (porcelain) =================== */
   .pin{padding:clamp(1.8rem,3.5vw,2.6rem) clamp(1.2rem,5vw,5rem) 0}
-  .pstats{max-width:1320px;margin:clamp(2.4rem,5vw,3.6rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);
-    gap:1rem;border-top:1px solid var(--line);padding-top:clamp(1.6rem,3vw,2.4rem)}
-  .pstat__n{font-family:var(--disp);font-weight:800;line-height:1;letter-spacing:-.02em;font-size:clamp(2.4rem,5.5vw,4rem);color:var(--orange-d)}
-  .pstat__n .pl{color:var(--gold)}
-  .pstat__l{margin-top:.5rem;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .pstats{max-width:1320px;margin:clamp(2rem,4.5vw,3.2rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,3vw,2.4rem)}
+  .pstat{position:relative;padding-top:1.15rem}
+  .pstat::before{content:"";position:absolute;top:0;left:.08em;width:34px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--gold))}
+  .pstat__n{font-family:var(--disp);font-weight:800;line-height:.9;letter-spacing:-.035em;font-size:clamp(2.7rem,6vw,4.7rem);
+    background:linear-gradient(152deg,var(--orange) 4%,var(--orange-d) 46%,var(--gold) 122%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--orange-d)}
+  .pstat__n .pl{font-size:.66em;-webkit-text-fill-color:var(--gold);color:var(--gold);vertical-align:.1em;margin-left:.03em}
+  .pstat__l{margin-top:.55rem;font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
 
   /* =================== WALL OF STARS (espresso) =================== */
   .pw{position:relative;background:var(--esp);color:var(--cream);overflow:hidden;
@@ -177,7 +180,7 @@
 
   /* =================== EDITORIAL FEATURE =================== */
   .feat{position:relative;min-height:clamp(64svh,76svh,82svh);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream)}
-  .feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;object-position:50% 35%;z-index:-2;will-change:transform}
+  .feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;object-position:50% 30%;z-index:-2;will-change:transform}
   .feat__scrim{position:absolute;inset:0;z-index:-1;background:
     linear-gradient(105deg,rgba(13,10,8,.86) 0%,rgba(13,10,8,.5) 42%,rgba(13,10,8,.12) 100%),
     linear-gradient(to top,rgba(13,10,8,.72),transparent 55%)}
@@ -327,7 +330,7 @@
 
 <!-- ===================== EDITORIAL FEATURE ===================== -->
 <section class="feat">
-  <img class="feat__img parallax-feat" src="assets/img/promoteri/Sasa-Pavlovic.webp" alt="" loading="lazy" />
+  <img class="feat__img parallax-feat" src="assets/img/promoteri/feat-group.webp" alt="Promoteri Basketball Camp Kolašin" loading="lazy" />
   <div class="feat__scrim" aria-hidden="true"></div>
   <div class="feat__inner">
     <h2 class="feat__q reveal-rich"><span data-i18n="ft.q1">Treniraj uz one koji su</span> <span class="flame" data-i18n="ft.q2">stigli do vrha.</span></h2>
