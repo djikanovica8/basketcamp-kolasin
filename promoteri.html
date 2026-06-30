@@ -73,10 +73,11 @@
 
   /* =================== INTRO + STAT BAND (porcelain) =================== */
   .pin{padding:clamp(1.8rem,3.5vw,2.6rem) clamp(1.2rem,5vw,5rem) 0}
-  .pstats{max-width:1320px;margin:clamp(2rem,4.5vw,3.2rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,3vw,2.4rem)}
-  .pstat{position:relative;padding-top:1.4rem;text-align:center}
-  .pstat::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--gold))}
-  .pstat__n{font-family:var(--disp);font-weight:800;line-height:.9;letter-spacing:-.035em;font-size:clamp(2.7rem,6vw,4.7rem);
+  .pstats{max-width:1120px;margin:clamp(1.8rem,4vw,3rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);align-items:center}
+  .pstat{position:relative;text-align:center;padding:.2rem clamp(.4rem,2vw,1.4rem)}
+  .pstat + .pstat::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:74%;
+    background:linear-gradient(180deg,transparent,rgba(29,24,18,.16) 24%,rgba(29,24,18,.16) 76%,transparent)}
+  .pstat__n{font-family:var(--disp);font-weight:800;line-height:1;letter-spacing:-.03em;font-size:clamp(2.8rem,6.2vw,4.7rem);
     background:linear-gradient(152deg,var(--orange) 4%,var(--orange-d) 46%,var(--gold) 122%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--orange-d)}
   .pstat__n .pl{font-size:.66em;-webkit-text-fill-color:var(--gold);color:var(--gold);vertical-align:.1em;margin-left:.03em}
@@ -205,7 +206,8 @@
   /* =================== RESPONSIVE =================== */
   @media (max-width:1100px){ .pw__grid{grid-template-columns:repeat(4,1fr)} }
   @media (max-width:900px){
-    .pstats{grid-template-columns:repeat(2,1fr);gap:1.4rem 1rem}
+    .pstats{grid-template-columns:repeat(2,1fr);gap:2rem 1rem;max-width:520px}
+    .pstat::before{display:none}
     .pw__grid{grid-template-columns:repeat(3,1fr)}
     .lb__panel{grid-template-columns:1fr;max-height:90svh}
     .lb__media{min-height:42svh}
