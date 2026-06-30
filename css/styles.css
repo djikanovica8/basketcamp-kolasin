@@ -376,3 +376,42 @@ html{overflow-x:hidden}
 body{overflow-x:hidden;max-width:100%;position:relative}
 .hero,.ft,.ga,.tick,.pr,.promo,.life,.coach{overflow:hidden}
 section,header,footer{max-width:100vw}
+
+/* ===================== FOUNDER EXTENDED-INFO MODAL ===================== */
+.cc__more{position:absolute;top:1rem;right:1.1rem;z-index:4;display:inline-flex;align-items:center;gap:.45em;
+  font-family:var(--body);font-weight:600;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);
+  background:rgba(8,6,5,.4);border:1px solid rgba(243,237,227,.3);border-radius:100px;padding:.5em .9em;opacity:.9;
+  transition:opacity .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease)}
+.cc__more b{font-style:normal;font-size:1.1em;line-height:0}
+.cc:hover .cc__more,.cc:focus .cc__more{opacity:1;background:var(--orange);border-color:var(--orange)}
+.fmodal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:clamp(.8rem,3vw,2.2rem)}
+.fmodal.open{display:flex}
+.fmodal__veil{position:absolute;inset:0;background:rgba(8,6,5,.8);backdrop-filter:blur(10px);opacity:0}
+.fmodal__panel{position:relative;width:min(1040px,100%);max-height:92svh;overflow:hidden;border-radius:24px;
+  border:1px solid rgba(202,161,74,.28);background:linear-gradient(165deg,#241d16,#141009);
+  box-shadow:0 60px 120px -40px rgba(0,0,0,.85);display:grid;grid-template-columns:.82fr 1.18fr;will-change:transform,opacity}
+.fmodal__media{position:relative;overflow:hidden;background:#15110d;min-height:340px}
+.fmodal__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.05);transition:transform 7s ease}
+.fmodal.show .fmodal__media img{transform:scale(1)}
+.fmodal__no{position:absolute;top:1rem;left:1.1rem;z-index:2;font-family:var(--disp);font-weight:700;font-size:.85rem;color:rgba(243,237,227,.8);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.fmodal__body{position:relative;padding:clamp(1.6rem,3vw,2.8rem);padding-bottom:4.7rem;overflow-y:auto;color:var(--cream)}
+.fmodal__badge{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l);margin-bottom:.8rem}
+.fmodal__badge i{width:6px;height:6px;border-radius:50%;background:var(--orange);font-style:normal}
+.fmodal__name{font-family:var(--disp);font-weight:800;line-height:.98;letter-spacing:-.022em;font-size:clamp(1.9rem,4vw,3rem);color:var(--cream)}
+.fmodal__sub{margin-top:.55rem;font-family:var(--body);font-weight:600;font-size:.82rem;color:var(--gold-l)}
+.fmodal__meta{margin-top:.95rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.fmodal__meta span{font-family:var(--body);font-weight:600;font-size:.68rem;color:var(--mut-l);border:1px solid var(--line-l);border-radius:100px;padding:.4em .85em}
+.fmodal__hl{list-style:none;margin:1.3rem 0 0;padding:0;display:grid;gap:.6rem}
+.fmodal__hl li{position:relative;padding-left:1.5em;font-size:.95rem;line-height:1.4;color:rgba(243,237,227,.92)}
+.fmodal__hl li::before{content:"";position:absolute;left:0;top:.5em;width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ffe6b0,var(--gold));box-shadow:0 0 10px rgba(202,161,74,.6)}
+.fmodal__bio{margin-top:1.3rem;font-size:1rem;line-height:1.6;color:rgba(243,237,227,.84);max-width:58ch}
+.fmodal__x{position:absolute;top:.9rem;right:.9rem;z-index:6;width:42px;height:42px;border-radius:50%;border:1px solid rgba(243,237,227,.26);background:rgba(8,6,5,.4);color:var(--cream);display:grid;place-items:center;cursor:pointer;transition:background .3s,transform .3s var(--ease)}
+.fmodal__x:hover{background:var(--orange);border-color:var(--orange);transform:rotate(90deg)}
+.fmodal__x svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.fmodal__nav{position:absolute;bottom:1rem;right:1.1rem;z-index:6;display:flex;align-items:center;gap:.6rem}
+.fmodal__count{font-family:var(--disp);font-weight:700;font-size:.8rem;color:var(--mut-l)}
+.fmodal__nav button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(243,237,227,.26);background:rgba(8,6,5,.4);color:var(--cream);display:grid;place-items:center;cursor:pointer;transition:background .3s,border-color .3s,transform .3s var(--ease)}
+.fmodal__nav button:hover{background:var(--gold);border-color:var(--gold);color:#161210}
+.fmodal__nav svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:760px){.fmodal__panel{grid-template-columns:1fr;max-height:90svh}.fmodal__media{min-height:36svh}}
+@media (prefers-reduced-motion:reduce){.fmodal__x:hover{transform:none}.fmodal__media img{transition:none}}
