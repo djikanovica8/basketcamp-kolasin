@@ -74,8 +74,8 @@
   /* =================== INTRO + STAT BAND (porcelain) =================== */
   .pin{padding:clamp(1.8rem,3.5vw,2.6rem) clamp(1.2rem,5vw,5rem) 0}
   .pstats{max-width:1320px;margin:clamp(2rem,4.5vw,3.2rem) auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,3vw,2.4rem)}
-  .pstat{position:relative;padding-top:1.15rem}
-  .pstat::before{content:"";position:absolute;top:0;left:.08em;width:34px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--gold))}
+  .pstat{position:relative;padding-top:1.4rem;text-align:center}
+  .pstat::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:40px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--orange),var(--gold))}
   .pstat__n{font-family:var(--disp);font-weight:800;line-height:.9;letter-spacing:-.035em;font-size:clamp(2.7rem,6vw,4.7rem);
     background:linear-gradient(152deg,var(--orange) 4%,var(--orange-d) 46%,var(--gold) 122%);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--orange-d)}
@@ -180,7 +180,7 @@
 
   /* =================== EDITORIAL FEATURE =================== */
   .feat{position:relative;min-height:clamp(64svh,76svh,82svh);display:flex;align-items:flex-end;overflow:hidden;color:var(--cream)}
-  .feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;object-position:50% 30%;z-index:-2;will-change:transform}
+  .feat__img{position:absolute;inset:0;width:100%;height:122%;top:-11%;object-fit:cover;object-position:50% 45%;z-index:-2;will-change:transform}
   .feat__scrim{position:absolute;inset:0;z-index:-1;background:
     linear-gradient(105deg,rgba(13,10,8,.86) 0%,rgba(13,10,8,.5) 42%,rgba(13,10,8,.12) 100%),
     linear-gradient(to top,rgba(13,10,8,.72),transparent 55%)}
