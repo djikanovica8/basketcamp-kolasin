@@ -95,7 +95,10 @@
   .pw__head p{color:var(--mut-l);max-width:46ch;margin-top:.8rem;font-size:1.03rem}
 
   /* filter chips */
-  .pw__filters{max-width:1320px;margin:0 auto clamp(2rem,3.5vw,2.8rem);display:flex;flex-wrap:wrap;gap:.6rem}
+  .pw__filterbar{max-width:1320px;margin:0 auto clamp(2rem,3.5vw,2.8rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem 1.2rem}
+  .pw__filters{display:flex;flex-wrap:wrap;gap:.6rem}
+  .pw__legend{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut-l)}
+  .pw__legend i{font-style:normal;color:var(--gold-l);font-size:1.05em;filter:drop-shadow(0 0 6px rgba(202,161,74,.55))}
   .chip{font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.02em;color:var(--mut-l);
     border:1px solid var(--line-l);background:rgba(243,237,227,.03);border-radius:100px;padding:.55em 1.1em;cursor:pointer;
     transition:color .35s var(--ease),border-color .35s var(--ease),background .35s var(--ease),transform .35s var(--ease)}
@@ -301,7 +304,10 @@
     <span class="show__lab reveal-up" style="font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mut-l)" data-i18n="wl.lab">NBA · Evroliga · Reprezentacija</span>
   </div>
 
-  <div class="pw__filters reveal-up" id="filters"></div>
+  <div class="pw__filterbar reveal-up">
+    <div class="pw__filters" id="filters"></div>
+    <div class="pw__legend"><i>★</i><span data-i18n="wl.legend">NBA · WNBA · evroligaške zvijezde</span></div>
+  </div>
   <div class="pw__grid" id="wallGrid"></div>
 </section>
 
@@ -588,7 +594,7 @@
       "in.p":"Iz godine u godinu, na planinu dolaze imena koja djeca prate na velikim ekranima. Sa njima na parketu, mladi igrači uče iz prve ruke šta znači <b>vrh</b> — i kako se do njega stiže.",
       "st.1":"Promotera","st.2":"NBA i WNBA igrača","st.3":"Reprezentativaca","st.4":"Izdanja kampa",
       "wl.eyebrow":"Panteon zvijezda","wl.t1":"Gosti koji su","wl.t2":"došli na planinu.",
-      "wl.lead":"Klikni na bilo koje ime — otvori karijeru, trofeje i priču svake zvijezde.","wl.lab":"NBA · Evroliga · Reprezentacija",
+      "wl.lead":"Klikni na bilo koje ime — otvori karijeru, trofeje i priču svake zvijezde.","wl.lab":"NBA · Evroliga · Reprezentacija","wl.legend":"NBA · WNBA · evroligaške zvijezde",
       "wl.note":"Karijere provjerene iz više izvora.",
       "ft.q1":"Treniraj uz one koji su","ft.q2":"stigli do vrha.","ft.by":"Basketball Camp Kolašin · Promoteri",
       "cb.eyebrow":"Pridruži se","cb.t1":"Stani na isti parket","cb.t2":"sa zvijezdama.","cb.cta":"Prijavi se",
@@ -606,7 +612,7 @@
       "in.p":"Year after year, names the kids follow on the big screen come to the mountain. Beside them on the court, young players learn first-hand what <b>the summit</b> means — and how you get there.",
       "st.1":"Promoters","st.2":"NBA & WNBA players","st.3":"Internationals","st.4":"Camp editions",
       "wl.eyebrow":"Wall of Stars","wl.t1":"The guests who","wl.t2":"came to the mountain.",
-      "wl.lead":"Tap any name — open the career, trophies and story of every star.","wl.lab":"NBA · EuroLeague · National team",
+      "wl.lead":"Tap any name — open the career, trophies and story of every star.","wl.lab":"NBA · EuroLeague · National team","wl.legend":"NBA · WNBA · EuroLeague stars",
       "wl.note":"Careers verified across multiple sources.",
       "ft.q1":"Train with those who","ft.q2":"reached the top.","ft.by":"Basketball Camp Kolašin · Promoters",
       "cb.eyebrow":"Join in","cb.t1":"Stand on the same court","cb.t2":"as the stars.","cb.cta":"Sign up",
