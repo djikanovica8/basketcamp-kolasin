@@ -122,6 +122,8 @@
     const fill = $("#tlFill"), tl = $("#tl"); if (!fill || !tl) return;
     if (!hasGSAP || !ST || RM) { fill.style.height = "100%"; return; }
     gsap.to(fill, { height: "100%", ease: "none", scrollTrigger: { trigger: tl, start: "top 60%", end: "bottom 82%", scrub: 0.5 } });
+    const ball = $(".tl__ball", tl);
+    if (ball) gsap.to(ball, { rotation: 900, ease: "none", scrollTrigger: { trigger: tl, start: "top 60%", end: "bottom 82%", scrub: 0.5 } });
     $$(".tl__stop").forEach((stop) => ST.create({
       trigger: stop, start: "top 58%", end: "bottom 58%",
       onEnter: () => stop.classList.add("lit"), onEnterBack: () => stop.classList.add("lit"), onLeaveBack: () => stop.classList.remove("lit")
