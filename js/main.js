@@ -26,6 +26,7 @@
     coachTilt();
     galleryDrag();
     countdown();
+    testimonials();
     magnetic();
     forms();
     parallax();
@@ -170,6 +171,88 @@
       const mm = Math.floor(d / 6e4); d -= mm * 6e4; const ss = Math.floor(d / 1e3);
       D.textContent = pad(dd); H.textContent = pad(hh); M.textContent = pad(mm); S.textContent = pad(ss); };
     tick(); setInterval(tick, 1000);
+  }
+
+  /* ---------------- TESTIMONIALS (auto slider) ---------------- */
+  function testimonials() {
+    const root = $("#teSlider"); if (!root) return;
+    const slides = $$(".te__slide", root);
+    const dotsWrap = $("#teDots", root);
+    const bar = $(".te__bar > i", root);
+    if (slides.length < 2) return;
+    const DUR = 7000;
+    const anim = hasGSAP && !RM;
+    let idx = 0, timer = null, barTween = null;
+
+    slides.forEach((s, i) => {
+      const nm = $(".te__id b", s), av = $(".te__ava", s);
+      if (av && nm) av.textContent = (nm.textContent.trim().charAt(0) || "•");
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "te__dot" + (i === 0 ? " is-on" : "");
+      d.setAttribute("aria-label", "Testimonial " + (i + 1));
+      d.addEventListener("click", () => go(i, i > idx ? 1 : -1));
+      dotsWrap.appendChild(d);
+    });
+    const dots = $$(".te__dot", dotsWrap);
+    const paint = () => dots.forEach((d, i) => d.classList.toggle("is-on", i === idx));
+
+    function reveal(s) {
+      if (!anim) return;
+      gsap.fromTo($$(".te__stars, .te__quote, .te__by", s),
+        { y: 26, autoAlpha: 0, filter: "blur(6px)" },
+        { y: 0, autoAlpha: 1, filter: "blur(0px)", duration: 0.7, ease: "power3.out", stagger: 0.08, overwrite: true });
+    }
+    function restartBar() {
+      if (!bar || !anim) return;
+      if (barTween) barTween.kill();
+      barTween = gsap.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: DUR / 1000, ease: "none" });
+    }
+    function schedule() {
+      if (RM) return;
+      clearTimeout(timer); restartBar();
+      timer = setTimeout(() => go(idx + 1), DUR);
+    }
+    function pause() { clearTimeout(timer); if (barTween) barTween.pause(); }
+    function resume() {
+      if (RM) return;
+      if (barTween && barTween.progress() < 1) {
+        const remaining = DUR * (1 - barTween.progress());
+        barTween.play(); clearTimeout(timer);
+        timer = setTimeout(() => go(idx + 1), remaining);
+      } else schedule();
+    }
+    function go(i) {
+      i = (i + slides.length) % slides.length;
+      if (i === idx) return;
+      idx = i; paint();
+      slides.forEach((s, k) => {
+        const on = k === idx;
+        s.classList.toggle("is-active", on);
+        if (anim) gsap.set(s, { autoAlpha: on ? 1 : 0 });
+      });
+      reveal(slides[idx]);
+      schedule();
+    }
+
+    $(".te__arrow--next", root).addEventListener("click", () => go(idx + 1));
+    $(".te__arrow--prev", root).addEventListener("click", () => go(idx - 1));
+    root.addEventListener("mouseenter", pause);
+    root.addEventListener("mouseleave", resume);
+    document.addEventListener("visibilitychange", () => (document.hidden ? pause() : resume()));
+
+    let sx = 0, sw = false;
+    root.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; sw = true; pause(); }, { passive: true });
+    root.addEventListener("touchend", (e) => {
+      if (!sw) return; sw = false;
+      const dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 45) go(dx < 0 ? idx + 1 : idx - 1); else resume();
+    }, { passive: true });
+
+    slides.forEach((s, k) => { s.classList.toggle("is-active", k === 0); if (anim) gsap.set(s, { autoAlpha: k === 0 ? 1 : 0 }); });
+    const start = () => { reveal(slides[0]); schedule(); };
+    if (ST) ST.create({ trigger: root, start: "top 78%", once: true, onEnter: start });
+    else start();
   }
 
   /* ---------------- MAGNETIC ---------------- */
