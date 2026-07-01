@@ -134,9 +134,10 @@
   /* ---------------- DAY -> NIGHT (program) ---------------- */
   function dayNight() {
     const pr = $("#program"); if (!pr || !hasGSAP || !ST || RM) return;
-    const stars = $(".pr__stars", pr), glow = $(".pr__glow", pr);
-    if (stars) gsap.fromTo(stars, { opacity: 0 }, { opacity: .85, ease: "none", scrollTrigger: { trigger: pr, start: "top 75%", end: "center 60%", scrub: true } });
-    if (glow) gsap.fromTo(glow, { opacity: .12 }, { opacity: 1, ease: "none", scrollTrigger: { trigger: pr, start: "center bottom", end: "bottom bottom", scrub: true } });
+    const sun = $(".pr__sun", pr), stars = $(".pr__stars", pr), glow = $(".pr__glow", pr);
+    if (sun) gsap.fromTo(sun, { opacity: 1 }, { opacity: 0, ease: "none", scrollTrigger: { trigger: pr, start: "top 55%", end: "center center", scrub: true } });
+    if (stars) gsap.fromTo(stars, { opacity: 0 }, { opacity: .9, ease: "none", scrollTrigger: { trigger: pr, start: "top 35%", end: "center 55%", scrub: true } });
+    if (glow) gsap.fromTo(glow, { opacity: .18 }, { opacity: 1, ease: "none", scrollTrigger: { trigger: pr, start: "center bottom", end: "bottom bottom", scrub: true } });
   }
 
   /* ---------------- 3D COACH TILT ---------------- */
