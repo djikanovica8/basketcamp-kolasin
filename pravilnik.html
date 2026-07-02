@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>Pravilnik — Basketball Camp Kolašin · Svaki kamper treba da zna</title>
+<meta name="description" content="Pravilnik ponašanja kampera Basketball Camp-a Kolašin — jasna pravila koja kamp čine sigurnim i fer za svakoga. Code of conduct of Basketball Camp Kolašin." />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  /* ===== page-specific — reuses :root tokens ===== */
+  html{overflow-x:hidden}
+
+  /* compact espresso hero with the gold ridge contour */
+  .rv-hero{position:relative;z-index:0;min-height:52vh;min-height:52svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.6rem,5vw,4rem);overflow:hidden;color:var(--cream);background:var(--esp)}
+  .rv-hero__bg{position:absolute;inset:0;z-index:0;background:
+    radial-gradient(ellipse 80% 55% at 70% 0%,rgba(202,161,74,.10),transparent 60%),
+    linear-gradient(180deg,#171009 0%,#221710 55%,#2c1d12 100%)}
+  .rv-hero__line{position:absolute;left:0;right:0;bottom:0;height:min(240px,38%);z-index:0;pointer-events:none;
+    background:url(assets/img/mtn-line.svg) center bottom/cover no-repeat;opacity:.5}
+  .rv-hero__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;width:100%}
+  .rv-kick{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+  .rv-kick a{color:rgba(243,237,227,.6);transition:color .3s}
+  .rv-kick a:hover{color:var(--orange)}
+  .rv-kick i{font-style:normal;opacity:.5}
+  .rv-hero__title{font-family:var(--disp);font-weight:700;line-height:.94;letter-spacing:-.025em;font-size:clamp(2.6rem,7.4vw,6rem);margin:1.1rem 0 1.2rem}
+  .rv-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .rv-hero__title .ln span{display:inline-block;will-change:transform}
+  .rv-hero__lead{max-width:58ch;font-size:clamp(1.02rem,1.5vw,1.22rem);color:rgba(243,237,227,.88)}
+  .rv-hero__lead b{color:var(--gold-l);font-weight:600}
+
+  /* ===== rules body — porcelain ===== */
+  .rv{background:var(--porc);counter-reset:rule}
+  .rv__wrap{max-width:900px;margin:0 auto}
+  .rs{padding:clamp(1.6rem,3vw,2.4rem) 0;border-top:1px solid var(--line)}
+  .rs:first-child{border-top:0;padding-top:0}
+  .rs__head{display:flex;align-items:center;gap:1rem;margin-bottom:clamp(1.1rem,2vw,1.5rem)}
+  .rs__ic{flex:none;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(242,116,26,.14),rgba(202,161,74,.14))}
+  .rs__ic svg{width:23px;height:23px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .rs__t{font-family:var(--disp);font-weight:700;font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--ink)}
+  .rr{position:relative;display:grid;grid-template-columns:56px 1fr;gap:1rem;align-items:start;padding:.85rem 0}
+  .rr + .rr{border-top:1px dashed rgba(29,24,18,.1)}
+  .rr::before{counter-increment:rule;content:counter(rule,decimal-leading-zero);
+    font-family:var(--disp);font-weight:800;font-size:1.5rem;line-height:1.2;letter-spacing:-.02em;
+    background:linear-gradient(152deg,var(--orange) 4%,var(--orange-d) 46%,var(--gold) 122%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--orange-d)}
+  .rr p{color:var(--ink);opacity:.88;font-size:1.02rem;line-height:1.6;max-width:64ch;padding-top:.2rem}
+
+  /* forbidden section gets a warm warning tint */
+  .rs--warn .rs__ic{background:linear-gradient(140deg,rgba(216,95,13,.2),rgba(242,116,26,.12))}
+  .rs--warn .rr p b{color:var(--orange-d)}
+
+  /* ===== acceptance card ===== */
+  .rv-acc{background:var(--porc)}
+  .rv-acc__card{position:relative;max-width:900px;margin:0 auto;border-radius:24px;overflow:hidden;color:var(--cream);
+    background:linear-gradient(160deg,#241d16,#15100a);border:1px solid rgba(202,161,74,.35);
+    padding:clamp(2rem,4.5vw,3.2rem);box-shadow:0 40px 80px -44px rgba(29,24,18,.6)}
+  .rv-acc__card::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 70% 90% at 88% -10%,rgba(202,161,74,.14),transparent 60%)}
+  .rv-acc__t{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:.9rem}
+  .rv-acc__p{color:rgba(243,237,227,.85);font-size:1.02rem;line-height:1.65;max-width:66ch;margin-bottom:1.6rem}
+  .rv-acc__row{display:flex;flex-wrap:wrap;gap:1rem}
+
+  @media (max-width:640px){
+    .rr{grid-template-columns:44px 1fr;gap:.8rem}
+    .rr::before{font-size:1.2rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd on-dark" id="hd">
+  <div class="hd__brand">
+    <a class="hd__logo" href="index.html#top" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+  </div>
+  <nav class="hd__nav" id="hdNav">
+    <a href="index.html" data-i18n="nav.camp">Kamp</a>
+    <a href="index.html#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" data-i18n="nav.about">O nama</a>
+    <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+    <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+    <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  </nav>
+  <div class="hd__right">
+    <div class="hd__social" aria-label="Social media">
+      <a class="hd__soc" href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg>
+      </a>
+      <a class="hd__soc" href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg>
+      </a>
+    </div>
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="index.html#register" data-i18n="nav.register">Prijava</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="rv-hero" id="top">
+  <div class="rv-hero__bg" aria-hidden="true"></div>
+  <div class="rv-hero__line" aria-hidden="true"></div>
+  <div class="rv-hero__inner">
+    <span class="rv-kick reveal-up"><a href="index.html" data-i18n="crumb.home">Kamp</a><i>/</i><span data-i18n="rv.kick">Pravilnik ponašanja</span></span>
+    <h1 class="rv-hero__title">
+      <span class="ln"><span data-i18n="rv.t1">Svaki kamper</span></span>
+      <span class="ln"><span class="it flame" data-i18n="rv.t2">treba da zna.</span></span>
+    </h1>
+    <p class="rv-hero__lead reveal-up" data-i18n="rv.lead">Jasna pravila čine kamp sigurnim i fer za svakoga. Molimo kampere i roditelje da ih pročitaju prije uplate — <b>uplatom za učešće prihvatate pravilnik</b>.</p>
+  </div>
+</section>
+
+<!-- ===================== RULES ===================== -->
+<section class="section rv" id="pravila">
+  <div class="rv__wrap">
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div><h2 class="rs__t" data-i18n="rv.s1">Dnevni ritam i disciplina</h2></div>
+      <div class="rr"><p data-i18n="rv.r1">Na treninge, bazen, izlete i ostale sadržaje kampa kamperi idu isključivo u pratnji trenera.</p></div>
+      <div class="rr"><p data-i18n="rv.r2">Kamper poštuje rad trenera i postupa po njegovim uputstvima — na treninzima i van njih — radi sprovođenja programa i održavanja discipline na kampu.</p></div>
+      <div class="rr"><p data-i18n="rv.r3">Kamperi se ponašaju odgovorno i poštuju raspored obaveza na kampu.</p></div>
+      <div class="rr"><p data-i18n="rv.r4">Na obroke se dolazi u zakazano vrijeme.</p></div>
+      <div class="rr"><p data-i18n="rv.r5">Kamperi su u svojim sobama najkasnije u 23:00 i poslije toga ih ne napuštaju.</p></div>
+      <div class="rr"><p data-i18n="rv.r6">Na trening se nosi odgovarajuća sportska oprema, uz posebne patike za sportsku halu.</p></div>
+    </div>
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg></div><h2 class="rs__t" data-i18n="rv.s2">Zdravlje i lične stvari</h2></div>
+      <div class="rr"><p data-i18n="rv.r7">Ako kamper ima zdravstvenih problema, odmah se obraća treneru i ljekaru koji je dostupan 24 sata dnevno, radi blagovremene pomoći.</p></div>
+      <div class="rr"><p data-i18n="rv.r8">Kamperi čuvaju svoje lične stvari (novac, telefon, nakit…). Rukovodstvo kampa nije odgovorno za njihovo čuvanje.</p></div>
+    </div>
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M4 7h3l1.5-2h7L17 7h3v12H4zM12 10.5a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4z"/></svg></div><h2 class="rs__t" data-i18n="rv.s3">Fotografisanje i mediji</h2></div>
+      <div class="rr"><p data-i18n="rv.r9">Kamperi se fotografišu u sportskoj opremi u zakazano vrijeme. Basketball Camp Kolašin zadržava pravo objavljivanja fotografija u medijima i na internetu radi promocije kampa.</p></div>
+      <div class="rr"><p data-i18n="rv.r10">Po potrebi kamperi daju izjave za medije. Direktor kampa zadržava pravo objavljivanja datog intervjua i fotografija.</p></div>
+    </div>
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M14 4h6v16h-6M10 8l-4 4 4 4M6 12h11"/></svg></div><h2 class="rs__t" data-i18n="rv.s4">Napuštanje kampa</h2></div>
+      <div class="rr"><p data-i18n="rv.r11">Za odlazak do prodavnice, pošte, banke i slično kamper traži dozvolu dežurnog trenera. Kamp može napustiti isključivo radi odobrene potrebe, vraća se u dogovoreno vrijeme i o povratku obavještava trenera. Do povratka u kamp trener i Basketball Camp Kolašin ne odgovaraju za kampera.</p></div>
+      <div class="rr"><p data-i18n="rv.r12">Ako kamper svojevoljno napusti kamp bez odobrenja trenera, sam snosi odgovornost za posljedice, a rukovodstvo ima pravo da ga udalji sa kampa bez povraćaja novca.</p></div>
+      <div class="rr"><p data-i18n="rv.r13">Ako kamper želi da napusti kamp iz privatnih razloga, dužan je da o tome obavijesti upravu kampa i obezbijedi uslove za odlazak. U tom slučaju kamp nema obavezu povraćaja novca.</p></div>
+    </div>
+
+    <div class="rs rs--warn reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M12 3L2 20h20zM12 9v5M12 17.2v.3"/></svg></div><h2 class="rs__t" data-i18n="rv.s5">Strogo zabranjeno</h2></div>
+      <div class="rr"><p data-i18n="rv.r14">Unošenje ili konzumiranje <b>alkohola</b> — slijedi trenutno udaljenje sa kampa, bez povraćaja novca.</p></div>
+      <div class="rr"><p data-i18n="rv.r15"><b>Cigarete i opojne droge</b> — slijedi trenutno udaljenje sa kampa, bez povraćaja novca.</p></div>
+      <div class="rr"><p data-i18n="rv.r16">Dovođenje sebe i drugih u opasnost neodgovornim ponašanjem (sjedenje na prozoru sobe, napuštanje sobe tokom noćnog odmora, svađa ili tuča i slično) — kamper snosi odgovornost za posljedice, a rukovodstvo ima pravo da ga odmah udalji sa kampa bez povraćaja novca.</p></div>
+      <div class="rr"><p data-i18n="rv.r17">Najstrože je zabranjeno bilo kakvo <b>vrijeđanje po rasnoj, političkoj, polnoj ili bilo kojoj drugoj osnovi</b> — to je dovoljan razlog za udaljenje sa kampa, bez povraćaja novca.</p></div>
+    </div>
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M8 11V7a4 4 0 018 0v4M5 11h14v9H5z"/></svg></div><h2 class="rs__t" data-i18n="rv.s6">Odnos prema ljudima i imovini</h2></div>
+      <div class="rr"><p data-i18n="rv.r18">Prema rukovodstvu kampa, osoblju, trenerima i drugim kamperima ponašamo se s poštovanjem, savjesno i odgovorno. Imovina kampa, hotela i sportske hale koristi se savjesno — štetu koju prouzrokuje kamper dužan je da nadoknadi, a za štetu maloljetnog kampera odgovaraju roditelji.</p></div>
+    </div>
+
+    <div class="rs reveal-up">
+      <div class="rs__head"><div class="rs__ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M12 8v5M12 15.8v.3"/></svg></div><h2 class="rs__t" data-i18n="rv.s7">Kršenje pravilnika</h2></div>
+      <div class="rr"><p data-i18n="rv.r19">Svako ponašanje suprotno pravilniku sankcioniše se udaljenjem sa kampa, bez povraćaja novca, a kamper je dužan da odmah obezbijedi uslove za napuštanje kampa. O kršenju pravilnika maloljetnog kampera roditelji se odmah obavještavaju i dužni su da ga preuzmu najkasnije u roku od 12 časova od obavještenja.</p></div>
+      <div class="rr"><p data-i18n="rv.r20">Za ponašanje suprotno pravilniku, kao i za materijalnu i nematerijalnu štetu koja iz njega nastane, Basketball Camp Kolašin ne snosi odgovornost.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== ACCEPTANCE ===================== -->
+<section class="section rv-acc">
+  <div class="rv-acc__card reveal-up">
+    <h2 class="rv-acc__t" data-i18n="rv.acc.t">Prihvatanje pravilnika</h2>
+    <p class="rv-acc__p" data-i18n="rv.acc.p">Pravilnik o ponašanju kampera sastavni je dio ponude Basketball Camp-a Kolašin i dostupan je na sajtu u svakom trenutku. Uplatom za učešće na kampu kamperi i roditelji maloljetnih kampera prihvataju njegove odredbe. Molimo roditelje da se prije uplate upoznaju sa pravilnikom i da djeci ukažu na njegovo poštovanje — za eventualnu štetu koju prouzrokuju maloljetni kamperi odgovaraju roditelji.</p>
+    <div class="rv-acc__row">
+      <a class="btn btn--orange" href="index.html#register"><span data-i18n="rv.acc.b1">Prijavi se</span><b>→</b></a>
+      <a class="btn btn--glass" href="index.html#faq"><span data-i18n="rv.acc.b2">Česta pitanja</span><b>→</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a><a href="pravilnik.html">Pravilnik</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">VRH</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
+</footer>
+
+<!-- mobile menu -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.camp">Kamp</a>
+  <a href="index.html#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.about">O nama</a>
+  <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  <a href="index.html#register" class="cta" data-i18n="nav.register">Prijava</a>
+  <div class="mm__social" aria-label="Social media">
+    <a href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg><span>Instagram</span></a>
+    <a href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg><span>Facebook</span></a>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* =====================================================================
+   PRAVILNIK — inline behaviour. Mirrors js/main.js conventions.
+   Lenis · reveals · header · mobile menu · magnetic · ME/EN i18n.
+   ===================================================================== */
+(function () {
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGSAP = typeof window.gsap !== "undefined";
+  var hasLenis = typeof window.Lenis !== "undefined";
+  var ST = window.ScrollTrigger;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var isMobile = function () { return window.matchMedia("(hover:none)").matches; };
+
+  var I18N = {
+    me: {
+      "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj","nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava","wa.tip":"Piši nam na WhatsApp",
+      "crumb.home":"Kamp",
+      "rv.kick":"Pravilnik ponašanja","rv.t1":"Svaki kamper","rv.t2":"treba da zna.",
+      "rv.lead":"Jasna pravila čine kamp sigurnim i fer za svakoga. Molimo kampere i roditelje da ih pročitaju prije uplate — <b>uplatom za učešće prihvatate pravilnik</b>.",
+      "rv.s1":"Dnevni ritam i disciplina",
+      "rv.r1":"Na treninge, bazen, izlete i ostale sadržaje kampa kamperi idu isključivo u pratnji trenera.",
+      "rv.r2":"Kamper poštuje rad trenera i postupa po njegovim uputstvima — na treninzima i van njih — radi sprovođenja programa i održavanja discipline na kampu.",
+      "rv.r3":"Kamperi se ponašaju odgovorno i poštuju raspored obaveza na kampu.",
+      "rv.r4":"Na obroke se dolazi u zakazano vrijeme.",
+      "rv.r5":"Kamperi su u svojim sobama najkasnije u 23:00 i poslije toga ih ne napuštaju.",
+      "rv.r6":"Na trening se nosi odgovarajuća sportska oprema, uz posebne patike za sportsku halu.",
+      "rv.s2":"Zdravlje i lične stvari",
+      "rv.r7":"Ako kamper ima zdravstvenih problema, odmah se obraća treneru i ljekaru koji je dostupan 24 sata dnevno, radi blagovremene pomoći.",
+      "rv.r8":"Kamperi čuvaju svoje lične stvari (novac, telefon, nakit…). Rukovodstvo kampa nije odgovorno za njihovo čuvanje.",
+      "rv.s3":"Fotografisanje i mediji",
+      "rv.r9":"Kamperi se fotografišu u sportskoj opremi u zakazano vrijeme. Basketball Camp Kolašin zadržava pravo objavljivanja fotografija u medijima i na internetu radi promocije kampa.",
+      "rv.r10":"Po potrebi kamperi daju izjave za medije. Direktor kampa zadržava pravo objavljivanja datog intervjua i fotografija.",
+      "rv.s4":"Napuštanje kampa",
+      "rv.r11":"Za odlazak do prodavnice, pošte, banke i slično kamper traži dozvolu dežurnog trenera. Kamp može napustiti isključivo radi odobrene potrebe, vraća se u dogovoreno vrijeme i o povratku obavještava trenera. Do povratka u kamp trener i Basketball Camp Kolašin ne odgovaraju za kampera.",
+      "rv.r12":"Ako kamper svojevoljno napusti kamp bez odobrenja trenera, sam snosi odgovornost za posljedice, a rukovodstvo ima pravo da ga udalji sa kampa bez povraćaja novca.",
+      "rv.r13":"Ako kamper želi da napusti kamp iz privatnih razloga, dužan je da o tome obavijesti upravu kampa i obezbijedi uslove za odlazak. U tom slučaju kamp nema obavezu povraćaja novca.",
+      "rv.s5":"Strogo zabranjeno",
+      "rv.r14":"Unošenje ili konzumiranje <b>alkohola</b> — slijedi trenutno udaljenje sa kampa, bez povraćaja novca.",
+      "rv.r15":"<b>Cigarete i opojne droge</b> — slijedi trenutno udaljenje sa kampa, bez povraćaja novca.",
+      "rv.r16":"Dovođenje sebe i drugih u opasnost neodgovornim ponašanjem (sjedenje na prozoru sobe, napuštanje sobe tokom noćnog odmora, svađa ili tuča i slično) — kamper snosi odgovornost za posljedice, a rukovodstvo ima pravo da ga odmah udalji sa kampa bez povraćaja novca.",
+      "rv.r17":"Najstrože je zabranjeno bilo kakvo <b>vrijeđanje po rasnoj, političkoj, polnoj ili bilo kojoj drugoj osnovi</b> — to je dovoljan razlog za udaljenje sa kampa, bez povraćaja novca.",
+      "rv.s6":"Odnos prema ljudima i imovini",
+      "rv.r18":"Prema rukovodstvu kampa, osoblju, trenerima i drugim kamperima ponašamo se s poštovanjem, savjesno i odgovorno. Imovina kampa, hotela i sportske hale koristi se savjesno — štetu koju prouzrokuje kamper dužan je da nadoknadi, a za štetu maloljetnog kampera odgovaraju roditelji.",
+      "rv.s7":"Kršenje pravilnika",
+      "rv.r19":"Svako ponašanje suprotno pravilniku sankcioniše se udaljenjem sa kampa, bez povraćaja novca, a kamper je dužan da odmah obezbijedi uslove za napuštanje kampa. O kršenju pravilnika maloljetnog kampera roditelji se odmah obavještavaju i dužni su da ga preuzmu najkasnije u roku od 12 časova od obavještenja.",
+      "rv.r20":"Za ponašanje suprotno pravilniku, kao i za materijalnu i nematerijalnu štetu koja iz njega nastane, Basketball Camp Kolašin ne snosi odgovornost.",
+      "rv.acc.t":"Prihvatanje pravilnika",
+      "rv.acc.p":"Pravilnik o ponašanju kampera sastavni je dio ponude Basketball Camp-a Kolašin i dostupan je na sajtu u svakom trenutku. Uplatom za učešće na kampu kamperi i roditelji maloljetnih kampera prihvataju njegove odredbe. Molimo roditelje da se prije uplate upoznaju sa pravilnikom i da djeci ukažu na njegovo poštovanje — za eventualnu štetu koju prouzrokuju maloljetni kamperi odgovaraju roditelji.",
+      "rv.acc.b1":"Prijavi se","rv.acc.b2":"Česta pitanja",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja"
+    },
+    en: {
+      "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay","nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up","wa.tip":"Chat on WhatsApp",
+      "crumb.home":"Camp",
+      "rv.kick":"Code of conduct","rv.t1":"Every camper","rv.t2":"needs to know.",
+      "rv.lead":"Clear rules keep camp safe and fair for everyone. We ask campers and parents to read them before payment — <b>by paying for participation you accept the rules</b>.",
+      "rv.s1":"Daily rhythm & discipline",
+      "rv.r1":"Campers go to trainings, the pool, excursions and all other camp activities exclusively accompanied by the coaches.",
+      "rv.r2":"Campers respect the coaches' work and follow their instructions — on the court and off it — so the program runs smoothly and discipline is maintained.",
+      "rv.r3":"Campers behave responsibly and respect the camp schedule.",
+      "rv.r4":"Meals are attended at the scheduled times.",
+      "rv.r5":"Campers are in their rooms by 23:00 at the latest and do not leave them afterwards.",
+      "rv.r6":"Proper sports gear is worn to training, with separate shoes for the indoor hall.",
+      "rv.s2":"Health & personal belongings",
+      "rv.r7":"If a camper has any health problem, they immediately tell a coach and the doctor, who is available 24 hours a day.",
+      "rv.r8":"Campers look after their personal belongings (money, phone, jewellery…). Camp management is not responsible for keeping them.",
+      "rv.s3":"Photos & media",
+      "rv.r9":"Campers are photographed in camp gear at the scheduled time. Basketball Camp Kolašin reserves the right to publish the photos in the media and online to promote the camp.",
+      "rv.r10":"When needed, campers give statements for the media. The camp director reserves the right to publish the interview and photos.",
+      "rv.s4":"Leaving the camp",
+      "rv.r11":"To visit the shop, post office, bank or similar, a camper asks the duty coach for permission, leaves only for the approved purpose, returns at the agreed time and reports back to the coach. Until the camper returns, the coach and Basketball Camp Kolašin are not responsible for them.",
+      "rv.r12":"A camper who leaves camp without the coach's permission bears full responsibility for the consequences, and management has the right to remove them from camp without a refund.",
+      "rv.r13":"A camper who wishes to leave for private reasons must inform camp management and arrange their departure. In that case the camp owes no refund.",
+      "rv.s5":"Strictly forbidden",
+      "rv.r14":"Bringing in or consuming <b>alcohol</b> — immediate removal from camp, without a refund.",
+      "rv.r15":"<b>Cigarettes and drugs</b> — immediate removal from camp, without a refund.",
+      "rv.r16":"Endangering yourself or others through reckless behaviour (sitting on the room window, leaving the room during night rest, quarrels or fights and similar) — the camper bears responsibility for the consequences, and management may remove them immediately, without a refund.",
+      "rv.r17":"Any <b>insult on racial, political, sexual or any other grounds</b> is strictly forbidden — and is sufficient reason for removal from camp, without a refund.",
+      "rv.s6":"People & property",
+      "rv.r18":"Campers treat camp management, staff, coaches and fellow campers with respect and consideration. Camp, hotel and sports-hall property is used with care — a camper who causes damage must compensate it, and parents are liable for damage caused by minors.",
+      "rv.s7":"Breaking the rules",
+      "rv.r19":"Any behaviour contrary to these rules is sanctioned by removal from camp without a refund, and the camper must arrange their departure immediately. Parents of a minor camper are notified at once and must collect the camper within 12 hours of notification.",
+      "rv.r20":"Basketball Camp Kolašin bears no responsibility for behaviour contrary to these rules, nor for any material or immaterial damage arising from it.",
+      "rv.acc.t":"Accepting the rules",
+      "rv.acc.p":"This code of conduct is an integral part of the Basketball Camp Kolašin offer and is available on the website at all times. By paying for participation, campers and the parents of minor campers accept its provisions. We ask parents to read the rules before payment and to remind their children to respect them — parents are liable for any damage caused by minor campers.",
+      "rv.acc.b1":"Sign up","rv.acc.b2":"Read the FAQ",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+    }
+  };
+
+  var current = "me";
+  try { current = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = "me";
+    current = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute("lang", lang === "me" ? "sr-ME" : "en");
+    document.documentElement.setAttribute("data-lang", lang);
+    $$("[data-i18n]").forEach(function (el) {
+      var v = dict[el.getAttribute("data-i18n")];
+      if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+    });
+    $$("[data-lang-opt]").forEach(function (el) { el.classList.toggle("is-on", el.getAttribute("data-lang-opt") === lang); });
+    try { localStorage.setItem("bckc-lang", lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } }));
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+  function init() {
+    applyLang(current);
+    var btn = $("#langToggle"); if (btn) btn.addEventListener("click", function () { applyLang(current === "me" ? "en" : "me"); });
+    smoothScroll();
+    header();
+    reveals();
+    magnetic();
+    var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("langchange", function () { if (ST) ST.refresh(); });
+  }
+
+  var lenis = null;
+  function smoothScroll() {
+    if (hasGSAP && ST) gsap.registerPlugin(ST);
+    if (hasLenis && !RM) {
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      window.lenis = lenis;
+      if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add(function (t) { lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0); }
+      else { var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    }
+  }
+
+  function header() {
+    var hd = $("#hd");
+    var hero = $(".rv-hero");
+    var onScroll = function () {
+      var s = window.scrollY > 30;
+      if (!hd) return;
+      hd.classList.toggle("scr", s);
+      var darkUnder = hero ? (window.scrollY < hero.offsetHeight - 80) : false;
+      hd.classList.toggle("on-dark", darkUnder && !s);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var burg = $("#burg"), mm = $("#mm");
+    if (burg && mm) burg.addEventListener("click", function () {
+      var open = mm.classList.toggle("open"); burg.classList.toggle("x", open);
+      document.body.classList.toggle("lock", open); if (lenis) { open ? lenis.stop() : lenis.start(); }
+    });
+  }
+
+  function reveals() {
+    if (!hasGSAP || !ST || RM) return;
+    $$(".reveal-up").forEach(function (el) {
+      if (el.closest(".rv-hero")) return;
+      gsap.from(el, { y: 34, opacity: 0, duration: 0.85, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 92%" } });
+    });
+    gsap.set(".rv-hero__title .ln span", { yPercent: 118 });
+    gsap.to(".rv-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.15 });
+    gsap.fromTo(".rv-kick,.rv-hero__lead", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
+  }
+
+  function magnetic() {
+    if (RM || isMobile()) return;
+    $$(".btn--orange:not(.btn--full), .cta").forEach(function (b) {
+      b.addEventListener("mousemove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)";
+      });
+      b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+})();
+</script>
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa" href="https://wa.me/38267032132" target="_blank" rel="noopener" aria-label="WhatsApp — Basketball Camp Kolasin">
+  <span class="wa__tip" data-i18n="wa.tip">Piši nam na WhatsApp</span>
+  <span class="wa__btn" aria-hidden="true">
+    <span class="wa__pulse"></span>
+    <span class="wa__core"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 4C9.93 4 4.97 8.96 4.97 15.07c0 2.06.56 4.06 1.62 5.83L4.8 27.2l6.48-1.69a11.02 11.02 0 0 0 4.76 1.08h.01c6.11 0 11.07-4.96 11.07-11.07 0-2.96-1.15-5.74-3.24-7.83A11 11 0 0 0 16.04 4Zm0 2.2c2.37 0 4.6.92 6.28 2.6a8.82 8.82 0 0 1 2.6 6.28c0 4.9-3.99 8.88-8.89 8.88-1.48 0-2.94-.38-4.22-1.08l-.3-.18-3.84 1.01 1.03-3.74-.2-.31a8.83 8.83 0 0 1-1.35-4.71c0-4.9 3.98-8.88 8.88-8.88Zm-3.6 4.53c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.94 2.52 1.06 2.69.13.17 1.83 2.93 4.52 4 .63.27 1.12.43 1.5.55.63.2 1.21.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.61.22-1.14.16-1.25-.07-.11-.25-.17-.51-.3-.26-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.59.13-.17.25-.67.86-.83 1.03-.15.17-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.4-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.59-.45-.15-.01-.32-.01-.5-.01Z"/></svg></span>
+  </span>
+</a>
+
+</body>
+</html>

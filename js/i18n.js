@@ -56,7 +56,7 @@
       "rg.eyebrow":"Registration","rg.title":"Claim the","rg.title2":"summit.","rg.lead":"Spots fill fast every year. Tell us about the player and we'll reply within 24 hours.",
       "rg.cEmail":"Email","rg.cPhone":"Phone","rg.cLoc":"Location","rg.cSocial":"Follow",
       "rg.f.name":"Player's name","rg.f.age":"Age","rg.f.session":"Session","rg.f.s1":"Session I · 27 Jun–2 Jul","rg.f.s2":"Session II · 2–7 Jul","rg.f.s3":"Skills & Shooting · 7–12 Jul",
-      "rg.f.contact":"Parent email or phone","rg.f.msg":"Message <span class=\"opt\">(optional)</span>","rg.submit":"Send registration","rg.ok":"Got it! 🏀 We'll be in touch within 24 hours.",
+      "rg.f.contact":"Parent email or phone","rg.f.msg":"Message <span class=\"opt\">(optional)</span>","rg.submit":"Send registration","rg.rules":"By paying for participation you accept the <a href='pravilnik.html'>camper code of conduct</a>.","rg.ok":"Got it! 🏀 We'll be in touch within 24 hours.",
       "ft.tag":"Reach the summit. Kolašin, Crna Gora.","ft.sponsor":"Supported by Lovćen Osiguranje",
       "wa.tip":"Chat on WhatsApp"
     },
@@ -112,7 +112,7 @@
       "rg.eyebrow":"Prijava","rg.title":"Osvoji","rg.title2":"vrh.","rg.lead":"Mjesta se brzo popune svake godine. Recite nam o igraču i javljamo se u roku od 24 sata.",
       "rg.cEmail":"Email","rg.cPhone":"Telefon","rg.cLoc":"Lokacija","rg.cSocial":"Prati",
       "rg.f.name":"Ime igrača","rg.f.age":"Uzrast","rg.f.session":"Termin","rg.f.s1":"Termin I · 27. jun–2. jul","rg.f.s2":"Termin II · 2–7. jul","rg.f.s3":"Vještine i šut · 7–12. jul",
-      "rg.f.contact":"Email ili telefon roditelja","rg.f.msg":"Poruka <span class=\"opt\">(opciono)</span>","rg.submit":"Pošalji prijavu","rg.ok":"Primljeno! 🏀 Javljamo se u roku od 24 sata.",
+      "rg.f.contact":"Email ili telefon roditelja","rg.f.msg":"Poruka <span class=\"opt\">(opciono)</span>","rg.submit":"Pošalji prijavu","rg.rules":"Uplatom za učešće prihvatate <a href='pravilnik.html'>Pravilnik ponašanja kampera</a>.","rg.ok":"Primljeno! 🏀 Javljamo se u roku od 24 sata.",
       "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja",
       "wa.tip":"Piši nam na WhatsApp"
     }

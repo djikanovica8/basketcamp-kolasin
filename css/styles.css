@@ -356,6 +356,9 @@ ul{list-style:none}
 .rg__form input,.rg__form select,.rg__form textarea{font-family:var(--body);font-size:1rem;background:var(--esp);border:1px solid var(--line-l);border-radius:12px;padding:.85em 1em;color:var(--cream);transition:border-color .3s,box-shadow .3s;resize:none}
 .rg__form input:focus,.rg__form select:focus,.rg__form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,116,26,.16)}
 .rg__ok{font-family:var(--disp);font-weight:700;color:var(--orange);text-align:center}
+.rg__legal{margin-top:1rem;font-size:.78rem;line-height:1.5;color:var(--mut-l);text-align:center}
+.rg__legal a{color:var(--gold-l);text-decoration:underline;text-underline-offset:2px;transition:color .3s}
+.rg__legal a:hover{color:var(--orange)}
 
 /* =================== FOOTER =================== */
 .ft{background:#0f0c09;color:var(--cream);padding:clamp(3rem,6vw,4.5rem) clamp(1.2rem,5vw,5rem) 2rem;overflow:hidden}
