@@ -73,7 +73,7 @@
 
   /* =================== INTRO + STAT BAND (porcelain) =================== */
   .pin{padding:clamp(1.2rem,2vw,1.6rem) clamp(1.2rem,5vw,5rem)}
-  .pstats{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+  .pstats{max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
   .pstat{position:relative;text-align:center;padding:0 clamp(.4rem,2vw,1.4rem)}
   .pstat + .pstat::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:74%;
     background:linear-gradient(180deg,transparent,rgba(29,24,18,.16) 24%,rgba(29,24,18,.16) 76%,transparent)}
@@ -210,6 +210,7 @@
   @media (max-width:1100px){ .pw__grid{grid-template-columns:repeat(4,1fr)} }
   @media (max-width:900px){
     .pstats{grid-template-columns:repeat(2,1fr);gap:2rem 1rem;max-width:520px}
+    .pstat:last-child{grid-column:1/-1}
     .pstat::before{display:none}
     .pw__grid{grid-template-columns:repeat(3,1fr)}
     .lb__panel{grid-template-columns:1fr;max-height:90svh}
@@ -293,10 +294,9 @@
 <!-- ===================== INTRO + STATS ===================== -->
 <section class="pin">
   <div class="pstats" id="pstats">
-    <div class="pstat reveal-up"><div class="pstat__n" data-count="20">20</div><div class="pstat__l" data-i18n="st.1">Promotera</div></div>
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="21">21</div><div class="pstat__l" data-i18n="st.1">Promotera</div></div>
     <div class="pstat reveal-up"><div class="pstat__n" data-count="3">3</div><div class="pstat__l" data-i18n="st.2">NBA i WNBA igrača</div></div>
-    <div class="pstat reveal-up"><div class="pstat__n" data-count="13" data-suffix="+">13<span class="pl">+</span></div><div class="pstat__l" data-i18n="st.3">Reprezentativaca</div></div>
-    <div class="pstat reveal-up"><div class="pstat__n" data-count="11" data-suffix="">11</div><div class="pstat__l" data-i18n="st.4">Izdanja kampa</div></div>
+    <div class="pstat reveal-up"><div class="pstat__n" data-count="12" data-suffix="">12</div><div class="pstat__l" data-i18n="st.4">Izdanja kampa</div></div>
   </div>
 </section>
 
@@ -560,6 +560,14 @@
       b_me:"Sportski psiholog koji radi sa vrhunskim crnogorskim sportistima — uključujući vaterpolo reprezentaciju kroz cijeli olimpijski ciklus do Pariza 2024. Na kampu pomaže mladim igračima da razviju mentalnu snagu.",
       b_en:"A sport psychologist who works with Montenegro's elite athletes — including the water polo national team through the full Olympic cycle to Paris 2024. At camp he helps young players build mental strength."},
 
+    {slug:"Vladimir-Mihailovic",n:"Vladimir Mihailović",cat:"nt",feat:false,
+      r_me:"Reprezentativac Crne Gore",r_en:"Montenegro International",
+      m_me:["Bek · 195 cm","Budućnost · Mornar","KK Zadar"],m_en:["Guard · 195 cm","Budućnost · Mornar","KK Zadar"],
+      h_me:["Četiri titule prvaka Crne Gore sa Budućnošću","MVP belgijske lige 2021. (Okapi Alst)","Četiri Evrobasketa (2011–2025) i Svjetsko prvenstvo 2023.","Prvak Hrvatske i MVP finala sa Zadrom 2025."],
+      h_en:["Four Montenegrin League titles with Budućnost","Belgian League MVP in 2021 (Okapi Aalst)","Four EuroBaskets (2011–2025) and the 2023 FIBA World Cup","Croatian League champion & Finals MVP with Zadar in 2025"],
+      b_me:"Bek rođen na Cetinju 1990. godine, ponikao u Mornaru i Budućnosti, sa kojom je osvojio četiri titule prvaka Crne Gore. Karijeru je gradio i u Belgiji, Njemačkoj, Poljskoj i Bjelorusiji — 2021. je proglašen za MVP-ja belgijske lige. Dres reprezentacije nosio je na četiri evropska prvenstva i Svjetskom prvenstvu 2023, a danas igra za Zadar, sa kojim je 2025. osvojio titulu prvaka Hrvatske uz priznanje za MVP-ja finala.",
+      b_en:"A guard born in Cetinje in 1990, he came up through Mornar and Budućnost — winning four Montenegrin championships — before building his career across Belgium, Germany, Poland and Belarus, earning Belgian League MVP honours in 2021. He has represented Montenegro at four EuroBaskets and the 2023 FIBA World Cup, and today plays for KK Zadar, where he won the 2025 Croatian title as Finals MVP."},
+
     {slug:"Djordjije-Jovanovic",n:"Đorđije Jovanović",cat:"alumni",feat:false,
       r_me:"Bivši kamper · Reprezentativac CG",r_en:"Former Camper · Montenegro NT",
       m_me:["Budućnost VOLI","NBA G liga","St. John's (NCAA)"],m_en:["Budućnost VOLI","NBA G League","St. John's (NCAA)"],
@@ -604,7 +612,7 @@
       "tk.1":"NBA gosti","tk.2":"Evroligaške zvijezde","tk.3":"Reprezentativci Crne Gore","tk.4":"Treninzi sa šampionima","tk.5":"Inspiracija za novu generaciju",
       "in.t1":"Hala","in.t2":"zvijezda.",
       "in.p":"Iz godine u godinu, na planinu dolaze imena koja djeca prate na velikim ekranima. Sa njima na parketu, mladi igrači uče iz prve ruke šta znači <b>vrh</b> — i kako se do njega stiže.",
-      "st.1":"Promotera","st.2":"NBA i WNBA igrača","st.3":"Reprezentativaca","st.4":"Izdanja kampa",
+      "st.1":"Promotera","st.2":"NBA i WNBA igrača","st.4":"Izdanja kampa",
       "wl.eyebrow":"Panteon zvijezda","wl.t1":"Gosti koji su","wl.t2":"došli na planinu.",
       "wl.lead":"Klikni na bilo koje ime — otvori karijeru, trofeje i priču svake zvijezde.","wl.lab":"NBA · Evroliga · Reprezentacija","wl.legend":"NBA · WNBA · evroligaške zvijezde",
       "wl.note":"Karijere provjerene iz više izvora.",
@@ -622,7 +630,7 @@
       "tk.1":"NBA guests","tk.2":"EuroLeague stars","tk.3":"Montenegro internationals","tk.4":"Train with champions","tk.5":"Inspiration for the next generation",
       "in.t1":"A hall","in.t2":"of stars.",
       "in.p":"Year after year, names the kids follow on the big screen come to the mountain. Beside them on the court, young players learn first-hand what <b>the summit</b> means — and how you get there.",
-      "st.1":"Promoters","st.2":"NBA & WNBA players","st.3":"Internationals","st.4":"Camp editions",
+      "st.1":"Promoters","st.2":"NBA & WNBA players","st.4":"Camp editions",
       "wl.eyebrow":"Wall of Stars","wl.t1":"The guests who","wl.t2":"came to the mountain.",
       "wl.lead":"Tap any name — open the career, trophies and story of every star.","wl.lab":"NBA · EuroLeague · National team","wl.legend":"NBA · WNBA · EuroLeague stars",
       "wl.note":"Careers verified across multiple sources.",
