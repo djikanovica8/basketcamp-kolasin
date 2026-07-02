@@ -55,10 +55,6 @@
   .story__img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover;will-change:transform}
 
   /* ===== STATS band — espresso ===== */
-  .ab-stats{background:var(--esp);color:var(--cream)}
-  .ab-stats__inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-  .ab-stats .st b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,6vw,4.4rem);line-height:.9;color:var(--orange)}
-  .ab-stats .st i{font-family:var(--body);font-style:normal;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut-l);margin-top:.6rem;display:block}
 
   /* ===== FOUNDERS — porcelain ===== */
   .fnd{background:var(--porc)}
@@ -99,8 +95,6 @@
   .jr span{display:block;margin:.6rem auto 0;font-size:.95rem;line-height:1.45;color:var(--mut-l);max-width:24ch}
 
   /* ===== stats dividers ===== */
-  .ab-stats .st{position:relative;text-align:center}
-  .ab-stats .st + .st::before{content:"";position:absolute;left:-.8rem;top:14%;bottom:14%;width:1px;background:linear-gradient(180deg,transparent,rgba(243,237,227,.22),transparent)}
 
   /* ===== founder meta chips + more link ===== */
   .fc__meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 .85rem}
@@ -135,18 +129,14 @@
   .ab-cta__row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
 
   @media (max-width:1024px){
-    .story__grid,.ab-stats__inner,.fnd__grid{grid-template-columns:1fr}
+    .story__grid,.fnd__grid{grid-template-columns:1fr}
     .story__media{order:-1;aspect-ratio:16/10}
-    .ab-stats__inner{grid-template-columns:repeat(2,1fr);gap:2.2rem 1.5rem}
-    .ab-stats .st:nth-child(3)::before{display:none}
     .fnd__grid{max-width:480px;gap:1.6rem}
     .jrny__row{grid-template-columns:repeat(2,1fr);gap:2.4rem 1.6rem}
     .jrny__row::before{display:none}
     .why__grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:560px){
-    .ab-stats__inner{grid-template-columns:1fr 1fr}
-    .ab-stats .st + .st::before{display:none}
     .story__img{top:0;height:100%}
     .jrny__row{grid-template-columns:1fr 1fr;gap:2rem 1rem}
     .why__grid{grid-template-columns:1fr}
