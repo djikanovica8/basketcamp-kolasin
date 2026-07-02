@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#161210" />
 <title>O nama — Basketball Camp Kolašin · Gdje se rađaju šampioni</title>
-<meta name="description" content="O Košarkaškom kampu Kolašin — priča, osnivači Vlado Šćepanović i Savo Đikanović, i jedanaest izdanja kampa na 1.450 m u Bjelasici. About Basketball Camp Kolašin." />
+<meta name="description" content="O Košarkaškom kampu Kolašin — priča, osnivači Vlado Šćepanović i Savo Đikanović, i dvanaest izdanja kampa na 1.450 m u Bjelasici. About Basketball Camp Kolašin." />
 <link rel="icon" href="assets/logo/logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,6 +67,54 @@
   .fc__bio{font-size:.98rem;color:var(--mut);max-width:46ch}
   .fnd__note{max-width:1040px;margin:2rem auto 0;text-align:center;font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
 
+  /* ===== hero chips ===== */
+  .ab-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.7rem}
+  .ab-chip{font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);padding:.6em 1.05em;border:1px solid rgba(243,237,227,.26);border-radius:100px;background:rgba(22,18,16,.34);backdrop-filter:blur(6px)}
+  .ab-chip b{color:var(--gold-l);font-weight:700}
+
+  /* ===== story pull-quote ===== */
+  .story__quote{margin:1.5rem 0 1.7rem;padding-left:1.15rem;border-left:3px solid var(--orange);font-family:var(--disp);font-weight:600;font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.3;color:var(--ink)}
+
+  /* ===== JOURNEY band — espresso-2 ===== */
+  .jrny{background:var(--esp-2);color:var(--cream);overflow:hidden}
+  .jrny__head{max-width:1320px;margin:0 auto clamp(2.6rem,5vw,4rem);text-align:center}
+  .jrny__head .ey::before{display:none}
+  .jrny__row{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;position:relative}
+  .jrny__row::before{content:"";position:absolute;left:4%;right:4%;top:25px;height:2px;background:linear-gradient(90deg,transparent,rgba(202,161,74,.5) 18%,rgba(202,161,74,.5) 82%,transparent)}
+  .jr{position:relative;padding-top:58px;text-align:center}
+  .jr::before{content:"";position:absolute;top:17px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd9a0,var(--orange));box-shadow:0 0 18px rgba(242,116,26,.65)}
+  .jr b{display:block;font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1;color:var(--gold-l)}
+  .jr span{display:block;margin:.6rem auto 0;font-size:.95rem;line-height:1.45;color:var(--mut-l);max-width:24ch}
+
+  /* ===== stats dividers ===== */
+  .ab-stats .st{position:relative;text-align:center}
+  .ab-stats .st + .st::before{content:"";position:absolute;left:-.8rem;top:14%;bottom:14%;width:1px;background:linear-gradient(180deg,transparent,rgba(243,237,227,.22),transparent)}
+
+  /* ===== founder meta chips + more link ===== */
+  .fc__meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 .85rem}
+  .fc__meta span{font-family:var(--body);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding:.5em .9em;border:1px solid var(--line);border-radius:100px;background:var(--porc)}
+  .fnd__more{display:flex;justify-content:center;margin-top:2.4rem}
+
+  /* ===== WHY KOLAŠIN — porcelain-2 ===== */
+  .why{background:var(--porc-2)}
+  .why__head{max-width:1320px;margin:0 auto clamp(2.4rem,5vw,3.4rem);text-align:center}
+  .why__head .ey::before{display:none}
+  .why__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+  .wy{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.9rem 1.6rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+  .wy:hover{transform:translateY(-6px);box-shadow:0 28px 52px -30px rgba(29,24,18,.42)}
+  .wy__ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(140deg,rgba(242,116,26,.15),rgba(202,161,74,.15));margin-bottom:1.15rem}
+  .wy__ic svg{width:26px;height:26px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .wy h3{font-family:var(--disp);font-weight:700;font-size:1.18rem;margin-bottom:.5rem;color:var(--ink)}
+  .wy p{font-size:.94rem;line-height:1.5;color:var(--mut)}
+
+  /* ===== wide photo band ===== */
+  .band{position:relative;min-height:52vh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--cream);text-align:center;padding:clamp(4.5rem,10vw,8rem) clamp(1.2rem,5vw,5rem)}
+  .band__img{position:absolute;inset:0;width:100%;height:118%;top:-9%;object-fit:cover;will-change:transform}
+  .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,12,9,.5),rgba(15,12,9,.28) 45%,rgba(15,12,9,.6))}
+  .band__inner{position:relative;z-index:2;max-width:920px}
+  .band__q{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5.6vw,4.2rem);line-height:1;letter-spacing:-.02em;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+  .band__s{margin-top:1.1rem;font-family:var(--body);font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-l)}
+
   /* ===== CTA band — espresso ===== */
   .ab-cta{background:var(--esp);color:var(--cream);text-align:center}
   .ab-cta__inner{max-width:900px;margin:0 auto}
@@ -78,11 +126,19 @@
     .story__grid,.ab-stats__inner,.fnd__grid{grid-template-columns:1fr}
     .story__media{order:-1;aspect-ratio:16/10}
     .ab-stats__inner{grid-template-columns:repeat(2,1fr);gap:2.2rem 1.5rem}
+    .ab-stats .st:nth-child(3)::before{display:none}
     .fnd__grid{max-width:480px;gap:1.6rem}
+    .jrny__row{grid-template-columns:repeat(2,1fr);gap:2.4rem 1.6rem}
+    .jrny__row::before{display:none}
+    .why__grid{grid-template-columns:1fr 1fr}
   }
   @media (max-width:560px){
     .ab-stats__inner{grid-template-columns:1fr 1fr}
+    .ab-stats .st + .st::before{display:none}
     .ab-hero__img,.story__img{top:0;height:100%}
+    .jrny__row{grid-template-columns:1fr 1fr;gap:2rem 1rem}
+    .why__grid{grid-template-columns:1fr}
+    .band{min-height:44vh}
   }
 </style>
 </head>
@@ -130,7 +186,12 @@
       <span class="ln"><span data-i18n="ab.h1a">Gdje se rađaju</span></span>
       <span class="ln"><span class="it flame" data-i18n="ab.h1b">šampioni.</span></span>
     </h1>
-    <p class="ab-hero__lead reveal-up" data-i18n="ab.lead">Jedanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.</p>
+    <p class="ab-hero__lead reveal-up" data-i18n="ab.lead">Dvanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.</p>
+    <div class="ab-chips">
+      <span class="ab-chip" data-i18n="ab.chip1">Od 2015. godine</span>
+      <span class="ab-chip" data-i18n="ab.chip2">1.450 m · Bjelasica</span>
+      <span class="ab-chip" data-i18n="ab.chip3">5.500+ polaznika</span>
+    </div>
   </div>
 </section>
 
@@ -140,11 +201,26 @@
     <div class="story__txt">
       <span class="ey reveal-up" data-i18n="story.eyebrow">Naša priča</span>
       <h2 class="ttl reveal-rich"><span data-i18n="story.title">Planina koja</span> <span class="it flame" data-i18n="story.title2">stvara igrače.</span></h2>
-      <p class="reveal-up" data-i18n="story.p1">Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 9–18 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.</p>
+      <p class="reveal-up" data-i18n="story.p1">Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 8–16 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.</p>
       <p class="reveal-up" data-i18n="story.p2">Igrači rade u grupama po uzrastu i nivou, s ciljem maksimalnog napretka u kratkom roku — uz druženje i prijateljstva koja ostaju za cijeli život.</p>
+      <p class="story__quote reveal-up" data-i18n="story.q">„Cilj je od prvog dana isti — da svako dijete ode kući kao bolji igrač i srećniji čovjek."</p>
       <a class="ln-arrow reveal-up" href="index.html#program"><span data-i18n="story.cta">Istraži program</span><b>→</b></a>
     </div>
-    <div class="story__media reveal-img"><img class="story__img parallax-img" src="assets/img/nature-hd.webp" alt="Bjelasica · Kolašin" loading="lazy" /></div>
+    <div class="story__media reveal-img"><img class="story__img parallax-img" src="assets/img/story.webp" alt="Basketball Camp Kolašin — cijeli kamp na okupu" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- ===================== JOURNEY ===================== -->
+<section class="section jrny" id="journey">
+  <div class="jrny__head">
+    <span class="ey ey--light reveal-up" data-i18n="jrny.eyebrow">Put kampa</span>
+    <h2 class="ttl ttl--light reveal-rich"><span data-i18n="jrny.title">Od prve lopte do</span> <span class="it flame" data-i18n="jrny.title2">regionalnog brenda.</span></h2>
+  </div>
+  <div class="jrny__row">
+    <div class="jr reveal-up"><b data-i18n="jrny.1.b">2015</b><span data-i18n="jrny.1.t">Prvo izdanje kampa u Kolašinu</span></div>
+    <div class="jr reveal-up"><b data-i18n="jrny.2.b">20+</b><span data-i18n="jrny.2.t">NBA i evropskih zvijezda gostovalo na kampu</span></div>
+    <div class="jr reveal-up"><b data-i18n="jrny.3.b">5.500+</b><span data-i18n="jrny.3.t">polaznika iz cijelog regiona i Evrope</span></div>
+    <div class="jr reveal-up"><b data-i18n="jrny.4.b">2027</b><span data-i18n="jrny.4.t">13. izdanje — start 27. juna</span></div>
   </div>
 </section>
 
@@ -168,9 +244,10 @@
     <article class="fc reveal-img" tabindex="0">
       <div class="fc__media"><img class="fc__img" src="assets/img/coach1.webp" alt="Vlado Šćepanović" loading="lazy" /></div>
       <div class="fc__body">
-        <span class="fc__role" data-i18n="fnd.c1.role">Osnivač · Glavni trener</span>
+        <span class="fc__role" data-i18n="fnd.c1.role">Osnivač · Bivši reprezentativac</span>
         <h3 class="fc__name">Vlado Šćepanović</h3>
-        <p class="fc__bio" data-i18n="fnd.c1.bio">Rođen 13. novembra 1975. u Kolašinu. Igrao za rodni Gorstak do 1993, potom za podgoričku Budućnost — dvostruki prvak i osvajač kupa Jugoslavije. Bivši selektor Crne Gore i košarkaš evroligaškog kvaliteta.</p>
+        <div class="fc__meta"><span data-i18n="fnd.c1.m1">Svjetski prvak 1998</span><span data-i18n="fnd.c1.m2">EuroBasket 2001 — zlato</span><span data-i18n="fnd.c1.m3">Prvi kapiten Crne Gore</span></div>
+        <p class="fc__bio" data-i18n="fnd.c1.bio">Jedno od najvećih imena crnogorske košarke. Rođen u Kolašinu, ponikao u Gorštaku, a igračku slavu stekao u Budućnosti i evropskim klubovima — poslije karijere vodio je i Budućnost i Partizan.</p>
       </div>
     </article>
     <article class="fc reveal-img" tabindex="0">
@@ -178,11 +255,51 @@
       <div class="fc__body">
         <span class="fc__role" data-i18n="fnd.c2.role">Osnivač · Direktor</span>
         <h3 class="fc__name">Savo Đikanović</h3>
-        <p class="fc__bio" data-i18n="fnd.c2.bio">Rođen 28. februara 1975. u Podgorici. Ponikao u mlađim kategorijama Budućnosti, veći dio karijere proveo u grčkim klubovima.</p>
+        <div class="fc__meta"><span data-i18n="fnd.c2.m1">Centar · 211 cm</span><span data-i18n="fnd.c2.m2">Evroliga · Olympiacos</span><span data-i18n="fnd.c2.m3">Karijera u 6 zemalja</span></div>
+        <p class="fc__bio" data-i18n="fnd.c2.bio">Dijete škole košarke Budućnosti. Najveći dio karijere proveo je u Grčkoj — sa Olympiacosom je igrao Evroligu i stigao do finala grčkog prvenstva. Direktor kampa i njegova pokretačka snaga od prvog dana.</p>
       </div>
     </article>
   </div>
-  <p class="fnd__note reveal-up" data-i18n="fnd.note">Napomena: identitet na fotografijama trenera podliježe potvrdi klijenta.</p>
+  <div class="fnd__more reveal-up"><a class="ln-arrow" href="promoteri.html"><span data-i18n="fnd.more">Upoznaj i promotere kampa</span><b>→</b></a></div>
+</section>
+
+<!-- ===================== WHY KOLAŠIN ===================== -->
+<section class="section why" id="why">
+  <div class="why__head">
+    <span class="ey reveal-up" data-i18n="why.eyebrow">Zašto Kolašin</span>
+    <h2 class="ttl reveal-rich"><span data-i18n="why.title">Planina koja igra</span> <span class="it flame" data-i18n="why.title2">za nas.</span></h2>
+  </div>
+  <div class="why__grid">
+    <div class="wy reveal-up">
+      <div class="wy__ic"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20l4.5-9 3 5.5L17 13l4 7"/><path d="M12 4l1 2M12 4l-1 2"/></svg></div>
+      <h3 data-i18n="why.1.t">1.450 m visine</h3>
+      <p data-i18n="why.1.d">Trening na planinskom vazduhu — prirodna priprema kakvu koriste profesionalci.</p>
+    </div>
+    <div class="wy reveal-up">
+      <div class="wy__ic"><svg viewBox="0 0 24 24"><path d="M12 3l4 6h-3l4 5.5h-3.5L17 20H7l3.5-5.5H7L11 9H8z"/></svg></div>
+      <h3 data-i18n="why.2.t">Netaknuta priroda</h3>
+      <p data-i18n="why.2.d">Bjelasica i Biogradska gora — jedna od posljednjih prašuma Evrope na pragu kampa.</p>
+    </div>
+    <div class="wy reveal-up">
+      <div class="wy__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
+      <h3 data-i18n="why.3.t">Sve na 5 minuta</h3>
+      <p data-i18n="why.3.d">Hotel, sala i otvoreni tereni na nekoliko koraka — nijedan minut se ne gubi.</p>
+    </div>
+    <div class="wy reveal-up">
+      <div class="wy__ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9.2 12l2 2 3.6-3.8"/></svg></div>
+      <h3 data-i18n="why.4.t">Sigurno okruženje</h3>
+      <p data-i18n="why.4.d">Mali planinski grad i stručni tim uz djecu 24 sata dnevno.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PHOTO BAND ===================== -->
+<section class="band" id="band">
+  <img class="band__img parallax-img" src="assets/img/about-band.webp" alt="" loading="lazy" />
+  <div class="band__inner">
+    <p class="band__q reveal-rich" data-i18n="band.q">Ovdje se rađaju šampioni.</p>
+    <p class="band__s reveal-up" data-i18n="band.s">Kolašin · 1.450 m nadmorske visine</p>
+  </div>
 </section>
 
 <!-- ===================== CTA ===================== -->
@@ -252,18 +369,33 @@
       "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj","nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava","wa.tip":"Piši nam na WhatsApp",
       "crumb.home":"Kamp",
       "ab.eyebrow":"O nama","ab.h1a":"Gdje se rađaju","ab.h1b":"šampioni.",
-      "ab.lead":"Jedanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.",
+      "ab.lead":"Dvanaest ljeta, jedna planina i jedna ideja — da svaki igrač ode bolji nego što je došao. Ovo je priča o Košarkaškom kampu Kolašin.",
+      "ab.chip1":"Od 2015. godine","ab.chip2":"1.450 m · Bjelasica","ab.chip3":"5.500+ polaznika",
       "story.eyebrow":"Naša priča","story.title":"Planina koja","story.title2":"stvara igrače.",
-      "story.p1":"Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 9–18 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.",
+      "story.p1":"Košarkaški kamp Kolašin poziva sve dječake i djevojčice uzrasta 8–16 godina da budu dio jedinstvenog kampa koji organizuju poznati košarkaški stručnjaci <b>Vlado Šćepanović</b> i <b>Savo Đikanović</b>.",
       "story.p2":"Igrači rade u grupama po uzrastu i nivou, s ciljem maksimalnog napretka u kratkom roku — uz druženje i prijateljstva koja ostaju za cijeli život.",
+      "story.q":"„Cilj je od prvog dana isti — da svako dijete ode kući kao bolji igrač i srećniji čovjek.\"",
       "story.cta":"Istraži program",
+      "jrny.eyebrow":"Put kampa","jrny.title":"Od prve lopte do","jrny.title2":"regionalnog brenda.",
+      "jrny.1.b":"2015","jrny.1.t":"Prvo izdanje kampa u Kolašinu",
+      "jrny.2.b":"20+","jrny.2.t":"NBA i evropskih zvijezda gostovalo na kampu",
+      "jrny.3.b":"5.500+","jrny.3.t":"polaznika iz cijelog regiona i Evrope",
+      "jrny.4.b":"2027","jrny.4.t":"13. izdanje — start 27. juna",
       "st.years":"izdanja","st.players":"polaznika","st.guests":"NBA i EU gostiju","st.alt":"m nadmorske visine",
       "fnd.eyebrow":"Osnivači","fnd.title":"Vode vas","fnd.title2":"legende.",
-      "fnd.c1.role":"Osnivač · Glavni trener",
-      "fnd.c1.bio":"Rođen 13. novembra 1975. u Kolašinu. Igrao za rodni Gorstak do 1993, potom za podgoričku Budućnost — dvostruki prvak i osvajač kupa Jugoslavije. Bivši selektor Crne Gore i košarkaš evroligaškog kvaliteta.",
+      "fnd.c1.role":"Osnivač · Bivši reprezentativac",
+      "fnd.c1.m1":"Svjetski prvak 1998","fnd.c1.m2":"EuroBasket 2001 — zlato","fnd.c1.m3":"Prvi kapiten Crne Gore",
+      "fnd.c1.bio":"Jedno od najvećih imena crnogorske košarke. Rođen u Kolašinu, ponikao u Gorštaku, a igračku slavu stekao u Budućnosti i evropskim klubovima — poslije karijere vodio je i Budućnost i Partizan.",
       "fnd.c2.role":"Osnivač · Direktor",
-      "fnd.c2.bio":"Rođen 28. februara 1975. u Podgorici. Ponikao u mlađim kategorijama Budućnosti, veći dio karijere proveo u grčkim klubovima.",
-      "fnd.note":"Napomena: identitet na fotografijama trenera podliježe potvrdi klijenta.",
+      "fnd.c2.m1":"Centar · 211 cm","fnd.c2.m2":"Evroliga · Olympiacos","fnd.c2.m3":"Karijera u 6 zemalja",
+      "fnd.c2.bio":"Dijete škole košarke Budućnosti. Najveći dio karijere proveo je u Grčkoj — sa Olympiacosom je igrao Evroligu i stigao do finala grčkog prvenstva. Direktor kampa i njegova pokretačka snaga od prvog dana.",
+      "fnd.more":"Upoznaj i promotere kampa",
+      "why.eyebrow":"Zašto Kolašin","why.title":"Planina koja igra","why.title2":"za nas.",
+      "why.1.t":"1.450 m visine","why.1.d":"Trening na planinskom vazduhu — prirodna priprema kakvu koriste profesionalci.",
+      "why.2.t":"Netaknuta priroda","why.2.d":"Bjelasica i Biogradska gora — jedna od posljednjih prašuma Evrope na pragu kampa.",
+      "why.3.t":"Sve na 5 minuta","why.3.d":"Hotel, sala i otvoreni tereni na nekoliko koraka — nijedan minut se ne gubi.",
+      "why.4.t":"Sigurno okruženje","why.4.d":"Mali planinski grad i stručni tim uz djecu 24 sata dnevno.",
+      "band.q":"Ovdje se rađaju šampioni.","band.s":"Kolašin · 1.450 m nadmorske visine",
       "cta.eyebrow":"Pridruži se","cta.title":"Osvoji","cta.title2":"vrh.",
       "cta.lead":"Mjesta se brzo popune svake godine. Prijavi se danas ili pogledaj gdje boravimo i treniramo.",
       "cta.b1":"Prijavi se","cta.b2":"Pogledaj smještaj i terene",
@@ -273,18 +405,33 @@
       "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay","nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up","wa.tip":"Chat on WhatsApp",
       "crumb.home":"Camp",
       "ab.eyebrow":"About","ab.h1a":"Where champions","ab.h1b":"are made.",
-      "ab.lead":"Eleven summers, one mountain and one idea — that every player leaves better than they arrived. This is the story of Basketball Camp Kolašin.",
+      "ab.lead":"Twelve summers, one mountain and one idea — that every player leaves better than they arrived. This is the story of Basketball Camp Kolašin.",
+      "ab.chip1":"Since 2015","ab.chip2":"1,450 m · Bjelasica","ab.chip3":"5,500+ campers",
       "story.eyebrow":"Our story","story.title":"The mountain that","story.title2":"makes players.",
-      "story.p1":"Basketball Camp Kolašin invites all boys and girls aged 9–18 to be part of a one-of-a-kind camp organised by renowned basketball experts <b>Vlado Šćepanović</b> and <b>Savo Đikanović</b>.",
+      "story.p1":"Basketball Camp Kolašin invites all boys and girls aged 8–16 to be part of a one-of-a-kind camp organised by renowned basketball experts <b>Vlado Šćepanović</b> and <b>Savo Đikanović</b>.",
       "story.p2":"Players train in groups by age and level, aiming for maximum progress in a short time — alongside the friendships and bonds that last a lifetime.",
+      "story.q":"“The goal has been the same since day one — every child goes home a better player and a happier kid.”",
       "story.cta":"Explore the program",
+      "jrny.eyebrow":"The journey","jrny.title":"From the first ball to","jrny.title2":"a regional brand.",
+      "jrny.1.b":"2015","jrny.1.t":"The first edition of the camp in Kolašin",
+      "jrny.2.b":"20+","jrny.2.t":"NBA & European stars have visited the camp",
+      "jrny.3.b":"5,500+","jrny.3.t":"campers from across the region and Europe",
+      "jrny.4.b":"2027","jrny.4.t":"13th edition — starts 27 June",
       "st.years":"editions","st.players":"campers trained","st.guests":"NBA & Euro guests","st.alt":"m altitude",
-      "fnd.eyebrow":"The founders","fnd.title":"Coached by","fnd.title2":"legends.",
-      "fnd.c1.role":"Founder · Head coach",
-      "fnd.c1.bio":"Born 13 November 1975 in Kolašin. Played for his hometown Gorstak until 1993, then for Podgorica's Budućnost — a two-time Yugoslav champion and cup winner. Former head coach of Montenegro and a player of EuroLeague calibre.",
+      "fnd.eyebrow":"The founders","fnd.title":"Led by","fnd.title2":"legends.",
+      "fnd.c1.role":"Founder · Former international",
+      "fnd.c1.m1":"1998 World champion","fnd.c1.m2":"EuroBasket 2001 gold","fnd.c1.m3":"Montenegro's first captain",
+      "fnd.c1.bio":"One of the biggest names in Montenegrin basketball. Born in Kolašin, he started at local Gorštak and made his name at Budućnost and clubs across Europe — later coaching both Budućnost and Partizan.",
       "fnd.c2.role":"Founder · Director",
-      "fnd.c2.bio":"Born 28 February 1975 in Podgorica. Came up through Budućnost's youth ranks and spent the larger part of his career in Greek clubs.",
-      "fnd.note":"Note: the identities in the coach photos are to be confirmed by the client.",
+      "fnd.c2.m1":"Center · 211 cm","fnd.c2.m2":"EuroLeague · Olympiacos","fnd.c2.m3":"A career in 6 countries",
+      "fnd.c2.bio":"A product of the Budućnost youth school. He spent most of his career in Greece — playing EuroLeague for Olympiacos and reaching the Greek League final. The camp's director and driving force from day one.",
+      "fnd.more":"Meet the camp's promoters too",
+      "why.eyebrow":"Why Kolašin","why.title":"A mountain that plays","why.title2":"for us.",
+      "why.1.t":"1,450 m altitude","why.1.d":"Training in mountain air — the natural preparation the pros swear by.",
+      "why.2.t":"Untouched nature","why.2.d":"Bjelasica and Biogradska Gora — one of Europe's last primeval forests on the camp's doorstep.",
+      "why.3.t":"Everything in 5 minutes","why.3.d":"Hotel, arena and outdoor courts a few steps apart — not a minute wasted.",
+      "why.4.t":"A safe environment","why.4.d":"A small mountain town and an expert team with the kids around the clock.",
+      "band.q":"Where champions are born.","band.s":"Kolašin · 1,450 m above sea level",
       "cta.eyebrow":"Join us","cta.title":"Claim the","cta.title2":"summit.",
       "cta.lead":"Spots fill fast every year. Sign up today, or take a look at where we stay and train.",
       "cta.b1":"Sign up","cta.b2":"See the stay & courts",
@@ -387,7 +534,7 @@
     // hero intro (mirrors heroReveal in main.js)
     gsap.set(".ab-hero__title .ln span", { yPercent: 118 });
     gsap.to(".ab-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.15 });
-    gsap.fromTo(".ab-crumb,.ab-hero__lead", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
+    gsap.fromTo(".ab-crumb,.ab-hero__lead,.ab-chips", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
   }
 
   /* ---------------- PARALLAX ---------------- */
