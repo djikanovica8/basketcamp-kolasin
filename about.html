@@ -18,9 +18,9 @@
   html{overflow-x:hidden}
 
   /* keep header on-dark over the dark hero, and pad body top for the fixed header on non-hero pages */
-  .ab-hero{position:relative;min-height:70vh;min-height:70svh;display:flex;flex-direction:column;justify-content:flex-end;
+  .ab-hero{position:relative;z-index:0;min-height:70vh;min-height:70svh;display:flex;flex-direction:column;justify-content:flex-end;
     padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,4rem);overflow:hidden;color:var(--cream);background:var(--esp)}
-  .ab-hero__media{position:absolute;inset:0;z-index:-2;background:#171009}
+  .ab-hero__media{position:absolute;inset:0;z-index:0;background:#171009}
   .ab-hero__scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,5,.42) 0%,transparent 34%,rgba(10,7,5,.3) 100%)}
   /* ---- layered mountain scene ---- */
   .abm{position:absolute;inset:0;pointer-events:none;will-change:transform}
@@ -35,7 +35,7 @@
   @keyframes abTwinkle{from{opacity:.32}to{opacity:.62}}
   @keyframes abBreathe{from{opacity:.72;transform:scale(1)}to{opacity:1;transform:scale(1.06)}}
   @media (prefers-reduced-motion:reduce){.abm--stars,.abm--sun{animation:none}}
-  .ab-hero__inner{position:relative;max-width:1320px;margin:0 auto;width:100%}
+  .ab-hero__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;width:100%}
   .ab-hero__title{font-family:var(--disp);font-weight:700;line-height:.92;letter-spacing:-.025em;font-size:clamp(2.8rem,8.4vw,7rem);margin:1.2rem 0 1.4rem}
   .ab-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
   .ab-hero__title .ln span{display:inline-block;will-change:transform}
