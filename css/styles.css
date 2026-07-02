@@ -289,6 +289,9 @@ ul{list-style:none}
 .fq__i summary i::before{top:8px;left:0;width:18px;height:2px}.fq__i summary i::after{top:0;left:8px;width:2px;height:18px}
 .fq__i[open] summary i::after{transform:scaleY(0)}
 .fq__i p{color:var(--mut);padding:0 0 1.5rem;max-width:60ch;font-size:1rem}
+.fq__i p a{color:var(--orange-d);font-weight:600;text-decoration:underline;text-underline-offset:2px;transition:color .3s}
+.fq__i p a:hover{color:var(--orange)}
+.fq__i p b{color:var(--ink);font-weight:700}
 
 /* =================== SPONSORS & PARTNERS =================== */
 .sp{text-align:center;background:var(--porc-2);padding-top:clamp(3.4rem,6vw,5.4rem);padding-bottom:clamp(3.4rem,6vw,5.4rem)}
