@@ -7,7 +7,7 @@
     en: {
       "nav.about":"Camp","nav.program":"Program","nav.coaches":"Coaches","nav.promoteri":"Promoters","nav.sessions":"Sessions","nav.register":"Sign up","nav.onama":"About","nav.smjestaj":"Stay","nav.mvp":"MVP",
       "hero.kicker":"13th edition · Kolašin, Montenegro","hero.t1":"Reach","hero.t2":"the summit.",
-      "hero.sub":"The largest youth basketball camp in the region — elite training at 1,450 m, where champions are born.",
+      "hero.sub":"The largest youth basketball camp in the region — elite training at 954 m, where champions are born.",
       "hero.cta1":"Reserve your spot","hero.cta2":"Watch the story","hero.cd":"Camp begins in","hero.scroll":"Scroll","ph.hero":"your hero photo / drone video",
       "t.d":"days","t.h":"hrs","t.m":"min","t.s":"sec",
       "tick.1":"Two trainings daily","tick.2":"Individual skill work","tick.3":"NBA & European guests","tick.4":"Full board · Hotel Pini","tick.5":"12 years of champions",
@@ -74,7 +74,7 @@
     me: {
       "nav.about":"Kamp","nav.program":"Program","nav.coaches":"Treneri","nav.promoteri":"Promoteri","nav.sessions":"Termini","nav.register":"Prijava","nav.onama":"O nama","nav.smjestaj":"Smještaj","nav.mvp":"MVP",
       "hero.kicker":"13. izdanje · Kolašin, Crna Gora","hero.t1":"Osvoji","hero.t2":"vrh.",
-      "hero.sub":"Najveći omladinski košarkaški kamp u regionu — vrhunski trening na 1.450 m, gdje se rađaju šampioni.",
+      "hero.sub":"Najveći omladinski košarkaški kamp u regionu — vrhunski trening na 954 m, gdje se rađaju šampioni.",
       "hero.cta1":"Rezerviši mjesto","hero.cta2":"Pogledaj priču","hero.cd":"Kamp počinje za","hero.scroll":"Skroluj","ph.hero":"vaša glavna fotografija / video iz drona",
       "t.d":"dana","t.h":"sati","t.m":"min","t.s":"sek",
       "tick.1":"Dva treninga dnevno","tick.2":"Individualni rad na tehnici","tick.3":"NBA i evropski gosti","tick.4":"Pun pansion · Hotel Pini","tick.5":"12 godina šampiona",
