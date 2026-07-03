@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>Prijava — Basketball Camp Kolašin · Ljeto 2027</title>
+<meta name="description" content="Prijavite se na Basketball Camp Kolašin 2027 — tri smjene, treninzi dva puta dnevno i planinski vazduh Bjelasice. Registration for Basketball Camp Kolašin 2027." />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  /* ===== page-specific — reuses :root tokens; hero mirrors pravilnik/uplata ===== */
+  html{overflow-x:hidden}
+  .rv-hero{position:relative;z-index:0;min-height:44vh;min-height:44svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.2rem,4.5vw,3.4rem);overflow:hidden;color:var(--cream);background:var(--esp)}
+  .rv-hero__bg{position:absolute;inset:0;z-index:0;background:
+    radial-gradient(ellipse 80% 55% at 70% 0%,rgba(202,161,74,.10),transparent 60%),
+    linear-gradient(180deg,#171009 0%,#221710 55%,#2c1d12 100%)}
+  .rv-hero__line{position:absolute;left:0;right:0;bottom:0;height:min(200px,36%);z-index:0;pointer-events:none;
+    background:url(assets/img/mtn-line.svg) center bottom/cover no-repeat;opacity:.5}
+  .rv-hero__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;width:100%}
+  .rv-kick{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+  .rv-kick a{color:rgba(243,237,227,.6);transition:color .3s}
+  .rv-kick a:hover{color:var(--orange)}
+  .rv-kick i{font-style:normal;opacity:.5}
+  .rv-hero__title{font-family:var(--disp);font-weight:700;line-height:.94;letter-spacing:-.025em;font-size:clamp(2.5rem,7vw,5.6rem);margin:1.1rem 0 1.2rem}
+  .rv-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .rv-hero__title .ln span{display:inline-block;will-change:transform}
+  .rv-hero__lead{max-width:58ch;font-size:clamp(1.02rem,1.5vw,1.2rem);color:rgba(243,237,227,.88)}
+  .rv-hero__lead b{color:var(--gold-l);font-weight:600}
+
+  /* ===== registration layout ===== */
+  .rf{background:var(--porc)}
+  .rf__grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+  .rf__rail{position:sticky;top:calc(var(--nav) + 1.6rem)}
+  .rf__railT{font-family:var(--disp);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.65rem);color:var(--ink);margin-bottom:1.4rem}
+  .rf__steps{display:grid;gap:1.15rem;margin-bottom:2rem}
+  .rf__step{display:grid;grid-template-columns:44px 1fr;gap:1rem;align-items:start;min-width:0}
+  .rf__step>div{min-width:0}
+  .rf__step i{font-style:normal;font-family:var(--disp);font-weight:800;font-size:1.35rem;line-height:1.15;letter-spacing:-.02em;
+    background:linear-gradient(152deg,var(--orange) 4%,var(--orange-d) 46%,var(--gold) 122%);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .rf__step h3{font-family:var(--disp);font-weight:700;font-size:1.02rem;color:var(--ink);margin-bottom:.2rem}
+  .rf__step p{font-size:.9rem;line-height:1.55;color:var(--mut)}
+  .rf__step p a{color:var(--orange-d);text-decoration:underline;text-underline-offset:2px}
+  .rf__contact{border-top:1px solid var(--line);padding-top:1.4rem;display:grid;gap:.85rem}
+  .rf__contact b{font-family:var(--body);font-weight:600;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  .rf__contact li{list-style:none;display:grid;grid-template-columns:92px 1fr;gap:.9rem;align-items:baseline;min-width:0}
+  .rf__contact li>*{min-width:0}
+  .rf__contact a{color:var(--ink);font-size:.94rem;font-weight:500;transition:color .3s;overflow-wrap:anywhere}
+  .rf__contact a:hover{color:var(--orange-d)}
+
+  /* section headers inside the dark card */
+  .rf__sec{display:flex;align-items:center;gap:.9rem;margin-top:.6rem}
+  .rf__sec:first-child{margin-top:0}
+  .rf__sec i{font-style:normal;font-family:var(--disp);font-weight:800;font-size:1.05rem;letter-spacing:.02em;
+    background:linear-gradient(120deg,var(--gold-l),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .rf__sec span{font-family:var(--disp);font-weight:700;font-size:1.06rem;color:var(--cream)}
+  .rf__sec::after{content:"";flex:1;height:1px;background:var(--line-l)}
+
+  .rf .rg__form{box-shadow:0 44px 90px -50px rgba(29,24,18,.55)}
+  .rf .rw__done{box-shadow:0 44px 90px -50px rgba(29,24,18,.55)}
+
+  @media (max-width:1024px){
+    .rf__grid{grid-template-columns:1fr}
+    .rf__rail{position:static}
+    .rf__steps{gap:.9rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd on-dark" id="hd">
+  <div class="hd__brand">
+    <a class="hd__logo" href="index.html#top" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+  </div>
+  <nav class="hd__nav" id="hdNav">
+    <a href="index.html" data-i18n="nav.camp">Kamp</a>
+    <a href="index.html#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" data-i18n="nav.about">O nama</a>
+    <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+    <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+    <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  </nav>
+  <div class="hd__right">
+    <div class="hd__social" aria-label="Social media">
+      <a class="hd__soc" href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg>
+      </a>
+      <a class="hd__soc" href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg>
+      </a>
+    </div>
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="prijava.html" data-i18n="nav.register">Prijava</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="rv-hero" id="top">
+  <div class="rv-hero__bg" aria-hidden="true"></div>
+  <div class="rv-hero__line" aria-hidden="true"></div>
+  <div class="rv-hero__inner">
+    <span class="rv-kick reveal-up"><a href="index.html" data-i18n="crumb.home">Kamp</a><i>/</i><span data-i18n="pj.kick">Prijava 2027</span></span>
+    <h1 class="rv-hero__title">
+      <span class="ln"><span data-i18n="pj.t1">Tvoje ljeto</span></span>
+      <span class="ln"><span class="it flame" data-i18n="pj.t2">počinje ovdje.</span></span>
+    </h1>
+    <p class="rv-hero__lead reveal-up" data-i18n="pj.lead">Prijava traje dva minuta. Nakon nje stižu instrukcije za uplatu — <b>avans od 150 € zvanično rezerviše mjesto</b>.</p>
+  </div>
+</section>
+
+<!-- ===================== FORM ===================== -->
+<section class="section rf">
+  <div class="rf__grid">
+
+    <aside class="rf__rail reveal-up">
+      <h2 class="rf__railT" data-i18n="pj.railT">Kako ide dalje</h2>
+      <div class="rf__steps">
+        <div class="rf__step"><i>01</i><div><h3 data-i18n="pj.st1.t">Pošaljete prijavu</h3><p data-i18n="pj.st1.d">Odmah stiže email sa brojem prijave i svim instrukcijama za uplatu.</p></div></div>
+        <div class="rf__step"><i>02</i><div><h3 data-i18n="pj.st2.t">Uplatite avans od 150 €</h3><p data-i18n="pj.st2.d">U roku od 3 radna dana — ostatak se izmiruje prije početka kampa. Uplatnicu nam šaljete <a href="uplata.html">jednim klikom</a>.</p></div></div>
+        <div class="rf__step"><i>03</i><div><h3 data-i18n="pj.st3.t">Mjesto je rezervisano</h3><p data-i18n="pj.st3.d">Čim pregledamo uplatu, stiže potvrda rezervacije. Vidimo se na planini!</p></div></div>
+      </div>
+      <ul class="rf__contact">
+        <li><b data-i18n="pj.c.q">Pitanja?</b><span></span></li>
+        <li><b>Email</b><a href="mailto:basketballcampkolasin@gmail.com">basketballcampkolasin@gmail.com</a></li>
+        <li><b data-i18n="pj.c.tel">Telefon</b><a href="tel:+38267032132">067 032 132</a></li>
+        <li><b>WhatsApp</b><a href="https://wa.me/38267032132" target="_blank" rel="noopener">067 032 132</a></li>
+      </ul>
+    </aside>
+
+    <div class="rf__main">
+      <form class="rg__form rw reveal-up" id="regForm" novalidate>
+
+        <div class="rf__sec"><i>01</i><span data-i18n="rw.st1">Igrač</span></div>
+        <fieldset class="rw__pane is-on">
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.ime">Ime igrača</span><input name="ime" type="text" required autocomplete="given-name" /></label>
+            <label><span data-i18n="rw.f.prezime">Prezime</span><input name="prezime" type="text" required autocomplete="family-name" /></label>
+          </div>
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.rodj">Datum rođenja</span><input name="rodjenje" type="date" required min="2011-01-01" max="2019-12-31" /></label>
+            <label><span data-i18n="rw.f.pol">Pol</span><select name="pol" required>
+              <option value="" disabled selected data-i18n="rw.f.choose">Izaberi…</option>
+              <option value="Muški" data-i18n="rw.f.polM">Muški</option>
+              <option value="Ženski" data-i18n="rw.f.polZ">Ženski</option>
+            </select></label>
+          </div>
+          <label><span data-i18n="rw.f.klub">Klub <span class="opt">(opciono)</span></span><input name="klub" type="text" /></label>
+          <div class="rw__three">
+            <label><span data-i18n="rw.f.visina">Visina (cm)</span><input name="visina" type="number" min="100" max="220" required inputmode="numeric" /></label>
+            <label><span data-i18n="rw.f.tezina">Težina (kg)</span><input name="tezina" type="number" min="20" max="140" required inputmode="numeric" /></label>
+            <label><span data-i18n="rw.f.oprema">Veličina opreme</span><select name="oprema" required>
+              <option value="" disabled selected data-i18n="rw.f.choose">Izaberi…</option>
+              <option>8</option><option>10</option><option>12</option><option>14</option><option>16</option>
+              <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+            </select></label>
+          </div>
+        </fieldset>
+
+        <div class="rf__sec"><i>02</i><span data-i18n="rw.st2">Roditelj</span></div>
+        <fieldset class="rw__pane is-on">
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.drzava">Država</span><input name="drzava" type="text" required autocomplete="country-name" /></label>
+            <label><span data-i18n="rw.f.grad">Grad</span><input name="grad" type="text" required autocomplete="address-level2" /></label>
+          </div>
+          <label><span data-i18n="rw.f.email">Email roditelja</span><input name="email" type="email" required autocomplete="email" inputmode="email" /></label>
+          <label><span data-i18n="rw.f.tel">Telefon roditelja (Viber / WhatsApp)</span><input name="telefon" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+          <label><span data-i18n="rw.f.note">Napomena <span class="opt">(opciono)</span></span><textarea name="napomena" rows="2"></textarea></label>
+        </fieldset>
+
+        <div class="rf__sec"><i>03</i><span data-i18n="rw.st3">Smjena i paket</span></div>
+        <fieldset class="rw__pane is-on">
+          <span class="rw__lbl" data-i18n="rw.smjenaLbl">Smjena</span>
+          <div class="rw__opts">
+            <label class="rw__opt"><input type="radio" name="smjena" value="1" required />
+              <span class="rw__optName" data-i18n="rw.s1">Smjena I</span>
+              <span class="rw__optSub">27.06 – 02.07.2027.</span></label>
+            <label class="rw__opt"><input type="radio" name="smjena" value="2" />
+              <span class="rw__optName" data-i18n="rw.s2">Smjena II</span>
+              <span class="rw__optSub">02.07 – 07.07.2027.</span></label>
+            <label class="rw__opt"><input type="radio" name="smjena" value="3" />
+              <span class="rw__optName" data-i18n="rw.s3">Skills &amp; Shooting</span>
+              <span class="rw__optSub">07.07 – 12.07.2027.</span></label>
+          </div>
+          <span class="rw__lbl" data-i18n="rw.paketLbl">Paket</span>
+          <div class="rw__opts rw__opts--pk">
+            <label class="rw__opt"><input type="radio" name="paket" value="full" required />
+              <span class="rw__optName" data-i18n="rw.pkFull">Kompletan paket</span>
+              <span class="rw__optSub" data-i18n="rw.pkFullSub">Treninzi + smještaj + ishrana · Hotel Pini</span>
+              <b class="rw__optPrice" data-pk="full">450&nbsp;€</b></label>
+            <label class="rw__opt"><input type="radio" name="paket" value="train" />
+              <span class="rw__optName" data-i18n="rw.pkTrain">Samo treninzi</span>
+              <span class="rw__optSub" data-i18n="rw.pkTrainSub">Bez smještaja i ishrane</span>
+              <b class="rw__optPrice" data-pk="train">260&nbsp;€</b></label>
+          </div>
+          <div class="rw__total">
+            <span data-i18n="rw.total">Ukupno</span>
+            <span class="rw__totalR"><s id="rwOld" hidden>520 €</s><em id="rwPromo" hidden data-i18n="rw.promo">promo</em><b id="rwPrice">—</b></span>
+          </div>
+          <p class="rw__avans" data-i18n="rw.avans">Avans od 150 € u roku od 3 radna dana osigurava mjesto — ostatak se izmiruje prije početka kampa.</p>
+        </fieldset>
+
+        <button type="submit" class="btn btn--orange btn--full" id="rwSubmit"><span data-i18n="rw.submit">Pošalji prijavu</span><b>→</b></button>
+        <p class="rg__legal" data-i18n="rg.rules">Uplatom za učešće prihvatate <a href='pravilnik.html'>Pravilnik ponašanja kampera</a>.</p>
+      </form>
+
+      <div class="rg__form rw__done" id="rwDone" hidden>
+        <span class="rw__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3 class="rw__doneT" data-i18n="rw.done.t">Prijava primljena!</h3>
+        <p class="rw__doneP rw__okOnly" data-i18n="rw.done.p">Upravo smo vam poslali email sa instrukcijama za uplatu. Vaš broj prijave:</p>
+        <p class="rw__doneP rw__fbOnly" hidden data-i18n="rw.done.fb">Još jedan klik — pošaljite nam prijavu putem emaila ili WhatsApp-a:</p>
+        <div class="rw__fbBtns rw__fbOnly" hidden>
+          <a class="btn btn--orange" id="rwFbMail" href="#"><span data-i18n="rw.done.fbMail">Pošalji emailom</span><b>→</b></a>
+          <a class="btn btn--ghost" id="rwFbWa" href="#" target="_blank" rel="noopener"><span data-i18n="rw.done.fbWa">Pošalji na WhatsApp</span></a>
+        </div>
+        <div class="rw__code rw__okOnly" id="rwCode">BCK27-001</div>
+        <div class="rw__pay">
+          <div class="rw__payRow"><span data-i18n="rw.pay.bank">Banka</span><b>Hipotekarna banka AD Podgorica</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.acc">Broj računa</span><b>520-20045-80 <button type="button" class="rw__copy" data-copy="520-20045-80" aria-label="Copy">⧉</button></b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.to">Primalac</span><b>Basket Kamp</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.amt">Avans</span><b>150 €</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.ref">Svrha uplate</span><b><span id="rwRef">—</span> <button type="button" class="rw__copy" id="rwRefCopy" data-copy="" aria-label="Copy">⧉</button></b></div>
+        </div>
+        <p class="rw__doneNote" data-i18n="rw.done.deadline">Uplatite avans od 150 € u roku od 3 radna dana, a zatim nam pošaljite uplatnicu:</p>
+        <div class="rw__doneBtns">
+          <a class="btn btn--orange" id="rwUpload" href="uplata.html"><span data-i18n="rw.done.upload">Pošalji uplatnicu</span><b>→</b></a>
+          <a class="btn btn--ghost" href="https://wa.me/38267032132" target="_blank" rel="noopener"><span data-i18n="rw.done.wa">Pošalji na WhatsApp</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a><a href="pravilnik.html">Pravilnik</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">VRH</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
+</footer>
+
+<!-- mobile menu -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.camp">Kamp</a>
+  <a href="index.html#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.about">O nama</a>
+  <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  <a href="prijava.html" class="cta" data-i18n="nav.register">Prijava</a>
+  <div class="mm__social" aria-label="Social media">
+    <a href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg><span>Instagram</span></a>
+    <a href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg><span>Facebook</span></a>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* =====================================================================
+   PRIJAVA — inline behaviour. Mirrors js/main.js conventions.
+   Lenis · reveals · header · mobile menu · magnetic · ME/EN i18n ·
+   one-page registration form (no steps) with live pricing.
+   ===================================================================== */
+(function () {
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGSAP = typeof window.gsap !== "undefined";
+  var hasLenis = typeof window.Lenis !== "undefined";
+  var ST = window.ScrollTrigger;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var isMobile = function () { return window.matchMedia("(hover:none)").matches; };
+
+  var REG = {
+    endpoint: (window.BCK_CFG && window.BCK_CFG.regEndpoint) || "",
+    email: "basketballcampkolasin@gmail.com",
+    wa: "38267032132",
+    prices: { full: [450, 450, 490], train: [260, 260, 300] }
+  };
+
+  var I18N = {
+    me: {
+      "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj","nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava","wa.tip":"Piši nam na WhatsApp",
+      "crumb.home":"Kamp",
+      "pj.kick":"Prijava 2027","pj.t1":"Tvoje ljeto","pj.t2":"počinje ovdje.",
+      "pj.lead":"Prijava traje dva minuta. Nakon nje stižu instrukcije za uplatu — <b>avans od 150 € zvanično rezerviše mjesto</b>.",
+      "pj.railT":"Kako ide dalje",
+      "pj.st1.t":"Pošaljete prijavu","pj.st1.d":"Odmah stiže email sa brojem prijave i svim instrukcijama za uplatu.",
+      "pj.st2.t":"Uplatite avans od 150 €","pj.st2.d":"U roku od 3 radna dana — ostatak se izmiruje prije početka kampa. Uplatnicu nam šaljete <a href=\"uplata.html\">jednim klikom</a>.",
+      "pj.st3.t":"Mjesto je rezervisano","pj.st3.d":"Čim pregledamo uplatu, stiže potvrda rezervacije. Vidimo se na planini!",
+      "pj.c.q":"Pitanja?","pj.c.tel":"Telefon",
+      "rw.st1":"Igrač","rw.st2":"Roditelj","rw.st3":"Smjena i paket",
+      "rw.f.ime":"Ime igrača","rw.f.prezime":"Prezime","rw.f.rodj":"Datum rođenja","rw.f.pol":"Pol","rw.f.choose":"Izaberi…","rw.f.polM":"Muški","rw.f.polZ":"Ženski",
+      "rw.f.klub":"Klub <span class=\"opt\">(opciono)</span>","rw.f.visina":"Visina (cm)","rw.f.tezina":"Težina (kg)","rw.f.oprema":"Veličina opreme",
+      "rw.f.drzava":"Država","rw.f.grad":"Grad","rw.f.email":"Email roditelja","rw.f.tel":"Telefon roditelja (Viber / WhatsApp)","rw.f.note":"Napomena <span class=\"opt\">(opciono)</span>",
+      "rw.smjenaLbl":"Smjena","rw.paketLbl":"Paket","rw.s1":"Smjena I","rw.s2":"Smjena II","rw.s3":"Skills & Shooting",
+      "rw.pkFull":"Kompletan paket","rw.pkFullSub":"Treninzi + smještaj + ishrana · Hotel Pini","rw.pkTrain":"Samo treninzi","rw.pkTrainSub":"Bez smještaja i ishrane",
+      "rw.total":"Ukupno","rw.promo":"promo","rw.avans":"Avans od 150 € u roku od 3 radna dana osigurava mjesto — ostatak se izmiruje prije početka kampa.",
+      "rw.submit":"Pošalji prijavu",
+      "rg.rules":"Uplatom za učešće prihvatate <a href='pravilnik.html'>Pravilnik ponašanja kampera</a>.",
+      "rw.done.t":"Prijava primljena!","rw.done.p":"Upravo smo vam poslali email sa instrukcijama za uplatu. Vaš broj prijave:",
+      "rw.done.fb":"Još jedan klik — pošaljite nam prijavu putem emaila ili WhatsApp-a:","rw.done.fbMail":"Pošalji emailom","rw.done.fbWa":"Pošalji na WhatsApp",
+      "rw.pay.bank":"Banka","rw.pay.acc":"Broj računa","rw.pay.to":"Primalac","rw.pay.amt":"Avans","rw.pay.ref":"Svrha uplate",
+      "rw.done.deadline":"Uplatite avans od 150 € u roku od 3 radna dana, a zatim nam pošaljite uplatnicu:","rw.done.upload":"Pošalji uplatnicu","rw.done.wa":"Pošalji na WhatsApp",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja"
+    },
+    en: {
+      "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay","nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up","wa.tip":"Chat on WhatsApp",
+      "crumb.home":"Camp",
+      "pj.kick":"Registration 2027","pj.t1":"Your summer","pj.t2":"starts here.",
+      "pj.lead":"The form takes two minutes. Payment instructions follow right away — <b>a 150 € deposit officially reserves the spot</b>.",
+      "pj.railT":"What happens next",
+      "pj.st1.t":"Send the registration","pj.st1.d":"You instantly receive an email with your registration number and payment instructions.",
+      "pj.st2.t":"Pay the 150 € deposit","pj.st2.d":"Within 3 working days — the rest is paid before camp starts. Send us the payment slip <a href=\"uplata.html\">in one click</a>.",
+      "pj.st3.t":"The spot is reserved","pj.st3.d":"As soon as we review the payment, the reservation confirmation arrives. See you on the mountain!",
+      "pj.c.q":"Questions?","pj.c.tel":"Phone",
+      "rw.st1":"Player","rw.st2":"Parent","rw.st3":"Session & package",
+      "rw.f.ime":"Player's first name","rw.f.prezime":"Last name","rw.f.rodj":"Date of birth","rw.f.pol":"Gender","rw.f.choose":"Choose…","rw.f.polM":"Male","rw.f.polZ":"Female",
+      "rw.f.klub":"Club <span class=\"opt\">(optional)</span>","rw.f.visina":"Height (cm)","rw.f.tezina":"Weight (kg)","rw.f.oprema":"Kit size",
+      "rw.f.drzava":"Country","rw.f.grad":"City","rw.f.email":"Parent's email","rw.f.tel":"Parent's phone (Viber / WhatsApp)","rw.f.note":"Note <span class=\"opt\">(optional)</span>",
+      "rw.smjenaLbl":"Session","rw.paketLbl":"Package","rw.s1":"Session I","rw.s2":"Session II","rw.s3":"Skills & Shooting",
+      "rw.pkFull":"Complete package","rw.pkFullSub":"Trainings + stay + meals · Hotel Pini","rw.pkTrain":"Trainings only","rw.pkTrainSub":"Without stay and meals",
+      "rw.total":"Total","rw.promo":"promo","rw.avans":"A 150 € deposit within 3 working days secures the spot — the rest is paid before camp starts.",
+      "rw.submit":"Send registration",
+      "rg.rules":"By paying for participation you accept the <a href='pravilnik.html'>camper code of conduct</a>.",
+      "rw.done.t":"Registration received!","rw.done.p":"We've just emailed you the payment instructions. Your registration number:",
+      "rw.done.fb":"One more click — send us your registration via email or WhatsApp:","rw.done.fbMail":"Send by email","rw.done.fbWa":"Send on WhatsApp",
+      "rw.pay.bank":"Bank","rw.pay.acc":"Account number","rw.pay.to":"Recipient","rw.pay.amt":"Deposit","rw.pay.ref":"Payment reference",
+      "rw.done.deadline":"Pay the 150 € deposit within 3 working days, then send us the payment slip:","rw.done.upload":"Upload the payment slip","rw.done.wa":"Send it on WhatsApp",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+    }
+  };
+
+  var current = "me";
+  try { current = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = "me";
+    current = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute("lang", lang === "me" ? "sr-ME" : "en");
+    document.documentElement.setAttribute("data-lang", lang);
+    $$("[data-i18n]").forEach(function (el) {
+      var v = dict[el.getAttribute("data-i18n")];
+      if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+    });
+    $$("[data-lang-opt]").forEach(function (el) { el.classList.toggle("is-on", el.getAttribute("data-lang-opt") === lang); });
+    try { localStorage.setItem("bckc-lang", lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } }));
+  }
+
+  document.addEventListener("DOMContentLoaded", init);
+  function init() {
+    applyLang(current);
+    var btn = $("#langToggle"); if (btn) btn.addEventListener("click", function () { applyLang(current === "me" ? "en" : "me"); });
+    smoothScroll();
+    header();
+    reveals();
+    magnetic();
+    form();
+    var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("langchange", function () { if (ST) ST.refresh(); });
+  }
+
+  var lenis = null;
+  function smoothScroll() {
+    if (hasGSAP && ST) gsap.registerPlugin(ST);
+    if (hasLenis && !RM) {
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      window.lenis = lenis;
+      if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add(function (t) { lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0); }
+      else { var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    }
+  }
+
+  function header() {
+    var hd = $("#hd");
+    var hero = $(".rv-hero");
+    var onScroll = function () {
+      var s = window.scrollY > 30;
+      if (!hd) return;
+      hd.classList.toggle("scr", s);
+      var darkUnder = hero ? (window.scrollY < hero.offsetHeight - 80) : false;
+      hd.classList.toggle("on-dark", darkUnder && !s);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var burg = $("#burg"), mm = $("#mm");
+    if (burg && mm) burg.addEventListener("click", function () {
+      var open = mm.classList.toggle("open"); burg.classList.toggle("x", open);
+      document.body.classList.toggle("lock", open); if (lenis) { open ? lenis.stop() : lenis.start(); }
+    });
+  }
+
+  function reveals() {
+    if (!hasGSAP || !ST || RM) return;
+    $$(".reveal-up").forEach(function (el) {
+      if (el.closest(".rv-hero")) return;
+      gsap.from(el, { y: 34, opacity: 0, duration: 0.85, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 92%" } });
+    });
+    gsap.set(".rv-hero__title .ln span", { yPercent: 118 });
+    gsap.to(".rv-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.15 });
+    gsap.fromTo(".rv-kick,.rv-hero__lead", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
+  }
+
+  function magnetic() {
+    if (RM || isMobile()) return;
+    $$(".btn--orange:not(.btn--full), .cta").forEach(function (b) {
+      b.addEventListener("mousemove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)";
+      });
+      b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+
+  /* ---------------- REGISTRATION FORM (one page, no steps) ---------------- */
+  function form() {
+    var f = $("#regForm"); if (!f) return;
+    var submit = $("#rwSubmit"), done = $("#rwDone");
+
+    var LX = {
+      me: {
+        smjena: ["Smjena I (27.06 – 02.07.2027.)", "Smjena II (02.07 – 07.07.2027.)", "Smjena III – Skills & Shooting (07.07 – 12.07.2027.)"],
+        paket: { full: "Kompletan paket (treninzi + smještaj + ishrana)", train: "Samo treninzi (bez smještaja i ishrane)" },
+        subj: "PRIJAVA – Basketball Camp Kolašin 2027", refSuffix: "prijava 2027",
+        L: { igrac: "Igrač", rodj: "Datum rođenja", pol: "Pol", klub: "Klub", vis: "Visina", tez: "Težina", opr: "Veličina opreme", drz: "Država", grad: "Grad", email: "Email", tel: "Telefon", smj: "Smjena", pak: "Paket", cij: "Cijena", nap: "Napomena" }
+      },
+      en: {
+        smjena: ["Session I (27.06 – 02.07.2027)", "Session II (02.07 – 07.07.2027)", "Session III – Skills & Shooting (07.07 – 12.07.2027)"],
+        paket: { full: "Complete package (trainings + stay + meals)", train: "Trainings only (no stay or meals)" },
+        subj: "REGISTRATION – Basketball Camp Kolašin 2027", refSuffix: "registration 2027",
+        L: { igrac: "Player", rodj: "Date of birth", pol: "Gender", klub: "Club", vis: "Height", tez: "Weight", opr: "Kit size", drz: "Country", grad: "City", email: "Email", tel: "Phone", smj: "Session", pak: "Package", cij: "Price", nap: "Note" }
+      }
+    };
+    var lang = function () { return current === "en" ? "en" : "me"; };
+    var sel = function (name) { var i = f.querySelector('input[name="' + name + '"]:checked'); return i ? i.value : ""; };
+
+    // option cards
+    $$(".rw__opt input", f).forEach(function (input) {
+      input.addEventListener("change", function () {
+        $$('.rw__opt input[name="' + input.name + '"]', f).forEach(function (i) { i.closest(".rw__opt").classList.toggle("is-sel", i.checked); });
+        price();
+      });
+    });
+
+    // preselect session from ?smjena=1|2|3 (links from the homepage session cards)
+    try {
+      var pre = new URLSearchParams(window.location.search).get("smjena");
+      if (["1", "2", "3"].indexOf(pre) !== -1) {
+        var r = f.querySelector('input[name="smjena"][value="' + pre + '"]');
+        if (r) { r.checked = true; r.dispatchEvent(new Event("change", { bubbles: true })); }
+      }
+    } catch (e) {}
+
+    function price() {
+      var s = sel("smjena"), p = sel("paket");
+      var priceEl = $("#rwPrice"), old = $("#rwOld"), promo = $("#rwPromo");
+      var idx = s ? +s - 1 : 0;
+      var fullB = f.querySelector('.rw__optPrice[data-pk="full"]'), trainB = f.querySelector('.rw__optPrice[data-pk="train"]');
+      if (fullB) fullB.innerHTML = REG.prices.full[idx] + " €";
+      if (trainB) trainB.innerHTML = REG.prices.train[idx] + " €";
+      if (!s || !p) { priceEl.textContent = "—"; old.hidden = true; promo.hidden = true; return 0; }
+      var v = REG.prices[p][+s - 1];
+      priceEl.textContent = v + " €";
+      var isPromo = p === "full" && s === "3";
+      old.hidden = !isPromo; promo.hidden = !isPromo;
+      return v;
+    }
+    price();
+
+    function composeBody(d, L) {
+      return [
+        L.L.igrac + ": " + d.ime + " " + d.prezime,
+        L.L.rodj + ": " + d.rodjenje,
+        L.L.pol + ": " + d.pol,
+        d.klub ? L.L.klub + ": " + d.klub : "",
+        L.L.vis + " / " + L.L.tez + ": " + d.visina + " cm / " + d.tezina + " kg",
+        L.L.opr + ": " + d.oprema,
+        L.L.drz + ": " + d.drzava + ", " + d.grad,
+        L.L.email + ": " + d.email,
+        L.L.tel + ": " + d.telefon,
+        L.L.smj + ": " + L.smjena[+d.smjena - 1],
+        L.L.pak + ": " + L.paket[d.paket],
+        L.L.cij + ": " + d.cijena + " €",
+        d.napomena ? L.L.nap + ": " + d.napomena : ""
+      ].filter(Boolean).join("\n");
+    }
+
+    function finish(d, code) {
+      var L = LX[lang()];
+      var name = (d.ime + " " + d.prezime).trim();
+      var ok = !!code;
+      $$(".rw__okOnly", done).forEach(function (el) { el.hidden = !ok; });
+      $$(".rw__fbOnly", done).forEach(function (el) { el.hidden = ok; });
+      var ref = ok ? code + " — " + name : name + " — " + L.refSuffix;
+      $("#rwRef").textContent = ref;
+      $("#rwRefCopy").setAttribute("data-copy", ref);
+      if (ok) {
+        $("#rwCode").textContent = code;
+        $("#rwUpload").href = "uplata.html?code=" + encodeURIComponent(code);
+      } else {
+        var body = composeBody(d, L);
+        $("#rwFbMail").href = "mailto:" + REG.email + "?subject=" + encodeURIComponent(L.subj + " – " + name) + "&body=" + encodeURIComponent(body);
+        $("#rwFbWa").href = "https://wa.me/" + REG.wa + "?text=" + encodeURIComponent(L.subj + "\n" + body);
+        $("#rwUpload").href = "uplata.html";
+      }
+      f.hidden = true; done.hidden = false;
+      if (lenis) lenis.scrollTo(done, { offset: -110 }); else done.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    var sending = false;
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (sending) return;
+      // trim-validate text fields so whitespace-only values don't pass
+      ["ime", "prezime", "drzava", "grad"].forEach(function (n) { var c = f.elements[n]; if (c && !c.value.trim()) c.value = ""; });
+      var ctls = $$("input,select,textarea", f);
+      for (var i = 0; i < ctls.length; i++) {
+        if (!ctls[i].checkValidity()) { ctls[i].reportValidity(); return; }
+      }
+      var d = {};
+      $$("input,select,textarea", f).forEach(function (c) { if (c.name && c.type !== "radio") d[c.name] = c.value; });
+      d.smjena = sel("smjena"); d.paket = sel("paket");
+      d.cijena = price(); d.lang = lang(); d.action = "register";
+      sending = true; submit.disabled = true; submit.classList.add("is-busy");
+      if (!REG.endpoint) { finish(d, null); return; }
+      var ctl = ("AbortController" in window) ? new AbortController() : null;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, 20000) : 0;
+      fetch(REG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d), signal: ctl ? ctl.signal : undefined })
+        .then(function (r) { return r.json(); })
+        .then(function (j) { clearTimeout(t); if (j && j.ok && j.code) finish(d, j.code); else finish(d, null); })
+        .catch(function () { clearTimeout(t); finish(d, null); });
+    });
+
+    $$(".rw__copy", done).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-copy") || "";
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(v).then(function () {
+          b.classList.add("is-ok"); b.textContent = "✓";
+          setTimeout(function () { b.classList.remove("is-ok"); b.textContent = "⧉"; }, 1600);
+        }).catch(function () {});
+      });
+    });
+  }
+})();
+</script>
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa" href="https://wa.me/38267032132" target="_blank" rel="noopener" aria-label="WhatsApp — Basketball Camp Kolasin">
+  <span class="wa__tip" data-i18n="wa.tip">Piši nam na WhatsApp</span>
+  <span class="wa__btn" aria-hidden="true">
+    <span class="wa__pulse"></span>
+    <span class="wa__core"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 4C9.93 4 4.97 8.96 4.97 15.07c0 2.06.56 4.06 1.62 5.83L4.8 27.2l6.48-1.69a11.02 11.02 0 0 0 4.76 1.08h.01c6.11 0 11.07-4.96 11.07-11.07 0-2.96-1.15-5.74-3.24-7.83A11 11 0 0 0 16.04 4Zm0 2.2c2.37 0 4.6.92 6.28 2.6a8.82 8.82 0 0 1 2.6 6.28c0 4.9-3.99 8.88-8.89 8.88-1.48 0-2.94-.38-4.22-1.08l-.3-.18-3.84 1.01 1.03-3.74-.2-.31a8.83 8.83 0 0 1-1.35-4.71c0-4.9 3.98-8.88 8.88-8.88Zm-3.6 4.53c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.94 2.52 1.06 2.69.13.17 1.83 2.93 4.52 4 .63.27 1.12.43 1.5.55.63.2 1.21.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.61.22-1.14.16-1.25-.07-.11-.25-.17-.51-.3-.26-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.59.13-.17.25-.67.86-.83 1.03-.15.17-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.4-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.59-.45-.15-.01-.32-.01-.5-.01Z"/></svg></span>
+  </span>
+</a>
+
+</body>
+</html>

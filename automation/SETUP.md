@@ -83,13 +83,12 @@ Podaci o sezoni žive na **četiri mjesta** — promijeniti sva:
    `AVANS`, `DEADLINE_WORKDAYS`, `BANK`, nazivi/termini smjena u `SMJENA`,
    i za novu sezonu `SHEET`, `PROOF_FOLDER`, `CODE_PREFIX` (npr. BCK28).
    Zatim **Deploy → Manage deployments → ✏️ → New version → Deploy** (URL ostaje isti).
-2. **`js/main.js` — blok `REG`**: `prices` (koristi ih kalkulator ukupne cijene
-   i bedževi na karticama paketa).
-3. **`index.html` — sekcija `#register`**: datumi smjena u `.rw__optSub`,
-   precrtana cijena `#rwOld` (520 €), granice datuma rođenja (`min`/`max`),
-   plus datumi na karticama u sekciji „Termini“ (`.se__date`).
-4. **`js/i18n.js` (+ zadani tekstovi u `index.html`)**: iznos avansa od 150 €
-   pominje se u tekstovima `rw.avans`, `rw.done.deadline`, `se.note` i `fq.a8`,
+2. **`prijava.html`** (stranica sa formularom): blok `REG` u inline skripti
+   (`prices` — kalkulator i bedževi), datumi smjena u `.rw__optSub`, precrtana
+   cijena `#rwOld` (520 €), granice datuma rođenja (`min`/`max`), i tekstovi
+   `rw.avans` / `rw.done.deadline` u inline i18n rječniku (OBA jezika).
+3. **`index.html`**: datumi na karticama u sekciji „Termini“ (`.se__date`).
+4. **`js/i18n.js`**: iznos avansa od 150 € pominje se u `se.note` i `fq.a8`,
    u OBA jezika.
 
 ## Ograničenja (dovoljna za kamp)

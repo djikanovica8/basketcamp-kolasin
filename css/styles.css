@@ -576,3 +576,13 @@ section,header,footer{max-width:100vw}
 
 /* hidden attribute must always win over class display rules */
 [hidden]{display:none!important}
+
+/* register CTA band (the form itself lives on prijava.html) */
+.rg__cta{max-width:760px;margin:0 auto;text-align:center;display:grid;justify-items:center;gap:1.2rem}
+.rg__cta>p{color:var(--mut-l);font-size:1.06rem;max-width:46ch}
+.rg__btn{font-size:1.02rem;padding:1.05em 2.2em}
+.rg__mini{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 2rem;margin-top:.6rem;list-style:none;padding:0}
+.rg__mini a{color:var(--mut-l);font-size:.9rem;transition:color .3s}
+.rg__mini a:hover{color:var(--orange)}
+.rg__mini li{position:relative}
+.rg__mini li+li::before{content:"·";position:absolute;left:-1.2rem;color:var(--mut-l);opacity:.5}
