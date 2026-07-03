@@ -586,3 +586,7 @@ section,header,footer{max-width:100vw}
 .rg__mini a:hover{color:var(--orange)}
 .rg__mini li{position:relative}
 .rg__mini li+li::before{content:"·";position:absolute;left:-1.2rem;color:var(--mut-l);opacity:.5}
+
+/* mobile tap-target comfort: enlarge hit areas without visual change */
+.burg{padding:14px 10px;margin:-14px -10px;box-sizing:content-box}
+.lang{padding:12px 8px;margin:-12px -8px}

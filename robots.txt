@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /uplata.html
+
+Sitemap: https://basketcamp-kolasin-v3.vercel.app/sitemap.xml
