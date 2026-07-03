@@ -291,6 +291,11 @@
   /* ---------------- HERO VIDEO autoplay safety ---------------- */
   function heroVideo() {
     const v = $("#heroVideo"); if (!v) return;
+    // phones get a lean 720p encode; desktops stream the full-quality master
+    const srcEl = v.querySelector("source");
+    if (srcEl && window.matchMedia("(max-width: 820px)").matches) {
+      srcEl.src = "assets/video/hero-720.mp4"; v.load();
+    }
     v.muted = true; v.defaultMuted = true; v.setAttribute("muted", ""); v.playsInline = true;
     const go = function () { try { const p = v.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {} };
     go();
