@@ -362,18 +362,113 @@
         <li><b data-i18n="rg.cSocial">Follow</b><span><a href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener">Facebook</a></span></li>
       </ul>
     </div>
-    <form class="rg__form reveal-up" id="regForm" novalidate>
-      <label data-i18n="rg.f.name">Player's name<input name="name" type="text" required autocomplete="name" /></label>
-      <div class="rg__two">
-        <label data-i18n="rg.f.age">Age<input name="age" type="number" min="6" max="18" required /></label>
-        <label data-i18n="rg.f.session">Session<select name="session"><option data-i18n="rg.f.s1">Session I · 27 Jun–2 Jul</option><option data-i18n="rg.f.s2">Session II · 2–7 Jul</option><option data-i18n="rg.f.s3">Skills &amp; Shooting · 7–12 Jul</option></select></label>
+    <div class="rg__right reveal-up">
+      <form class="rg__form rw" id="regForm" novalidate>
+        <ol class="rw__steps" aria-label="Steps">
+          <li class="rw__step is-on" data-s="1"><i>1</i><span data-i18n="rw.st1">Player</span></li>
+          <li class="rw__step" data-s="2"><i>2</i><span data-i18n="rw.st2">Parent</span></li>
+          <li class="rw__step" data-s="3"><i>3</i><span data-i18n="rw.st3">Package</span></li>
+        </ol>
+
+        <fieldset class="rw__pane is-on" data-pane="1">
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.ime">Player's first name</span><input name="ime" type="text" required autocomplete="given-name" /></label>
+            <label><span data-i18n="rw.f.prezime">Last name</span><input name="prezime" type="text" required autocomplete="family-name" /></label>
+          </div>
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.rodj">Date of birth</span><input name="rodjenje" type="date" required min="2011-01-01" max="2019-12-31" /></label>
+            <label><span data-i18n="rw.f.pol">Gender</span><select name="pol" required>
+              <option value="" disabled selected data-i18n="rw.f.choose">Choose…</option>
+              <option value="Muški" data-i18n="rw.f.polM">Male</option>
+              <option value="Ženski" data-i18n="rw.f.polZ">Female</option>
+            </select></label>
+          </div>
+          <label><span data-i18n="rw.f.klub">Club <span class="opt">(optional)</span></span><input name="klub" type="text" /></label>
+          <div class="rw__three">
+            <label><span data-i18n="rw.f.visina">Height (cm)</span><input name="visina" type="number" min="100" max="220" required inputmode="numeric" /></label>
+            <label><span data-i18n="rw.f.tezina">Weight (kg)</span><input name="tezina" type="number" min="20" max="140" required inputmode="numeric" /></label>
+            <label><span data-i18n="rw.f.oprema">Kit size</span><select name="oprema" required>
+              <option value="" disabled selected data-i18n="rw.f.choose">Choose…</option>
+              <option>8</option><option>10</option><option>12</option><option>14</option><option>16</option>
+              <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+            </select></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="rw__pane" data-pane="2">
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.drzava">Country</span><input name="drzava" type="text" required autocomplete="country-name" /></label>
+            <label><span data-i18n="rw.f.grad">City</span><input name="grad" type="text" required autocomplete="address-level2" /></label>
+          </div>
+          <label><span data-i18n="rw.f.email">Parent's email</span><input name="email" type="email" required autocomplete="email" inputmode="email" /></label>
+          <label><span data-i18n="rw.f.tel">Parent's phone (Viber / WhatsApp)</span><input name="telefon" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+          <label><span data-i18n="rw.f.note">Note <span class="opt">(optional)</span></span><textarea name="napomena" rows="2"></textarea></label>
+        </fieldset>
+
+        <fieldset class="rw__pane" data-pane="3">
+          <span class="rw__lbl" data-i18n="rw.smjenaLbl">Session</span>
+          <div class="rw__opts">
+            <label class="rw__opt"><input type="radio" name="smjena" value="1" required />
+              <span class="rw__optName" data-i18n="rw.s1">Session I</span>
+              <span class="rw__optSub">27.06 – 02.07.2027.</span></label>
+            <label class="rw__opt"><input type="radio" name="smjena" value="2" />
+              <span class="rw__optName" data-i18n="rw.s2">Session II</span>
+              <span class="rw__optSub">02.07 – 07.07.2027.</span></label>
+            <label class="rw__opt"><input type="radio" name="smjena" value="3" />
+              <span class="rw__optName" data-i18n="rw.s3">Skills &amp; Shooting</span>
+              <span class="rw__optSub">07.07 – 12.07.2027.</span></label>
+          </div>
+          <span class="rw__lbl" data-i18n="rw.paketLbl">Package</span>
+          <div class="rw__opts rw__opts--pk">
+            <label class="rw__opt"><input type="radio" name="paket" value="full" required />
+              <span class="rw__optName" data-i18n="rw.pkFull">Complete package</span>
+              <span class="rw__optSub" data-i18n="rw.pkFullSub">Trainings + stay + meals · Hotel Pini</span>
+              <b class="rw__optPrice" data-pk="full">450&nbsp;€</b></label>
+            <label class="rw__opt"><input type="radio" name="paket" value="train" />
+              <span class="rw__optName" data-i18n="rw.pkTrain">Trainings only</span>
+              <span class="rw__optSub" data-i18n="rw.pkTrainSub">Without stay and meals</span>
+              <b class="rw__optPrice" data-pk="train">260&nbsp;€</b></label>
+          </div>
+          <div class="rw__total">
+            <span data-i18n="rw.total">Total</span>
+            <span class="rw__totalR"><s id="rwOld" hidden>520 €</s><em id="rwPromo" hidden data-i18n="rw.promo">promo</em><b id="rwPrice">—</b></span>
+          </div>
+          <p class="rw__avans" data-i18n="rw.avans">A 150 € deposit within 3 working days secures the spot — the rest is paid before camp starts.</p>
+        </fieldset>
+
+        <div class="rw__nav">
+          <button type="button" class="btn btn--ghost" id="rwBack" hidden><b>←</b><span data-i18n="rw.back">Back</span></button>
+          <button type="button" class="btn btn--orange" id="rwNext"><span data-i18n="rw.next">Next</span><b>→</b></button>
+          <button type="submit" class="btn btn--orange" id="rwSubmit" hidden><span data-i18n="rw.submit">Send registration</span><b>→</b></button>
+        </div>
+        <p class="rg__legal" data-i18n="rg.rules">By paying for participation you accept the <a href='pravilnik.html'>camper code of conduct</a>.</p>
+        <p class="rw__errMsg" id="rwErrMsg" hidden data-i18n="rw.errSend">We couldn't reach the server — please finish your registration with one click below.</p>
+      </form>
+
+      <div class="rg__form rw__done" id="rwDone" hidden>
+        <span class="rw__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <h3 class="rw__doneT" data-i18n="rw.done.t">Registration received!</h3>
+        <p class="rw__doneP rw__okOnly" data-i18n="rw.done.p">We've just emailed you the payment instructions. Your registration number:</p>
+        <p class="rw__doneP rw__fbOnly" hidden data-i18n="rw.done.fb">One more click — send us your registration via email or WhatsApp:</p>
+        <div class="rw__fbBtns rw__fbOnly" hidden>
+          <a class="btn btn--orange" id="rwFbMail" href="#"><span data-i18n="rw.done.fbMail">Send by email</span><b>→</b></a>
+          <a class="btn btn--ghost" id="rwFbWa" href="#" target="_blank" rel="noopener"><span data-i18n="rw.done.fbWa">Send on WhatsApp</span></a>
+        </div>
+        <div class="rw__code rw__okOnly" id="rwCode">BCK27-001</div>
+        <div class="rw__pay">
+          <div class="rw__payRow"><span data-i18n="rw.pay.bank">Bank</span><b>Hipotekarna banka AD Podgorica</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.acc">Account number</span><b>520-20045-80 <button type="button" class="rw__copy" data-copy="520-20045-80" aria-label="Copy">⧉</button></b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.to">Recipient</span><b>Basket Kamp</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.amt">Deposit</span><b>150 €</b></div>
+          <div class="rw__payRow"><span data-i18n="rw.pay.ref">Payment reference</span><b><span id="rwRef">—</span> <button type="button" class="rw__copy" id="rwRefCopy" data-copy="" aria-label="Copy">⧉</button></b></div>
+        </div>
+        <p class="rw__doneNote" data-i18n="rw.done.deadline">Pay the 150 € deposit within 3 working days, then send us the payment slip:</p>
+        <div class="rw__doneBtns">
+          <a class="btn btn--orange" id="rwUpload" href="uplata.html"><span data-i18n="rw.done.upload">Upload the payment slip</span><b>→</b></a>
+          <a class="btn btn--ghost" href="https://wa.me/38267032132" target="_blank" rel="noopener"><span data-i18n="rw.done.wa">Send it on WhatsApp</span></a>
+        </div>
       </div>
-      <label data-i18n="rg.f.contact">Parent email or phone<input name="contact" type="text" required /></label>
-      <label data-i18n="rg.f.msg">Message <span class="opt">(optional)</span><textarea name="msg" rows="2"></textarea></label>
-      <button type="submit" class="btn btn--orange btn--full"><span data-i18n="rg.submit">Send registration</span><b>→</b></button>
-      <p class="rg__legal" data-i18n="rg.rules">By paying for participation you accept the <a href='pravilnik.html'>camper code of conduct</a>.</p>
-      <p class="rg__ok" id="regOk" hidden data-i18n="rg.ok">Got it! 🏀 We'll be in touch within 24 hours.</p>
-    </form>
+    </div>
   </div>
 </section>
 
@@ -435,6 +530,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/config.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script>

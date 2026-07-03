@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="sr-ME" data-lang="me">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#161210" />
+<title>Uplatnica — Basketball Camp Kolašin · Pošaljite dokaz o uplati</title>
+<meta name="description" content="Pošaljite fotografiju uplatnice i rezervišite mjesto na Basketball Camp-u Kolašin. Upload your payment slip to secure your spot at Basketball Camp Kolašin." />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/logo/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<style>
+  /* ===== page-specific — reuses :root tokens; hero mirrors pravilnik.html ===== */
+  html{overflow-x:hidden}
+  .rv-hero{position:relative;z-index:0;min-height:46vh;min-height:46svh;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:calc(var(--nav) + 2rem) clamp(1.2rem,5vw,5rem) clamp(2.4rem,5vw,3.6rem);overflow:hidden;color:var(--cream);background:var(--esp)}
+  .rv-hero__bg{position:absolute;inset:0;z-index:0;background:
+    radial-gradient(ellipse 80% 55% at 70% 0%,rgba(202,161,74,.10),transparent 60%),
+    linear-gradient(180deg,#171009 0%,#221710 55%,#2c1d12 100%)}
+  .rv-hero__line{position:absolute;left:0;right:0;bottom:0;height:min(220px,38%);z-index:0;pointer-events:none;
+    background:url(assets/img/mtn-line.svg) center bottom/cover no-repeat;opacity:.5}
+  .rv-hero__inner{position:relative;z-index:1;max-width:1320px;margin:0 auto;width:100%}
+  .rv-kick{display:inline-flex;align-items:center;gap:.5em;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-l)}
+  .rv-kick a{color:rgba(243,237,227,.6);transition:color .3s}
+  .rv-kick a:hover{color:var(--orange)}
+  .rv-kick i{font-style:normal;opacity:.5}
+  .rv-hero__title{font-family:var(--disp);font-weight:700;line-height:.94;letter-spacing:-.025em;font-size:clamp(2.4rem,6.8vw,5.4rem);margin:1.1rem 0 1.2rem}
+  .rv-hero__title .ln{display:block;overflow:hidden;padding-bottom:.02em}
+  .rv-hero__title .ln span{display:inline-block;will-change:transform}
+  .rv-hero__lead{max-width:58ch;font-size:clamp(1.02rem,1.5vw,1.2rem);color:rgba(243,237,227,.88)}
+  .rv-hero__lead b{color:var(--gold-l);font-weight:600}
+
+  /* ===== upload card ===== */
+  .up{background:var(--porc)}
+  .up__card{max-width:640px;margin:0 auto;background:#fffdf9;border:1px solid var(--line);border-radius:24px;
+    padding:clamp(1.8rem,4vw,2.8rem);box-shadow:0 34px 70px -46px rgba(29,24,18,.4);display:grid;gap:1.2rem}
+  .up__card label{display:grid;gap:.5rem;font-family:var(--body);font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .up__card .opt{text-transform:none;letter-spacing:0;opacity:.7}
+  .up__card input[type="text"]{font-family:var(--body);font-size:1rem;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.85em 1em;color:var(--ink);transition:border-color .3s,box-shadow .3s}
+  .up__card input[type="text"]:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(242,116,26,.14)}
+  .up__hint{font-size:.78rem;color:var(--mut);line-height:1.5;margin-top:-.6rem}
+  .up__drop{position:relative;display:grid;justify-items:center;gap:.5rem;text-align:center;border:2px dashed rgba(29,24,18,.22);border-radius:16px;
+    padding:2rem 1.4rem;cursor:pointer;transition:border-color .3s,background .3s}
+  .up__drop:hover,.up__drop.is-over{border-color:var(--orange);background:rgba(242,116,26,.05)}
+  .up__drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+  .up__drop svg{width:34px;height:34px;stroke:var(--orange);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .up__dropT{font-family:var(--disp);font-weight:700;font-size:1.02rem;color:var(--ink)}
+  .up__dropS{font-size:.78rem;color:var(--mut)}
+  .up__file{display:none;align-items:center;gap:.9rem;background:var(--porc);border:1px solid var(--line);border-radius:14px;padding:.7rem .9rem}
+  .up__file.is-on{display:flex}
+  .up__thumb{width:52px;height:52px;border-radius:9px;object-fit:cover;background:var(--porc-2)}
+  .up__fname{font-size:.88rem;color:var(--ink);font-weight:600;overflow-wrap:anywhere}
+  .up__fsize{font-size:.74rem;color:var(--mut)}
+  .up__change{margin-left:auto;background:none;border:0;color:var(--orange);font-weight:600;font-size:.8rem;cursor:pointer;white-space:nowrap}
+  .up__err{font-size:.84rem;color:#b3431a;line-height:1.5;text-align:center}
+  .up .btn--full{width:100%;justify-content:center}
+  .btn.is-busy{opacity:.6;pointer-events:none}
+  /* success */
+  .up__ok{display:grid;gap:1rem;justify-items:center;text-align:center}
+  .up__check{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--orange),var(--orange-d));box-shadow:0 10px 30px rgba(242,116,26,.35)}
+  .up__check svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .up__okT{font-family:var(--disp);font-weight:800;font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--ink)}
+  .up__okP{color:var(--mut);font-size:.95rem;max-width:44ch;line-height:1.55}
+  .up__fb{display:grid;gap:.8rem}
+  .up__fb .btn{justify-content:center}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hd on-dark" id="hd">
+  <div class="hd__brand">
+    <a class="hd__logo" href="index.html#top" aria-label="Home"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /></a>
+    <a class="hd__spon" href="index.html#sponsors" aria-label="Generalni sponzor — Lovćen Osiguranje"><img src="assets/img/spon/lovcen.webp" alt="Lovćen Osiguranje — generalni sponzor" /></a>
+  </div>
+  <nav class="hd__nav" id="hdNav">
+    <a href="index.html" data-i18n="nav.camp">Kamp</a>
+    <a href="index.html#program" data-i18n="nav.program">Program</a>
+    <a href="about.html" data-i18n="nav.about">O nama</a>
+    <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+    <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+    <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+    <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  </nav>
+  <div class="hd__right">
+    <div class="hd__social" aria-label="Social media">
+      <a class="hd__soc" href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg>
+      </a>
+      <a class="hd__soc" href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg>
+      </a>
+    </div>
+    <button class="lang" id="langToggle" aria-label="Language"><span class="is-on" data-lang-opt="me">ME</span><i>/</i><span data-lang-opt="en">EN</span></button>
+    <a class="cta" href="index.html#register" data-i18n="nav.register">Prijava</a>
+    <button class="burg" id="burg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="rv-hero" id="top">
+  <div class="rv-hero__bg" aria-hidden="true"></div>
+  <div class="rv-hero__line" aria-hidden="true"></div>
+  <div class="rv-hero__inner">
+    <span class="rv-kick reveal-up"><a href="index.html" data-i18n="crumb.home">Kamp</a><i>/</i><span data-i18n="up.kick">Slanje uplatnice</span></span>
+    <h1 class="rv-hero__title">
+      <span class="ln"><span data-i18n="up.t1">Pošaljite</span></span>
+      <span class="ln"><span class="it flame" data-i18n="up.t2">uplatnicu.</span></span>
+    </h1>
+    <p class="rv-hero__lead reveal-up" data-i18n="up.lead">Fotografišite ili priložite uplatnicu avansa — <b>čim je pregledamo, mjesto je zvanično rezervisano</b> i stiže vam email potvrda.</p>
+  </div>
+</section>
+
+<!-- ===================== UPLOAD ===================== -->
+<section class="section up">
+  <form class="up__card reveal-up" id="upForm" novalidate>
+    <label><span data-i18n="up.f.name">Ime i prezime igrača</span><input type="text" name="ime" required autocomplete="name" /></label>
+    <label><span data-i18n="up.f.code">Broj prijave <span class="opt">(iz emaila potvrde, npr. BCK27-042 — opciono)</span></span><input type="text" name="code" autocapitalize="characters" autocomplete="off" /></label>
+
+    <div class="up__drop" id="upDrop">
+      <input type="file" id="upFile" accept="image/*,.pdf" aria-label="Uplatnica" />
+      <svg viewBox="0 0 24 24"><path d="M12 16V4M7.5 8.5 12 4l4.5 4.5"/><path d="M4 15v3.4A1.6 1.6 0 0 0 5.6 20h12.8a1.6 1.6 0 0 0 1.6-1.6V15"/></svg>
+      <span class="up__dropT" data-i18n="up.drop.t">Dodajte fotografiju uplatnice</span>
+      <span class="up__dropS" data-i18n="up.drop.sub">Kliknite ili prevucite — fotografija ili PDF</span>
+    </div>
+    <div class="up__file" id="upFileRow">
+      <img class="up__thumb" id="upThumb" alt="" />
+      <div><div class="up__fname" id="upFname"></div><div class="up__fsize" id="upFsize"></div></div>
+      <button type="button" class="up__change" id="upChange" data-i18n="up.drop.change">Promijeni</button>
+    </div>
+
+    <p class="up__err" id="upErr" hidden></p>
+    <button type="submit" class="btn btn--orange btn--full" id="upSubmit"><span data-i18n="up.submit">Pošalji uplatnicu</span><b>→</b></button>
+
+    <div class="up__fb" id="upFb" hidden>
+      <p class="up__okP" data-i18n="up.fb.t">Pošaljite nam uplatnicu direktno — jednim klikom:</p>
+      <a class="btn btn--orange" href="https://wa.me/38267032132" target="_blank" rel="noopener"><span data-i18n="up.fb.wa">Pošalji na WhatsApp</span></a>
+      <a class="btn btn--ghost" href="mailto:basketballcampkolasin@gmail.com?subject=Uplatnica"><span data-i18n="up.fb.mail">Pošalji emailom</span></a>
+    </div>
+  </form>
+
+  <div class="up__card up__ok reveal-up" id="upOk" hidden>
+    <span class="up__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+    <h2 class="up__okT" data-i18n="up.ok.t">Uplatnica primljena!</h2>
+    <p class="up__okP" data-i18n="up.ok.p">Hvala! Pregledaćemo uplatu i poslati vam email potvrdu rezervacije — obično istog dana.</p>
+    <a class="btn btn--orange" href="index.html"><span data-i18n="up.back">Nazad na početnu</span><b>→</b></a>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="ft">
+  <div class="ft__top">
+    <div class="ft__brand"><img src="assets/logo/logo.webp" alt="Basketball Camp Kolašin" /><p data-i18n="ft.tag">Osvoji vrh. Kolašin, Crna Gora.</p></div>
+    <nav class="ft__nav">
+      <a href="index.html" data-i18n="nav.camp">Kamp</a><a href="index.html#program" data-i18n="nav.program">Program</a><a href="about.html" data-i18n="nav.about">O nama</a><a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a><a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a><a href="mvp.html" data-i18n="nav.mvp">MVP</a><a href="index.html#sessions" data-i18n="nav.sessions">Termini</a><a href="pravilnik.html">Pravilnik</a>
+    </nav>
+  </div>
+  <div class="ft__big" aria-hidden="true">VRH</div>
+  <div class="ft__bot"><span>© <span id="yr">2026</span> Basketball Camp Kolašin</span><span data-i18n="ft.sponsor">Uz podršku Lovćen Osiguranja</span></div>
+</footer>
+
+<!-- mobile menu -->
+<div class="mm" id="mm" aria-hidden="true">
+  <a href="index.html" data-i18n="nav.camp">Kamp</a>
+  <a href="index.html#program" data-i18n="nav.program">Program</a>
+  <a href="about.html" data-i18n="nav.about">O nama</a>
+  <a href="smjestaj.html" data-i18n="nav.stay">Smještaj</a>
+  <a href="promoteri.html" data-i18n="nav.promoteri">Promoteri</a>
+  <a href="mvp.html" data-i18n="nav.mvp">MVP</a>
+  <a href="index.html#sessions" data-i18n="nav.sessions">Termini</a>
+  <a href="index.html#register" class="cta" data-i18n="nav.register">Prijava</a>
+  <div class="mm__social" aria-label="Social media">
+    <a href="https://www.instagram.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" stroke="currentColor" stroke-width="1.7"/><circle cx="17.35" cy="6.65" r="1.25" fill="currentColor"/></svg><span>Instagram</span></a>
+    <a href="https://www.facebook.com/basketballcampkolasin" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.3h2.45l.37-2.85H13.5V9.04c0-.82.23-1.39 1.41-1.39h1.5V5.1c-.26-.03-1.15-.11-2.19-.11-2.17 0-3.65 1.32-3.65 3.76v2.09H8.1v2.85h2.48V21h2.92z"/></svg><span>Facebook</span></a>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script>
+/* =====================================================================
+   UPLATA — inline behaviour. Mirrors js/main.js conventions.
+   Lenis · reveals · header · mobile menu · magnetic · ME/EN i18n ·
+   payment-slip upload with client-side compression.
+   ===================================================================== */
+(function () {
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGSAP = typeof window.gsap !== "undefined";
+  var hasLenis = typeof window.Lenis !== "undefined";
+  var ST = window.ScrollTrigger;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var isMobile = function () { return window.matchMedia("(hover:none)").matches; };
+  var ENDPOINT = (window.BCK_CFG && window.BCK_CFG.regEndpoint) || "";
+
+  var I18N = {
+    me: {
+      "nav.camp":"Kamp","nav.program":"Program","nav.about":"O nama","nav.stay":"Smještaj","nav.promoteri":"Promoteri","nav.mvp":"MVP","nav.sessions":"Termini","nav.register":"Prijava","wa.tip":"Piši nam na WhatsApp",
+      "crumb.home":"Kamp",
+      "up.kick":"Slanje uplatnice","up.t1":"Pošaljite","up.t2":"uplatnicu.",
+      "up.lead":"Fotografišite ili priložite uplatnicu avansa — <b>čim je pregledamo, mjesto je zvanično rezervisano</b> i stiže vam email potvrda.",
+      "up.f.name":"Ime i prezime igrača",
+      "up.f.code":"Broj prijave <span class=\"opt\">(iz emaila potvrde, npr. BCK27-042 — opciono)</span>",
+      "up.drop.t":"Dodajte fotografiju uplatnice","up.drop.sub":"Kliknite ili prevucite — fotografija ili PDF","up.drop.change":"Promijeni",
+      "up.submit":"Pošalji uplatnicu","up.sending":"Slanje…",
+      "up.ok.t":"Uplatnica primljena!","up.ok.p":"Hvala! Pregledaćemo uplatu i poslati vam email potvrdu rezervacije — obično istog dana.",
+      "up.back":"Nazad na početnu",
+      "up.err.file":"Ne možemo da pročitamo taj fajl — pokušajte sa fotografijom (JPG/PNG) ili PDF-om.",
+      "up.err.size":"Fajl je veći od 6 MB — fotografišite uplatnicu telefonom ili smanjite fajl.",
+      "up.err.need":"Dodajte fotografiju uplatnice prije slanja.",
+      "up.err.send":"Slanje nije uspjelo — pošaljite uplatnicu na WhatsApp ili email ispod.",
+      "up.fb.t":"Pošaljite nam uplatnicu direktno — jednim klikom:",
+      "up.fb.wa":"Pošalji na WhatsApp","up.fb.mail":"Pošalji emailom",
+      "ft.tag":"Osvoji vrh. Kolašin, Crna Gora.","ft.sponsor":"Uz podršku Lovćen Osiguranja"
+    },
+    en: {
+      "nav.camp":"Camp","nav.program":"Program","nav.about":"About","nav.stay":"Stay","nav.promoteri":"Promoters","nav.mvp":"MVP","nav.sessions":"Sessions","nav.register":"Sign up","wa.tip":"Chat on WhatsApp",
+      "crumb.home":"Camp",
+      "up.kick":"Payment slip","up.t1":"Send the","up.t2":"payment slip.",
+      "up.lead":"Photograph or attach the deposit payment slip — <b>as soon as we review it, the spot is officially reserved</b> and a confirmation email is on its way.",
+      "up.f.name":"Player's full name",
+      "up.f.code":"Registration number <span class=\"opt\">(from the confirmation email, e.g. BCK27-042 — optional)</span>",
+      "up.drop.t":"Add a photo of the payment slip","up.drop.sub":"Click or drag and drop — photo or PDF","up.drop.change":"Change",
+      "up.submit":"Send the payment slip","up.sending":"Sending…",
+      "up.ok.t":"Payment slip received!","up.ok.p":"Thank you! We'll review the payment and email you the reservation confirmation — usually the same day.",
+      "up.back":"Back to home",
+      "up.err.file":"We can't read that file — try a photo (JPG/PNG) or a PDF.",
+      "up.err.size":"The file is over 6 MB — photograph the slip with your phone or shrink the file.",
+      "up.err.need":"Add a photo of the payment slip before sending.",
+      "up.err.send":"Sending failed — please send the slip via WhatsApp or email below.",
+      "up.fb.t":"Send us the payment slip directly — one click:",
+      "up.fb.wa":"Send on WhatsApp","up.fb.mail":"Send by email",
+      "ft.tag":"Reach the summit. Kolašin, Montenegro.","ft.sponsor":"Supported by Lovćen Osiguranje"
+    }
+  };
+
+  var current = "me";
+  try { current = localStorage.getItem("bckc-lang") || "me"; } catch (e) {}
+  function applyLang(lang) {
+    if (!I18N[lang]) lang = "me";
+    current = lang;
+    var dict = I18N[lang];
+    document.documentElement.setAttribute("lang", lang === "me" ? "sr-ME" : "en");
+    document.documentElement.setAttribute("data-lang", lang);
+    $$("[data-i18n]").forEach(function (el) {
+      var v = dict[el.getAttribute("data-i18n")];
+      if (v == null) return;
+      if (v.indexOf("<") !== -1) el.innerHTML = v; else el.textContent = v;
+    });
+    $$("[data-lang-opt]").forEach(function (el) { el.classList.toggle("is-on", el.getAttribute("data-lang-opt") === lang); });
+    try { localStorage.setItem("bckc-lang", lang); } catch (e) {}
+    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: lang } }));
+  }
+  var T = function (k) { return (I18N[current] && I18N[current][k]) || k; };
+
+  document.addEventListener("DOMContentLoaded", init);
+  function init() {
+    applyLang(current);
+    var btn = $("#langToggle"); if (btn) btn.addEventListener("click", function () { applyLang(current === "me" ? "en" : "me"); });
+    smoothScroll();
+    header();
+    reveals();
+    magnetic();
+    upload();
+    var y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
+    window.addEventListener("langchange", function () { if (ST) ST.refresh(); });
+  }
+
+  var lenis = null;
+  function smoothScroll() {
+    if (hasGSAP && ST) gsap.registerPlugin(ST);
+    if (hasLenis && !RM) {
+      lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+      window.lenis = lenis;
+      if (hasGSAP && ST) { lenis.on("scroll", ST.update); gsap.ticker.add(function (t) { lenis.raf(t * 1000); }); gsap.ticker.lagSmoothing(0); }
+      else { var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); }; requestAnimationFrame(raf); }
+    }
+  }
+
+  function header() {
+    var hd = $("#hd");
+    var hero = $(".rv-hero");
+    var onScroll = function () {
+      var s = window.scrollY > 30;
+      if (!hd) return;
+      hd.classList.toggle("scr", s);
+      var darkUnder = hero ? (window.scrollY < hero.offsetHeight - 80) : false;
+      hd.classList.toggle("on-dark", darkUnder && !s);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
+    var burg = $("#burg"), mm = $("#mm");
+    if (burg && mm) burg.addEventListener("click", function () {
+      var open = mm.classList.toggle("open"); burg.classList.toggle("x", open);
+      document.body.classList.toggle("lock", open); if (lenis) { open ? lenis.stop() : lenis.start(); }
+    });
+  }
+
+  function reveals() {
+    if (!hasGSAP || !ST || RM) return;
+    $$(".reveal-up").forEach(function (el) {
+      if (el.closest(".rv-hero")) return;
+      gsap.from(el, { y: 34, opacity: 0, duration: 0.85, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 92%" } });
+    });
+    gsap.set(".rv-hero__title .ln span", { yPercent: 118 });
+    gsap.to(".rv-hero__title .ln span", { yPercent: 0, duration: 1.15, ease: "power4.out", stagger: 0.12, delay: 0.15 });
+    gsap.fromTo(".rv-kick,.rv-hero__lead", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", stagger: 0.1, delay: 0.4, overwrite: "auto" });
+  }
+
+  function magnetic() {
+    if (RM || isMobile()) return;
+    $$(".btn--orange:not(.btn--full), .cta").forEach(function (b) {
+      b.addEventListener("mousemove", function (e) {
+        var r = b.getBoundingClientRect();
+        b.style.transform = "translate(" + (e.clientX - r.left - r.width / 2) * 0.14 + "px," + (e.clientY - r.top - r.height / 2) * 0.24 + "px)";
+      });
+      b.addEventListener("mouseleave", function () { b.style.transform = ""; });
+    });
+  }
+
+  /* ---------------- UPLOAD ---------------- */
+  function upload() {
+    var form = $("#upForm"), drop = $("#upDrop"), fileIn = $("#upFile");
+    if (!form || !drop || !fileIn) return;
+    var row = $("#upFileRow"), thumb = $("#upThumb"), fname = $("#upFname"), fsize = $("#upFsize");
+    var err = $("#upErr"), submit = $("#upSubmit"), fb = $("#upFb"), okPane = $("#upOk");
+    var picked = null; // {data, mime, name, sizeLabel, preview}
+
+    // prefill code from ?code=
+    try {
+      var code = new URLSearchParams(window.location.search).get("code");
+      if (code) form.elements.code.value = code.toUpperCase();
+    } catch (e) {}
+
+    function showErr(key) { err.textContent = T(key); err.hidden = false; }
+    function clearErr() { err.hidden = true; }
+
+    function fmtSize(bytes) { return bytes > 1024 * 1024 ? (bytes / 1048576).toFixed(1) + " MB" : Math.max(1, Math.round(bytes / 1024)) + " KB"; }
+
+    function compress(file) {
+      return new Promise(function (res, rej) {
+        var rawFallback = function () {
+          if (file.size > 6 * 1024 * 1024) return rej("up.err.size");
+          var r = new FileReader();
+          r.onload = function () { res({ data: String(r.result).split(",")[1], mime: file.type || "application/octet-stream", name: file.name || "uplatnica", preview: /^image\//.test(file.type) ? String(r.result) : "" }); };
+          r.onerror = function () { rej("up.err.file"); };
+          r.readAsDataURL(file);
+        };
+        if (!/^image\//.test(file.type)) { rawFallback(); return; }
+        var url = URL.createObjectURL(file);
+        var img = new Image();
+        img.onload = function () {
+          try {
+            var MAX = 1600, k = Math.min(1, MAX / Math.max(img.width, img.height));
+            var c = document.createElement("canvas");
+            c.width = Math.max(1, Math.round(img.width * k));
+            c.height = Math.max(1, Math.round(img.height * k));
+            c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+            URL.revokeObjectURL(url);
+            var d = c.toDataURL("image/jpeg", 0.82);
+            res({ data: d.split(",")[1], mime: "image/jpeg", name: (file.name || "uplatnica").replace(/\.[^.]+$/, "") + ".jpg", preview: d });
+          } catch (e) { URL.revokeObjectURL(url); rawFallback(); }
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); rawFallback(); };
+        img.src = url;
+      });
+    }
+
+    var gen = 0; // ignore stale compressions when the user re-picks quickly
+    function handleFile(file) {
+      if (!file) return;
+      clearErr();
+      var my = ++gen;
+      compress(file).then(function (out) {
+        if (my !== gen) return;
+        picked = out;
+        var bytes = Math.round(out.data.length * 0.75);
+        fname.textContent = out.name;
+        fsize.textContent = fmtSize(bytes);
+        if (out.preview) { thumb.src = out.preview; thumb.style.display = ""; } else { thumb.removeAttribute("src"); thumb.style.display = "none"; }
+        row.classList.add("is-on");
+        drop.style.display = "none";
+      }).catch(function (key) { if (my !== gen) return; picked = null; showErr(typeof key === "string" ? key : "up.err.file"); });
+    }
+
+    fileIn.addEventListener("change", function () { handleFile(fileIn.files && fileIn.files[0]); });
+    $("#upChange").addEventListener("click", function () { gen++; picked = null; row.classList.remove("is-on"); drop.style.display = ""; fileIn.value = ""; });
+    ["dragover", "dragenter"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("is-over"); }); });
+    ["dragleave", "drop"].forEach(function (ev) { drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.remove("is-over"); }); });
+    drop.addEventListener("drop", function (e) { var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; if (f) handleFile(f); });
+    // a file dropped outside the dropzone must not navigate the tab away
+    ["dragover", "drop"].forEach(function (ev) { window.addEventListener(ev, function (e) { e.preventDefault(); }); });
+
+    var sending = false;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (sending) return;
+      clearErr();
+      var nameCtl = form.elements.ime;
+      if (!nameCtl.value.trim()) nameCtl.value = "";
+      if (!nameCtl.checkValidity()) { nameCtl.reportValidity(); return; }
+      if (!picked) { showErr("up.err.need"); return; }
+      if (!ENDPOINT) { showErr("up.err.send"); fb.hidden = false; return; }
+      sending = true; submit.disabled = true;
+      var label = $("span", submit); var orig = label.textContent;
+      submit.classList.add("is-busy"); label.textContent = T("up.sending");
+      var payload = {
+        action: "proof", lang: current,
+        ime: nameCtl.value.trim(),
+        code: form.elements.code.value.trim().toUpperCase(),
+        filename: picked.name, mime: picked.mime, data: picked.data
+      };
+      var ctl = ("AbortController" in window) ? new AbortController() : null;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, 45000) : 0;
+      fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload), signal: ctl ? ctl.signal : undefined })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          clearTimeout(t);
+          if (j && j.ok) { form.hidden = true; okPane.hidden = false; if (lenis) lenis.scrollTo(okPane, { offset: -110 }); }
+          else { sending = false; submit.disabled = false; submit.classList.remove("is-busy"); label.textContent = orig; showErr("up.err.send"); fb.hidden = false; }
+        })
+        .catch(function () { clearTimeout(t); sending = false; submit.disabled = false; submit.classList.remove("is-busy"); label.textContent = orig; showErr("up.err.send"); fb.hidden = false; });
+    });
+  }
+})();
+</script>
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa" href="https://wa.me/38267032132" target="_blank" rel="noopener" aria-label="WhatsApp — Basketball Camp Kolasin">
+  <span class="wa__tip" data-i18n="wa.tip">Piši nam na WhatsApp</span>
+  <span class="wa__btn" aria-hidden="true">
+    <span class="wa__pulse"></span>
+    <span class="wa__core"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 4C9.93 4 4.97 8.96 4.97 15.07c0 2.06.56 4.06 1.62 5.83L4.8 27.2l6.48-1.69a11.02 11.02 0 0 0 4.76 1.08h.01c6.11 0 11.07-4.96 11.07-11.07 0-2.96-1.15-5.74-3.24-7.83A11 11 0 0 0 16.04 4Zm0 2.2c2.37 0 4.6.92 6.28 2.6a8.82 8.82 0 0 1 2.6 6.28c0 4.9-3.99 8.88-8.89 8.88-1.48 0-2.94-.38-4.22-1.08l-.3-.18-3.84 1.01 1.03-3.74-.2-.31a8.83 8.83 0 0 1-1.35-4.71c0-4.9 3.98-8.88 8.88-8.88Zm-3.6 4.53c-.17 0-.45.06-.69.31-.24.25-.91.89-.91 2.17 0 1.28.94 2.52 1.06 2.69.13.17 1.83 2.93 4.52 4 .63.27 1.12.43 1.5.55.63.2 1.21.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.61.22-1.14.16-1.25-.07-.11-.25-.17-.51-.3-.26-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.59.13-.17.25-.67.86-.83 1.03-.15.17-.3.2-.56.07-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.4-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.42-.8-1.94-.21-.51-.42-.44-.59-.45-.15-.01-.32-.01-.5-.01Z"/></svg></span>
+  </span>
+</a>
+
+</body>
+</html>
