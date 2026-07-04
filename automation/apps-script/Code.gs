@@ -104,11 +104,11 @@ function register_(d) {
     var sh = sheet_();
     sh.appendRow([
       new Date(), code, STATUS.NOVA,
-      ime, prezime, clean_(d.rodjenje), clean_(d.pol),
-      clean_(d.drzava), clean_(d.grad), clean_(d.klub),
-      clean_(d.visina), clean_(d.tezina), clean_(d.oprema),
+      cell_(ime), cell_(prezime), cell_(d.rodjenje), cell_(d.pol),
+      cell_(d.drzava), cell_(d.grad), cell_(d.klub),
+      cell_(d.visina), cell_(d.tezina), cell_(d.oprema),
       smjena.me, paket.me, cijena,
-      email, clean_(d.telefon), clean_(d.napomena),
+      email, cell_(d.telefon), cell_(d.napomena),
       lang, "", "", false, "", ""
     ]);
     sh.getRange(sh.getLastRow(), COL.AVANS).insertCheckboxes();
@@ -572,10 +572,14 @@ function folder_() {
 }
 
 function clean_(v) {
-  var s = String(v == null ? "" : v).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 500);
-  // leading = + @ would be interpreted as a formula when written to the sheet
-  if (/^[=+@]/.test(s)) s = "'" + s;
-  return s;
+  return String(v == null ? "" : v).replace(/[\u0000-\u001f\u007f]/g, " ").trim().slice(0, 500);
+}
+
+// only for values written into sheet cells: a leading = + @ would otherwise
+// be interpreted as a formula (Sheets consumes the apostrophe as a text marker)
+function cell_(v) {
+  var s = clean_(v);
+  return /^[=+@]/.test(s) ? "'" + s : s;
 }
 
 function esc_(s) {
