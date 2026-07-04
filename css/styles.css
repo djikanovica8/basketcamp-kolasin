@@ -590,3 +590,31 @@ section,header,footer{max-width:100vw}
 /* mobile tap-target comfort: enlarge hit areas without visual change */
 .burg{padding:14px 10px;margin:-14px -10px;box-sizing:content-box}
 .lang{padding:12px 8px;margin:-12px -8px}
+
+/* ============ FINAL MOBILE POLISH ============ */
+/* founders: single big card per row so the photo is actually visible */
+@media (max-width:700px){
+  .co__grid{grid-template-columns:1fr;max-width:400px}
+  .cc__meta{padding:1.1rem 1.2rem;background:linear-gradient(transparent,rgba(15,12,9,.94) 58%)}
+  .cc__meta h3{font-size:1.5rem}
+  .cc__meta p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+}
+/* founder modal on phones: lock the photo band height and let the text scroll */
+@media (max-width:760px){
+  .fmodal__panel{grid-template-rows:36svh minmax(0,1fr)}
+  .fmodal__media{min-height:0;height:36svh}
+  .fmodal__body{max-height:none;min-height:0}
+}
+/* header on phones: keep the Lovćen chip and the Prijava button visible */
+@media (max-width:1024px){
+  .cta{display:inline-flex;font-size:.8rem;padding:.6em 1.05em}
+}
+@media (max-width:430px){
+  .hd__spon{display:flex;padding-left:.55rem}
+  .hd__spon img{height:32px;padding:4px 6px;border-radius:8px}
+  .hd__logo img{height:44px}
+  .hd.scr .hd__logo img{height:38px}
+  .hd.scr .hd__spon img{height:28px}
+  .cta{font-size:.74rem;padding:.55em .9em}
+  .hd__right{gap:.55rem}
+}

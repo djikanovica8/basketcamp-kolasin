@@ -229,14 +229,16 @@
     .pstat:last-child{grid-column:1/-1}
     .pstat::before{display:none}
     .pw__grid{grid-template-columns:repeat(3,1fr)}
-    .lb__panel{grid-template-columns:1fr;max-height:90svh}
-    .lb__media{min-height:42svh}
+    .lb__panel{grid-template-columns:1fr;grid-template-rows:42svh minmax(0,1fr);max-height:90svh}
+    .lb__media{min-height:0;height:42svh}
+    .lb__body{min-height:0}
   }
   @media (max-width:560px){
     .pw__grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
     .ph__scroll{display:none}
     .pc__role{font-size:.54rem}
-    .lb__media{min-height:36svh}
+    .lb__panel{grid-template-rows:36svh minmax(0,1fr)}
+    .lb__media{height:36svh}
   }
   @media (prefers-reduced-motion:reduce){
     .ph__dust,.ph__stars i,.ph__halo,.ph__title .gold{animation:none}
