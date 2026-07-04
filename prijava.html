@@ -190,7 +190,13 @@
             <label><span data-i18n="rw.f.grad">Grad</span><input name="grad" type="text" required autocomplete="address-level2" /></label>
           </div>
           <label><span data-i18n="rw.f.email">Email roditelja</span><input name="email" type="email" required autocomplete="email" inputmode="email" /></label>
-          <label><span data-i18n="rw.f.tel">Telefon roditelja (Viber / WhatsApp)</span><input name="telefon" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+          <div class="rg__two">
+            <label><span data-i18n="rw.f.tel">Telefon roditelja (Viber / WhatsApp)</span><input name="telefon" type="tel" required autocomplete="tel" inputmode="tel" /></label>
+            <label><span data-i18n="rw.f.jezik">Jezik komunikacije</span><select name="jezik">
+              <option value="me">Crnogorski</option>
+              <option value="en">English</option>
+            </select></label>
+          </div>
           <label><span data-i18n="rw.f.note">Napomena <span class="opt">(opciono)</span></span><textarea name="napomena" rows="2"></textarea></label>
         </fieldset>
 
@@ -327,7 +333,7 @@
       "rw.st1":"Igrač","rw.st2":"Roditelj","rw.st3":"Smjena i paket",
       "rw.f.ime":"Ime igrača","rw.f.prezime":"Prezime","rw.f.rodj":"Datum rođenja","rw.f.pol":"Pol","rw.f.choose":"Izaberi…","rw.f.polM":"Muški","rw.f.polZ":"Ženski",
       "rw.f.klub":"Klub <span class=\"opt\">(opciono)</span>","rw.f.visina":"Visina (cm)","rw.f.tezina":"Težina (kg)","rw.f.oprema":"Veličina opreme",
-      "rw.f.drzava":"Država","rw.f.grad":"Grad","rw.f.email":"Email roditelja","rw.f.tel":"Telefon roditelja (Viber / WhatsApp)","rw.f.note":"Napomena <span class=\"opt\">(opciono)</span>",
+      "rw.f.drzava":"Država","rw.f.grad":"Grad","rw.f.email":"Email roditelja","rw.f.tel":"Telefon roditelja (Viber / WhatsApp)","rw.f.jezik":"Jezik komunikacije","rw.f.note":"Napomena <span class=\"opt\">(opciono)</span>",
       "rw.smjenaLbl":"Smjena","rw.paketLbl":"Paket","rw.s1":"Smjena I","rw.s2":"Smjena II","rw.s3":"Skills & Shooting",
       "rw.pkFull":"Kompletan paket","rw.pkFullSub":"Treninzi + smještaj + ishrana · Hotel Pini","rw.pkTrain":"Samo treninzi","rw.pkTrainSub":"Bez smještaja i ishrane",
       "rw.total":"Ukupno","rw.promo":"promo","rw.avans":"Avans od 150 € u roku od 3 radna dana osigurava mjesto — ostatak se izmiruje prije početka kampa.",
@@ -352,7 +358,7 @@
       "rw.st1":"Player","rw.st2":"Parent","rw.st3":"Session & package",
       "rw.f.ime":"Player's first name","rw.f.prezime":"Last name","rw.f.rodj":"Date of birth","rw.f.pol":"Gender","rw.f.choose":"Choose…","rw.f.polM":"Male","rw.f.polZ":"Female",
       "rw.f.klub":"Club <span class=\"opt\">(optional)</span>","rw.f.visina":"Height (cm)","rw.f.tezina":"Weight (kg)","rw.f.oprema":"Kit size",
-      "rw.f.drzava":"Country","rw.f.grad":"City","rw.f.email":"Parent's email","rw.f.tel":"Parent's phone (Viber / WhatsApp)","rw.f.note":"Note <span class=\"opt\">(optional)</span>",
+      "rw.f.drzava":"Country","rw.f.grad":"City","rw.f.email":"Parent's email","rw.f.tel":"Parent's phone (Viber / WhatsApp)","rw.f.jezik":"Communication language","rw.f.note":"Note <span class=\"opt\">(optional)</span>",
       "rw.smjenaLbl":"Session","rw.paketLbl":"Package","rw.s1":"Session I","rw.s2":"Session II","rw.s3":"Skills & Shooting",
       "rw.pkFull":"Complete package","rw.pkFullSub":"Trainings + stay + meals · Hotel Pini","rw.pkTrain":"Trainings only","rw.pkTrainSub":"Without stay and meals",
       "rw.total":"Total","rw.promo":"promo","rw.avans":"A 150 € deposit within 3 working days secures the spot — the rest is paid before camp starts.",
@@ -478,6 +484,14 @@
       });
     });
 
+    // language dropdown ⇄ site language toggle; its value decides the email language
+    var langSel = f.elements.jezik;
+    if (langSel) {
+      langSel.value = lang();
+      langSel.addEventListener("change", function () { applyLang(langSel.value === "en" ? "en" : "me"); });
+      window.addEventListener("langchange", function (e) { langSel.value = (e.detail && e.detail.lang) === "en" ? "en" : "me"; });
+    }
+
     // preselect session from ?smjena=1|2|3 (links from the homepage session cards)
     try {
       var pre = new URLSearchParams(window.location.search).get("smjena");
@@ -556,11 +570,15 @@
       var d = {};
       $$("input,select,textarea", f).forEach(function (c) { if (c.name && c.type !== "radio") d[c.name] = c.value; });
       d.smjena = sel("smjena"); d.paket = sel("paket");
-      d.cijena = price(); d.lang = lang(); d.action = "register";
+      d.cijena = price(); d.action = "register";
+      d.lang = langSel ? (langSel.value === "en" ? "en" : "me") : lang();
       sending = true; submit.disabled = true; submit.classList.add("is-busy");
+      var sLabel = submit.querySelector("span");
+      if (sLabel) sLabel.textContent = lang() === "en" ? "Sending…" : "Šaljemo prijavu…";
       if (!REG.endpoint) { finish(d, null); return; }
+      // registration writes the sheet and sends two emails — cold starts can take ~30 s
       var ctl = ("AbortController" in window) ? new AbortController() : null;
-      var t = ctl ? setTimeout(function () { ctl.abort(); }, 20000) : 0;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, 60000) : 0;
       fetch(REG.endpoint, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(d), signal: ctl ? ctl.signal : undefined })
         .then(function (r) { return r.json(); })
         .then(function (j) { clearTimeout(t); if (j && j.ok && j.code) finish(d, j.code); else finish(d, null); })

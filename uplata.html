@@ -434,7 +434,7 @@
         filename: picked.name, mime: picked.mime, data: picked.data
       };
       var ctl = ("AbortController" in window) ? new AbortController() : null;
-      var t = ctl ? setTimeout(function () { ctl.abort(); }, 45000) : 0;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, 90000) : 0;
       fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload), signal: ctl ? ctl.signal : undefined })
         .then(function (r) { return r.json(); })
         .then(function (j) {

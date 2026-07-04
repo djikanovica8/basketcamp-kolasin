@@ -111,6 +111,7 @@ function register_(d) {
       email, clean_(d.telefon), clean_(d.napomena),
       lang, "", "", false, "", ""
     ]);
+    sh.getRange(sh.getLastRow(), COL.AVANS).insertCheckboxes();
   } finally {
     lock.releaseLock();
   }
@@ -128,9 +129,15 @@ function nextCode_() {
   var props = PropertiesService.getScriptProperties();
   var n = Number(props.getProperty("counter") || 0);
   if (!n) {
-    // initialize from existing rows so re-setup never reuses codes
+    // initialize from the highest existing code so codes are never reused
     var sh = sheet_();
-    n = Math.max(0, sh.getLastRow() - 1);
+    var last = sh.getLastRow();
+    if (last > 1) {
+      sh.getRange(2, COL.KOD, last - 1, 1).getValues().forEach(function (r) {
+        var m = /-(\d+)$/.exec(String(r[0] || ""));
+        if (m) n = Math.max(n, Number(m[1]));
+      });
+    }
   }
   n++;
   props.setProperty("counter", String(n));
@@ -484,14 +491,25 @@ function setup() {
   sh.setFrozenRows(1);
   sh.setFrozenColumns(3);
 
-  // status dropdown chips
+  // repair: whole-column checkboxes would poison getLastRow()/appendRow() —
+  // wipe any stray content below the last real registration (checkboxes are
+  // added per-row when a registration arrives)
+  var maxR = sh.getMaxRows();
+  var lastReal = 1;
+  var kodVals = sh.getRange(1, COL.KOD, maxR, 1).getValues();
+  for (var ri = maxR - 1; ri >= 1; ri--) { if (kodVals[ri][0]) { lastReal = ri + 1; break; } }
+  if (maxR > lastReal) {
+    sh.getRange(lastReal + 1, 1, maxR - lastReal, LAST_COL).clearContent().clearDataValidations();
+  }
+  if (lastReal > 1) sh.getRange(2, COL.AVANS, lastReal - 1, 1).insertCheckboxes();
+  // let the counter re-derive itself from the highest code in the sheet
+  PropertiesService.getScriptProperties().deleteProperty("counter");
+
+  // status dropdown chips (validation is not content — safe on the whole column)
   var statusRule = SpreadsheetApp.newDataValidation()
     .requireValueInList([STATUS.NOVA, STATUS.DOKAZ, STATUS.POTVRDJEN, STATUS.ODJAVLJEN], true)
     .setAllowInvalid(true).build();
   sh.getRange(2, COL.STATUS, sh.getMaxRows() - 1, 1).setDataValidation(statusRule);
-
-  // checkbox column
-  sh.getRange(2, COL.AVANS, sh.getMaxRows() - 1, 1).insertCheckboxes();
 
   // conditional colors for status
   var rangeA1 = sh.getRange(2, COL.STATUS, sh.getMaxRows() - 1, 1);

@@ -9,5 +9,5 @@
    back to prefilled email/WhatsApp so no registration is ever lost.
    ===================================================================== */
 window.BCK_CFG = {
-  regEndpoint: ""
+  regEndpoint: "https://script.google.com/macros/s/AKfycbw27q9qPk-Qa2ONFI9RfD6g3dT24MeM5J2bIPH_EpcXGW0vr99PGmmpSkJgQwQqR6k9Mw/exec"
 };
