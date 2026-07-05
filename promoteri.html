@@ -229,16 +229,18 @@
     .pstat:last-child{grid-column:1/-1}
     .pstat::before{display:none}
     .pw__grid{grid-template-columns:repeat(3,1fr)}
-    .lb__panel{grid-template-columns:1fr;grid-template-rows:42svh minmax(0,1fr);max-height:90svh}
-    .lb__media{min-height:0;height:42svh}
-    .lb__body{min-height:0}
+    .lb__panel{grid-template-columns:1fr;grid-template-rows:36vh minmax(0,1fr);grid-template-rows:36svh minmax(0,1fr);max-height:90vh;max-height:90svh}
+    .lb__media{min-height:0;height:36vh;height:36svh}
+    .lb__body{min-height:0;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
   }
   @media (max-width:560px){
     .pw__grid{grid-template-columns:repeat(2,1fr);gap:.7rem}
     .ph__scroll{display:none}
     .pc__role{font-size:.54rem}
-    .lb__panel{grid-template-rows:36svh minmax(0,1fr)}
-    .lb__media{height:36svh}
+    .lb__panel{grid-template-rows:32vh minmax(0,1fr);grid-template-rows:32svh minmax(0,1fr)}
+    .lb__media{height:32vh;height:32svh}
+    .lb__name{font-size:clamp(1.5rem,7vw,2rem)}
+    .lb__body{padding:1.3rem 1.2rem 2rem}
   }
   @media (prefers-reduced-motion:reduce){
     .ph__dust,.ph__stars i,.ph__halo,.ph__title .gold{animation:none}
@@ -345,7 +347,7 @@
       <span class="lb__no" id="lbNo"></span>
       <img id="lbImg" src="" alt="" />
     </div>
-    <div class="lb__body">
+    <div data-lenis-prevent class="lb__body">
       <div class="lb__badge"><i></i><span id="lbCat"></span></div>
       <h3 class="lb__name" id="lbName"></h3>
       <div class="lb__role" id="lbRole"></div>

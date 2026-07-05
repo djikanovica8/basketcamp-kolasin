@@ -618,3 +618,14 @@ section,header,footer{max-width:100vw}
   .cta{font-size:.74rem;padding:.55em .9em}
   .hd__right{gap:.55rem}
 }
+
+/* modal text must always fit: vh fallbacks for older iOS + guaranteed inner scroll */
+.fmodal__body{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media (max-width:760px){
+  .fmodal__panel{max-height:90vh;max-height:90svh;grid-template-rows:32vh minmax(0,1fr);grid-template-rows:32svh minmax(0,1fr)}
+  .fmodal__media{min-height:0;height:32vh;height:32svh}
+  .fmodal__body{max-height:none;min-height:0;padding:1.3rem 1.2rem 5.4rem}
+  .fmodal__name{font-size:clamp(1.6rem,7.5vw,2.2rem)}
+  .fmodal__hl li{font-size:.9rem}
+  .fmodal__bio{font-size:.95rem}
+}
