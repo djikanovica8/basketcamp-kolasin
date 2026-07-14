@@ -32,9 +32,9 @@ var CFG = {
   // authoritative prices per session index (I, II, III) — client value is ignored
   PRICES: { full: [450, 450, 490], train: [260, 260, 300] },
   SMJENA: {
-    "1": { me: "Smjena I (27.06 – 02.07.2027.)", en: "Session I (27.06 – 02.07.2027)" },
-    "2": { me: "Smjena II (02.07 – 07.07.2027.)", en: "Session II (02.07 – 07.07.2027)" },
-    "3": { me: "Smjena III – Skills & Shooting (07.07 – 12.07.2027.)", en: "Session III – Skills & Shooting (07.07 – 12.07.2027)" }
+    "1": { me: "Smjena I (26.06 – 01.07.2027.)", en: "Session I (26.06 – 01.07.2027)" },
+    "2": { me: "Smjena II (01.07 – 06.07.2027.)", en: "Session II (01.07 – 06.07.2027)" },
+    "3": { me: "Smjena III – Skills & Shooting (06.07 – 11.07.2027.)", en: "Session III – Skills & Shooting (06.07 – 11.07.2027)" }
   },
   PAKET: {
     full: { me: "Kompletan paket (treninzi + smještaj + ishrana)", en: "Complete package (trainings + stay + meals)" },

@@ -174,7 +174,7 @@
 
   /* ---------------- COUNTDOWN ---------------- */
   function countdown() {
-    const target = new Date("2027-06-27T09:30:00+02:00").getTime();
+    const target = new Date("2027-06-26T09:30:00+02:00").getTime();
     const D = $("#cdD"), H = $("#cdH"), M = $("#cdM"), S = $("#cdS"); if (!D) return;
     const pad = (n) => String(n).padStart(2, "0");
     const tick = () => { let d = Math.max(0, target - Date.now());
