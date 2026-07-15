@@ -23,7 +23,7 @@ var CFG = {
   SHEET: "Prijave 2027",
   PROOF_FOLDER: "Uplatnice 2027",
   CODE_PREFIX: "BCK27",
-  SITE: "https://basketcamp-kolasin-v3.vercel.app",
+  SITE: "https://www.basketcamp.me",
   CAMP_EMAIL: "basketballcampkolasin@gmail.com",   // notifications go here
   FROM_NAME: "Basketball Camp Kolašin",
   AVANS: 150,
