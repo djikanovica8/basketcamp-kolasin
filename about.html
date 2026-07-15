@@ -113,6 +113,8 @@
   /* ===== stats dividers ===== */
 
   /* ===== founder meta chips + more link ===== */
+  .fc:hover .cc__more,.fc:focus .cc__more{opacity:1;background:var(--orange);border-color:var(--orange)}
+  .fc .cc__more{z-index:4}
   .fc__meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:.8rem 0 .85rem}
   .fc__meta span{font-family:var(--body);font-weight:600;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);padding:.5em .9em;border:1px solid var(--line);border-radius:100px;background:var(--porc)}
   .fnd__more{display:flex;justify-content:center;margin-top:2.4rem}
@@ -256,8 +258,8 @@
     <h2 class="ttl reveal-rich"><span data-i18n="fnd.title">Vode vas</span> <span class="it flame" data-i18n="fnd.title2">legende.</span></h2>
   </div>
   <div class="fnd__grid">
-    <article class="fc reveal-img" tabindex="0">
-      <div class="fc__media"><img class="fc__img" src="assets/img/coach1.webp" alt="Vlado Šćepanović" loading="lazy" /></div>
+    <article class="fc reveal-img" data-f="0" role="button" tabindex="0" aria-label="Vlado Šćepanović">
+      <div class="fc__media"><img class="fc__img" src="assets/img/coach1.webp" alt="Vlado Šćepanović" loading="lazy" /><span class="cc__more" aria-hidden="true"><b>+</b></span></div>
       <div class="fc__body">
         <span class="fc__role" data-i18n="fnd.c1.role">Osnivač · Bivši reprezentativac</span>
         <h3 class="fc__name">Vlado Šćepanović</h3>
@@ -265,8 +267,8 @@
         <p class="fc__bio" data-i18n="fnd.c1.bio">Jedno od najvećih imena crnogorske košarke. Rođen u Kolašinu, ponikao u Gorštaku, a igračku slavu stekao u Budućnosti i evropskim klubovima — poslije karijere vodio je i Budućnost i Partizan.</p>
       </div>
     </article>
-    <article class="fc reveal-img" tabindex="0">
-      <div class="fc__media"><img class="fc__img" src="assets/img/coach2.webp" alt="Savo Đikanović" loading="lazy" /></div>
+    <article class="fc reveal-img" data-f="1" role="button" tabindex="0" aria-label="Savo Đikanović">
+      <div class="fc__media"><img class="fc__img" src="assets/img/coach2.webp" alt="Savo Đikanović" loading="lazy" /><span class="cc__more" aria-hidden="true"><b>+</b></span></div>
       <div class="fc__body">
         <span class="fc__role" data-i18n="fnd.c2.role">Osnivač · Direktor</span>
         <h3 class="fc__name">Savo Đikanović</h3>
@@ -358,9 +360,28 @@
   </div>
 </div>
 
+<!-- ===================== FOUNDER EXTENDED-INFO MODAL (shared with homepage) ===================== -->
+<div class="fmodal" id="fmodal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="fmodal__veil" id="fmVeil"></div>
+  <div class="fmodal__panel" id="fmPanel">
+    <div class="fmodal__media"><span class="fmodal__no" id="fmNo"></span><img id="fmImg" src="" alt="" /></div>
+    <div data-lenis-prevent class="fmodal__body">
+      <div class="fmodal__badge"><i></i><span id="fmRole"></span></div>
+      <h3 class="fmodal__name" id="fmName"></h3>
+      <div class="fmodal__sub" id="fmSub"></div>
+      <div class="fmodal__meta" id="fmMeta"></div>
+      <ul class="fmodal__hl" id="fmHl"></ul>
+      <p class="fmodal__bio" id="fmBio"></p>
+    </div>
+    <button class="fmodal__x" id="fmX" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="fmodal__nav"><span class="fmodal__count" id="fmCount"></span><button id="fmPrev" aria-label="Prev"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button id="fmNext" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button></div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="js/founders.js"></script>
 <script>
 /* =====================================================================
    O NAMA — inline behaviour. Mirrors js/main.js + js/i18n.js conventions.
