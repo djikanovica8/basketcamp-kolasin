@@ -354,8 +354,8 @@ function sendConfirmation_(code, ime, prezime, email, lang, smjenaLabel, paketLa
     : code + " · Prijava — Basketball Camp Kolašin 2027";
 
   var p1 = en
-    ? "Hi! We've received the registration for <b>" + esc_(ime) + " " + esc_(prezime) + "</b> — " + smjenaLabel + ", " + paketLabel + (cijena ? " (" + cijena + " €)" : "") + "."
-    : "Zdravo! Primili smo prijavu za <b>" + esc_(ime) + " " + esc_(prezime) + "</b> — " + smjenaLabel + ", " + paketLabel + (cijena ? " (" + cijena + " €)" : "") + ".";
+    ? "Hi! We've received the registration for <b>" + esc_(ime) + " " + esc_(prezime) + "</b> — " + smjenaLabel + ", " + paketLabel + "."
+    : "Zdravo! Primili smo prijavu za <b>" + esc_(ime) + " " + esc_(prezime) + "</b> — " + smjenaLabel + ", " + paketLabel + ".";
   var p2 = en
     ? "Your registration number is <b style='color:#dcbb6a'>" + code + "</b>. To secure the spot, please pay the <b>" + CFG.AVANS + " € deposit within " + CFG.DEADLINE_WORKDAYS + " working days</b>:"
     : "Vaš broj prijave je <b style='color:#dcbb6a'>" + code + "</b>. Da biste osigurali mjesto, uplatite <b>avans od " + CFG.AVANS + " € u roku od " + CFG.DEADLINE_WORKDAYS + " radna dana</b>:";
@@ -447,7 +447,7 @@ function notifyOwnerNew_(code, d, smjenaLabel, paketLabel, cijena) {
     "Visina/Težina: " + clean_(d.visina) + " cm / " + clean_(d.tezina) + " kg · Oprema: " + clean_(d.oprema),
     "Iz: " + clean_(d.grad) + ", " + clean_(d.drzava),
     "Smjena: " + smjenaLabel,
-    "Paket: " + paketLabel + (cijena ? " · " + cijena + " €" : ""),
+    "Paket: " + paketLabel,
     "Email: " + clean_(d.email),
     "Telefon: " + clean_(d.telefon),
     "Napomena: " + (clean_(d.napomena) || "—"),

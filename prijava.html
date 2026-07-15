@@ -218,16 +218,10 @@
           <div class="rw__opts rw__opts--pk">
             <label class="rw__opt"><input type="radio" name="paket" value="full" required />
               <span class="rw__optName" data-i18n="rw.pkFull">Kompletan paket</span>
-              <span class="rw__optSub" data-i18n="rw.pkFullSub">Treninzi + smještaj + ishrana · Hotel Pini</span>
-              <b class="rw__optPrice" data-pk="full">450&nbsp;€</b></label>
+              <span class="rw__optSub" data-i18n="rw.pkFullSub">Treninzi + smještaj + ishrana · Hotel Pini</span></label>
             <label class="rw__opt"><input type="radio" name="paket" value="train" />
               <span class="rw__optName" data-i18n="rw.pkTrain">Samo treninzi</span>
-              <span class="rw__optSub" data-i18n="rw.pkTrainSub">Bez smještaja i ishrane</span>
-              <b class="rw__optPrice" data-pk="train">260&nbsp;€</b></label>
-          </div>
-          <div class="rw__total">
-            <span data-i18n="rw.total">Ukupno</span>
-            <span class="rw__totalR"><s id="rwOld" hidden>520 €</s><em id="rwPromo" hidden data-i18n="rw.promo">promo</em><b id="rwPrice">—</b></span>
+              <span class="rw__optSub" data-i18n="rw.pkTrainSub">Bez smještaja i ishrane</span></label>
           </div>
           <p class="rw__avans" data-i18n="rw.avans">Avans od 150 € u roku od 3 radna dana osigurava mjesto — ostatak se izmiruje prije početka kampa.</p>
         </fieldset>
@@ -501,21 +495,13 @@
       }
     } catch (e) {}
 
+    // prices are hidden from the page while they are being revised;
+    // the amount still goes to the sheet for the camp's records
     function price() {
       var s = sel("smjena"), p = sel("paket");
-      var priceEl = $("#rwPrice"), old = $("#rwOld"), promo = $("#rwPromo");
-      var idx = s ? +s - 1 : 0;
-      var fullB = f.querySelector('.rw__optPrice[data-pk="full"]'), trainB = f.querySelector('.rw__optPrice[data-pk="train"]');
-      if (fullB) fullB.innerHTML = REG.prices.full[idx] + " €";
-      if (trainB) trainB.innerHTML = REG.prices.train[idx] + " €";
-      if (!s || !p) { priceEl.textContent = "—"; old.hidden = true; promo.hidden = true; return 0; }
-      var v = REG.prices[p][+s - 1];
-      priceEl.textContent = v + " €";
-      var isPromo = p === "full" && s === "3";
-      old.hidden = !isPromo; promo.hidden = !isPromo;
-      return v;
+      if (!s || !p) return 0;
+      return REG.prices[p][+s - 1];
     }
-    price();
 
     function composeBody(d, L) {
       return [
@@ -530,7 +516,6 @@
         L.L.tel + ": " + d.telefon,
         L.L.smj + ": " + L.smjena[+d.smjena - 1],
         L.L.pak + ": " + L.paket[d.paket],
-        L.L.cij + ": " + d.cijena + " €",
         d.napomena ? L.L.nap + ": " + d.napomena : ""
       ].filter(Boolean).join("\n");
     }
