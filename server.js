@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = '/Users/djiko/Desktop/Skills_Academy/basketcamp-kolasin-v3';
+const ROOT = __dirname; // serve the folder this file lives in, wherever the repo moves
 const PORT = 8092;
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',

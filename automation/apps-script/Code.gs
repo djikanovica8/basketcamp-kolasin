@@ -29,12 +29,11 @@ var CFG = {
   AVANS: 150,
   DEADLINE_WORKDAYS: 3,
   BANK: { name: "Hipotekarna banka AD Podgorica", acc: "520-20045-80", to: "Basket Kamp" },
-  // authoritative prices per session index (I, II, III) — client value is ignored
-  PRICES: { full: [450, 450, 490], train: [260, 260, 300] },
+  // authoritative prices per session index (I, II) — client value is ignored
+  PRICES: { full: [450, 450], train: [260, 260] },
   SMJENA: {
     "1": { me: "Smjena I (26.06 – 01.07.2027.)", en: "Session I (26.06 – 01.07.2027)" },
-    "2": { me: "Smjena II (01.07 – 06.07.2027.)", en: "Session II (01.07 – 06.07.2027)" },
-    "3": { me: "Smjena III – Skills & Shooting (06.07 – 11.07.2027.)", en: "Session III – Skills & Shooting (06.07 – 11.07.2027)" }
+    "2": { me: "Smjena II (01.07 – 06.07.2027.)", en: "Session II (01.07 – 06.07.2027)" }
   },
   PAKET: {
     full: { me: "Kompletan paket (treninzi + smještaj + ishrana)", en: "Complete package (trainings + stay + meals)" },
@@ -90,7 +89,7 @@ function register_(d) {
     return json_({ ok: false, error: "invalid data" });
   }
   var lang = d.lang === "en" ? "en" : "me";
-  var smjenaKey = ["1", "2", "3"].indexOf(String(d.smjena)) !== -1 ? String(d.smjena) : "1";
+  var smjenaKey = ["1", "2"].indexOf(String(d.smjena)) !== -1 ? String(d.smjena) : "1";
   var paketKey = d.paket === "train" ? "train" : "full";
   var smjena = CFG.SMJENA[smjenaKey];
   var paket = CFG.PAKET[paketKey];

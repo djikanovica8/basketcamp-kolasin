@@ -260,7 +260,7 @@ ul{list-style:none}
 
 /* =================== SESSIONS =================== */
 .se__head{max-width:1320px;margin:0 auto clamp(2.5rem,5vw,3.5rem)}
-.se__grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.se__grid{max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
 .se__card{position:relative;border:1px solid var(--line);border-radius:22px;padding:2.4rem 2rem;background:#fff;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .se__card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(29,24,18,.4)}
 .se__card--feat{background:var(--esp);color:var(--cream);border-color:var(--esp)}
